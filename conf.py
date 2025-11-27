@@ -1,13 +1,5 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-
-project = 'ROS4HRI'
-copyright = 'PAl Robotics S.L.'
+project = 'ROS4HRI: ROS for Human-Robot Interaction'
+copyright = 'PAL Robotics S.L.'
 author = 'Séverin Lemaignan'
 release = '0.1'
 
@@ -26,3 +18,7 @@ exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static', 'images']
+
+html_css_files = ["style/main.css"]
+html_logo = "images/logo_small.png"
+html_favicon = "images/icon.png"
