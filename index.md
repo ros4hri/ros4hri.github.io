@@ -27,14 +27,15 @@ REP-155](https://www.ros.org/reps/rep-0155.html).
 
 ![ROS4HRI and rviz](images/rviz-faces.png)
 
-## References
+## 📚 Academic References
 
-<div id="citations">
+Relevant academic references include:
 
-  - <span id="ros4hri" class="citation-label">ros4hri</span>  
-    **ROS for Human-Robot Interaction** Y. Mohamed; S. Lemaignan, *IROS
-    2021*,
-    [doi: 10.1109/IROS51168.2021.9636816](https://doi.org/10.1109/IROS51168.2021.9636816)
+- Mohamed, Lemaignan, [ROS for Human-Robot Interaction](https://doi.org/10.1109/IROS51168.2021.9636816)
+- Ros, Lemaignan, Ferrini, Andriella, Irisarri, [ROS4HRI: Standardising an Interface for Human-Robot Interaction](https://academia.skadge.org/publis/ros2023ros4hri.pdf)
+- Lemaignan, Ferrini, [Probabilistic fusion of persons' body features: the Mr. Potato algorithm](https://doi.org/10.1145/3610977.3637479)
+- Lemaignan, Ferrini, Gebelli, Ros, Juricic, Cooper, [Hands-on: From Zero to an Interactive Social Robot using ROS4HRI and LLMs](https://doi.org/10.1109/HRI61500.2025.10974214)
+- Alameda-Pineda et al., [Socially Pertinent Robots in Gerontological Healthcare](https://doi.org/10.1007/s12369-025-01330-6) (first real-world deployment of a full autonomous robot using ROS4HRI)
 
-</div>
+Drop us a line (by starting a new disucssion, ➡️ ) if you want to see your research featured here!
 
