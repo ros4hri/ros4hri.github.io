@@ -11,6 +11,7 @@ Commercial Platforms
 --------------------
 
 .. list-table::
+   :widths: 25 35 40
    :header-rows: 1
    :width: 100%
 
@@ -21,25 +22,25 @@ Commercial Platforms
           :width: 150px
           :align: center
      - **PAL TIAGo**
-       (`website <https://pal-robotics.com/robots/tiago/>`__)
+       (`website <https://pal-robotics.com/robot/tiago/>`__)
      - A versatile mobile manipulator used for research in manipulation, perception, and HRI. It features a 7-DoF arm and a lifting torso.
    * - .. image:: images/robots/tiago_pro.png
           :width: 150px
           :align: center
      - **PAL TIAGo Pro**
-       (`website <https://pal-robotics.com/robots/tiago-pro/>`__)
+       (`website <https://pal-robotics.com/robot/tiago-pro/>`__)
      - A next-generation mobile manipulator with dual 7-DoF arms, high-torque motors, and advanced interaction capabilities (screen, LEDs).
    * - .. image:: images/robots/tiago_pro_head.png
           :width: 150px
           :align: center
      - **PAL TIAGo Pro Head**
-       (`website <https://pal-robotics.com/robots/tiago-pro/>`__)
+       (`website <https://pal-robotics.com/robot/tiago-head/>`__)
      - The expressive head of the TIAGo Pro, available as a standalone unit for HRI research focusing on social signals and gaze.
    * - .. image:: images/robots/ari.png
           :width: 150px
           :align: center
      - **PAL ARI**
-       (`website <https://pal-robotics.com/robots/ari/>`__)
+       (`website <https://pal-robotics.com/robot/ari/>`__)
      - A high-performance social robot designed for reception, guidance, and entertainment. It features an expressive face and gestures.
 
 Open-Source & Research Platforms

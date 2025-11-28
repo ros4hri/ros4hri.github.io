@@ -130,7 +130,7 @@ and choose the topic ``/camera/image_raw``:
 Face detection
 ~~~~~~~~~~~~~~
 
-```hri_face_detect`` <https://github.com/ros4hri/hri_face_detect>`__ is
+`hri_face_detect <https://github.com/ros4hri/hri_face_detect>`__ is
 an open-source ROS 1/ROS 2 node, compatible with ROS4HRI, that detects
 faces in images.
 
@@ -195,7 +195,7 @@ You should see on your console *which* configuration files are used:
    configuration.
 
    See for instance the `launch file of
-   ``hri_face_detect`` <https://github.com/ros4hri/hri_face_detect/blob/humble-devel/launch/face_detect.launch.py#L31>`__
+   hri_face_detect <https://github.com/ros4hri/hri_face_detect/blob/humble-devel/launch/face_detect.launch.py#L31>`__
    to understand how it is used.
 
 You should immediately see on the console that some faces are indeed
@@ -247,7 +247,7 @@ Starting the interaction simulator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Instead of running nodes manually, we are now going to use the ROS4HRI
-*interaction simulator* ```interaction_sim`` <https://github.com/ros4hri/interaction_sim>`__:
+*interaction simulator* `interaction_sim <https://github.com/ros4hri/interaction_sim>`__:
 
 .. figure:: images/interaction_sim.jpg
    :width: 70%
@@ -290,20 +290,20 @@ The interaction simulator starts several nodes:
 
 The previous two:
 
-1. ```gscam`` <https://github.com/ros-drivers/gscam/tree/ros2>`__ to
+1. `gscam <https://github.com/ros-drivers/gscam/tree/ros2>`__ to
    publish images from the webcam
-2. ```hri_face_detect`` <https://github.com/ros4hri/hri_face_detect>`__
+2. `hri_face_detect <https://github.com/ros4hri/hri_face_detect>`__
    to detect faces in images
 
 And the following new nodes:
 
-3. ```hri_person_manager`` <https://github.com/ros4hri/hri_person_manager>`__,
-   to ‘combine’ faces, bodies, voices into full persons
-4. ```hri_emotion_recognizer`` <https://github.com/ros4hri/hri_emotion_recognizer>`__,
+3. `hri_person_manager <https://github.com/ros4hri/hri_person_manager>`__,
+   to 'combine' faces, bodies, voices into full persons
+4. `hri_emotion_recognizer <https://github.com/ros4hri/hri_emotion_recognizer>`__,
    to recognize emotions on the detected faces
-5. ```knowledge_core`` <https://github.com/severin-lemaignan/knowledge_core>`__,
+5. `knowledge_core <https://github.com/severin-lemaignan/knowledge_core>`__,
    an open-source OWL/RDF-based knowledge base
-6. ```hri_visualization`` <https://github.com/ros4hri/hri_visualization>`__
+6. `hri_visualization <https://github.com/ros4hri/hri_visualization>`__
    to generate a camera image overlay with the faces, bodies, emotions,
    etc
 7. ``attention_manager`` (not open-source), that decides where to look
@@ -315,10 +315,10 @@ And the following new nodes:
 
 Finally, it launches ``rqt`` with two custom plugins:
 
-10. ```rqt_human_radar`` <https://github.com/ros4hri/rqt_human_radar>`__,
+10. `rqt_human_radar <https://github.com/ros4hri/rqt_human_radar>`__,
     to visualize the detected people around the robot (and simulated
     interactions with a knowledge base)
-11. ```rqt_chat`` <https://github.com/pal-robotics/rqt_chat>`__, to chat
+11. `rqt_chat <https://github.com/ros4hri/rqt_chat>`__, to chat
     with the robot. When you type a message, it is sent to the ROS4HRI
     topic ``/humans/voices/anonymous_speaker/speech``, and the robot’s
     response via the ``/tts_engine/tts`` action are displayed back.
@@ -334,7 +334,7 @@ The next figure shows the architecture of the interaction simulator:
 Using the simulator to add symbolic knowledge
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When starting the simulator, ```knowledge_core`` <https://github.com/severin-lemaignan/knowledge_core>`__ is also started.
+When starting the simulator, `knowledge_core <https://github.com/severin-lemaignan/knowledge_core>`__ is also started.
 ``knowledge_core`` is a simple OWL/RDF-based knowledge base that can be
 used to store symbolic information about the world.
 
@@ -472,8 +472,8 @@ that copies your facial expression onto the robot’s face: an emotion
 mirroring game.
 
 Since creating a complete ROS 2 node from scratch can be a bit tedious,
-we will use the ``rpk`` tool, a command-line tool created by PAL
-Robotics, that generates ROS 2 nodes from templates.
+we will use the `rpk <https://github.com/ros4hri/rpk>`__ tool, a command-line
+tool created by PAL Robotics, that generates ROS 2 nodes from templates.
 
 .. note::
 

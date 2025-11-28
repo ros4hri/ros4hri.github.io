@@ -1,7 +1,7 @@
 .. _packages:
 
-Packages
-========
+Open-source ROS4HRI packages
+============================
 
 The ROS4HRI ecosystem consists of several open-source packages available on GitHub.
 
@@ -41,11 +41,14 @@ Perception
 Interaction & Skills (Action)
 -----------------------------
 
-** Core **
+**Core**
 
 -   `hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_: Standard ROS actions for HRI intents.
+-   `rpk <https://github.com/ros4hri/rpk>`_: ROS4HRI package generator.
+    Generates ROS 2 skills, tasks, chatbots, or even full applications from
+    templates.
 
-** Skills **
+**Skills**
 
 These packages define standard interfaces (mostly ROS Actions) for robot skills.
 
@@ -53,7 +56,8 @@ These packages define standard interfaces (mostly ROS Actions) for robot skills.
     
     These packages are skill *definitions*, not skill *implementations*. They
     are meant to enable interoperability between different skill
-    implementations.
+    implementations. You can use the `rpk <https://github.com/ros4hri/rpk>`_
+    package to quickly generate skill skeletons.
 
 -   `std_skills <https://github.com/ros4hri/std_skills>`_: Standard/Common skills messages.
 -   `communication_skills <https://github.com/ros4hri/communication_skills>`_: Skills related to communication (TTS, gestures).
