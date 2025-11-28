@@ -14,6 +14,12 @@ interacting with the robot.
 developing Human-Robot Interaction capabilities, and a large set of :ref:`ROS
 packages <packages>` that implement these conventions.
 
+.. image:: images/supported_by_pal.svg
+   :alt: ROS4HRI supported by PAL Robotics
+   :target: https://www.pal-robotics.com/
+   :align: center
+   :width: 400px
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -21,6 +27,7 @@ packages <packages>` that implement these conventions.
    getting_started
    standard
    packages
+   robots
    references
    about
 
