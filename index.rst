@@ -2,7 +2,7 @@
 .. image:: images/logo.svg
    :alt: ROS4HRI logo
    :align: center
-   :width: 400px
+   :width: 600px
 
 Welcome to ROS4HRI
 ==================

@@ -1,5 +1,74 @@
+:root {
+    --pal-primary: #FFA77C;
+    --pal-primary-light: #FFF1E2;
+    --pal-black: #122930;
+    --pal-light-grey: #f4f4f4;
+    --pal-grey: #c7c7c7;
+    --ros-topic: #859900;
+    --ros-action: #cb4b16;
+    --ros-service: #268bd2;
+    --ros-param: #53497e;
+    --ros-node: #7e2433;
+    --ros-skill: #a16f00;
+    --ros-msg: #2b2f8a
+}
+
+
 img.align-center {
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
+
+.ros-interface::before {
+    border-radius: 2px 2px 2px 2px;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 1px 4px;
+    text-decoration: none;
+    margin-right: 5px;
+    vertical-align: 2px;
+}
+
+.ros-topic::before {
+    content: 'topic';
+    background-color: var(--ros-topic);
+    color: #fff;
+}
+
+.ros-action::before {
+    content: 'action';
+    background-color: var(--ros-action);
+    color: #fff;
+}
+
+.ros-service::before {
+    content: 'service';
+    background-color: var(--ros-service);
+    color: #fff;
+}
+
+.ros-param::before {
+    content: 'param';
+    background-color: var(--ros-param);
+    color: #fff;
+}
+
+.ros-node::before {
+    content: 'node';
+    background-color: var(--ros-node);
+    color: #fff;
+}
+.ros-msg::before {
+    content: 'msg';
+    background-color: var(--ros-msg);
+    color: #fff;
+}
+.ros-skill::before {
+    content: 'skill';
+    background-color: var(--ros-skill);
+    color: #fff;
+}
+
+

@@ -1,3 +1,6 @@
+import sys
+import os
+
 project = 'ROS4HRI: ROS for Human-Robot Interaction'
 copyright = 'PAL Robotics S.L.'
 author = 'Séverin Lemaignan'
@@ -7,7 +10,10 @@ release = '0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser']
+sys.path.append(os.path.abspath("_ext"))
+extensions = ['myst_parser',
+              'sphinx_tabs.tabs',
+              'ros-roles']
 
 templates_path = ['_templates']
 exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store', 'src']
