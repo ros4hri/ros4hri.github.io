@@ -137,17 +137,32 @@ How to use in your code
 
 """
 
-INDEX_TEMPLATE = """Skills
+INDEX_TEMPLATE = """.. _skills:
+
+Skills
 ========
 
-This is the list of all skills available in ROS4HRI. Each skill is documented in its own page.
+This is the list of all skill definitions available in ROS4HRI. Each skill is documented in its own page.
+
+.. note::
+    You can use the :ref:`rpk` tool to generate the skill definitions from the ROS 2 interfaces.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    {% for c in components %}
    {{ c.component_type }}-{{ c.id }}{% endfor %}
 
+{% for domain, skills in skills_by_domain.items() %}
+{{ domain | capitalize }}
+{{ "-" * domain|length }}
+
+{% for c in skills %}
+* :ref:`{{ c.component_type }}-{{ c.id }}`: {{ c.description.splitlines()[0] }}
+{% endfor %}
+
+{% endfor %}
 
 """
 
@@ -164,12 +179,24 @@ if __name__ == "__main__":
     os.makedirs(base_dir / "skills", exist_ok=True)
 
     # generate the documentation for each component as rst files in the skills/ directory
-    for c in get_components():
+    components = get_components()
+    for c in components:
         with open(base_dir / f"skills/{c.component_type}-{c.id}.rst", "w") as f:
             f.write(Template(SKILL_TEMPLATE).render(**c))
 
+    # group components by domain
+    skills_by_domain = {}
+    for c in components:
+        for domain in c.functional_domains:
+            if domain not in skills_by_domain:
+                skills_by_domain[domain] = []
+            skills_by_domain[domain].append(c)
+
+    # sort domains and skills within domains
+    skills_by_domain = {k: sorted(v, key=lambda x: x.id) for k, v in sorted(skills_by_domain.items())}
+
     # generate the index of components, sorted by component type
     with open(base_dir / "skills/index.rst", "w") as f:
-        f.write(Template(INDEX_TEMPLATE).render(components=get_components()))
+        f.write(Template(INDEX_TEMPLATE).render(components=components, skills_by_domain=skills_by_domain))
 
     print("Documentation generated successfully.")

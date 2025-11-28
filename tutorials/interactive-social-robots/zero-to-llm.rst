@@ -1,14 +1,7 @@
 .. _zero-to-llm:
 
-.. figure:: images/logos.svg
-   :alt: Horizon Europe ARISE and TRAIL logos
-
-   Horizon Europe ARISE and TRAIL logos
-
 Build a complete LLM-enabled interactive app with ROS4HRI perception and skills
 ===============================================================================
-
-Welcome!
 
 This tutorial will guide you through the installation and use of the
 ROS4HRI framework, a set of ROS nodes and tools to build interactive
@@ -23,6 +16,9 @@ robot application templates, and a LLM backend.
 
 .. figure:: images/social-interaction-simulator.jpg
    :alt: Social interaction simulator
+   :figwidth: 50%
+   :width: 100%
+   :align: center
 
    Social interaction simulator
 
@@ -472,7 +468,7 @@ that copies your facial expression onto the robot’s face: an emotion
 mirroring game.
 
 Since creating a complete ROS 2 node from scratch can be a bit tedious,
-we will use the `rpk <https://github.com/ros4hri/rpk>`__ tool, a command-line
+we will use the :ref:`rpk <rpk>` tool, a command-line
 tool created by PAL Robotics, that generates ROS 2 nodes from templates.
 
 .. note::
@@ -483,8 +479,7 @@ tool created by PAL Robotics, that generates ROS 2 nodes from templates.
    As the generator tool itself does not require ROS, you can use it on
    any machine, including eg Windows.
 
-   Learn more about ``rpk`` on the `official
-   documentation <https://docs.pal-robotics.com/edge/development/rpk>`__.
+   Learn more about :ref:`rpk`.
 
 Step 1: generating the mission controller
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1907,3 +1902,9 @@ You can now:
    you can use the `PAL Robotics’
    tools <https://docs.pal-robotics.com/edge/development/deploy-code>`__;
 
+.. figure:: images/logos.svg
+   :alt: Horizon Europe ARISE and TRAIL logos
+   :figwidth: 70%
+   :width: 100%
+
+   Horizon Europe ARISE and TRAIL logos

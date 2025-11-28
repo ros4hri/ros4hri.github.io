@@ -9,7 +9,7 @@ Core & Standards
 ----------------
 
 -   `hri_msgs <https://github.com/ros4hri/hri_msgs>`_: Standard ROS messages for HRI (faces, bodies, voices, persons).
--   `hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_: Standard ROS actions for HRI intents.
+-   `hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_: Standard ROS actions for HRI :ref:`intents`.
 -   `human_description <https://github.com/ros4hri/human_description>`_: Standard URDF models for humans.
 -   `libhri <https://github.com/ros4hri/libhri>`_: C++ & Python library to ease interaction with ROS4HRI topics.
 
@@ -43,7 +43,7 @@ Interaction & Skills (Action)
 
 **Core**
 
--   `hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_: Standard ROS actions for HRI intents.
+-   `hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_: Standard ROS actions for HRI :ref:`intents`.
 -   `rpk <https://github.com/ros4hri/rpk>`_: ROS4HRI package generator.
     Generates ROS 2 skills, tasks, chatbots, or even full applications from
     templates.

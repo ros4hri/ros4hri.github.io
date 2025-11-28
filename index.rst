@@ -39,6 +39,13 @@ packages <packages>` that implement these conventions.
    references
    about
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   tools/rpk
+   reference/intents
+
 --------
 
 **This project has received funding from the European Union's Horizon Europe research and innovation programme.**
