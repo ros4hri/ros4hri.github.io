@@ -14,6 +14,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install sphinx sphinx_rtd_theme sphinx-tabs myst_parser jinja2
+      - name: Generate skills documentation
+        run: |
+          git submodule update --remote --merge
+          python3 generate_skill_doc.py
       - name: Sphinx build
         run: |
           sphinx-build . _build
