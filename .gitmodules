@@ -1,0 +1,18 @@
+[submodule "skills/interaction_skills"]
+	path = src/interaction_skills
+	url = https://github.com/ros4hri/interaction_skills.git
+[submodule "skills/communication_skills"]
+	path = src/communication_skills
+	url = https://github.com/ros4hri/communication_skills.git
+[submodule "skills/architecture_tools"]
+	path = src/architecture_tools
+	url = https://github.com/ros4hri/architecture_tools.git
+[submodule "src/manipulation_skills"]
+	path = src/manipulation_skills
+	url = https://github.com/ros4hri/manipulation_skills.git
+[submodule "src/navigation_skills"]
+	path = src/navigation_skills
+	url = https://github.com/ros4hri/navigation_skills.git
+[submodule "src/motions_skills"]
+	path = src/motions_skills
+	url = https://github.com/ros4hri/motions_skills.git

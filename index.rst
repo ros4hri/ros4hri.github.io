@@ -34,6 +34,7 @@ packages <packages>` that implement these conventions.
    tutorials
    standard
    packages
+   skills/index
    robots
    references
    about
