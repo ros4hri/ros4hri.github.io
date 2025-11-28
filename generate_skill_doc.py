@@ -160,6 +160,9 @@ if __name__ == "__main__":
     for c in get_components():
         print(f"- {c.component_type} '{c.id}' (from package '{c.from_package}'):")
 
+    # create the skills directory if it doesn't exist
+    os.makedirs(base_dir / "skills", exist_ok=True)
+
     # generate the documentation for each component as rst files in the skills/ directory
     for c in get_components():
         with open(base_dir / f"skills/{c.component_type}-{c.id}.rst", "w") as f:
