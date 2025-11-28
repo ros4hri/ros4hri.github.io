@@ -16,7 +16,6 @@ SKILL_TEMPLATE = """.. index:: {{id}}
 {{ (description | wordwrap(80,break_on_hyphens=False)) if description }}
 
 
-{% if "parameters" in s %}
 {% if "in" in parameters %}
 
 Input parameters
@@ -67,10 +66,6 @@ Feedback fields
 {% endfilter %}
 
 {% endfor %}
-{% endif %}
-
-{% else %}
-*Parameters not available*
 {% endif %}
 
 Quick snippets
