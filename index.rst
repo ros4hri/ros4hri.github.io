@@ -25,6 +25,7 @@ packages <packages>` that implement these conventions.
    :caption: Contents:
 
    getting_started
+   tutorials
    standard
    packages
    robots
