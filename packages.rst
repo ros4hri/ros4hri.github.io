@@ -66,6 +66,7 @@ These packages define standard interfaces (mostly ROS Actions) for robot skills.
 -   `motions_skills <https://github.com/ros4hri/motions_skills>`_: Motion/Gesture skills.
 -   `manipulation_skills <https://github.com/ros4hri/manipulation_skills>`_: Manipulation skills.
 
+-   `architecture_schemas <https://github.com/ros4hri/architecture_schemas>`_: JSON schemas for skill definitions, etc.
 -   `architecture_tools <https://github.com/ros4hri/architecture_tools>`_: Tools
     to validate skills (eg ``ament_archlint``) or easily retrieve the list of installed skills.
 
