@@ -58,7 +58,7 @@ Open-Source & Research Platforms
           :width: 150px
           :align: center
      - **EMOROBCARE**
-     - A low-cost, expressive social robot developed by IIIA-CSIC for autism therapy. It features a spherical base and a 3-DoF head.
+     - A low-cost, expressive social robot developed by ICMAT/IIIA (CSIC) for autism therapy. It features a spherical base and a 3-DoF head.
      - `Website <https://www.csic.es/>`__
 
 .. note::
