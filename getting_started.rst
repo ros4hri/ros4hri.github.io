@@ -159,4 +159,4 @@ Here is a complete example of a node that detects if a person is looking at the 
 3.  For each body, we check its transformation relative to the robot.
 4.  We calculate if the body is oriented towards the robot.
 
-For more details, check the `pyhri documentation <https://pyhri.readthedocs.io/>`_.
+For more details, check the ``pyhri`` documentation: :ref:`pyhri <pyhri>`
