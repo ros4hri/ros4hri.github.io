@@ -26,10 +26,12 @@ packages <packages>` that implement these conventions.
    :align: center
    :width: 400px
 
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   overview
    getting_started
    standard
    packages

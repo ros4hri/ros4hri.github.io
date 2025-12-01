@@ -17,7 +17,8 @@ extensions = ['myst_parser',
               'sphinx_tabs.tabs',
               'ros-roles',
               'sphinx.ext.autodoc',
-              'breathe']
+              'breathe',
+              'sphinxcontrib.mermaid']
 
 breathe_projects = { "libhri": "_build/doxygen/xml" }
 breathe_default_project = "libhri"
