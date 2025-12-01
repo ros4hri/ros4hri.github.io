@@ -10,6 +10,9 @@ SKILL_TEMPLATE = """.. index:: {{id}}
 {{ component_type | capitalize }} ``{{ id }}``
 -----------------------------------------------------------
 
+{% if version %}
+- **Version**: {{ version }}
+{% endif %}
 - **Default path**: ``{{ default_interface_path }}``
 - **Datatype**: :{{ interface }}:`{{ datatype.fqn }}`
 - **Definition source**: ``package.xml`` in `ros4hri/{{from_package}} <https://github.com/ros4hri/{{from_package}}>`_
