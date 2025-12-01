@@ -33,11 +33,11 @@ packages <packages>` that implement these conventions.
 
    overview
    getting_started
-   standard
    packages
-   robots
-   tutorials
+   skills/index
    references
+   tutorials
+   robots
    about
    glossary
 

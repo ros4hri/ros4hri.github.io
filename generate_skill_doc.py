@@ -319,8 +319,8 @@ Quick snippets
 
 INDEX_TEMPLATE = """.. _skills:
 
-Skills
-========
+ROS4HRI Standard Skills
+=======================
 
 This is the list of all skill definitions available in ROS4HRI, organised by
 domain (note that some skills can be found in multiple domains).
@@ -348,12 +348,10 @@ domain (note that some skills can be found in multiple domains).
 
 .. note::
 
-    - You would like to add a new {{domain}} skill? Follow `this link to make a suggestion
-      <https://github.com/ros4hri/{{domain}}_skills/issues/new?template=new-skill.md>`_.
+    - You would like to suggest a new {{domain}} skill? `Follow this link <https://github.com/ros4hri/{{domain}}_skills/issues/new?template=new-skill.md>`_.
 
     - You want to suggest a change to an existing {{domain}} skill? (like
-      additional parameters, etc) Follow `this link to make a suggestion
-      <https://github.com/ros4hri/{{domain}}_skills/issues/new?template=amend-skill.md>`_.
+      additional parameters, etc) `Follow this link <https://github.com/ros4hri/{{domain}}_skills/issues/new?template=amend-skill.md>`_.
 
 {% endfor %}
 

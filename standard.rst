@@ -38,17 +38,25 @@ Topics Structure
 All HRI-related topics are grouped under ``/humans/``.
 
 -   ``/humans/faces/``: Face detection and recognition.
+
     -   ``/humans/faces/tracked``: List of currently tracked faces.
     -   ``/humans/faces/<faceID>/``: Topics for a specific face (e.g., cropped image, landmarks).
+
 -   ``/humans/bodies/``: Body tracking.
+
     -   ``/humans/bodies/tracked``: List of currently tracked bodies.
     -   ``/humans/bodies/<bodyID>/``: Topics for a specific body (e.g., joint states).
+
 -   ``/humans/voices/``: Voice activity and localization.
+
     -   ``/humans/voices/tracked``: List of currently tracked voices.
+
 -   ``/humans/persons/``: High-level person tracking.
+
     -   ``/humans/persons/tracked``: List of currently tracked persons.
     -   ``/humans/persons/known``: List of all known persons.
     -   ``/humans/persons/<personID>/``: Topics for a specific person.
+
 -   ``/humans/interactions/``: Group interactions and social signals.
 
 Coordinate Frames
