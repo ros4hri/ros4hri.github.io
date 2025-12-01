@@ -11,7 +11,7 @@ release = '0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 sys.path.append(os.path.abspath("_ext"))
-sys.path.append(os.path.abspath("src/libhri/pyhri/src"))
+sys.path.append(os.path.abspath("src"))
 
 extensions = ['myst_parser',
               'sphinx_tabs.tabs',

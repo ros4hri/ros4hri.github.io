@@ -25,3 +25,6 @@
 [submodule "src/hri_actions_msgs"]
 	path = src/hri_actions_msgs
 	url = https://github.com/ros4hri/hri_actions_msgs
+[submodule "src/std_skills"]
+	path = src/std_skills
+	url = https://github.com/ros4hri/std_skills

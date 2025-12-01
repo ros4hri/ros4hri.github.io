@@ -19,6 +19,22 @@ def make_role(type, text, lineno, inliner, options={}, content=[]):
             'std:ref', f':ref:`{modified_target}`', f'{modified_target}', lineno, inliner, options, content)
         refnodes[0]['classes'].append('ros-interface')
         refnodes[0]['classes'].append(f'ros-{type}')
+    elif ("_skills" in text or "hri_" in text):
+        # for *_skills messages and hri_* messages, we can hyperlink to the documentation, since we
+        # generate them
+            
+        if text[0] == '/':
+            text = text[1:]
+        
+        ref_target = text.replace('*/', '').replace('/', '_')
+        
+        role = XRefRole(lowercase=True, innernodeclass=nodes.inline,
+                        warn_dangling=True)
+        refnodes, messages = role(
+            'std:ref', f':ref:`{text} <{ref_target}>`', f'{ref_target}', lineno, inliner, options, content)
+        refnodes[0]['classes'].append('ros-interface')
+        refnodes[0]['classes'].append(f'ros-{type}')
+    
     else:
         # just display the text using a pre-formatted style, and add the class
         

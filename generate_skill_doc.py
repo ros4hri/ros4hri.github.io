@@ -10,8 +10,8 @@ SKILL_TEMPLATE = """.. index:: {{id}}
 {{ component_type | capitalize }} ``{{ id }}``
 -----------------------------------------------------------
 
-- Interface: :{{ interface }}:`{{ default_interface_path }}`
-- Message type: :msg:`{{ datatype }}`
+- Path: ``{{ default_interface_path }}``
+- Type: :{{ interface }}:`{{ datatype }}`
 
 {{ (description | wordwrap(80,break_on_hyphens=False)) if description }}
 
