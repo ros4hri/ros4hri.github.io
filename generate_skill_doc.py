@@ -1,4 +1,6 @@
 import os
+import yaml
+import datetime
 from pathlib import Path
 from jinja2 import Template
 from src.architecture_tools.pal_arch_tools.pal_arch_tools import *
@@ -331,6 +333,10 @@ domain (note that some skills can be found in multiple domains).
 .. note::
     You can use the :ref:`rpk <rpk>` tool to generate ROS4HRI-compliant skill skeletons.
 
+.. note::
+    You can download the complete list of ROS4HRI skills in YAML format from https://ros4hri.github.io/skills.yaml.
+    
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -401,6 +407,10 @@ if __name__ == "__main__":
 
     # generate the documentation for each component as rst files in the skills/ directory
     components = get_components()
+    
+    # Build consolidated skills data for YAML export
+    skills_data = []
+    
     for c in components:
         with open(base_dir / f"skills/{c.component_type}-{c.id}.rst", "w") as f:
             # for instance 'communication_skills/action/Ask'
@@ -415,6 +425,22 @@ if __name__ == "__main__":
             c["snakename"] = snake_name(c["id"])
             c["classname"] = datatype.split('/')[2].capitalize()
             f.write(Template(SKILL_TEMPLATE).render(**c))
+        
+        # Build skill data for YAML export
+        skill_data = {
+            'id': c['id'],
+            'version': c.get('version', '0.0.0'),
+            'type': c['component_type'],
+            'package': c['from_package'],
+            'interface': c['interface'],
+            'datatype': c['datatype']['fqn'],
+            'default_path': c['default_interface_path'],
+            'description': c['description'],
+            'functional_domains': c['functional_domains'],
+            'parameters': c.get('parameters', [])    
+        }
+        
+        skills_data.append(skill_data)
 
     # group components by domain
     skills_by_domain = {}
@@ -432,5 +458,18 @@ if __name__ == "__main__":
     with open(base_dir / "skills/index.rst", "w") as f:
         f.write(Template(INDEX_TEMPLATE).render(
             components=components, skills_by_domain=skills_by_domain))
-
+    
+    # Export consolidated skills to YAML
+    skills_yaml_path = base_dir / "skills.yaml"
+    with open(skills_yaml_path, 'w') as f:
+        yaml.dump({
+            'metadata': {
+                'generated_on': datetime.datetime.now().isoformat(),
+                'total_skills': len(skills_data),
+            'skills': skills_data,
+            }
+        }, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+    
+    print(f"Exported {len(skills_data)} skills to {skills_yaml_path}")
     print("Documentation generated successfully.")
+

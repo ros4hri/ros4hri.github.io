@@ -1,4 +1,5 @@
 _build/
 skills/
+skills.yaml
 interfaces/
 __pycache__/
