@@ -466,8 +466,8 @@ if __name__ == "__main__":
             'metadata': {
                 'generated_on': datetime.datetime.now().isoformat(),
                 'total_skills': len(skills_data),
+            },
             'skills': skills_data,
-            }
         }, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
     
     print(f"Exported {len(skills_data)} skills to {skills_yaml_path}")
