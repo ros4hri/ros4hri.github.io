@@ -21,6 +21,9 @@ jobs:
           git submodule update --init --recursive --remote --merge
           python3 generate_skill_doc.py
           python3 generate_interface_doc.py
+      - name: Doxygen build
+        run: |
+          doxygen Doxyfile
       - name: Sphinx build
         run: |
           sphinx-build . _build
