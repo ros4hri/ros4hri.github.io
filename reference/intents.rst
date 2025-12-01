@@ -8,20 +8,17 @@
 Intents
 =======
 
-.. highlights::
+**Intents** are the general mechanism used on the robot to *aggregate* user
+commands, and present them to the robot's *mission controller*.
 
-   *Intents* is the general mechanism used on the robot to *aggregate* user
-   commands, and present them to the robot's :term:`mission controller`.
-
-   They are published on the :topic:`intents`.
+They are published on the :topic:`/intents` (:msg:`hri_actions_msgs/msg/Intent`).
 
 What are intents?
 -----------------
 
 An :term:`intent` is an abstract description of an operation to be performed by the
-robot. Intents are represented as ROS messages of type `hri_actions_msgs/Intent
-<http://docs.ros.org/en/api/hri_actions_msgs/html/msg/Intent.html>`_, and
-published on the :topic:`intents` topic.
+robot. Intents are represented as ROS messages of type :msg:`hri_actions_msgs/msg/Intent`
+and published on the :topic:`/intents` topic.
 
 While inspired by the Android intents [android-intents]_, ROS intents
 are primarily designed to capture user-initiated intents. For instance, a
@@ -29,11 +26,8 @@ button click on a touchscreen, the result of a chatbot-based verbal
 interaction, a command started by a remote user interface.
 
 Intents are emitted (*published*) by nodes that track the user's activities (eg,
-the touchscreen, the dialogue manager), and are consumed by the
-:term:`mission controller`.
-
-You can learn more about how to program applications for the robot here:
-:ref:`intro-development`.
+the touchscreen, the dialogue manager), and are meant to be consumed by a
+:term:`mission controller` (ie. the top-level controller of the robot).
 
 Structure of an intent
 ----------------------
@@ -67,7 +61,8 @@ custom strings are also permissible.
     performed (going somewhere, picking something...), while *ROS actions* are a
     low-level asynchronous remote procedure call (RPC) technique.
 
-    They are not actually related.
+    They are not directly related (even though ROS actions can be used to
+    implement intents).
 
 
 The intent's ``data`` is a JSON object containing the data required to fully
@@ -417,17 +412,5 @@ perform the API requests or ROS service calls to answer the user's question.
   multiple-choice question, a simple text entry), you can use the robot
   multi-modal user-input mechanism :ref:`user-input`.
 
-See also
---------
-
-- For a general introduction to application development for the robot, check
-  :ref:`intro-development`.
-
-- :ref:`basic-interaction` explains how to subscribe to intents and create your
-  own simple Python controller. 
-
 
 .. [android-intents] `Android Intents <https://developer.android.com/guide/components/intents-filters>`_
-
-
-.. include:: /variables.rst

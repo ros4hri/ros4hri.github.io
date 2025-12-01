@@ -61,7 +61,7 @@ developers to generate skeletons for the following components:
 
 1. **Intent**: Modules for extracting user intentions from inputs, such
    as chatbot systems or interfaces leveraging Large Language Models
-   (LLMs) (:ref:`read more about intent recognition <def_intent>`).
+   (LLMs) (:ref:`read more about intent recognition <intents>`).
 
 2. **Skill**: Reusable, atomic robot actions. These are basic building
    blocks for tasks and missions, such as "go to" or "say" actions

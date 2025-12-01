@@ -25,7 +25,7 @@ breathe_default_project = "libhri"
 autodoc_mock_imports = ["geometry_msgs", "numpy"]
 
 templates_path = ['_templates']
-exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store', 'src']
+exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store', 'src', '.venv']
 
 
 # -- Options for HTML output -------------------------------------------------

@@ -31,13 +31,13 @@ packages <packages>` that implement these conventions.
    :caption: Contents:
 
    getting_started
-   tutorials
    standard
    packages
-   skills/index
    robots
+   tutorials
    references
    about
+   glossary
 
 .. toctree::
    :maxdepth: 1

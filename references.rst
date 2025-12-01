@@ -1,11 +1,10 @@
 .. _references:
 
-References
-==========
+Reference
+=========
 
 API Reference
 -------------
-
 
 Libraries
 +++++++++
@@ -15,6 +14,14 @@ Libraries
 
    libhri
    pyhri
+
+Skills
+++++++
+
+.. toctree::
+   :maxdepth: 1
+
+   skills/index
 
 Interfaces
 ++++++++++

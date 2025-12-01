@@ -103,7 +103,7 @@ def generate_message_docs(base_dir, packages):
             package_index = package_dir.parent / f"{package}.rst"
             
             underline = "=" * len(package)
-            toctree_str = "\n".join(toctree_entries)
+            toctree_str = "\n".join(sorted(list(set(toctree_entries))))
             
             content = PACKAGE_INDEX_TEMPLATE.format(
                 package=package,
