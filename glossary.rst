@@ -51,7 +51,7 @@ Glossary
     See :ref:`rpk`
 
   **Skill**
-    *Skills* are 'unit' operations executed by the robot: navigating to a location, looking at a specific target, grasping an object, etc. The |sdkname| offers several skills out of the box (the *system skills*), and you can implement your own as well (*user skills*).
+    *Skills* are 'unit' operations executed by the robot: navigating to a location, looking at a specific target, grasping an object, etc. ROS4HRI standardizes multiple :ref:`skills`, and you can implement your own custom ones as well.
 
     *See also:* :ref:`skills`
 

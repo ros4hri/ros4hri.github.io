@@ -20,8 +20,11 @@ Skills
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    skills/index
+
+- :ref:`List of skills <skills>`
 
 Interfaces
 ++++++++++

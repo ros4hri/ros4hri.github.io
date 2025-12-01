@@ -25,8 +25,12 @@ MESSAGE_TEMPLATE = """.. _{package}_{msg_type}_{name}:
 # Template for package index
 PACKAGE_INDEX_TEMPLATE = """.. _{package}_interfaces:
 
-{package}
-{underline}
+``{package}`` interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``{package}``.
+
+**Source repository**:  `ros4hri/{package} <https://github.com/ros4hri/{package}>`_.
 
 .. toctree::
    :maxdepth: 1
@@ -80,7 +84,7 @@ def generate_message_docs(base_dir, packages):
                 # Create individual message file
                 msg_file = package_dir / f"{msg_name}.rst"
                 
-                title = f"``{msg_name}`` ({msg_type})"
+                title = f"``{package}/{msg_type}/{msg_name}``"
                 underline = "=" * len(title)
                 
                 content = MESSAGE_TEMPLATE.format(
