@@ -16,3 +16,12 @@
 [submodule "src/motions_skills"]
 	path = src/motions_skills
 	url = https://github.com/ros4hri/motions_skills.git
+[submodule "src/libhri"]
+	path = src/libhri
+	url = https://github.com/ros4hri/libhri
+[submodule "src/hri_msgs"]
+	path = src/hri_msgs
+	url = https://github.com/ros4hri/hri_msgs
+[submodule "src/hri_actions_msgs"]
+	path = src/hri_actions_msgs
+	url = https://github.com/ros4hri/hri_actions_msgs

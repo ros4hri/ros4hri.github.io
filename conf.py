@@ -11,9 +11,18 @@ release = '0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 sys.path.append(os.path.abspath("_ext"))
+sys.path.append(os.path.abspath("src/libhri/pyhri/src"))
+
 extensions = ['myst_parser',
               'sphinx_tabs.tabs',
-              'ros-roles']
+              'ros-roles',
+              'sphinx.ext.autodoc',
+              'breathe']
+
+breathe_projects = { "libhri": "_build/doxygen/xml" }
+breathe_default_project = "libhri"
+
+autodoc_mock_imports = ["geometry_msgs", "numpy"]
 
 templates_path = ['_templates']
 exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store', 'src']

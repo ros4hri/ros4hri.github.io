@@ -1,0 +1,13 @@
+PROJECT_NAME           = "libhri"
+OUTPUT_DIRECTORY       = _build/doxygen
+INPUT                  = src/libhri/hri/include
+RECURSIVE              = YES
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO
+GENERATE_RTF           = NO
+GENERATE_XML           = YES
+XML_OUTPUT             = xml
+QUIET                  = YES
+JAVADOC_AUTOBRIEF      = YES
+WARN_IF_UNDOCUMENTED   = NO
+EXTRACT_ALL            = YES
