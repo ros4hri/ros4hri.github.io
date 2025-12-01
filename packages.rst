@@ -8,10 +8,21 @@ The ROS4HRI ecosystem consists of several open-source packages available on GitH
 Core & Standards
 ----------------
 
--   `hri_msgs <https://github.com/ros4hri/hri_msgs>`_: Standard ROS messages for HRI (faces, bodies, voices, persons).
--   `hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_: Standard ROS actions for HRI :ref:`intents`.
--   `human_description <https://github.com/ros4hri/human_description>`_: Standard URDF models for humans.
--   `libhri <https://github.com/ros4hri/libhri>`_: C++ & Python library to ease interaction with ROS4HRI topics.
+-  :ref:`hri_msgs_interfaces`: Standard ROS messages for HRI (faces, bodies, voices, persons).
+
+    - Source repository: `ros4hri/hri_msgs <https://github.com/ros4hri/hri_msgs>`_
+
+-  :ref:`hri_actions_msgs_interfaces`: Standard ROS actions for HRI :ref:`intents`.
+
+    - Source repository: `ros4hri/hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_
+
+-  ``human_description``: Standard URDF models for humans.
+
+    - Source repository: `ros4hri/human_description <https://github.com/ros4hri/human_description>`_
+
+-  :ref:`libhri` and :ref:`pyhri`: libraries to ease interaction with ROS4HRI topics.
+
+    - Source repository: `ros4hri/libhri <https://github.com/ros4hri/libhri>`_
 
 Perception
 ----------
@@ -43,10 +54,15 @@ Interaction & Skills (Action)
 
 **Core**
 
--   `hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_: Standard ROS actions for HRI :ref:`intents`.
--   `rpk <https://github.com/ros4hri/rpk>`_: ROS4HRI package generator.
+-  :ref:`hri_actions_msgs_interfaces`: Standard ROS actions for HRI :ref:`intents`.
+
+    - Source repository: `ros4hri/hri_actions_msgs_interfaces <https://github.com/ros4hri/hri_actions_msgs_interfaces>`_
+
+-   :ref:`rpk <rpk>`: ROS4HRI package generator.
     Generates ROS 2 skills, tasks, chatbots, or even full applications from
     templates.
+
+    - Source repository: `ros4hri/rpk <https://github.com/ros4hri/rpk>`_
 
 **Skills**
 
@@ -59,16 +75,37 @@ These packages define standard interfaces (mostly ROS Actions) for robot skills.
     implementations. You can use the `rpk <https://github.com/ros4hri/rpk>`_
     package to quickly generate skill skeletons.
 
--   `std_skills <https://github.com/ros4hri/std_skills>`_: Standard/Common skills messages.
--   `communication_skills <https://github.com/ros4hri/communication_skills>`_: Skills related to communication (TTS, gestures).
--   `interaction_skills <https://github.com/ros4hri/interaction_skills>`_: Skills for social interaction.
--   `navigation_skills <https://github.com/ros4hri/navigation_skills>`_: Navigation skills.
--   `motions_skills <https://github.com/ros4hri/motions_skills>`_: Motion/Gesture skills.
--   `manipulation_skills <https://github.com/ros4hri/manipulation_skills>`_: Manipulation skills.
+-   ``std_skills``: Standard/Common skills messages.
 
--   `architecture_schemas <https://github.com/ros4hri/architecture_schemas>`_: JSON schemas for skill definitions, etc.
--   `architecture_tools <https://github.com/ros4hri/architecture_tools>`_: Tools
-    to validate skills (eg ``ament_archlint``) or easily retrieve the list of installed skills.
+    - Source repository: `ros4hri/std_skills <https://github.com/ros4hri/std_skills>`_
+
+-   :ref:`Verbal communication skills <communication_skills>` (TTS, etc.)
+
+    - Source repository: `ros4hri/communication_skills <https://github.com/ros4hri/communication_skills>`_
+
+-   :ref:`Skills for social interaction <interaction_skills>`
+
+    - Source repository: `ros4hri/interaction_skills <https://github.com/ros4hri/interaction_skills>`_
+
+-   :ref:`Navigation skills <navigation_skills>`
+
+    - Source repository: `ros4hri/navigation_skills <https://github.com/ros4hri/navigation_skills>`_
+
+-   :ref:`Motions/gesture skills <motions_skills>`
+
+    - Source repository: `ros4hri/motions_skills <https://github.com/ros4hri/motions_skills>`_
+
+-   :ref:`Manipulation skills <manipulation_skills>`
+
+    - Source repository: `ros4hri/manipulation_skills <https://github.com/ros4hri/manipulation_skills>`_
+
+-   ``architecture_schemas``: JSON schemas for skill definitions, etc.
+
+    - Source repository: `ros4hri/architecture_schemas <https://github.com/ros4hri/architecture_schemas>`_
+
+-   ``architecture_tools``: Tools to validate skills (eg ``ament_archlint``) or easily retrieve the list of installed skills.
+
+    - Source repository: `ros4hri/architecture_tools <https://github.com/ros4hri/architecture_tools>`_
 
 **User Interface**
 
@@ -79,7 +116,8 @@ These packages define standard interfaces (mostly ROS Actions) for robot skills.
 Visualization & Tools
 ---------------------
 
--   `hri_visualization <https://github.com/ros4hri/hri_visualization>`_: Generates a camera image overlay with faces, bodies, emotions, etc.
--   `hri_rviz <https://github.com/ros4hri/hri_rviz>`_: RViz plugins for visualizing HRI data (Faces, Bodies, etc.).
--   `rqt_human_radar <https://github.com/ros4hri/rqt_human_radar>`_: An rqt plugin to visualize humans in a radar-like view.
--   `rqt_chat <https://github.com/ros4hri/rqt_chat>`_: Chat interface for debugging.
+- `hri_visualization <https://github.com/ros4hri/hri_visualization>`_: Generates a camera image overlay with faces, bodies, emotions, etc.
+- `hri_rviz <https://github.com/ros4hri/hri_rviz>`_: RViz plugins for visualizing HRI data (Faces, Bodies, etc.).
+- `rqt_human_radar <https://github.com/ros4hri/rqt_human_radar>`_: An rqt plugin to visualize humans in a radar-like view.
+- `rqt_chat <https://github.com/ros4hri/rqt_chat>`_: Chat interface for debugging.
+- `interaction_sim <https://github.com/ros4hri/interaction_sim>`_: ROS 2 simulation environment for HRI research.

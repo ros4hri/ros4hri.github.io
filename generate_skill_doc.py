@@ -10,9 +10,9 @@ SKILL_TEMPLATE = """.. index:: {{id}}
 {{ component_type | capitalize }} ``{{ id }}``
 -----------------------------------------------------------
 
-- **Path**: ``{{ default_interface_path }}``
-- **Type**: :{{ interface }}:`{{ datatype }}`
-- **Source**: ``package.xml`` in `ros4hri/{{from_package}} <https://github.com/ros4hri/{{from_package}}>`_
+- **Default path**: ``{{ default_interface_path }}``
+- **Datatype**: :{{ interface }}:`{{ datatype.fqn }}`
+- **Definition source**: ``package.xml`` in `ros4hri/{{from_package}} <https://github.com/ros4hri/{{from_package}}>`_
 
 {{ (description | wordwrap(80,break_on_hyphens=False)) if description }}
 
@@ -336,6 +336,9 @@ domain (note that some skills can be found in multiple domains).
    {{ c.component_type }}-{{ c.id }}{% endfor %}
 
 {% for domain, skills in skills_by_domain.items() %}
+
+.. _{{domain}}_skills:
+
 {{ domain | capitalize }}
 {{ "-" * domain|length }}
 
