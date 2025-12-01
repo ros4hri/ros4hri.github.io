@@ -145,7 +145,7 @@ Skills
 This is the list of all skill definitions available in ROS4HRI. Each skill is documented in its own page.
 
 .. note::
-    You can use the :ref:`rpk` tool to generate the skill definitions from the ROS 2 interfaces.
+    You can use the :ref:`rpk <rpk>` tool to generate ROS4HRI-compliant skill skeletons.
 
 .. toctree::
    :maxdepth: 1
@@ -161,6 +161,15 @@ This is the list of all skill definitions available in ROS4HRI. Each skill is do
 {% for c in skills %}
 * :ref:`{{ c.component_type }}-{{ c.id }}`: {{ c.description.splitlines()[0] }}
 {% endfor %}
+
+.. note::
+
+    - You would like to add a new {{domain}} skill? Follow `this link to make a suggestion
+      <https://github.com/ros4hri/{{domain}}_skills/issues/new?template=new-skill.md>`_.
+
+    - You want to suggest a change to an existing {{domain}} skill? (like
+      additional parameters, etc) Follow `this link to make a suggestion
+      <https://github.com/ros4hri/{{domain}}_skills/issues/new?template=amend-skill.md>`_.
 
 {% endfor %}
 
