@@ -28,7 +28,7 @@ It includes:
 
 
 The ROS4HRI standard
--------------------
+--------------------
 
 .. toctree::
    :maxdepth: 1

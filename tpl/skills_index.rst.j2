@@ -3,8 +3,29 @@
 ROS4HRI Standard Skills
 =======================
 
+.. image:: ../images/skills.webp
+   :alt: ROS4HRI skills
+   :align: center
+   :width: 20%
+
 Overview
 --------
+
+**Skills** are capabilities built into your robot. In practice, they are **regular ROS nodes**,
+exposing **standard ROS interfaces** (actions, services or topics).
+
+**What  make them special, however, is that they follow a well-defined
+interface**, exposed in a manifest file: the **skill definition**. You can find here
+the schema of a `valid skill definition <https://www.github.com/ros4hri/architecture_schemas/blob/main/schemas/skill.schema.json>`_.
+
+.. important::
+    To facilitate interoperability, **ROS4HRI provides definitions for a set of
+    standard skills**, listed :ref:`below <list_of_skills>`. If you plan to implement one of these
+    capabilities, please **ensure your implementation is compliant** with the
+    corresponding skill definition.
+
+
+Skills are organised in **domains**, as shown below:
 
 .. mermaid::
 
@@ -15,8 +36,9 @@ Overview
            motions["<b>Motions</b><br><tt>ros4hri/motions_skills</tt>"]
            manipulation["<b>Manipulation</b><br><tt>ros4hri/manipulation_skills</tt>"]
            interaction["<b>Interaction</b><br><tt>ros4hri/interaction_skills</tt>"]
-           ask(["Ask"])
-           chat(["Chat"])
+           other["..."]
+           ask(["skill <tt>Ask</tt>"])
+           chat(["skill <tt>Chat</tt>"])
            anon0(["..."])
            anon1(["..."])
            anon2(["..."])
@@ -28,7 +50,7 @@ Overview
        motions --> anon2
        manipulation --> place
        interaction --> anon3
-       A["<b>Skills</b>"] --> motions & interaction & manipulation & navigation & communication
+       A["<b>Skills</b>"] --> motions & interaction & manipulation & navigation & communication & other
        ask --> impl1("skill implementation...")
        chat --> n1("skill implementation...")
    
@@ -37,6 +59,7 @@ Overview
        style motions stroke:#AA00FF
        style manipulation stroke:#AA00FF
        style interaction stroke:#AA00FF
+       style other stroke:#AA00FF
        style ask fill:#E1BEE7
        style chat fill:#E1BEE7
        style anon0 fill:#E1BEE7
@@ -55,9 +78,105 @@ Overview
        click interaction "skills/index.html#interaction"
 
 
-.. note::
-    You can use the :ref:`rpk <rpk>` tool to generate ROS4HRI-compliant skill skeletons.
 
+Working with skills
+-------------------
+
+Implementing a skill
+~~~~~~~~~~~~~~~~~~~~
+
+Skills are regular ROS nodes, exposing ROS interfaces (actions, services or topics).
+To implement a skill, you need to:
+
+1. Implement the ROS interfaces (actions, services or topics) of the skill (see the definitions below).
+2. Implement the skill logic.
+3. Declare that your package implements the skill by adding the following line in your ``package.xml`` file:
+   
+   .. code-block:: xml
+      
+      <export>
+        <!-- .... -->
+
+        <!-- adapt the following line to your skill -->
+        <implements type="skill" package="communication_skills" id="ask" />
+      </export>
+   
+
+You can use the :ref:`rpk <rpk>` tool to generate ROS4HRI-compliant skill skeletons.
+
+Making an existing node compliant with ROS4HRI skills
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Since ROS4HRI skills are regular ROS nodes, you can make an existing node compliant with ROS4HRI skills by:
+
+1. Adapting the ROS interfaces (actions, services or topics) of the existing node to the ROS interfaces of the skill (see the definitions below).
+2. Declaring that your package implements the skill by adding the following line in your ``package.xml`` file:
+   
+   .. code-block:: xml
+      
+      <export>
+        <!-- .... -->
+
+        <!-- adapt the following line to your skill -->
+        <implements type="skill" package="communication_skills" id="ask" />
+      </export>
+   
+Sharing an open-source skill implementation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We would be happy to hear about your skill implementations!
+
+As long as your skill is open-source, and publicly available on a forge like GitHub, GitLab, or Codeberg,
+we will be happy to reference it in the ROS4HRI documentation.
+
+Once your skill is available, `open a disucssion on the ROS4HRI GitHub
+organization <https://github.com/orgs/ros4hri/discussions/new?category=ideas>`_
+to propose it for inclusion.
+
+Note that we will need to review your skill implementation to ensure it is
+compliant with ROS4HRI standards.
+
+
+Creating a new skill and submitting it to ROS4HRI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to create a new skill and submit it to ROS4HRI, you need to:
+
+1. Create a new skill definition.
+2. Create a new ROS package implementing the skill.
+3. Submit the skill to the right ROS4HRI repository.
+
+Steps 1 and 2 can easily be done using the :ref:`rpk <rpk>` tool: it will
+quickly generate a skeleton for your skill definition and skill implementation
+based on ROS4HRI-compliant templates.
+
+Step 3 can be done by submitting your skill to the right ROS4HRI repository.
+Each domain has its own repository. Find below the domain that best matches your skill,
+and submit your new skill proposal using the provided link.
+
+Your proposal will be openly discussed by the ROS4HRI community, and if
+accepted, your skill will be added to the corresponding ROS4HRI repository.
+
+The main criteria for accepting a skill proposal are:
+
+- The skill is novel and different from existing ones;
+- The skill would be beneficial to a broad range of robots and applications;
+- The skill is not tightly coupled to closed-source or proprietary technologies;
+- The skill is well-documented.
+
+Proposing a change/extension to a skill
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to propose a change/extension to an existing skill, follow the link
+in the corresponding section below.
+
+Proposing a new domain
+~~~~~~~~~~~~~~~~~~~~~~
+
+To propose a new domain, please `open a disucssion on the ROS4HRI GitHub
+organization <https://github.com/orgs/ros4hri/discussions/new?category=ideas>`_.
+
+.. _list_of_skills:
 
 List of skills
 --------------
@@ -82,7 +201,7 @@ domain (note that some skills can be found in multiple domains).
 .. _{{domain}}_skills:
 
 {{ domain | capitalize }}
-{{ "-" * domain|length }}
+{{ "~" * domain|length }}
 
 {% for c in skills %}
 * :ref:`{{ c.component_type }}-{{ c.id }}`: {{ c.description.splitlines()[0] }}

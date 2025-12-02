@@ -18,7 +18,7 @@ Skills
 - See the :ref:`list of ROS4HRI skills <skills>`
 
 ROS Interfaces
-------------
+--------------
 
 .. toctree::
    :maxdepth: 1
@@ -28,7 +28,7 @@ ROS Interfaces
    interfaces/*_skills
 
 ROS4HRI-compliant nodes
-----------------------
+-----------------------
 
 
 - See the :ref:`list of ROS4HRI-compliant nodes <packages>`
