@@ -3,6 +3,12 @@
 Open-source ROS4HRI packages
 ============================
 
+.. image:: images/packages.webp
+   :alt: ROS4HRI packages
+   :align: center
+   :width: 20%
+
+
 The ROS4HRI ecosystem consists of several open-source packages available on GitHub.
 
 .. admonition:: ROS version support
