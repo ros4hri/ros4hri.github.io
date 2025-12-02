@@ -310,3 +310,10 @@ Quick snippets
         // Call the skill
         mySkill.{{id}}({{ parameters["in"] | selectattr("required") | map(attribute="name") | join(", ") if ("parameters" in s and "in" in parameters) else "" }});
 
+
+See also
+~~~~~~~~
+
+{% for domain in functional_domains %}
+* List of other :ref:`{{domain}}_skills` skills
+{% endfor %}

@@ -74,6 +74,7 @@ if __name__ == "__main__":
                 "name": datatype.split('/')[2],
                 "snakename": snake_name(datatype.split('/')[2]),
             }
+            c["primary_domain"] = c["functional_domains"][0]
             c["snakename"] = snake_name(c["id"])
             c["classname"] = datatype.split('/')[2].capitalize()
             f.write(Template(skill_template_str).render(**c))
