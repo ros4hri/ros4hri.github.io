@@ -28,3 +28,6 @@
 [submodule "src/std_skills"]
 	path = src/std_skills
 	url = https://github.com/ros4hri/std_skills
+[submodule "src/architecture_schemas"]
+	path = src/architecture_schemas
+	url = https://github.com/ros4hri/architecture_schemas

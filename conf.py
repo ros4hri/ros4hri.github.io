@@ -37,7 +37,7 @@ html_theme_options = {
     'includehidden': False,
 }
 html_static_path = ['_static', 'images']
-html_extra_path = ['skills.yaml']
+html_extra_path = ['skills.json']
 
 html_css_files = ["style/main.css"]
 html_logo = "images/logo_small.png"

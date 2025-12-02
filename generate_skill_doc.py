@@ -1,8 +1,9 @@
 import os
-import yaml
+import json
 import datetime
 from pathlib import Path
 from jinja2 import Template
+from jsonschema import validate, ValidationError
 from src.architecture_tools.pal_arch_tools.pal_arch_tools import *
 
 SKILL_TEMPLATE = """.. index:: {{id}}
@@ -334,7 +335,7 @@ domain (note that some skills can be found in multiple domains).
     You can use the :ref:`rpk <rpk>` tool to generate ROS4HRI-compliant skill skeletons.
 
 .. note::
-    You can download the complete list of ROS4HRI skills in YAML format from https://ros4hri.github.io/skills.yaml.
+    You can download the complete list of ROS4HRI skills in JSON format from https://ros4hri.github.io/skills.json.
     
 
 .. toctree::
@@ -459,17 +460,56 @@ if __name__ == "__main__":
         f.write(Template(INDEX_TEMPLATE).render(
             components=components, skills_by_domain=skills_by_domain))
     
-    # Export consolidated skills to YAML
-    skills_yaml_path = base_dir / "skills.yaml"
-    with open(skills_yaml_path, 'w') as f:
-        yaml.dump({
+    # Load the skill schema
+    schema_path = base_dir / "src/architecture_schemas/schemas/skill.schema.json"
+    with open(schema_path, 'r') as f:
+        skill_schema = json.load(f)
+    
+    # Validate each skill against the schema
+    print("\nValidating skills against schema...")
+    validation_errors = []
+    for skill in skills_data:
+        try:
+            # Create a skill object with only the fields defined in the schema
+            skill_for_validation = {
+                'id': skill['id'],
+                'version': skill['version'],
+                'description': skill['description'],
+                'interface': skill['interface'],
+                'datatype': skill['datatype'],
+            }
+            
+            # Add optional fields if they exist
+            if 'default_path' in skill:
+                skill_for_validation['default_interface_path'] = skill['default_path']
+            if 'parameters' in skill and skill['parameters']:
+                skill_for_validation['parameters'] = skill['parameters']
+            if 'functional_domains' in skill:
+                skill_for_validation['functional_domains'] = skill['functional_domains']
+            
+            validate(instance=skill_for_validation, schema=skill_schema)
+            print(f"  ✓ {skill['id']}")
+        except ValidationError as e:
+            validation_errors.append((skill['id'], str(e)))
+            print(f"  ✗ {skill['id']}: {e.message}")
+    
+    if validation_errors:
+        print(f"\n⚠ Warning: {len(validation_errors)} skill(s) failed schema validation")
+        print("Proceeding with export anyway, but please review the errors above.")
+    else:
+        print(f"\n✓ All {len(skills_data)} skills validated successfully!")
+    
+    # Export consolidated skills to JSON
+    skills_json_path = base_dir / "skills.json"
+    with open(skills_json_path, 'w') as f:
+        json.dump({
             'metadata': {
                 'generated_on': datetime.datetime.now().isoformat(),
                 'total_skills': len(skills_data),
             },
             'skills': skills_data,
-        }, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+        }, f, indent=2, ensure_ascii=False)
     
-    print(f"Exported {len(skills_data)} skills to {skills_yaml_path}")
+    print(f"Exported {len(skills_data)} skills to {skills_json_path}")
     print("Documentation generated successfully.")
 
