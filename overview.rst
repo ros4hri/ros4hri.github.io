@@ -1,7 +1,7 @@
 .. _overview:
 
-Overview: the ROS4HRI Ecosystem
-===============================
+The ROS4HRI Ecosystem
+=====================
 
 Overview
 --------
