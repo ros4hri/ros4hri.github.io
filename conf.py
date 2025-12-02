@@ -43,3 +43,12 @@ html_extra_path = ['skills.json']
 html_css_files = ["style/main.css"]
 html_logo = "images/logo_small.png"
 html_favicon = "images/icon.png"
+
+
+def setup(app):
+    app.add_js_file(
+        'https://gc.zgo.at/count.js',
+        loading_method='async',
+        **{'data-goatcounter': 'https://ros4hri.goatcounter.com/count'}
+    )
+
