@@ -1,0 +1,312 @@
+.. index:: {{id}}
+
+.. _{{ component_type }}-{{ id }}:
+
+{{ component_type | capitalize }} ``{{ id }}``
+-----------------------------------------------------------
+
+{% if version %}
+- **Version**: {{ version }}
+{% endif %}
+- **Default path**: ``{{ default_interface_path }}``
+- **Datatype**: :{{ interface }}:`{{ datatype.fqn }}`
+- **Definition source**: ``package.xml`` in `ros4hri/{{from_package}} <https://github.com/ros4hri/{{from_package}}>`_
+
+{{ (description | wordwrap(80,break_on_hyphens=False)) if description }}
+
+
+{% if "in" in parameters %}
+
+Input parameters
+~~~~~~~~~~~~~~~~
+
+{% for p in parameters["in"] %}
+
+- **{{ p.name }}** {{ p.type if p.type.startswith(':msg:') else "``" + p.type + "``" }}{{ ", default: ``" + (p.default|string if (p.type != "string" or (p.type == "string" and p.default != "")) else "\"\"") + "``" if "default" in p }}{{ ", *required*" if "required" in p and p.required }}
+
+{% filter indent(width=2, first=True) %}
+{{ p.description | wordwrap(80, break_on_hyphens=False) }}
+
+{% endfilter %}
+
+{% endfor %}
+{% endif %}
+
+{% if "out" in parameters %}
+
+Output fields
+~~~~~~~~~~~~~
+
+{% for p in parameters["out"] %}
+
+- **{{ p.name }}** {{ p.type if p.type.startswith(':msg:') else "``" + p.type + "``" }}
+
+{% filter indent(width=2, first=True) %}
+{{ p.description | wordwrap(80, break_on_hyphens=False) }}
+
+{% endfilter %}
+
+{% endfor %}
+{% endif %}
+
+{% if "feedback" in parameters %}
+
+Feedback fields
+~~~~~~~~~~~~~~~
+
+
+{% for p in parameters["feedback"] %}
+
+- **{{ p.name }}** {{ p.type if p.type.startswith(':msg:') else "``" + p.type + "``" }}
+
+{% filter indent(width=2, first=True) %}
+{{ p.description | wordwrap(80, break_on_hyphens=False) }}
+
+{% endfilter %}
+
+{% endfor %}
+{% endif %}
+
+Quick snippets
+~~~~~~~~~~~~~~
+
+
+.. tabs:: 
+
+  .. tab:: Command-line
+
+    Call the skill from the command-line
+    
+{% if interface == 'action' %}
+    .. code-block:: sh
+    
+        $ ros2 action send_goal {{ default_interface_path }} {{ datatype.fqn }} # then press Tab to complete the message prototype
+{% elif interface == 'service' %}
+    .. code-block:: sh
+    
+        $ ros2 service call {{ default_interface_path }} {{ datatype.fqn }} # then press Tab to complete the message prototype
+{% elif interface == 'topic' %}
+    .. code-block:: sh
+    
+        $ ros2 topic pub {{ default_interface_path }} {{ datatype.fqn }} # then press Tab to complete the message prototype
+{% endif %}
+
+  .. tab:: ROS 2 action (Python)
+
+    Call the action from a Python script:
+
+{% if interface == 'action' %}
+    .. code-block:: python
+    
+        #!/usr/bin/env python
+
+        import rclpy
+        from rclpy.action import ActionClient
+        from rclpy.node import Node
+
+        from {{ datatype.pkg }}.action import {{ datatype.class }}
+
+        class {{ classname }}ActionClient(Node):
+
+            def __init__(self):
+                super().__init__('{{ snakename }}_client')
+                self._action_client = ActionClient(self, {{ datatype.class }}, '{{ default_interface_path }}')
+
+            def send_goal(self, a, b):
+                goal_msg = {{ datatype.class }}.Goal()
+
+                # TODO: adapt to the action's parameters
+{% if datatype.url %}
+                # check {{ datatype.url }}
+                # for the possible goal parameters
+{% else %}
+                # check the {{ datatype.name }}Goal message
+                # definition for the possible goal parameters
+{% endif %}
+                # goal_msg.a = a
+                # goal_msg.b = b
+
+                self._action_client.wait_for_server()
+
+                return self._action_client.send_goal_async(goal_msg)
+
+        if __name__ == '__main__':
+            rclpy.init(args=args)
+
+            action_client = {{ datatype.classname }}ActionClient()
+
+            # TODO: adapt to your action's parameters
+            future = action_client.send_goal(a, b)
+
+            rclpy.spin_until_future_complete(action_client, future)
+
+            rclpy.shutdown()
+
+
+{% elif interface == 'service' %}
+    .. code-block:: python
+    
+{% elif interface == 'topic' %}
+    .. code-block:: python
+    
+{% endif %}
+  
+  .. tab:: ROS 2 action (C++)
+
+    Call the action from a C++ program:
+
+    .. code-block:: cpp
+
+        #include <functional>
+        #include <future>
+        #include <memory>
+        #include <string>
+        #include <sstream>
+        #include <chrono>
+
+        #include "{{ datatype.pkg }}/action/{{ datatype.snake_class }}.hpp"
+
+        #include "rclcpp/rclcpp.hpp"
+        #include "rclcpp_action/rclcpp_hpp"
+        #include "rclcpp_components/register_node_macro.hpp"
+
+        using namespace std::chrono_literals;
+        using namespace std;
+
+        class {{ classname }}ActionClient : public rclcpp::Node
+        {
+        public:
+          using {{ datatype.class }} = {{ datatype.pkg }}::action::{{ datatype.class }};
+          using GoalHandle{{ datatype.class }} = rclcpp_action::ClientGoalHandle<{{ datatype.class }}>;
+
+          explicit {{ classname }}ActionClient(const rclcpp::NodeOptions & options)
+          : Node("{{ snakename }}_action_client", options)
+          {
+            this->client_ptr_ = rclcpp_action::create_client<{{ datatype.class }}>(
+                    this,
+                    "{{ name }}");
+
+            this->timer_ = this->create_wall_timer(
+                    500ms,
+                    bind(&{{ classname }}ActionClient::send_goal, this));
+          }
+
+          void send_goal()
+          {
+            using namespace std::placeholders;
+
+            this->timer_->cancel();
+
+            if (!this->client_ptr_->wait_for_action_server()) {
+              RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+              rclcpp::shutdown();
+            }
+
+            auto goal_msg = {{ datatype.class }}::Goal();
+  
+{% if datatype.url %}
+            // check {{ datatype.url }}
+            // for the possible goal parameters
+{% else %}
+            // check the {{ datatype.name }}Goal message
+            // definition for the possible goal parameters
+{% endif %}
+            // goal_msg.... = ...;
+
+            RCLCPP_INFO(this->get_logger(), "Sending goal");
+
+            auto send_goal_options = rclcpp_action::Client<{{ datatype.class }}>::SendGoalOptions();
+
+            send_goal_options.goal_response_callback =
+                bind(&{{ classname }}ActionClient::goal_response_callback, this, _1);
+
+            send_goal_options.feedback_callback =
+                bind(&{{ classname }}ActionClient::feedback_callback, this, _1, _2);
+
+            send_goal_options.result_callback =
+                bind(&{{ classname }}ActionClient::result_callback, this, _1);
+
+
+            this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
+          }
+
+        private:
+          rclcpp_action::Client<{{ datatype.class }}>::SharedPtr client_ptr_;
+          rclcpp::TimerBase::SharedPtr timer_;
+
+          void goal_response_callback(const GoalHandle{{ datatype.class }}::SharedPtr & goal_handle)
+          {
+            if (!goal_handle) {
+              RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
+            } else {
+              RCLCPP_INFO(this->get_logger(), "Goal accepted by server, waiting for result");
+            }
+          }
+
+          void feedback_callback(
+              GoalHandle{{ datatype.class }}::SharedPtr,
+              const shared_ptr<const {{ datatype.class }}::Feedback> feedback)
+          {
+            stringstream ss;
+            ss << "Next number in sequence received: ";
+            for (auto number : feedback->partial_sequence) {
+              ss << number << " ";
+            }
+            RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+          }
+
+          void result_callback(const GoalHandle{{ datatype.class }}::WrappedResult & result)
+          {
+            switch (result.code) {
+              case rclcpp_action::ResultCode::SUCCEEDED:
+                  break;
+              case rclcpp_action::ResultCode::ABORTED:
+                  RCLCPP_ERROR(this->get_logger(), "Goal was aborted");
+                  return;
+              case rclcpp_action::ResultCode::CANCELED:
+                  RCLCPP_ERROR(this->get_logger(), "Goal was canceled");
+                  return;
+              default:
+                  RCLCPP_ERROR(this->get_logger(), "Unknown result code");
+                  return;
+            }
+            stringstream ss;
+            ss << "Result received: ";
+            for (auto number : result.result->sequence) {
+              ss << number << " ";
+            }
+            RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+            rclcpp::shutdown();
+          }
+        };  // class {{ classname }}ActionClient
+
+
+        RCLCPP_COMPONENTS_REGISTER_NODE({{ classname }}ActionClient)
+
+  .. tab:: QML
+
+    You can call this skill from QML using the following code snippet. See :ref:`ros_qml_plugin` to learn more.
+
+    .. code-block:: qml
+
+        import Ros 2.0
+        
+        // ...
+        {{ id.split('_') | map('capitalize') | join }}Skill {
+            id: mySkill
+
+            {% if interface == 'action' or interface == "service" -%}
+            onResult: {
+                console.log("Skill result: " + result);
+            }
+            {% endif -%}
+            {% if interface == 'action' -%}
+            onFeedback: {
+                console.log("Skill feedback: " + feedback);
+            }{% endif %}
+
+        }
+
+        // Call the skill
+        mySkill.{{id}}({{ parameters["in"] | selectattr("required") | map(attribute="name") | join(", ") if ("parameters" in s and "in" in parameters) else "" }});
+

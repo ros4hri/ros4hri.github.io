@@ -9,34 +9,13 @@ in the src/ directory and generates reStructuredText documentation for each.
 import os
 from pathlib import Path
 from collections import defaultdict
+from jinja2 import Template
 
-# Template for individual message/service/action files
-MESSAGE_TEMPLATE = """.. _{package}_{msg_type}_{name}:
-
-{title}
-{underline}
-
-.. literalinclude:: ../../src/{package}/{msg_dir}/{name}.{ext}
-   :language: python
-   :linenos:
-
-"""
-
-# Template for package index
-PACKAGE_INDEX_TEMPLATE = """.. _{package}_interfaces:
-
-``{package}`` interfaces
-=========================================================
-
-This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``{package}``.
-
-**Source repository**:  `ros4hri/{package} <https://github.com/ros4hri/{package}>`_.
-
-.. toctree::
-   :maxdepth: 1
-
-{toctree_entries}
-"""
+def load_template(template_name):
+    """Load a template from the tpl/ directory."""
+    template_path = Path(__file__).parent / "tpl" / template_name
+    with open(template_path, 'r') as f:
+        return f.read()
 
 def find_ros_packages_with_interfaces(src_dir):
     """
@@ -71,6 +50,10 @@ def generate_message_docs(base_dir, packages):
     interfaces_dir = base_dir / "interfaces"
     interfaces_dir.mkdir(exist_ok=True)
     
+    # Load templates
+    message_template_str = load_template("interface_message.rst.j2")
+    package_index_template_str = load_template("interface_package_index.rst.j2")
+    
     for package, interfaces in packages.items():
         # Create package directory
         package_dir = interfaces_dir / package
@@ -87,7 +70,7 @@ def generate_message_docs(base_dir, packages):
                 title = f"``{package}/{msg_type}/{msg_name}``"
                 underline = "=" * len(title)
                 
-                content = MESSAGE_TEMPLATE.format(
+                content = Template(message_template_str).render(
                     package=package,
                     msg_type=msg_type,
                     name=msg_name,
@@ -109,7 +92,7 @@ def generate_message_docs(base_dir, packages):
             underline = "=" * len(package)
             toctree_str = "\n".join(sorted(list(set(toctree_entries))))
             
-            content = PACKAGE_INDEX_TEMPLATE.format(
+            content = Template(package_index_template_str).render(
                 package=package,
                 underline=underline,
                 toctree_entries=toctree_str
@@ -122,7 +105,7 @@ if __name__ == "__main__":
     base_dir = Path(__file__).parent
     src_dir = base_dir / "src"
     
-    print("Searching for ROS packages with message definitions...")
+    print("\n\nSearching for ROS packages with message definitions...")
     packages = find_ros_packages_with_interfaces(src_dir)
     
     if not packages:

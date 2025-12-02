@@ -1,0 +1,98 @@
+.. _skills:
+
+ROS4HRI Standard Skills
+=======================
+
+Overview
+--------
+
+.. mermaid::
+
+   flowchart TB
+    subgraph subGraph0["Domains & skill definitions"]
+           communication["<b>Communication</b><br><tt>ros4hri/communication_skills</tt>"]
+           navigation["<b>Navigation</b><br><tt>ros4hri/navigation_skills</tt>"]
+           motions["<b>Motions</b><br><tt>ros4hri/motions_skills</tt>"]
+           manipulation["<b>Manipulation</b><br><tt>ros4hri/manipulation_skills</tt>"]
+           interaction["<b>Interaction</b><br><tt>ros4hri/interaction_skills</tt>"]
+           ask(["Ask"])
+           chat(["Chat"])
+           anon0(["..."])
+           anon1(["..."])
+           anon2(["..."])
+           place(["..."])
+           anon3(["..."])
+     end
+       communication --> ask & chat & anon0
+       navigation --> anon1
+       motions --> anon2
+       manipulation --> place
+       interaction --> anon3
+       A["<b>Skills</b>"] --> motions & interaction & manipulation & navigation & communication
+       ask --> impl1("skill implementation...")
+       chat --> n1("skill implementation...")
+   
+       style communication stroke:#AA00FF
+       style navigation stroke:#AA00FF
+       style motions stroke:#AA00FF
+       style manipulation stroke:#AA00FF
+       style interaction stroke:#AA00FF
+       style ask fill:#E1BEE7
+       style chat fill:#E1BEE7
+       style anon0 fill:#E1BEE7
+       style anon1 fill:#E1BEE7
+       style anon2 fill:#E1BEE7
+       style place fill:#E1BEE7
+       style anon3 fill:#E1BEE7
+       style A fill:#FFD600
+       style impl1 stroke-width:4px,stroke-dasharray: 5
+       style n1 stroke-width:4px,stroke-dasharray: 5
+       style subGraph0 fill:#FFFFFF,stroke:#757575
+       click communication "skills/index.html#communication"
+       click navigation "skills/index.html#navigation"
+       click motions "skills/index.html#motions"
+       click manipulation "skills/index.html#manipulation"
+       click interaction "skills/index.html#interaction"
+
+
+.. note::
+    You can use the :ref:`rpk <rpk>` tool to generate ROS4HRI-compliant skill skeletons.
+
+
+List of skills
+--------------
+
+This is the list of all skill definitions available in ROS4HRI, organised by
+domain (note that some skills can be found in multiple domains).
+
+
+.. note::
+    You can download the complete list of ROS4HRI skills in JSON format from https://ros4hri.github.io/skills.json.
+    
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   {% for c in components %}
+   {{ c.component_type }}-{{ c.id }}{% endfor %}
+
+{% for domain, skills in skills_by_domain.items() %}
+
+.. _{{domain}}_skills:
+
+{{ domain | capitalize }}
+{{ "-" * domain|length }}
+
+{% for c in skills %}
+* :ref:`{{ c.component_type }}-{{ c.id }}`: {{ c.description.splitlines()[0] }}
+{% endfor %}
+
+.. note::
+
+    - You would like to suggest a new {{domain}} skill? `Follow this link <https://github.com/ros4hri/{{domain}}_skills/issues/new?template=new-skill.md>`_.
+
+    - You want to suggest a change to an existing {{domain}} skill? (like
+      additional parameters, etc) `Follow this link <https://github.com/ros4hri/{{domain}}_skills/issues/new?template=amend-skill.md>`_.
+
+{% endfor %}
