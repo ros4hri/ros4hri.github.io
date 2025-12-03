@@ -1,0 +1,8 @@
+.. _std_skills_srv_SetString:
+
+``std_skills/srv/SetString``
+============================
+
+.. literalinclude:: ../../src/std_skills/srv/SetString.srv
+   :language: python
+   :linenos:

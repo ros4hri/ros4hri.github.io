@@ -1,0 +1,8 @@
+.. _hri_actions_msgs_action_SelfPresentation:
+
+``hri_actions_msgs/action/SelfPresentation``
+============================================
+
+.. literalinclude:: ../../src/hri_actions_msgs/action/SelfPresentation.action
+   :language: python
+   :linenos:

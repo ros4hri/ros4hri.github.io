@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_SoftBiometrics:
+
+``hri_msgs/msg/SoftBiometrics``
+===============================
+
+.. literalinclude:: ../../src/hri_msgs/msg/SoftBiometrics.msg
+   :language: python
+   :linenos:

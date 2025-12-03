@@ -1,0 +1,8 @@
+.. _std_skills_msg_Byte:
+
+``std_skills/msg/Byte``
+=======================
+
+.. literalinclude:: ../../src/std_skills/msg/Byte.msg
+   :language: python
+   :linenos:

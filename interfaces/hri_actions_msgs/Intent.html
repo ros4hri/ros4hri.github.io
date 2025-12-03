@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hri_actions_msgs/msg/Intent &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="hri_actions_msgs/srv/ListActivities" href="ListActivities.html" />
+    <link rel="prev" title="hri_actions_msgs/action/FaceOverlay" href="FaceOverlay.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="../../_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../references.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#skills">Skills</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../references.html#ros-interfaces">ROS Interfaces</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../hri_actions_msgs.html">hri_actions_msgs interfaces</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ActivityList.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/msg/ActivityList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplicationControl.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/action/ApplicationControl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ClosedCaption.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/msg/ClosedCaption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FaceOverlay.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/action/FaceOverlay</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/msg/Intent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ListActivities.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/srv/ListActivities</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="LookAt.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/action/LookAt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="LookAtWithStyle.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/msg/LookAtWithStyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PointTrajectory.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/action/PointTrajectory</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="SelfPresentation.html"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/action/SelfPresentation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../hri_msgs.html">hri_msgs interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../communication_skills.html">communication_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interaction_skills.html">interaction_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulation_skills.html">manipulation_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../motions_skills.html">motions_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../navigation_skills.html">navigation_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../std_skills.html">std_skills interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#ros4hri-compliant-nodes">ROS4HRI-compliant nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#architecture-development">Architecture &amp; Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../references.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../hri_actions_msgs.html">hri_actions_msgs interfaces</a></li>
+      <li class="breadcrumb-item active"><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/msg/Intent</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/interfaces/hri_actions_msgs/Intent.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hri-actions-msgs-msg-intent">
+<span id="id1"></span><h1><code class="docutils literal notranslate"><span class="pre">hri_actions_msgs/msg/Intent</span></code><a class="headerlink" href="#hri-actions-msgs-msg-intent" title="Link to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># An intent is an abstract description of an operation to be performed by the</span>
+<span class="linenos">  2</span><span class="c1"># robot.</span>
+<span class="linenos">  3</span><span class="c1">#</span>
+<span class="linenos">  4</span><span class="c1"># While inspired by the Android intents</span>
+<span class="linenos">  5</span><span class="c1"># (https://developer.android.com/reference/android/content/Intent), ROS intents</span>
+<span class="linenos">  6</span><span class="c1"># are primarily designed to capture user-initiated intents. For instance, a</span>
+<span class="linenos">  7</span><span class="c1"># button click on a touchscreen, the result of a chatbot-based verbal</span>
+<span class="linenos">  8</span><span class="c1"># interaction, a command started by a remote user interface.</span>
+<span class="linenos">  9</span><span class="c1">#</span>
+<span class="linenos"> 10</span><span class="c1"># Intents comprise of two mandatory fields: the `intent`, which should be one</span>
+<span class="linenos"> 11</span><span class="c1"># of the available predefined intents, and the `data` which must be a JSON</span>
+<span class="linenos"> 12</span><span class="c1"># object containing the data required to fully instantiate the intent.  While</span>
+<span class="linenos"> 13</span><span class="c1"># the exact content of the JSON object is up to the application, the following</span>
+<span class="linenos"> 14</span><span class="c1"># standard keys can be used to specify the intent&#39;s semantic roles (also called</span>
+<span class="linenos"> 15</span><span class="c1"># thematic roles or theta roles):</span>
+<span class="linenos"> 16</span><span class="c1">#</span>
+<span class="linenos"> 17</span><span class="c1"># - `agent`: the agent expected to perform the intent (if omitted, the robot</span>
+<span class="linenos"> 18</span><span class="c1"># itself is assumed)</span>
+<span class="linenos"> 19</span><span class="c1"># - `object` (also named *theme* or *patient* in the linguistics literature): entity</span>
+<span class="linenos"> 20</span><span class="c1"># undergoing the effect of the intent</span>
+<span class="linenos"> 21</span><span class="c1"># - `goal`: entity towards which the intent is directed or moves</span>
+<span class="linenos"> 22</span><span class="c1"># - `recipient`: entity that receives the object (denoted as the `theme`)</span>
+<span class="linenos"> 23</span><span class="c1">#</span>
+<span class="linenos"> 24</span><span class="c1"># Examples:</span>
+<span class="linenos"> 25</span><span class="c1"># </span>
+<span class="linenos"> 26</span><span class="c1"># - &quot;I want you to go to the kitchen&quot;:</span>
+<span class="linenos"> 27</span><span class="c1">#   - intent: `move_to`</span>
+<span class="linenos"> 28</span><span class="c1">#   - data: {&quot;goal&quot;:&quot;kitchen_1&quot;}</span>
+<span class="linenos"> 29</span><span class="c1">#</span>
+<span class="linenos"> 30</span><span class="c1"># - &quot;Can you take the groceries to Luke in the kitchen?&quot;</span>
+<span class="linenos"> 31</span><span class="c1">#   - intent: `bring`</span>
+<span class="linenos"> 32</span><span class="c1">#   - data: {&quot;object&quot;: &quot;groceries&quot;,</span>
+<span class="linenos"> 33</span><span class="c1">#            &quot;goal&quot;:&quot;kitchen_1&quot;,</span>
+<span class="linenos"> 34</span><span class="c1">#            &quot;recipient&quot;: &quot;person_luke&quot;}</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="c1">##########################################################################</span>
+<span class="linenos"> 37</span><span class="c1">#  Intent name</span>
+<span class="linenos"> 38</span><span class="c1">#</span>
+<span class="linenos"> 39</span><span class="c1"># A string describing the intent.</span>
+<span class="linenos"> 40</span><span class="c1">#</span>
+<span class="linenos"> 41</span><span class="c1"># Where suitable, the intent SHOULD be one of the constant defined below.</span>
+<span class="linenos"> 42</span><span class="c1"># However, we recognise that the list of intents is possibly large. Therefore,</span>
+<span class="linenos"> 43</span><span class="c1"># custom strings are also permissible. If you believe your intent name should</span>
+<span class="linenos"> 44</span><span class="c1"># be standardised and added to the list of pre-defined intents, fill the</span>
+<span class="linenos"> 45</span><span class="c1"># corresponding entry in the &quot;thematic roles&quot; table below and submit a pull</span>
+<span class="linenos"> 46</span><span class="c1"># request on this repository.</span>
+<span class="linenos"> 47</span><span class="n">string</span> <span class="n">intent</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span><span class="c1"># &#39;intent&#39; constants</span>
+<span class="linenos"> 50</span><span class="c1"># see table below for a short description of each.</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="c1"># this special intent represents a raw user input, without any specific intent recognised.</span>
+<span class="linenos"> 53</span><span class="c1"># It is used as a fallback to mean that no user intent was (yet) extracted from the user input</span>
+<span class="linenos"> 54</span><span class="c1"># It might happen when, for instance, a chatbot is unable to recognise an intent.</span>
+<span class="linenos"> 55</span><span class="c1"># An application receiving this intent can choose to ignore it, or further process it by other </span>
+<span class="linenos"> 56</span><span class="c1"># means.</span>
+<span class="linenos"> 57</span><span class="n">string</span> <span class="n">RAW_USER_INPUT</span> <span class="o">=</span> <span class="n">__raw_user_input__</span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span><span class="n">string</span> <span class="n">ENGAGE_WITH</span> <span class="o">=</span> <span class="n">__intent_engage_with__</span>
+<span class="linenos"> 60</span><span class="n">string</span> <span class="n">MOVE_TO</span> <span class="o">=</span> <span class="n">__intent_move_to__</span>
+<span class="linenos"> 61</span><span class="n">string</span> <span class="n">GUIDE</span> <span class="o">=</span> <span class="n">__intent_guide__</span>
+<span class="linenos"> 62</span><span class="n">string</span> <span class="n">GRAB_OBJECT</span> <span class="o">=</span> <span class="n">__intent_grab_object__</span>
+<span class="linenos"> 63</span><span class="n">string</span> <span class="n">BRING_OBJECT</span> <span class="o">=</span> <span class="n">__intent_bring_object__</span>
+<span class="linenos"> 64</span><span class="n">string</span> <span class="n">PLACE_OBJECT</span> <span class="o">=</span> <span class="n">__intent_place_object__</span>
+<span class="linenos"> 65</span><span class="n">string</span> <span class="n">GREET</span> <span class="o">=</span> <span class="n">__intent_greet__</span>
+<span class="linenos"> 66</span><span class="n">string</span> <span class="n">SAY</span> <span class="o">=</span> <span class="n">__intent_say__</span>
+<span class="linenos"> 67</span><span class="n">string</span> <span class="n">PRESENT_CONTENT</span> <span class="o">=</span> <span class="n">__intent_present_content__</span>
+<span class="linenos"> 68</span><span class="n">string</span> <span class="n">PERFORM_MOTION</span> <span class="o">=</span> <span class="n">__intent_perform_motion__</span>
+<span class="linenos"> 69</span><span class="n">string</span> <span class="n">START_ACTIVITY</span> <span class="o">=</span> <span class="n">__intent_start_activity__</span>
+<span class="linenos"> 70</span><span class="n">string</span> <span class="n">STOP_ACTIVITY</span> <span class="o">=</span> <span class="n">__intent_stop_activity__</span>
+<span class="linenos"> 71</span><span class="n">string</span> <span class="n">WAKEUP</span> <span class="o">=</span> <span class="n">__intent_wakeup__</span>
+<span class="linenos"> 72</span><span class="n">string</span> <span class="n">SUSPEND</span> <span class="o">=</span> <span class="n">__intent_suspend__</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span><span class="c1">##########################################################################</span>
+<span class="linenos"> 76</span><span class="c1">#  Intent data</span>
+<span class="linenos"> 77</span><span class="c1">#</span>
+<span class="linenos"> 78</span><span class="c1"># a JSON object containing the data required to fully instantiate the intent.</span>
+<span class="linenos"> 79</span><span class="c1"># The keys of the object should be one of the thematic role defined above, or</span>
+<span class="linenos"> 80</span><span class="c1"># the general `other_data`.</span>
+<span class="linenos"> 81</span><span class="c1">#</span>
+<span class="linenos"> 82</span><span class="c1"># Each intent defines a specific set of required and optional thematic roles,</span>
+<span class="linenos"> 83</span><span class="c1"># listed in the following table (note that the `agent` role can be optionally</span>
+<span class="linenos"> 84</span><span class="c1"># added to all intents, and is omitted from the table for clarity):</span>
+<span class="linenos"> 85</span><span class="c1">#</span>
+<span class="linenos"> 86</span><span class="c1"># .. [please keep the RST table syntax below, as it is used to automatically parse the list of intents by some nodes]#</span>
+<span class="linenos"> 87</span><span class="c1"># .. BEGIN_INTENTS_TABLE</span>
+<span class="linenos"> 88</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos"> 89</span><span class="c1"># | **Intent**       | **Description**                                                             | **Required thematic roles**                                 | **Optional thematic roles**                                               |</span>
+<span class="linenos"> 90</span><span class="c1"># +==================+=============================================================================+=============================================================+===========================================================================+</span>
+<span class="linenos"> 91</span><span class="c1"># | `RAW_USER_INPUT` | the intent was not successfully extracted                                   | - `input`: the raw input received from the user             | - `locale`: the language code of the input, if available                  |</span>
+<span class="linenos"> 92</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos"> 93</span><span class="c1"># | `ENGAGE_WITH`    | an agent wants to engage with another one                                   | - `recipient`                                               |                                                                           |</span>
+<span class="linenos"> 94</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos"> 95</span><span class="c1"># | `MOVE_TO`        | navigates to a specific location                                            | - `goal`                                                    |                                                                           |</span>
+<span class="linenos"> 96</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos"> 97</span><span class="c1"># | `GUIDE`          | guides someone somewhere                                                    | - `goal`                                                    |                                                                           |</span>
+<span class="linenos"> 98</span><span class="c1"># |                  |                                                                             | - `recipient`                                               |                                                                           |</span>
+<span class="linenos"> 99</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">100</span><span class="c1"># | `GRAB_OBJECT`    | pick-up a specific object                                                   | - `object`                                                  |                                                                           |</span>
+<span class="linenos">101</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">102</span><span class="c1"># | `BRING_OBJECT`   | bring a specific object to a specific place                                 | - `object`                                                  |                                                                           |</span>
+<span class="linenos">103</span><span class="c1"># |                  |                                                                             | - `recipient`                                               |                                                                           |</span>
+<span class="linenos">104</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">105</span><span class="c1"># | `PLACE_OBJECT`   | put an object on a support (eg a table)                                     | - `recipient`                                               | - `object` (only required if more that one object could be placed)        |</span>
+<span class="linenos">106</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">107</span><span class="c1"># | `GREET`          | greet an agent                                                              | - `recipient`                                               |                                                                           |</span>
+<span class="linenos">108</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">109</span><span class="c1"># | `SAY`            | says some text, optionally annotated with gestures or expressions           | - `object` (the text to say)                                | - `recipient`                                                             |</span>
+<span class="linenos">110</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">111</span><span class="c1"># | `PRESENT_CONTENT`| present (via a screen, pre-recorded text...) predefined content             | - `object` (the content identifier; special values          | - `recipient`                                                             |</span>
+<span class="linenos">112</span><span class="c1"># |                  |                                                                             |   &#39;__back__&#39; and &#39;__next__&#39; mean &#39;go backwards/forwards&#39;)   |                                                                           |</span>
+<span class="linenos">113</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">114</span><span class="c1"># | `PERFORM_MOTION` | performs a motion (eg, a dance or a specific gesture like pointing, waving) | - `object` (the system-specific name of the motion/gesture) | - `recipient`                                                             |</span>
+<span class="linenos">115</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">116</span><span class="c1"># | `START_ACTIVITY` | start a scripted behaviour/activity                                         | - `object` (the name of the activity)                       | - any additional parameter required to start the activity                 |</span>
+<span class="linenos">117</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">118</span><span class="c1"># | `STOP_ACTIVITY`  | request cancelation of an activity                                          |                                                             | - `object` (the name of the activity. If unset, current main activity)    |</span>
+<span class="linenos">119</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">120</span><span class="c1"># | `WAKEUP`         | request reactivation of the system                                          |                                                             |                                                                           |</span>
+<span class="linenos">121</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">122</span><span class="c1"># | `SUSPEND`        | request suspension of the system                                            |                                                             |                                                                           |</span>
+<span class="linenos">123</span><span class="c1"># +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+</span>
+<span class="linenos">124</span><span class="c1"># .. END_INTENTS_TABLE</span>
+<span class="linenos">125</span><span class="c1">#</span>
+<span class="linenos">126</span><span class="n">string</span> <span class="n">data</span>
+<span class="linenos">127</span>
+<span class="linenos">128</span><span class="c1">##########################################################################</span>
+<span class="linenos">129</span><span class="c1">#  Intent source</span>
+<span class="linenos">130</span><span class="c1">#</span>
+<span class="linenos">131</span><span class="c1"># a string describing the source of the intent. This is *not* the node</span>
+<span class="linenos">132</span><span class="c1"># which published the intent, but instead the actual agent who expressed the</span>
+<span class="linenos">133</span><span class="c1"># intent/command/desire.</span>
+<span class="linenos">134</span><span class="c1"># `source` can be either one of the constant below, or the specific id of the</span>
+<span class="linenos">135</span><span class="c1"># person/agent expressing the intent. In a REP-155 compliant system, this ID</span>
+<span class="linenos">136</span><span class="c1"># must be the person ID of the agent.</span>
+<span class="linenos">137</span><span class="n">string</span> <span class="n">source</span>
+<span class="linenos">138</span>
+<span class="linenos">139</span><span class="c1"># &#39;source&#39; constants:</span>
+<span class="linenos">140</span>
+<span class="linenos">141</span><span class="c1"># for intents originating from the robot itself</span>
+<span class="linenos">142</span><span class="n">string</span> <span class="n">ROBOT_ITSELF</span> <span class="o">=</span> <span class="n">__myself__</span>
+<span class="linenos">143</span><span class="c1"># for intents originating from a external robot control system (for instance, a remote control tablet)</span>
+<span class="linenos">144</span><span class="n">string</span> <span class="n">REMOTE_SUPERVISOR</span> <span class="o">=</span> <span class="n">__remote_supervisor__</span>
+<span class="linenos">145</span><span class="c1"># for intents coming from an agent interacting with the robot, but not uniquely</span>
+<span class="linenos">146</span><span class="c1"># identified</span>
+<span class="linenos">147</span><span class="n">string</span> <span class="n">UNKNOWN_AGENT</span> <span class="o">=</span> <span class="n">__unknown_agent__</span>
+<span class="linenos">148</span><span class="c1"># for unknown sources</span>
+<span class="linenos">149</span><span class="n">string</span> <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="n">__unknown__</span>
+<span class="linenos">150</span>
+<span class="linenos">151</span>
+<span class="linenos">152</span><span class="c1">##########################################################################</span>
+<span class="linenos">153</span><span class="c1">#  Intent modality</span>
+<span class="linenos">154</span><span class="c1">#</span>
+<span class="linenos">155</span><span class="c1"># modality used to originally convey the intent: verbal, via the touchscreen,</span>
+<span class="linenos">156</span><span class="c1"># via a gesture...</span>
+<span class="linenos">157</span><span class="c1"># The special modality MODALITY_INTERNAL must be used for intents coming for the</span>
+<span class="linenos">158</span><span class="c1"># robot&#39;s internal processes (eg &#39;battery low, I need to charge&#39;)</span>
+<span class="linenos">159</span><span class="c1"># MUST be one of the MODALITY_ constant below.</span>
+<span class="linenos">160</span><span class="n">string</span> <span class="n">modality</span>
+<span class="linenos">161</span>
+<span class="linenos">162</span><span class="c1"># &#39;modality&#39; constants:</span>
+<span class="linenos">163</span>
+<span class="linenos">164</span><span class="n">string</span> <span class="n">MODALITY_SPEECH</span> <span class="o">=</span> <span class="n">__modality_speech__</span>
+<span class="linenos">165</span><span class="c1"># both gestures (eg waving) and displacement (eg approaching)</span>
+<span class="linenos">166</span><span class="n">string</span> <span class="n">MODALITY_MOTION</span> <span class="o">=</span> <span class="n">__modality_motion__</span>
+<span class="linenos">167</span><span class="n">string</span> <span class="n">MODALITY_TOUCHSCREEN</span> <span class="o">=</span> <span class="n">__modality_touchscreen__</span>
+<span class="linenos">168</span><span class="n">string</span> <span class="n">MODALITY_OTHER</span> <span class="o">=</span> <span class="n">__modality_other__</span>
+<span class="linenos">169</span><span class="n">string</span> <span class="n">MODALITY_INTERNAL</span> <span class="o">=</span> <span class="n">__modality_internal__</span>
+<span class="linenos">170</span>
+<span class="linenos">171</span>
+<span class="linenos">172</span><span class="c1">##########################################################################</span>
+<span class="linenos">173</span><span class="c1">#  Intent priority</span>
+<span class="linenos">174</span><span class="c1">#</span>
+<span class="linenos">175</span><span class="c1"># the priority of this intent. This MIGHT be used as a hint by the robot&#39;s task</span>
+<span class="linenos">176</span><span class="c1"># scheduler, however is scheduler is *not* forced to respect this priority</span>
+<span class="linenos">177</span><span class="c1"># level. 0 is the lowest priority, 128 is the default priority, 255 is the</span>
+<span class="linenos">178</span><span class="c1"># highest priority.</span>
+<span class="linenos">179</span><span class="n">uint8</span> <span class="n">priority</span>
+<span class="linenos">180</span>
+<span class="linenos">181</span><span class="c1">##########################################################################</span>
+<span class="linenos">182</span><span class="c1">#  Intent confidence</span>
+<span class="linenos">183</span><span class="c1">#</span>
+<span class="linenos">184</span><span class="c1"># a value between 0.0 (no confidence) and 1.0 (full confidence) that the intent</span>
+<span class="linenos">185</span><span class="c1"># was correctly perceived and interpreted.</span>
+<span class="linenos">186</span><span class="c1">#</span>
+<span class="linenos">187</span><span class="c1"># For instance, a &#39;waving&#39; gesture could be interpreted as an implicit request</span>
+<span class="linenos">188</span><span class="c1"># from a user for the robot to greet back or engage. As this interpretation is</span>
+<span class="linenos">189</span><span class="c1"># not certain, the confidence of the intent may be below 1.0.</span>
+<span class="linenos">190</span><span class="n">float32</span> <span class="n">confidence</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="FaceOverlay.html" class="btn btn-neutral float-left" title="hri_actions_msgs/action/FaceOverlay" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ListActivities.html" class="btn btn-neutral float-right" title="hri_actions_msgs/srv/ListActivities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

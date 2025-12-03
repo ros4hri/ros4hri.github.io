@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The ROS4HRI Standard &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <link rel="prev" title="The ROS4HRI Ecosystem" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The ROS4HRI Standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#human-representation">Human Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#topics-structure">Topics Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kinematic-model-and-coordinate-frames">Kinematic Model and Coordinate Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">The ROS4HRI Ecosystem</a></li>
+      <li class="breadcrumb-item active">The ROS4HRI Standard</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/standard.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-ros4hri-standard">
+<span id="standard"></span><h1>The ROS4HRI Standard<a class="headerlink" href="#the-ros4hri-standard" title="Link to this heading"></a></h1>
+<p>The ROS4HRI standard is defined in <a class="reference external" href="https://www.ros.org/reps/rep-0155.html">REP-155</a>. It specifies conventions and
+interfaces for Human-Robot Interaction (HRI) perception in ROS.</p>
+<p>The standard covers:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#human-representation"><span class="std std-ref">Human Representation</span></a>: Modeling humans as a combination of permanent
+identities (Persons) and transient parts (Faces, Bodies, Voices).</p></li>
+<li><p><a class="reference internal" href="#ros4hri-topics-structure"><span class="std std-ref">Topics Structure</span></a> : Naming conventions under the <code class="docutils literal notranslate"><span class="pre">/humans/</span></code> namespace.</p></li>
+<li><p><a class="reference internal" href="#kinematic-model"><span class="std std-ref">Kinematic Model and Coordinate Frames</span></a>: TF frames and URDF models for humans.</p></li>
+<li><p><strong>Group Interactions</strong>: Representation of social groups and gaze.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Want to suggest a change to ROS4HRI? propose an extension? <a class="reference external" href="https://github.com/orgs/ros4hri/discussions/new?category=ideas">open a
+discussion on the ROS4HRI GitHub organization</a> to get
+the ball rolling!</p>
+</div>
+<section id="human-representation">
+<span id="id1"></span><h2>Human Representation<a class="headerlink" href="#human-representation" title="Link to this heading"></a></h2>
+<p>A person is represented by four unique identifiers (UUIDs):</p>
+<a class="reference internal image-reference" href="_images/ros4hri_ids.png"><img alt="ROS4HRI IDs" class="align-center" src="_images/ros4hri_ids.png" style="width: 400px;" />
+</a>
+<ul class="simple">
+<li><p><strong>Person ID</strong>: A permanent identifier for a unique person.</p></li>
+<li><p><strong>Face ID</strong>: A transient identifier for a detected face.</p></li>
+<li><p><strong>Body ID</strong>: A transient identifier for a detected body/skeleton.</p></li>
+<li><p><strong>Voice ID</strong>: A transient identifier for a detected voice.</p></li>
+</ul>
+<p>These identifiers are linked together. For example, a face and a body might be
+associated with the same person.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/people_graph.png"><img alt="Example of a feature graph" src="_images/people_graph.png" style="width: 80%;" />
+</a>
+</figure>
+<p>The <span class="xref std std-ref">hri_person_manager</span> node provides tools to manage these identities and publish the relations between identifiers.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more details on the ROS4HRI human model, refer to the <a class="reference external" href="https://www.ros.org/reps/rep-0155.html#human-representation">Human Representation
+section of REP-155</a>.</p>
+</div>
+</section>
+<section id="topics-structure">
+<span id="ros4hri-topics-structure"></span><h2>Topics Structure<a class="headerlink" href="#topics-structure" title="Link to this heading"></a></h2>
+<p>All HRI-related topics are grouped under <code class="docutils literal notranslate"><span class="pre">/humans/</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/faces/</span></code>: Face detection and recognition.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/faces/tracked</span></code>: List of currently tracked faces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/faces/&lt;faceID&gt;/</span></code>: Topics for a specific face (e.g., cropped image, landmarks).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/bodies/</span></code>: Body tracking.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/bodies/tracked</span></code>: List of currently tracked bodies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/bodies/&lt;bodyID&gt;/</span></code>: Topics for a specific body (e.g., joint states).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/voices/</span></code>: Voice activity and localization.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/voices/tracked</span></code>: List of currently tracked voices.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/persons/</span></code>: High-level person tracking.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/persons/tracked</span></code>: List of currently tracked persons.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/persons/known</span></code>: List of all known persons.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/persons/&lt;personID&gt;/</span></code>: Topics for a specific person.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/humans/interactions/</span></code>: Group interactions and social signals.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more details on the ROS4HRI topic structure, refer to the <a class="reference external" href="https://www.ros.org/reps/rep-0155.html#topics-structure">Topics Structure
+section of REP-155</a>.</p>
+</div>
+</section>
+<section id="kinematic-model-and-coordinate-frames">
+<span id="kinematic-model"></span><h2>Kinematic Model and Coordinate Frames<a class="headerlink" href="#kinematic-model-and-coordinate-frames" title="Link to this heading"></a></h2>
+<p>ROS4HRI defines standard TF frames:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">face_&lt;faceID&gt;</span></code>: Head pose (origin at sellion, x-forward, z-up).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gaze_&lt;faceID&gt;</span></code>: Gaze direction (z-aligned with gaze vector).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">body_&lt;bodyID&gt;</span></code>: Body root (mid-point of hips).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">voice_&lt;voiceID&gt;</span></code>: Sound source location.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/frames.png"><img alt="ROS4HRI Frames" class="align-center" src="_images/frames.png" style="width: 400px;" />
+</a>
+<p>A standard URDF model for humans is provided by the <a class="reference external" href="https://github.com/ros4hri/human_description">human_description</a> package.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more details on the ROS4HRI kinematic model, refer to the <a class="reference external" href="https://www.ros.org/reps/rep-0155.html#kinematic-model-and-coordinate-frames">Kinematic Model
+section of REP-155</a>.</p>
+</div>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<p>For more details, please refer to the full <a class="reference external" href="https://www.ros.org/reps/rep-0155.html">REP-155 specification</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="The ROS4HRI Ecosystem" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

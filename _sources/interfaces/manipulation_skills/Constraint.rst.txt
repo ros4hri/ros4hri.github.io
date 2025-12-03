@@ -1,0 +1,8 @@
+.. _manipulation_skills_msg_Constraint:
+
+``manipulation_skills/msg/Constraint``
+======================================
+
+.. literalinclude:: ../../src/manipulation_skills/msg/Constraint.msg
+   :language: python
+   :linenos:

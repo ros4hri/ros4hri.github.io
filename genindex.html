@@ -1,0 +1,1864 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+const defaultStyle = document.createElement('style');
+defaultStyle.textContent = `pre.mermaid {
+    /* Same as .mermaid-container > pre */
+    display: block;
+    width: 100%;
+}
+
+pre.mermaid > svg {
+    /* Same as .mermaid-container > pre > svg */
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+`;
+document.head.appendChild(defaultStyle);
+
+const fullscreenStyle = document.createElement('style');
+fullscreenStyle.textContent = `.mermaid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mermaid-container > pre {
+    display: block;
+    width: 100%;
+}
+
+.mermaid-container > pre > svg {
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+.mermaid-fullscreen-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}
+
+.mermaid-fullscreen-btn:hover {
+    opacity: 100% !important;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-btn.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-btn.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 95vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    padding: 20px;
+    overflow: auto;
+}
+
+.mermaid-fullscreen-modal.dark-theme {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.mermaid-fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen {
+    position: relative;
+    width: 95vw;
+    height: 90vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen.dark-theme {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.mermaid-container-fullscreen pre.mermaid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen .mermaid svg {
+    height: 100% !important;
+    width: 100% !important;
+    cursor: grab;
+}
+
+.mermaid-fullscreen-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.mermaid-fullscreen-close:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-close.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-close.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
+    display: none !important;
+}`;
+document.head.appendChild(fullscreenStyle);
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        return brightness < 128;
+    }
+    return false;
+};
+
+const load = async () => {
+    await mermaid.run();
+
+    const all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+
+    if ("False" === "True") {
+        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("");
+            if(all_mermaids.length !== mermaids_processed.length) {
+                setTimeout(load, 200);
+                return;
+            } else if(svgs.size() !== mermaids_to_add_zoom) {
+                setTimeout(load, 200);
+                return;
+            } else {
+                svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                        inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                });
+            }
+        }
+    } else if(all_mermaids.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(load, 200);
+        return;
+    }
+
+    const darkTheme = isDarkTheme();
+
+    // Stop here if not adding fullscreen capability
+    if ("True" !== "True") return;
+
+    const modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    const modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    let previousScrollOffset = [window.scrollX, window.scrollY];
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    const allButtons = [];
+
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.style.opacity = '50%';
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scroll, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.sdisplay = 'block';
+
+                if ("False" === "True") {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        container.appendChild(fullscreenBtn);
+        allButtons.push(fullscreenBtn);
+    });
+
+    // Update theme classes when theme changes
+    const updateTheme = () => {
+        const dark = isDarkTheme();
+        allButtons.forEach(btn => {
+            if (dark) {
+                btn.classList.add('dark-theme');
+            } else {
+                btn.classList.remove('dark-theme');
+            }
+        });
+        if (dark) {
+            modal.classList.add('dark-theme');
+            modalContent.classList.add('dark-theme');
+            closeBtn.classList.add('dark-theme');
+        } else {
+            modal.classList.remove('dark-theme');
+            modalContent.classList.remove('dark-theme');
+            closeBtn.classList.remove('dark-theme');
+        }
+    };
+
+    // Watch for theme changes
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style']
+    });
+};
+
+window.addEventListener("load", load);
+</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="glossary.html#term-Action"><strong>Action</strong></a>
+</li>
+      <li><a href="glossary.html#term-Activity"><strong>Activity</strong></a>
+</li>
+      <li><a href="pyhri.html#pyhri.Face.age">age (pyhri.Face property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Person.alias">alias (pyhri.Person property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Face.aligned">aligned (pyhri.Face property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.AMAZED">AMAZED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.ANGRY">ANGRY (pyhri.Expression attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Expression.ANNOYED">ANNOYED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Person.anonymous">anonymous (pyhri.Person property)</a>
+</li>
+      <li><a href="glossary.html#term-Application"><strong>Application</strong></a>
+</li>
+      <li><a href="skills/skill-ask.html#index-0">ask</a>
+</li>
+      <li><a href="skills/skill-ask_human_for_help.html#index-0">ask_human_for_help</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.ASLEEP">ASLEEP (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="glossary.html#term-ASR"><strong>ASR</strong></a>
+</li>
+      <li><a href="tools/rpk.html#index-0">Automatic code generation with ``rpk``</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.BLINK">BLINK (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.bodies">bodies (pyhri.HRIListener property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Body">Body (class in pyhri)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Person.body">body (pyhri.Person property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.BORED">BORED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.BROW_LOWERER">BROW_LOWERER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.BROWS_AND_FOREHEAD_NOT_VISIBLE">BROWS_AND_FOREHEAD_NOT_VISIBLE (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="glossary.html#term-Capability"><strong>Capability</strong></a>
+</li>
+      <li><a href="skills/skill-chat.html#index-0">chat</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.CHEEK_BLOW">CHEEK_BLOW (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.CHEEK_PUFF">CHEEK_PUFF (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.CHEEK_RAISER">CHEEK_RAISER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.CHEEK_SUCK">CHEEK_SUCK (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.CHEWING">CHEWING (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.CHIN_RAISER">CHIN_RAISER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.CONFUSED">CONFUSED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Body.cropped">cropped (pyhri.Body property)</a>
+
+      <ul>
+        <li><a href="pyhri.html#pyhri.Face.cropped">(pyhri.Face property)</a>
+</li>
+      </ul></li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.CROSS_EYE">CROSS_EYE (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Expression.DESPAIRED">DESPAIRED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.DIMPLER">DIMPLER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.DISAPPOINTED">DISAPPOINTED (pyhri.Expression attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.EngagementLevel.DISENGAGED">DISENGAGED (pyhri.EngagementLevel attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.EngagementLevel.DISENGAGING">DISENGAGING (pyhri.EngagementLevel attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.DISGUSTED">DISGUSTED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="skills/skill-do_led_effect.html#index-0">do_led_effect</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Expression.EMBARRASSED">EMBARRASSED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.EngagementLevel.ENGAGED">ENGAGED (pyhri.EngagementLevel attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Person.engagement_status">engagement_status (pyhri.Person property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.EngagementLevel">EngagementLevel (class in pyhri)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.EngagementLevel.ENGAGING">ENGAGING (pyhri.EngagementLevel attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.ENTIRE_FACE_NOT_VISIBLE">ENTIRE_FACE_NOT_VISIBLE (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.EXCITED">EXCITED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="skills/skill-execute_cartesian_trajectory.html#index-0">execute_cartesian_trajectory</a>
+</li>
+      <li><a href="skills/skill-execute_joint_trajectory.html#index-0">execute_joint_trajectory</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression">Expression (class in pyhri)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Face.expression">expression (pyhri.Face property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Face.expression_confidence">expression_confidence (pyhri.Face property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Face.expression_va">expression_va (pyhri.Face property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.EYES_CLOSED">EYES_CLOSED (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.EYES_DOWN">EYES_DOWN (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.EYES_NOT_VISIBLE">EYES_NOT_VISIBLE (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.EYES_POSITIONED_TO_LOOK_AT_OTHER_PERSON">EYES_POSITIONED_TO_LOOK_AT_OTHER_PERSON (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.EYES_TURN_LEFT">EYES_TURN_LEFT (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.EYES_TURN_RIGHT">EYES_TURN_RIGHT (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.EYES_UP">EYES_UP (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Face">Face (class in pyhri)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Person.face">face (pyhri.Person property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.faces">faces (pyhri.HRIListener property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Face.facial_action_units">facial_action_units (pyhri.Face property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Face.facial_landmarks">facial_landmarks (pyhri.Face property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit">FacialActionUnit (class in pyhri)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark">FacialLandmark (class in pyhri)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="glossary.html#term-Fact"><strong>Fact</strong></a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.FAST_UP_DOWN_LOOK">FAST_UP_DOWN_LOOK (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FeatureTracker">FeatureTracker (class in pyhri)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Gender.FEMALE">FEMALE (pyhri.Gender attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.FLASH">FLASH (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FeatureTracker.frame">frame (pyhri.FeatureTracker property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.FURIOUS">FURIOUS (pyhri.Expression attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Face.gaze_transform">gaze_transform (pyhri.Face property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Gender">Gender (class in pyhri)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Face.gender">gender (pyhri.Face property)</a>
+</li>
+      <li><a href="skills/skill-grasp.html#index-0">grasp</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.GUILTY">GUILTY (pyhri.Expression attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="skills/skill-hand_grasp.html#index-0">hand_grasp</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.HAPPY">HAPPY (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_BACK">HEAD_BACK (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_DOWN">HEAD_DOWN (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_FORWARD">HEAD_FORWARD (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_NOD_UP_AND_DOWN">HEAD_NOD_UP_AND_DOWN (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_SHAKE_BACK_AND_FORTH">HEAD_SHAKE_BACK_AND_FORTH (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_TILT_LEFT">HEAD_TILT_LEFT (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_TILT_RIGHT">HEAD_TILT_RIGHT (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_TURN_LEFT">HEAD_TURN_LEFT (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_TURN_RIGHT">HEAD_TURN_RIGHT (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.HEAD_UP">HEAD_UP (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.HORRIFIED">HORRIFIED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri4BodyE">hri::Body (C++ class)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Body15bodyDescriptionEv">hri::Body::bodyDescription (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Body7croppedEv">hri::Body::cropped (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Body3roiEv">hri::Body::roi (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Body8skeletonEv">hri::Body::skeleton (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri7BodyPtrE">hri::BodyPtr (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri12ConstBodyPtrE">hri::ConstBodyPtr (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri12ConstFacePtrE">hri::ConstFacePtr (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14ConstPersonPtrE">hri::ConstPersonPtr (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri13ConstVoicePtrE">hri::ConstVoicePtr (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15EngagementLevelE">hri::EngagementLevel (C++ enum)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15EngagementLevel11kDisengagedE">hri::EngagementLevel::kDisengaged (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15EngagementLevel12kDisengagingE">hri::EngagementLevel::kDisengaging (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15EngagementLevel8kEngagedE">hri::EngagementLevel::kEngaged (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15EngagementLevel9kEngagingE">hri::EngagementLevel::kEngaging (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10ExpressionE">hri::Expression (C++ enum)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression7kAmazedE">hri::Expression::kAmazed (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression6kAngryE">hri::Expression::kAngry (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression8kAnnoyedE">hri::Expression::kAnnoyed (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression7kAsleepE">hri::Expression::kAsleep (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression6kBoredE">hri::Expression::kBored (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression9kConfusedE">hri::Expression::kConfused (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression10kDespairedE">hri::Expression::kDespaired (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression13kDisappointedE">hri::Expression::kDisappointed (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression10kDisgustedE">hri::Expression::kDisgusted (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression12kEmbarrassedE">hri::Expression::kEmbarrassed (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression8kExcitedE">hri::Expression::kExcited (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression8kFuriousE">hri::Expression::kFurious (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression7kGuiltyE">hri::Expression::kGuilty (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression6kHappyE">hri::Expression::kHappy (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression10kHorrifiedE">hri::Expression::kHorrified (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression8kNeutralE">hri::Expression::kNeutral (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression9kPleadingE">hri::Expression::kPleading (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression9kRejectedE">hri::Expression::kRejected (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression4kSadE">hri::Expression::kSad (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression7kScaredE">hri::Expression::kScared (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression10kSkepticalE">hri::Expression::kSkeptical (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression10kSurprisedE">hri::Expression::kSurprised (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression11kSuspiciousE">hri::Expression::kSuspicious (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression6kTiredE">hri::Expression::kTired (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri10Expression11kVulnerableE">hri::Expression::kVulnerable (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri12ExpressionVAE">hri::ExpressionVA (C++ struct)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri12ExpressionVA7arousalE">hri::ExpressionVA::arousal (C++ member)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri12ExpressionVA7valenceE">hri::ExpressionVA::valence (C++ member)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri4FaceE">hri::Face (C++ class)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face3ageEv">hri::Face::age (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face7alignedEv">hri::Face::aligned (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face7croppedEv">hri::Face::cropped (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face10expressionEv">hri::Face::expression (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face20expressionConfidenceEv">hri::Face::expressionConfidence (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face12expressionVAEv">hri::Face::expressionVA (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face17facialActionUnitsEv">hri::Face::facialActionUnits (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face15facialLandmarksEv">hri::Face::facialLandmarks (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face9gazeFrameEv">hri::Face::gazeFrame (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face13gazeTransformEv">hri::Face::gazeTransform (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face6genderEv">hri::Face::gender (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri4Face3roiEv">hri::Face::roi (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri7FacePtrE">hri::FacePtr (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnitE">hri::FacialActionUnit (C++ enum)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit6kBlinkE">hri::FacialActionUnit::kBlink (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit12kBrowLowererE">hri::FacialActionUnit::kBrowLowerer (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit28kBrownsAndForeheadNotVisibleE">hri::FacialActionUnit::kBrownsAndForeheadNotVisible (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kCheeckRaiserE">hri::FacialActionUnit::kCheeckRaiser (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit10kCheekBlowE">hri::FacialActionUnit::kCheekBlow (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit10kCheekPuffE">hri::FacialActionUnit::kCheekPuff (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit10kCheekSuckE">hri::FacialActionUnit::kCheekSuck (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit8kChewingE">hri::FacialActionUnit::kChewing (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit11kChinRaiserE">hri::FacialActionUnit::kChinRaiser (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit9kCrossEyeE">hri::FacialActionUnit::kCrossEye (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit8kDimplerE">hri::FacialActionUnit::kDimpler (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit21kEntireFaceNotVisibleE">hri::FacialActionUnit::kEntireFaceNotVisible (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit11kEyesClosedE">hri::FacialActionUnit::kEyesClosed (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit9kEyesDownE">hri::FacialActionUnit::kEyesDown (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit15kEyesNotVisibleE">hri::FacialActionUnit::kEyesNotVisible (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit34kEyesPositionedToLookAtOtherPersonE">hri::FacialActionUnit::kEyesPositionedToLookAtOtherPerson (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kEyesTurnLeftE">hri::FacialActionUnit::kEyesTurnLeft (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit14kEyesTurnRightE">hri::FacialActionUnit::kEyesTurnRight (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit7kEyesUpE">hri::FacialActionUnit::kEyesUp (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit15kFastUpDownLookE">hri::FacialActionUnit::kFastUpDownLook (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit6kFlashE">hri::FacialActionUnit::kFlash (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit9kHeadBackE">hri::FacialActionUnit::kHeadBack (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit9kHeadDownE">hri::FacialActionUnit::kHeadDown (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit12kHeadForwardE">hri::FacialActionUnit::kHeadForward (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit17kHeadNodUpAndDownE">hri::FacialActionUnit::kHeadNodUpAndDown (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit22kHeadShakeBackAndForthE">hri::FacialActionUnit::kHeadShakeBackAndForth (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kHeadTiltLeftE">hri::FacialActionUnit::kHeadTiltLeft (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit14kHeadTiltRightE">hri::FacialActionUnit::kHeadTiltRight (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kHeadTurnLeftE">hri::FacialActionUnit::kHeadTurnLeft (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit14kHeadTurnRightE">hri::FacialActionUnit::kHeadTurnRight (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit7kHeadUpE">hri::FacialActionUnit::kHeadUp (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit16kInnerBrowRaiserE">hri::FacialActionUnit::kInnerBrowRaiser (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit12kJawClencherE">hri::FacialActionUnit::kJawClencher (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit8kJawDropE">hri::FacialActionUnit::kJawDrop (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit12kJawSidewaysE">hri::FacialActionUnit::kJawSideways (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit10kJawThrustE">hri::FacialActionUnit::kJawThrust (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit9kLidDroopE">hri::FacialActionUnit::kLidDroop (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kLidTightenerE">hri::FacialActionUnit::kLidTightener (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit8kLipBiteE">hri::FacialActionUnit::kLipBite (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit19kLipCornerDepressorE">hri::FacialActionUnit::kLipCornerDepressor (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit16kLipCornerPullerE">hri::FacialActionUnit::kLipCornerPuller (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit12kLipFunnelerE">hri::FacialActionUnit::kLipFunneler (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit11kLipPressorE">hri::FacialActionUnit::kLipPressor (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit10kLipPuckerE">hri::FacialActionUnit::kLipPucker (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit9kLipsPartE">hri::FacialActionUnit::kLipsPart (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit20kLipsTowardEachOtherE">hri::FacialActionUnit::kLipsTowardEachOther (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kLipStretcherE">hri::FacialActionUnit::kLipStretcher (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit8kLipSuckE">hri::FacialActionUnit::kLipSuck (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kLipTightenerE">hri::FacialActionUnit::kLipTightener (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit8kLipWipeE">hri::FacialActionUnit::kLipWipe (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit20kLowerFaceNotVisibleE">hri::FacialActionUnit::kLowerFaceNotVisible (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit18kLowerLipDepressorE">hri::FacialActionUnit::kLowerLipDepressor (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kMouthStretchE">hri::FacialActionUnit::kMouthStretch (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit19kNasolabialDeepenerE">hri::FacialActionUnit::kNasolabialDeepener (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit14kNeckTightenerE">hri::FacialActionUnit::kNeckTightener (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit12kNeutralFaceE">hri::FacialActionUnit::kNeutralFace (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kNoseWrinklerE">hri::FacialActionUnit::kNoseWrinkler (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit18kNostrilCompressorE">hri::FacialActionUnit::kNostrilCompressor (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit15kNostrilDilatorE">hri::FacialActionUnit::kNostrilDilator (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit16kOuterBrowRaiserE">hri::FacialActionUnit::kOuterBrowRaiser (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit13kPartialFlashE">hri::FacialActionUnit::kPartialFlash (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit15kSharpLipPullerE">hri::FacialActionUnit::kSharpLipPuller (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit14kShiverTrembleE">hri::FacialActionUnit::kShiverTremble (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit14kShoulderShrugE">hri::FacialActionUnit::kShoulderShrug (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit5kSlitE">hri::FacialActionUnit::kSlit (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit6kSniffE">hri::FacialActionUnit::kSniff (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit7kSpeechE">hri::FacialActionUnit::kSpeech (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit7kSquintE">hri::FacialActionUnit::kSquint (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit8kSwallowE">hri::FacialActionUnit::kSwallow (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit12kTongueBulgeE">hri::FacialActionUnit::kTongueBulge (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit11kTongueShowE">hri::FacialActionUnit::kTongueShow (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit11kUnsociableE">hri::FacialActionUnit::kUnsociable (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit15kUpperLidRaiserE">hri::FacialActionUnit::kUpperLidRaiser (C++ enumerator)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit15kUpperLipRaiserE">hri::FacialActionUnit::kUpperLipRaiser (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit8kWalleyeE">hri::FacialActionUnit::kWalleye (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16FacialActionUnit5kWinkE">hri::FacialActionUnit::kWink (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri17FacialActionUnitsE">hri::FacialActionUnits (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmarkE">hri::FacialLandmark (C++ enum)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark8kLeftEarE">hri::FacialLandmark::kLeftEar (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kLeftEyeBottom1E">hri::FacialLandmark::kLeftEyeBottom1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kLeftEyeBottom2E">hri::FacialLandmark::kLeftEyeBottom2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftEyebrow1E">hri::FacialLandmark::kLeftEyebrow1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftEyebrow2E">hri::FacialLandmark::kLeftEyebrow2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftEyebrow3E">hri::FacialLandmark::kLeftEyebrow3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kLeftEyebrowInsideE">hri::FacialLandmark::kLeftEyebrowInside (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark19kLeftEyebrowOutsideE">hri::FacialLandmark::kLeftEyebrowOutside (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kLeftEyeInsideE">hri::FacialLandmark::kLeftEyeInside (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kLeftEyeOutsideE">hri::FacialLandmark::kLeftEyeOutside (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark12kLeftEyeTop1E">hri::FacialLandmark::kLeftEyeTop1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark12kLeftEyeTop2E">hri::FacialLandmark::kLeftEyeTop2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftProfile1E">hri::FacialLandmark::kLeftProfile1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftProfile2E">hri::FacialLandmark::kLeftProfile2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftProfile3E">hri::FacialLandmark::kLeftProfile3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftProfile4E">hri::FacialLandmark::kLeftProfile4 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftProfile5E">hri::FacialLandmark::kLeftProfile5 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftProfile6E">hri::FacialLandmark::kLeftProfile6 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kLeftProfile7E">hri::FacialLandmark::kLeftProfile7 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark10kLeftPupilE">hri::FacialLandmark::kLeftPupil (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark7kMentonE">hri::FacialLandmark::kMenton (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kMouthInnerBottom1E">hri::FacialLandmark::kMouthInnerBottom1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kMouthInnerBottom2E">hri::FacialLandmark::kMouthInnerBottom2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kMouthInnerBottom3E">hri::FacialLandmark::kMouthInnerBottom3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthInnerLeftE">hri::FacialLandmark::kMouthInnerLeft (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark16kMouthInnerRightE">hri::FacialLandmark::kMouthInnerRight (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthInnerTop1E">hri::FacialLandmark::kMouthInnerTop1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthInnerTop2E">hri::FacialLandmark::kMouthInnerTop2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthInnerTop3E">hri::FacialLandmark::kMouthInnerTop3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kMouthOuterBottom1E">hri::FacialLandmark::kMouthOuterBottom1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kMouthOuterBottom2E">hri::FacialLandmark::kMouthOuterBottom2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kMouthOuterBottom3E">hri::FacialLandmark::kMouthOuterBottom3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kMouthOuterBottom4E">hri::FacialLandmark::kMouthOuterBottom4 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark18kMouthOuterBottom5E">hri::FacialLandmark::kMouthOuterBottom5 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthOuterLeftE">hri::FacialLandmark::kMouthOuterLeft (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark16kMouthOuterRightE">hri::FacialLandmark::kMouthOuterRight (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthOuterTop1E">hri::FacialLandmark::kMouthOuterTop1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthOuterTop2E">hri::FacialLandmark::kMouthOuterTop2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthOuterTop3E">hri::FacialLandmark::kMouthOuterTop3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthOuterTop4E">hri::FacialLandmark::kMouthOuterTop4 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kMouthOuterTop5E">hri::FacialLandmark::kMouthOuterTop5 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark5kNoseE">hri::FacialLandmark::kNose (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark6kNose1E">hri::FacialLandmark::kNose1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark6kNose2E">hri::FacialLandmark::kNose2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark9kNostril1E">hri::FacialLandmark::kNostril1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark9kNostril2E">hri::FacialLandmark::kNostril2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark9kNostril3E">hri::FacialLandmark::kNostril3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark9kNostril4E">hri::FacialLandmark::kNostril4 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark9kNostril5E">hri::FacialLandmark::kNostril5 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark9kRightEarE">hri::FacialLandmark::kRightEar (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark16kRightEyeBottom1E">hri::FacialLandmark::kRightEyeBottom1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark16kRightEyeBottom2E">hri::FacialLandmark::kRightEyeBottom2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightEyebrow1E">hri::FacialLandmark::kRightEyebrow1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightEyebrow2E">hri::FacialLandmark::kRightEyebrow2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightEyebrow3E">hri::FacialLandmark::kRightEyebrow3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark19kRightEyebrowInsideE">hri::FacialLandmark::kRightEyebrowInside (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark20kRightEyebrowOutsideE">hri::FacialLandmark::kRightEyebrowOutside (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark15kRightEyeInsideE">hri::FacialLandmark::kRightEyeInside (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark16kRightEyeOutsideE">hri::FacialLandmark::kRightEyeOutside (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kRightEyeTop1E">hri::FacialLandmark::kRightEyeTop1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark13kRightEyeTop2E">hri::FacialLandmark::kRightEyeTop2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightProfile1E">hri::FacialLandmark::kRightProfile1 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightProfile2E">hri::FacialLandmark::kRightProfile2 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightProfile3E">hri::FacialLandmark::kRightProfile3 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightProfile4E">hri::FacialLandmark::kRightProfile4 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightProfile5E">hri::FacialLandmark::kRightProfile5 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightProfile6E">hri::FacialLandmark::kRightProfile6 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark14kRightProfile7E">hri::FacialLandmark::kRightProfile7 (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark11kRightPupilE">hri::FacialLandmark::kRightPupil (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri14FacialLandmark8kSellionE">hri::FacialLandmark::kSellion (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15FacialLandmarksE">hri::FacialLandmarks (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri6GenderE">hri::Gender (C++ enum)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri6Gender7kFemaleE">hri::Gender::kFemale (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri6Gender5kMaleE">hri::Gender::kMale (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri6Gender6kOtherE">hri::Gender::kOther (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListenerE">hri::HRIListener (C++ class)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener14clearCallbacksEv">hri::HRIListener::clearCallbacks (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener9clearDataEv">hri::HRIListener::clearData (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener6createE17NodeLikeSharedPtr">hri::HRIListener::create (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri11HRIListener9getBodiesEv">hri::HRIListener::getBodies (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener16getCallbackGroupEv">hri::HRIListener::getCallbackGroup (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri11HRIListener8getFacesEv">hri::HRIListener::getFaces (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri11HRIListener10getPersonsEv">hri::HRIListener::getPersons (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri11HRIListener17getTrackedPersonsEv">hri::HRIListener::getTrackedPersons (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri11HRIListener9getVoicesEv">hri::HRIListener::getVoices (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener6onBodyENSt8functionIFv7BodyPtrEEE">hri::HRIListener::onBody (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener10onBodyLostENSt8functionIFv2IDEEE">hri::HRIListener::onBodyLost (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener6onFaceENSt8functionIFv7FacePtrEEE">hri::HRIListener::onFace (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener10onFaceLostENSt8functionIFv2IDEEE">hri::HRIListener::onFaceLost (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener8onPersonENSt8functionIFv9PersonPtrEEE">hri::HRIListener::onPerson (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener12onPersonLostENSt8functionIFv2IDEEE">hri::HRIListener::onPersonLost (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener15onTrackedPersonENSt8functionIFv9PersonPtrEEE">hri::HRIListener::onTrackedPerson (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener19onTrackedPersonLostENSt8functionIFv2IDEEE">hri::HRIListener::onTrackedPersonLost (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener7onVoiceENSt8functionIFv8VoicePtrEEE">hri::HRIListener::onVoice (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener11onVoiceLostENSt8functionIFv2IDEEE">hri::HRIListener::onVoiceLost (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri11HRIListener17setReferenceFrameERKNSt6stringE">hri::HRIListener::setReferenceFrame (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri2IDE">hri::ID (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri19IntensityConfidenceE">hri::IntensityConfidence (C++ struct)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri19IntensityConfidence10confidenceE">hri::IntensityConfidence::confidence (C++ member)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri19IntensityConfidence9intensityE">hri::IntensityConfidence::intensity (C++ member)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri6PersonE">hri::Person (C++ class)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri6Person4bodyEv">hri::Person::body (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri6Person4faceEv">hri::Person::face (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri6Person9transformEv">hri::Person::transform (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri6Person5voiceEv">hri::Person::voice (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri9PersonPtrE">hri::PersonPtr (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15PointOfInterestE">hri::PointOfInterest (C++ struct)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15PointOfInterest1cE">hri::PointOfInterest::c (C++ member)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15PointOfInterest1xE">hri::PointOfInterest::x (C++ member)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri15PointOfInterest1yE">hri::PointOfInterest::y (C++ member)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypointE">hri::SkeletalKeypoint (C++ enum)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint10kLeftAnkleE">hri::SkeletalKeypoint::kLeftAnkle (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint8kLeftEarE">hri::SkeletalKeypoint::kLeftEar (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint10kLeftElbowE">hri::SkeletalKeypoint::kLeftElbow (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint8kLeftEyeE">hri::SkeletalKeypoint::kLeftEye (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint8kLeftHipE">hri::SkeletalKeypoint::kLeftHip (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint9kLeftKneeE">hri::SkeletalKeypoint::kLeftKnee (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint13kLeftShoulderE">hri::SkeletalKeypoint::kLeftShoulder (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint10kLeftWristE">hri::SkeletalKeypoint::kLeftWrist (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint5kNeckE">hri::SkeletalKeypoint::kNeck (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint5kNoseE">hri::SkeletalKeypoint::kNose (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint11kRightAnkleE">hri::SkeletalKeypoint::kRightAnkle (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint9kRightEarE">hri::SkeletalKeypoint::kRightEar (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint11kRightElbowE">hri::SkeletalKeypoint::kRightElbow (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint9kRightEyeE">hri::SkeletalKeypoint::kRightEye (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint9kRightHipE">hri::SkeletalKeypoint::kRightHip (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint10kRightKneeE">hri::SkeletalKeypoint::kRightKnee (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint14kRightShoulderE">hri::SkeletalKeypoint::kRightShoulder (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri16SkeletalKeypoint11kRightWristE">hri::SkeletalKeypoint::kRightWrist (C++ enumerator)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri17SkeletalKeypointsE">hri::SkeletalKeypoints (C++ type)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri5VoiceE">hri::Voice (C++ class)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri5Voice14clearCallbacksEv">hri::Voice::clearCallbacks (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri5Voice17incrementalSpeechEv">hri::Voice::incrementalSpeech (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri5Voice10isSpeakingEv">hri::Voice::isSpeaking (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri5Voice6localeEv">hri::Voice::locale (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri5Voice19onIncrementalSpeechENSt8functionIFvRKNSt6stringEEEE">hri::Voice::onIncrementalSpeech (C++ function)</a>, <a href="libhri.html#_CPPv4N3hri5Voice19onIncrementalSpeechENSt8functionIFvRKNSt6stringERKNSt6stringEEEE">[1]</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri5Voice10onSpeakingENSt8functionIFvbEEE">hri::Voice::onSpeaking (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri5Voice8onSpeechENSt8functionIFvRKNSt6stringEEEE">hri::Voice::onSpeech (C++ function)</a>, <a href="libhri.html#_CPPv4N3hri5Voice8onSpeechENSt8functionIFvRKNSt6stringERKNSt6stringEEEE">[1]</a>
+</li>
+      <li><a href="libhri.html#_CPPv4NK3hri5Voice6speechEv">hri::Voice::speech (C++ function)</a>
+</li>
+      <li><a href="libhri.html#_CPPv4N3hri8VoicePtrE">hri::VoicePtr (C++ type)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener">HRIListener (class in pyhri)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FeatureTracker.id">id (pyhri.FeatureTracker property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Voice.incremental_speech">incremental_speech (pyhri.Voice property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.INNER_BROW_RAISER">INNER_BROW_RAISER (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="glossary.html#term-Intent"><strong>Intent</strong></a>
+</li>
+      <li><a href="reference/intents.html#index-0">Intents</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Voice.is_speaking">is_speaking (pyhri.Voice property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.JAW_CLENCHER">JAW_CLENCHER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.JAW_DROP">JAW_DROP (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.JAW_SIDEWAYS">JAW_SIDEWAYS (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.JAW_THRUST">JAW_THRUST (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="glossary.html#term-Knowledge-base"><strong>Knowledge base</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.LEFT_ANKLE">LEFT_ANKLE (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EAR">LEFT_EAR (pyhri.FacialLandmark attribute)</a>
+
+      <ul>
+        <li><a href="pyhri.html#pyhri.SkeletalKeypoint.LEFT_EAR">(pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.LEFT_ELBOW">LEFT_ELBOW (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.LEFT_EYE">LEFT_EYE (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYE_BOTTOM_1">LEFT_EYE_BOTTOM_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYE_BOTTOM_2">LEFT_EYE_BOTTOM_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYE_INSIDE">LEFT_EYE_INSIDE (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYE_OUTSIDE">LEFT_EYE_OUTSIDE (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYE_TOP_1">LEFT_EYE_TOP_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYE_TOP_2">LEFT_EYE_TOP_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYEBROW_1">LEFT_EYEBROW_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYEBROW_2">LEFT_EYEBROW_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYEBROW_3">LEFT_EYEBROW_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYEBROW_INSIDE">LEFT_EYEBROW_INSIDE (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_EYEBROW_OUTSIDE">LEFT_EYEBROW_OUTSIDE (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.LEFT_HIP">LEFT_HIP (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.LEFT_KNEE">LEFT_KNEE (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_PROFILE_1">LEFT_PROFILE_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_PROFILE_2">LEFT_PROFILE_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_PROFILE_3">LEFT_PROFILE_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_PROFILE_4">LEFT_PROFILE_4 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_PROFILE_5">LEFT_PROFILE_5 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_PROFILE_6">LEFT_PROFILE_6 (pyhri.FacialLandmark attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_PROFILE_7">LEFT_PROFILE_7 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.LEFT_PUPIL">LEFT_PUPIL (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.LEFT_SHOULDER">LEFT_SHOULDER (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.LEFT_WRIST">LEFT_WRIST (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LID_DROOP">LID_DROOP (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LID_TIGHTENER">LID_TIGHTENER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_BITE">LIP_BITE (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_CORNER_DEPRESSOR">LIP_CORNER_DEPRESSOR (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_CORNER_PULLER">LIP_CORNER_PULLER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_FUNNELER">LIP_FUNNELER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_PRESSOR">LIP_PRESSOR (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_PUCKER">LIP_PUCKER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_STRETCHER">LIP_STRETCHER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_SUCK">LIP_SUCK (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_TIGHTENER">LIP_TIGHTENER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIP_WIPE">LIP_WIPE (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIPS_PART">LIPS_PART (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LIPS_TOWARD_EACH_OTHER">LIPS_TOWARD_EACH_OTHER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Voice.locale">locale (pyhri.Voice property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Person.location_confidence">location_confidence (pyhri.Person property)</a>
+</li>
+      <li><a href="skills/skill-look_at.html#index-0">look_at</a>
+</li>
+      <li><a href="skills/skill-look_for_human.html#index-0">look_for_human</a>
+</li>
+      <li><a href="skills/skill-look_for_object.html#index-0">look_for_object</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LOWER_FACE_NOT_VISIBLE">LOWER_FACE_NOT_VISIBLE (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.LOWER_LIP_DEPRESSOR">LOWER_LIP_DEPRESSOR (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Gender.MALE">MALE (pyhri.Gender attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MENTON">MENTON (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="glossary.html#term-Mission"><strong>Mission</strong></a>
+</li>
+      <li><a href="glossary.html#term-Mission-controller"><strong>Mission controller</strong></a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="pyhri.html#module-pyhri">pyhri</a>
+</li>
+      </ul></li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_1">MOUTH_INNER_BOTTOM_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_2">MOUTH_INNER_BOTTOM_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_3">MOUTH_INNER_BOTTOM_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_INNER_LEFT">MOUTH_INNER_LEFT (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_INNER_RIGHT">MOUTH_INNER_RIGHT (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_INNER_TOP_1">MOUTH_INNER_TOP_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_INNER_TOP_2">MOUTH_INNER_TOP_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_INNER_TOP_3">MOUTH_INNER_TOP_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_1">MOUTH_OUTER_BOTTOM_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_2">MOUTH_OUTER_BOTTOM_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_3">MOUTH_OUTER_BOTTOM_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_4">MOUTH_OUTER_BOTTOM_4 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_5">MOUTH_OUTER_BOTTOM_5 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_LEFT">MOUTH_OUTER_LEFT (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_RIGHT">MOUTH_OUTER_RIGHT (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_TOP_1">MOUTH_OUTER_TOP_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_TOP_2">MOUTH_OUTER_TOP_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_TOP_3">MOUTH_OUTER_TOP_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_TOP_4">MOUTH_OUTER_TOP_4 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.MOUTH_OUTER_TOP_5">MOUTH_OUTER_TOP_5 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.MOUTH_STRETCH">MOUTH_STRETCH (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.NASOLABIAL_DEEPENER">NASOLABIAL_DEEPENER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="skills/skill-navigate_to_pose.html#index-0">navigate_to_pose</a>
+</li>
+      <li><a href="skills/skill-navigate_to_waypoint.html#index-0">navigate_to_waypoint</a>
+</li>
+      <li><a href="skills/skill-navigate_to_zone.html#index-0">navigate_to_zone</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.NECK">NECK (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.NECK_TIGHTENER">NECK_TIGHTENER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.NEUTRAL">NEUTRAL (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.NEUTRAL_FACE">NEUTRAL_FACE (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.NOSE">NOSE (pyhri.FacialLandmark attribute)</a>
+
+      <ul>
+        <li><a href="pyhri.html#pyhri.SkeletalKeypoint.NOSE">(pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.NOSE_1">NOSE_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.NOSE_2">NOSE_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.NOSE_WRINKLER">NOSE_WRINKLER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.NOSTRIL_1">NOSTRIL_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.NOSTRIL_2">NOSTRIL_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.NOSTRIL_3">NOSTRIL_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.NOSTRIL_4">NOSTRIL_4 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.NOSTRIL_5">NOSTRIL_5 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.NOSTRIL_COMPRESSOR">NOSTRIL_COMPRESSOR (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.NOSTRIL_DILATOR">NOSTRIL_DILATOR (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FeatureTracker.ns">ns (pyhri.FeatureTracker property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_body">on_body() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_body_lost">on_body_lost() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_face">on_face() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_face_lost">on_face_lost() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Voice.on_incremental_speech">on_incremental_speech() (pyhri.Voice method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_person">on_person() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_person_lost">on_person_lost() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Voice.on_speaking">on_speaking() (pyhri.Voice method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Voice.on_speech">on_speech() (pyhri.Voice method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_tracked_person">on_tracked_person() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_tracked_person_lost">on_tracked_person_lost() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_voice">on_voice() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.on_voice_lost">on_voice_lost() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="glossary.html#term-Ontology"><strong>Ontology</strong></a>
+</li>
+      <li><a href="pyhri.html#pyhri.Gender.OTHER">OTHER (pyhri.Gender attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.OUTER_BROW_RAISER">OUTER_BROW_RAISER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="glossary.html#term-OWL"><strong>OWL</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.PARTIAL_FLASH">PARTIAL_FLASH (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Person">Person (class in pyhri)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.persons">persons (pyhri.HRIListener property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="skills/skill-place.html#index-0">place</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.PLEADING">PLEADING (pyhri.Expression attribute)</a>
+</li>
+      <li>
+    pyhri
+
+      <ul>
+        <li><a href="pyhri.html#module-pyhri">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Expression.REJECTED">REJECTED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.RIGHT_ANKLE">RIGHT_ANKLE (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EAR">RIGHT_EAR (pyhri.FacialLandmark attribute)</a>
+
+      <ul>
+        <li><a href="pyhri.html#pyhri.SkeletalKeypoint.RIGHT_EAR">(pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.RIGHT_ELBOW">RIGHT_ELBOW (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.RIGHT_EYE">RIGHT_EYE (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYE_BOTTOM_1">RIGHT_EYE_BOTTOM_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYE_BOTTOM_2">RIGHT_EYE_BOTTOM_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYE_INSIDE">RIGHT_EYE_INSIDE (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYE_OUTSIDE">RIGHT_EYE_OUTSIDE (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYE_TOP_1">RIGHT_EYE_TOP_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYE_TOP_2">RIGHT_EYE_TOP_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYEBROW_1">RIGHT_EYEBROW_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYEBROW_2">RIGHT_EYEBROW_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYEBROW_3">RIGHT_EYEBROW_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYEBROW_INSIDE">RIGHT_EYEBROW_INSIDE (pyhri.FacialLandmark attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_EYEBROW_OUTSIDE">RIGHT_EYEBROW_OUTSIDE (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.RIGHT_HIP">RIGHT_HIP (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.RIGHT_KNEE">RIGHT_KNEE (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_PROFILE_1">RIGHT_PROFILE_1 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_PROFILE_2">RIGHT_PROFILE_2 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_PROFILE_3">RIGHT_PROFILE_3 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_PROFILE_4">RIGHT_PROFILE_4 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_PROFILE_5">RIGHT_PROFILE_5 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_PROFILE_6">RIGHT_PROFILE_6 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_PROFILE_7">RIGHT_PROFILE_7 (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.RIGHT_PUPIL">RIGHT_PUPIL (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.RIGHT_SHOULDER">RIGHT_SHOULDER (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint.RIGHT_WRIST">RIGHT_WRIST (pyhri.SkeletalKeypoint attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Body.roi">roi (pyhri.Body property)</a>
+
+      <ul>
+        <li><a href="pyhri.html#pyhri.Face.roi">(pyhri.Face property)</a>
+</li>
+      </ul></li>
+      <li><a href="glossary.html#term-rpk"><strong>rpk</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Expression.SAD">SAD (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="skills/skill-say.html#index-0">say</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.SCARED">SCARED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialLandmark.SELLION">SELLION (pyhri.FacialLandmark attribute)</a>
+</li>
+      <li><a href="skills/skill-set_expression.html#index-0">set_expression</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.set_reference_frame">set_reference_frame() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.SHARP_LIP_PULLER">SHARP_LIP_PULLER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.SHIVER_TREMBLE">SHIVER_TREMBLE (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.SHOULDER_SHRUG">SHOULDER_SHRUG (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.SkeletalKeypoint">SkeletalKeypoint (class in pyhri)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Body.skeleton">skeleton (pyhri.Body property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Expression.SKEPTICAL">SKEPTICAL (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="glossary.html#term-Skill"><strong>Skill</strong></a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.SLIT">SLIT (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.SNIFF">SNIFF (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.SPEECH">SPEECH (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Voice.speech">speech (pyhri.Voice property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.spin_all">spin_all() (pyhri.HRIListener method)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.SQUINT">SQUINT (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="glossary.html#term-Statement"><strong>Statement</strong></a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.SURPRISED">SURPRISED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.SUSPICIOUS">SUSPICIOUS (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.SWALLOW">SWALLOW (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="glossary.html#term-Task"><strong>Task</strong></a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.TIRED">TIRED (pyhri.Expression attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.TONGUE_BULGE">TONGUE_BULGE (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.TONGUE_SHOW">TONGUE_SHOW (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.tracked_persons">tracked_persons (pyhri.HRIListener property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FeatureTracker.transform">transform (pyhri.FeatureTracker property)</a>
+</li>
+      <li><a href="glossary.html#term-Triples"><strong>Triples</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.UNSOCIABLE">UNSOCIABLE (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.UPPER_LID_RAISER">UPPER_LID_RAISER (pyhri.FacialActionUnit attribute)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.UPPER_LIP_RAISER">UPPER_LIP_RAISER (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FeatureTracker.valid">valid (pyhri.FeatureTracker property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Voice">Voice (class in pyhri)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.Person.voice">voice (pyhri.Person property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.HRIListener.voices">voices (pyhri.HRIListener property)</a>
+</li>
+      <li><a href="pyhri.html#pyhri.Expression.VULNERABLE">VULNERABLE (pyhri.Expression attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.WALLEYE">WALLEYE (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pyhri.html#pyhri.FacialActionUnit.WINK">WINK (pyhri.FacialActionUnit attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

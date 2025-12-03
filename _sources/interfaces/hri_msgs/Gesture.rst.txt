@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_Gesture:
+
+``hri_msgs/msg/Gesture``
+========================
+
+.. literalinclude:: ../../src/hri_msgs/msg/Gesture.msg
+   :language: python
+   :linenos:

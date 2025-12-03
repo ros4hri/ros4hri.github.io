@@ -1,0 +1,8 @@
+.. _interaction_skills_msg_SetExpression:
+
+``interaction_skills/msg/SetExpression``
+========================================
+
+.. literalinclude:: ../../src/interaction_skills/msg/SetExpression.msg
+   :language: python
+   :linenos:

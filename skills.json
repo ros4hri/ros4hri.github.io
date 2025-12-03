@@ -1,0 +1,676 @@
+{
+  "metadata": {
+    "generated_on": "2025-12-03T13:32:01.583107",
+    "total_skills": 17
+  },
+  "skills": [
+    {
+      "id": "ask_human_for_help",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "interaction_skills",
+      "interface": "action",
+      "datatype": "interaction_skills/action/AskHumanForHelp",
+      "default_path": "/skill/ask_human_for_help",
+      "description": "Ask a human for help",
+      "functional_domains": [
+        "interaction",
+        "communication"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "question_to_human",
+            "type": "string",
+            "required": true,
+            "description": "The question to ask to the human."
+          },
+          {
+            "name": "person_id",
+            "type": "string array",
+            "description": "The preferred person IDs to ask for help. Those humans will be prioritized when asking for help. If left empty, all tracked humans are considered."
+          }
+        ]
+      }
+    },
+    {
+      "id": "do_led_effect",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "interaction_skills",
+      "interface": "action",
+      "datatype": "interaction_skills/action/DoLedEffect",
+      "default_path": "/skill/do_led_effect",
+      "description": "Perform light effects using the robot's LEDs.",
+      "functional_domains": [
+        "interaction"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "groups",
+            "type": "string array",
+            "default": [],
+            "description": "The LED groups to use for the effect (eg ``ear_leds``, ``back_leds``).\nAn empty list means the effect is applied to all LED groups.\n"
+          },
+          {
+            "name": "effect",
+            "type": "string",
+            "default": "solid_color",
+            "description": "The selected LED effect, one of:\n\n- ``solid_color``:\n  Applies up to two solid colors side-by-side to the specified LED groups,\n  with the primary color applied to the first partition of the LED group,\n  and the secondary color applied to the second partition.\n- ``rainbow``: \n  Lights the LED groups in a rainbow effect,\n  which moves through the LED group cyclically.\n- ``fade``:\n  Fades between two colors cyclically.\n  It starts with the primary color,\n  fades to the secondary color over the first partition,\n  then fades back to the primary color over the second partition.\n- ``blink``:\n  Blinks the LED groups between two colors.\n  It applies a solid primary color in the first partition of a cycle,\n  then applies a solid secondary color in the second partition.\n- ``flow``:\n  Displays a loading-like effect, with the partition ratio of LEDs colored \n  with the primary color moving through the LED group,\n  at a constant speed such to traverse the entire LED group in one cycle,\n  and the secondary color filling the rest of the LED group. \n"
+          },
+          {
+            "name": "duration",
+            "type": "float",
+            "default": 0.0,
+            "description": "Total duration of the effect before the action is completed.\nA null or negative number will mean the action continues indefinitely until canceled.\n"
+          },
+          {
+            "name": "color",
+            "type": ":msg:`interaction_skills/msg/LedColor`",
+            "description": "The primary color for the effect.\nIgnored for the ``rainbow`` effect.\n"
+          },
+          {
+            "name": "secondary_color",
+            "type": ":msg:`interaction_skills/msg/LedColor`",
+            "description": "The secondary color for the effect.\nIgnored for the ``rainbow`` effect.\n"
+          },
+          {
+            "name": "cycle",
+            "type": "float",
+            "default": 1.0,
+            "description": "Duration in seconds of a single cycle of the effect.\nIgnored for the ``solid_color`` effect.\n"
+          },
+          {
+            "name": "partition",
+            "type": "float",
+            "default": 1.0,
+            "description": "For effects with two phases in a cycle\n(or two spatially separated partitions as in ``solid_color``),\nthe proportion of the first one ([0., 1.])\nIgnored for the ``rainbow`` effect.\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "look_for_human",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "interaction_skills",
+      "interface": "action",
+      "datatype": "interaction_skills/action/LookFor",
+      "default_path": "/skill/look_for_human",
+      "description": "Search and localize specific humans",
+      "functional_domains": [
+        "interaction"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "patterns",
+            "type": "string array",
+            "default": [],
+            "description": "List of RDF patterns that identify the human to look for. Exactly one variable is expected in the patterns. If left empty, all visible humans are returned."
+          }
+        ]
+      }
+    },
+    {
+      "id": "look_for_object",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "interaction_skills",
+      "interface": "action",
+      "datatype": "interaction_skills/action/LookFor",
+      "default_path": "/skill/look_for_object",
+      "description": "Search and localize specific objects",
+      "functional_domains": [
+        "interaction"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "patterns",
+            "type": "string array",
+            "default": [],
+            "description": "List of RDF patterns that identify the objects to look for. Exactly one variable is expected in the patterns."
+          }
+        ]
+      }
+    },
+    {
+      "id": "set_expression",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "interaction_skills",
+      "interface": "topic",
+      "datatype": "interaction_skills/msg/SetExpression",
+      "default_path": "/skill/set_expression",
+      "description": "Sets the expression of the robot. This might include changing the robot's face, body posture, or other expressive features.\n\nOne either sets the expression by name, or by specifying the valence and arousal of the expression.\n",
+      "functional_domains": [
+        "interaction"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "expression.expression",
+            "type": "string",
+            "description": "Name of the expression. See :ref:`list_eyes_expressions` for details.\n\nOne of:\n\n- neutral\n- angry\n- sad\n- happy\n- surprised\n- disgusted\n- scared\n- pleading\n- vulnerable\n- despaired\n- guilty\n- disappointed\n- embarrassed\n- horrified\n- skeptical\n- annoyed\n- furious\n- suspicious\n- rejected\n- bored\n- tired\n- asleep\n- confused\n- amazed\n- excited\n"
+          },
+          {
+            "name": "expression.valence",
+            "type": "float",
+            "description": "The desired valence of the expression, ranging from -1 (very negative) to 1 (very positive).\n"
+          },
+          {
+            "name": "expression.arousal",
+            "type": "float",
+            "description": "The desired arousal of the expression, ranging from -1 (very calm) to 1 (very excited).\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "look_at",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "interaction_skills",
+      "interface": "action",
+      "datatype": "interaction_skills/action/LookAt",
+      "default_path": "/skill/look_at",
+      "description": "Defines the gazing direction of the robot. This skill can be used to either look at a specific point \nin space (a ROS :term:`tf frame`), or to set a generic gaze policy, such as looking at\npeople around the robot.\n\nUsing the ``glance`` policy, you can also use this skill to brielfy look at\na specific point in space, before returning to the previous gaze policy.\n",
+      "functional_domains": [
+        "interaction"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "policy",
+            "type": "string",
+            "description": "One of the policies below, or empty string (in that case, the\nrobot will look atpoint in space specified with the ``target`` parameter).\n\nAvailable policies:\n\n- ``random``: randomly look around, with short fixations\n- ``social``: look around for faces, with fixations on detected faces\n- ``glance``: glance at a specific point in space, then return\n  to the previous gaze policy. ``target`` must be specified.\n- ``auto``: automatic gaze policy, implementation-dependent.\n  On PAL interactive robots, equivalent to ``social``.\n- ``reset``: reset the gaze of the robot to looking straight.\n"
+          },
+          {
+            "name": "target",
+            "type": ":msg:`geometry_msgs/msg/PointStamped`",
+            "description": ":term:`tf frame` to track. Ignored if the ``policy`` parameter\nis set to one of the predefined policies.\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "grasp",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "manipulation_skills",
+      "interface": "action",
+      "datatype": "manipulation_skills/action/Grasp",
+      "default_path": "/skill/grasp",
+      "description": "Commands the robot to grasp a specified object.\nThis skill sends a goal to the robot's manipulation system to\nexecute a grasping action using a specified strategy.\n\nOnce invoked, the robot will:\n  1. Identify the target object.\n  2. Execute the grasping Behavior Tree strategy.\n  3. Report back feedback and a result message indicating success or failure.\n\nTypical uses include picking up objects from tables, bins, or other surfaces.\n\nThe skill assumes that the robot's hand is empty. See\n:skill:`place` for the placing action.\n",
+      "functional_domains": [
+        "manipulation",
+        "motions"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "object_id",
+            "type": "string",
+            "required": true,
+            "description": "The identifier of the object to be grasped.\n"
+          },
+          {
+            "name": "side",
+            "type": "string",
+            "default": "\"\"",
+            "description": "Which hand or end-effector to use. Supported values:\n  * ``left``: Use the left hand.\n  * ``right``: Use the right hand.\n  * default (empty string): Use the default hand.\n"
+          },
+          {
+            "name": "strategy",
+            "type": "string",
+            "default": "\"\"",
+            "description": "The strategy (optional, implementation-dependent) defines how the grasp \nimplementation should perform the grasp. For instance, the strategy could refer\nto a specific behaviour-tree definition (if the skill implementation uses\nbehaviour trees) or any other kind of 'recipe'.\n"
+          }
+        ],
+        "out": [
+          {
+            "name": "result.error_msg",
+            "type": "string",
+            "description": "A string describing the execution outcome.\n"
+          },
+          {
+            "name": "feedback",
+            "type": "object",
+            "description": "Live updates while the action runs. Can contain:\n\n* ``data_str``: Text feedback (e.g., which hand, tree loaded, position, node status..).\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "place",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "manipulation_skills",
+      "interface": "action",
+      "datatype": "manipulation_skills/action/Place",
+      "default_path": "/skill/place",
+      "description": "Commands the robot to place an object at a specified location.\nThis skill sends a goal to the robot's manipulation system to\nexecute a placing action.\n\nOnce invoked, the robot will:\n  1. Move to the target location.\n  2. Release the object.\n  3. Return to a safe position.\n\nTypical uses include placing objects on tables, shelves,\nor designated drop-off points.\n\nThe skill assumes that the robot is already holding an object. See\n:skill:`grasp` for the grasping action.\n",
+      "functional_domains": [
+        "manipulation",
+        "motions"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "target",
+            "type": ":msg:`geometry_msgs/msg/PoseStamped`",
+            "required": true,
+            "description": "The target pose where the object should be placed.\nThis includes position and orientation.\n"
+          },
+          {
+            "name": "release_upon_completion",
+            "type": "boolean",
+            "default": true,
+            "description": "If ``true``, the robot will release the object upon reaching the target pose.\nIf ``false``, the robot will move to the target pose without releasing the object.\n"
+          },
+          {
+            "name": "side",
+            "type": "string",
+            "default": "\"\"",
+            "description": "Which hand or end-effector to use. Supported values:\n\n* ``left``: Use the left hand.\n* ``right``: Use the right hand.\n* default (empty string): Use the default hand.\n"
+          },
+          {
+            "name": "constraint",
+            "type": ":msg:`manipulation_skills/msg/Constraint`",
+            "description": "The motion planning constraint to apply. Contains:\n\n* ``constraint_type`` (uint8): type of constraint\n\n  - ``0``: ``FREE_PLAN`` (no constraint)\n  - ``1``: ``ORIENTATION_CONSTRAINT`` (apply orientation constraint)\n\n* ``orientation_constraint`` (:msg:`moveit_msgs/OrientationConstraint`): \n  the actual orientation constraint to use if\n  ``constraint_type = ORIENTATION_CONSTRAINT``.\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hand_grasp",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "manipulation_skills",
+      "interface": "action",
+      "datatype": "manipulation_skills/action/HandGrasp",
+      "default_path": "/skill/hand_grasp",
+      "description": "Controls a robotic hand or gripper to either **close** (grasp) or **open**\n(release).  This skill sends a goal to the specified end-effector (left, right,\nor default) with an optional precision setting for the closing position.\n\nOnce invoked, the robot will:\n  1. Target the desired hand/gripper.\n  2. Perform the requested action (close/open).\n  3. Report back feedback and a result message indicating success or failure.\n\nTypical uses include closing a gripper to get hold of an object,\nreleasing an object, or partially closing the\ngripper to a specific position for delicate handling.\n",
+      "functional_domains": [
+        "manipulation",
+        "motions"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "hand",
+            "type": "string",
+            "default": "\"\"",
+            "description": "Which hand or end-effector to use. Supported values:\n  * ``left``: Use the left hand.\n  * ``right``: Use the right hand.\n  * default (empty string): Use the default hand (the right in case of 2 arms).\n\nAny other value will be rejected and the default will be used.\n"
+          },
+          {
+            "name": "action",
+            "type": "integer",
+            "default": 0,
+            "description": "The gripper action to perform:\n  * ``0``: Close the gripper (grasp).\n  * ``1``: Open the gripper (release).\n\nValues outside ``[0, 1]`` will be clamped to the closest integer.\n"
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher means this skill request will be prioritized."
+          }
+        ],
+        "out": [
+          {
+            "name": "result.error_msg",
+            "type": "string",
+            "description": "A string describing the execution outcome.\n\nExamples:\n  * ``Grasp Executed!``: Successful grasp/release.\n  * ``Problems during execution.``: Action failed.\n"
+          },
+          {
+            "name": "feedback",
+            "type": "object",
+            "description": "Live updates while the action runs. Can contain:\n  * ``data_str``: Text feedback (e.g., which hand, action, position).\n  * ``data_bool``: ``True`` if action succeeded, ``False`` otherwise.\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ask",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "communication_skills",
+      "interface": "action",
+      "datatype": "communication_skills/action/Ask",
+      "default_path": "/skill/ask",
+      "description": "A specialization of the :skill:`chat` where the role \nis predefined and the dialogue is always initiated by the robot.\n\nSee :ref:`dialogue_management` for details.\n",
+      "functional_domains": [
+        "communication"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "question",
+            "type": "string",
+            "required": true,
+            "description": "The question to be asked to the user. It is used to \ngenerate the initial utterance of the dialogue.\n"
+          },
+          {
+            "name": "answers_schema",
+            "type": "string",
+            "required": true,
+            "description": "The serialized JSON object of pieces of information \nto be retrieved through the chat. The keys correspond to the info \nrequired, while the values follow the `JSON schema format for object \nproperties <https://json-schema.org/understanding-json-schema/reference/object.html#properties>`_.\n\nFor example, if the required information is the person age, the \ndictionary could be the following:\n\n.. code:: json\n\n   {\"age\": {\"type\": \"integer\", \"minimum\": 0}}\n\nFor a simple yes/no question, you could have instead:\n\n.. code:: json\n\n   {\"response\": {\"type\": \"boolean\"}}\n"
+          },
+          {
+            "name": "person_id",
+            "type": "string",
+            "default": "",
+            "description": "If targeting a specific person, the ID of the person."
+          },
+          {
+            "name": "group_id",
+            "type": "string",
+            "default": "",
+            "description": "If targeting a group of people, the ID of the group *(currently not supported)*."
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher value means that this skill invokation will have higher priority."
+          }
+        ],
+        "out": [
+          {
+            "name": "answers",
+            "type": "object",
+            "description": "The serialized JSON object containing the pieces \nretrieved from the chat, depending on the answers_schema.\n\nFor *age* example above, the result might be:\n\n.. code:: json\n\n   {\"age\": 42}\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "chat",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "communication_skills",
+      "interface": "action",
+      "datatype": "communication_skills/action/Chat",
+      "default_path": "/skill/chat",
+      "description": "Start a dialogue with a defined purpose.\n\nSee :ref:`dialogue_management` for details.\n",
+      "functional_domains": [
+        "communication"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "role",
+            "type": "string",
+            "description": "The name and configuration for the dialogue purpose (chatbot-dependent).",
+            "required": true,
+            "default": "__default__"
+          },
+          {
+            "name": "initiate",
+            "type": "boolean",
+            "default": false,
+            "description": "If true, the dialogue is opened and the robot initiates the conversation."
+          },
+          {
+            "name": "initial_input",
+            "type": "string",
+            "default": "",
+            "description": "Optionally specify the utterance the chatbot initiates the conversation with. \nOtherwise, the chatbot may generate one based on the role. It is ignored if \n``initiate`` is false.\n"
+          },
+          {
+            "name": "person_id",
+            "type": "string",
+            "default": "",
+            "description": "If targeting a specific person, the ID of the person."
+          },
+          {
+            "name": "group_id",
+            "type": "string",
+            "default": "",
+            "description": "If targeting a group of people, the ID of the group *(currently not supported)*."
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher value means that this skill invokation will have higher priority."
+          }
+        ],
+        "out": [
+          {
+            "name": "role_result",
+            "type": "string",
+            "description": "A machine-readable serialized JSON object containing the result, depending on the role."
+          }
+        ]
+      }
+    },
+    {
+      "id": "say",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "communication_skills",
+      "interface": "action",
+      "datatype": "communication_skills/action/Say",
+      "default_path": "/skill/say",
+      "description": "Speak out the provided input text (also executing any \nadditional markup action).\n\nSee :ref:`tts` for details.\n",
+      "functional_domains": [
+        "communication"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "input",
+            "type": "string",
+            "required": true,
+            "description": "The :ref:`multi-modal expression <tts-markup>` to be read-out.\n"
+          },
+          {
+            "name": "person_id",
+            "type": "string",
+            "default": "",
+            "description": "If targeting a specific person, the ID of the person."
+          },
+          {
+            "name": "group_id",
+            "type": "string",
+            "default": "",
+            "description": "If targeting a group of people, the ID of the group *(currently not supported)*."
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher value means that this skill invokation will have higher priority."
+          }
+        ]
+      }
+    },
+    {
+      "id": "navigate_to_pose",
+      "version": "0.0.0",
+      "type": "skill",
+      "package": "navigation_skills",
+      "interface": "action",
+      "datatype": "navigation_skills/action/NavigateToPose",
+      "default_path": "/skill/navigate_to_pose",
+      "description": "Make the robot autonomously navigate toward the desired pose.\n\nSee :ref:`goal-navigation` for details.\n",
+      "functional_domains": [
+        "navigation"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "pose",
+            "type": "geometry_msgs/PoseStamped",
+            "required": true,
+            "description": "The coordinates of the pose that the robot must reach.\n"
+          },
+          {
+            "name": "behavior_tree",
+            "type": "string",
+            "required": false,
+            "description": "The name or the full path to an XML file with a behavior tree\ndefining the logic that the robot must use while autonomously navigate\ntowards its goal.\n"
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher value means that this skill invokation will have higher priority."
+          }
+        ],
+        "out": [
+          {
+            "name": "navigation_result",
+            "type": "empty",
+            "description": "The result of the navigation action. Information about the navigation\nexecution are available in the action feedback.\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "navigate_to_waypoint",
+      "version": "0.0.0",
+      "type": "skill",
+      "package": "navigation_skills",
+      "interface": "action",
+      "datatype": "navigation_skills/action/NavigateToWaypoint",
+      "default_path": "/skill/navigate_to_waypoint",
+      "description": "Make the robot autonomously navigate toward the desired waypoint.\n\nSee :ref:`waypoint-navigation` for details.\n",
+      "functional_domains": [
+        "navigation"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "waypoint_name",
+            "type": "string",
+            "required": true,
+            "description": "The name of the Waypoint that the robot must reach.\n"
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher value means that this skill invokation will have higher priority."
+          }
+        ],
+        "out": [
+          {
+            "name": "navigation_result",
+            "type": "empty",
+            "description": "The result of the navigation action. Information about the navigation\nexecution are available in the action feedback.\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "navigate_to_zone",
+      "version": "0.0.0",
+      "type": "skill",
+      "package": "navigation_skills",
+      "interface": "action",
+      "datatype": "navigation_skills/action/NavigateToZone",
+      "default_path": "/skill/navigate_to_zone",
+      "description": "Make the robot autonomously navigate toward the desired zone.\n\nSee :ref:`environmental-annotations` for details.\n",
+      "functional_domains": [
+        "navigation"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "zone_name",
+            "type": "string",
+            "required": true,
+            "description": "The name of the Zone that the robot must reach.\n"
+          },
+          {
+            "name": "succeed_on_zone_entry",
+            "type": "boolean",
+            "required": false,
+            "description": "Whether the navigation action should be considered successful\nwhen the robot enters the zone or when it reaches a specific pose.\n"
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher value means that this skill invokation will have higher priority."
+          }
+        ],
+        "out": [
+          {
+            "name": "navigation_result",
+            "type": "empty",
+            "description": "The result of the navigation action. Information about the navigation\nexecution are available in the action feedback.\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "execute_joint_trajectory",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "motions_skills",
+      "interface": "action",
+      "datatype": "motion_skills/action/ExecuteJointTrajectory.action",
+      "default_path": "/skill/execute_joint_trajectory",
+      "description": "Execute a joint trajectory on the robot by specifying\na list of joint positions and timestamps.\n",
+      "functional_domains": [
+        "motions"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "trajectory",
+            "type": ":msg:`trajectory_msgs/msg/JointTrajectory`",
+            "required": true,
+            "description": "The joint trajectory to execute.\n\nDepending on the implementation, the skill might only handle\nposition control, or additional velocity, acceleration and effort control.\n\nSee :msg:`trajectory_msgs/msg/JointTrajectory` for details.\n"
+          },
+          {
+            "name": "safe_mode",
+            "type": "boolean",
+            "default": true,
+            "description": "If true, the robot will execute the trajectory in a safe mode.\nThe 'safe mode' is implementation-dependent, but typically means\ncollision avoidance, speed limits, etc.\n"
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher means this skill request will be prioritized."
+          }
+        ]
+      }
+    },
+    {
+      "id": "execute_cartesian_trajectory",
+      "version": "1.0.0",
+      "type": "skill",
+      "package": "motions_skills",
+      "interface": "action",
+      "datatype": "motion_skills/action/ExecuteCartesianTrajectory.action",
+      "default_path": "/skill/execute_cartesian_trajectory",
+      "description": "Execute a trajectory on the robot by specifying\na list of 3D points (and optionally, 3D orientations) to follow, with\ncorresponding target timestamps.\n\nIf a specific skill implementation uses a 3D motion planner, tHe exact\ntimestamps might vary based on the planner's output.\n\nBy not providing timestamps, the skill implementation can decide\non the timing based on its own constraints and capabilities.\n",
+      "functional_domains": [
+        "motions"
+      ],
+      "parameters": {
+        "in": [
+          {
+            "name": "trajectory",
+            "type": ":msg:`moveit_msgs/msg/CartesianTrajectory`",
+            "required": true,
+            "description": "The Cartesian trajectory to execute.\n\nBy setting the timestamps of each point to zero, the skill implementation\nis free to decide on the timing based on its own constraints and capabilities.\n"
+          },
+          {
+            "name": "meta.priority",
+            "type": "integer",
+            "default": 128,
+            "description": "Between 0 and 255. Higher means this skill request will be prioritized."
+          }
+        ]
+      }
+    }
+  ]
+}

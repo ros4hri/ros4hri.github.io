@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automatic code generation with rpk &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Intents" href="../reference/intents.html" />
+    <link rel="prev" title="Glossary" href="../glossary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="../_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Automatic code generation with <code class="docutils literal notranslate"><span class="pre">rpk</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tools/rpk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="automatic-code-generation-with-rpk">
+<span id="rpk"></span><span id="index-0"></span><h1>Automatic code generation with <code class="docutils literal notranslate"><span class="pre">rpk</span></code><a class="headerlink" href="#automatic-code-generation-with-rpk" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">rpk</span></code> tool is a command-line utility designed to streamline the
+development of robotic applications in the ROS 2 ecosystem. It follows the ROS4HRI
+approach to building composable and reusable robotic applications.</p>
+<p><code class="docutils literal notranslate"><span class="pre">rpk</span></code> facilitates the creation and management of standardized application
+skeletons for robots, enabling developers to quickly bootstrap projects
+and focus on implementation-specific details. Its flexibility and
+modularity support a range of robot types, making it a valuable asset
+for robotics software developers.</p>
+<p>This section provides an overview of the tool’s functionality, usage,
+and the templates it offers for different components of robotic
+applications.</p>
+<section id="role-and-purpose">
+<h2>Role and purpose<a class="headerlink" href="#role-and-purpose" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">rpk</span></code> is a quick way to start a new, clean and complete ROS 2 package.</p>
+<p>It helps with:</p>
+<ul class="simple">
+<li><p><strong>Standardization</strong>: Ensures consistency across robot projects by
+using pre-defined templates adhering to ROS 2 conventions.</p></li>
+<li><p><strong>Modularity</strong>: Promotes the reuse of code and functionality across
+different projects and components.</p></li>
+<li><p><strong>Ease of Use</strong>: Simplifies the setup process for robot applications,
+reducing the learning curve for new developers.</p></li>
+<li><p><strong>Flexibility</strong>: Supports multiple robot types and use cases, making
+it adaptable to diverse projects.</p></li>
+<li><p><strong>Rapid Prototyping</strong>: Enables developers to quickly bootstrap
+complex systems, focusing on custom functionality rather than
+boilerplate code.</p></li>
+</ul>
+</section>
+<section id="main-functions">
+<h2>Main functions<a class="headerlink" href="#main-functions" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">rpk</span></code> tool offers two primary commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">create</span></code>: This command generates application skeletons for
+various components of a robot system. Developers can specify the type
+of component (e.g., skill, task, mission) and select from available
+templates tailored to specific robot types or use cases.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: This command displays a catalog of available templates
+for intents, skills, tasks, missions, and applications. It provides
+brief descriptions of each template, including its programming
+language and example use cases.</p></li>
+</ul>
+<section id="create-command">
+<h3><code class="docutils literal notranslate"><span class="pre">create</span></code> command<a class="headerlink" href="#create-command" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">create</span></code> command is central to <code class="docutils literal notranslate"><span class="pre">rpk</span></code>’s functionality, enabling
+developers to generate skeletons for the following components:</p>
+<ol class="arabic simple">
+<li><p><strong>Intent</strong>: Modules for extracting user intentions from inputs, such
+as chatbot systems or interfaces leveraging Large Language Models
+(LLMs) (<a class="reference internal" href="../reference/intents.html#intents"><span class="std std-ref">read more about intent recognition</span></a>).</p></li>
+<li><p><strong>Skill</strong>: Reusable, atomic robot actions. These are basic building
+blocks for tasks and missions, such as “go to” or “say” actions
+(<a class="reference internal" href="../skills/index.html#skills"><span class="std std-ref">see the list of ROS4HRI standard skills</span></a>).</p></li>
+<li><p><strong>Task</strong>: Time-limited activities that combine multiple skills. Tasks
+represent intermediate levels of robot behavior, such as greeting a
+person or fetching an object.</p></li>
+<li><p><strong>Mission</strong>: High-level controllers managing the robot’s overall
+behavior. Missions combine tasks to define the robot’s operational
+goals, such as acting as a receptionist or waiter.</p></li>
+<li><p><strong>Application</strong>: Comprehensive frameworks combining mission
+controllers, tasks, and skills, along with necessary resources, to
+create complete robotic applications.</p></li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">create</span></code> command supports the following options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code> or <code class="docutils literal notranslate"><span class="pre">--robot</span></code>: Specifies the target robot type. Available
+options include generic robots and predefined configurations for
+robots like PAL ARI and PAL TIAGo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> or <code class="docutils literal notranslate"><span class="pre">--path</span></code>: Defines the directory path where the
+generated skeleton will be saved. By default, it uses the current
+directory.</p></li>
+</ul>
+</section>
+<section id="list-command">
+<h3><code class="docutils literal notranslate"><span class="pre">list</span></code> command<a class="headerlink" href="#list-command" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> command displays available templates, categorized by
+component type. For each template, it provides:</p>
+<ul class="simple">
+<li><p>A unique identifier (e.g., <code class="docutils literal notranslate"><span class="pre">base_python</span></code>).</p></li>
+<li><p>A description of the template’s purpose and features.</p></li>
+<li><p>The programming language used (e.g., Python).</p></li>
+</ul>
+</section>
+</section>
+<section id="available-templates">
+<h2>Available Templates<a class="headerlink" href="#available-templates" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">rpk</span></code> comes preloaded with a set of templates for intents, skills,
+tasks, missions, and complete applications.</p>
+<p>As of the current version, the following templates are available:</p>
+<ul class="simple">
+<li><p><strong>Intent Extractors</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">basic_chatbot</span></code>: A simple chatbot skeleton.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">llm_bridge_python</span></code>: An intent extraction module utilizing LLMs
+via APIs like OpenAI’s ChatGPT.</p></li>
+</ul>
+</li>
+<li><p><strong>Skills</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">base_python</span></code>: A generic Python skill template.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base_cpp</span></code>: A generic C++ skill template.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">say_python</span></code>: Implements a “say” action as an example.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db_connector_python</span></code>: A mock-up for database interaction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locate_cpp</span></code>: Example implementation of ‘locate’ skill (C++).</p></li>
+</ul>
+</li>
+<li><p><strong>Tasks</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">base_python</span></code>: A generic task template (Python).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">simple_ui</span></code>: Simple task template with a graphical user interface (Python).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">greet_task_python</span></code>: Demonstrates a “greet” task implementation (Python).</p></li>
+</ul>
+</li>
+<li><p><strong>Mission Controllers</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">base_python</span></code>: A generic mission controller template.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base_intents_python</span></code>: A supervisor with pre-filled intent
+handlers, as well as advanced features like internationalization
+support.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base_intents_ui_python</span></code>: A robot supervisor template, with a GUI and pre-filled intent handlers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chatbot_supervisor_python</span></code>: A complete supervisor example, using a
+basic chatbot to manage interactions with users.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">llm_supervisor_python</span></code>: An advanced supervisor leveraging LLMs
+for user interaction.</p></li>
+</ul>
+</li>
+<li><p><strong>Applications</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">basic_chatbot_python</span></code>: complete sample app, using a basic chatbot to
+interact with users. It includes a supervisor and sample tasks and skills</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">llm_chatbot_python</span></code>: A complete sample application featuring
+LLM-driven user interaction, with integrated mission controllers,
+tasks, and skills.</p></li>
+</ul>
+</li>
+</ul>
+<p>Some of these templates (the <code class="docutils literal notranslate"><span class="pre">base_*</span></code> ones) were designed to be
+generic and extensible, showcasing best practices in ROS 2 development
+(including the use of lifecycle nodes, parameter-based configuration,
+etc.). They are meant to be used as starting points for FSTP users to
+create their own components.</p>
+<p>Other templates are more specific and are meant as examples of how to
+integrate complete stacks.</p>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p>You can install <code class="docutils literal notranslate"><span class="pre">rpk</span></code> from its <a class="reference external" href="https://github.com/ros4hri/rpk.git">GitHub repository</a>, like any ROS 2 package.</p>
+<p>Alternatively, you can install it from PyPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>rpk
+</pre></div>
+</div>
+<p>Once installed, the tool can be accessed from the command line by running
+<code class="docutils literal notranslate"><span class="pre">rpk</span></code> followed by the desired command (e.g., <code class="docutils literal notranslate"><span class="pre">create</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When using a <code class="docutils literal notranslate"><span class="pre">pip</span></code>-installed <code class="docutils literal notranslate"><span class="pre">rpk</span></code>, you can generate templates, but you
+will not be have to build and run the generated code unless you have
+a full ROS 2 environment set up.</p>
+</div>
+</section>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../tutorials/interactive-social-robots/zero-to-llm.html#zero-to-llm"><span class="std std-ref">Build a complete LLM-enabled interactive app with ROS4HRI perception and skills</span></a>: this tutorial uses <code class="docutils literal notranslate"><span class="pre">rpk</span></code> to create a complete ROS 2 application from scratch.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../glossary.html" class="btn btn-neutral float-left" title="Glossary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../reference/intents.html" class="btn btn-neutral float-right" title="Intents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

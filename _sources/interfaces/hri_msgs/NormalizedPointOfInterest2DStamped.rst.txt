@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_NormalizedPointOfInterest2DStamped:
+
+``hri_msgs/msg/NormalizedPointOfInterest2DStamped``
+===================================================
+
+.. literalinclude:: ../../src/hri_msgs/msg/NormalizedPointOfInterest2DStamped.msg
+   :language: python
+   :linenos:

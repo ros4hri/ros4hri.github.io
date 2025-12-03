@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_11cfd5072b3819a0287d1d04807e67a6" kind="dir">
+    <compoundname>src/libhri/hri/include/hri</compoundname>
+    <innerfile refid="body_8hpp">body.hpp</innerfile>
+    <innerfile refid="face_8hpp">face.hpp</innerfile>
+    <innerfile refid="feature__tracker_8hpp">feature_tracker.hpp</innerfile>
+    <innerfile refid="hri_8hpp">hri.hpp</innerfile>
+    <innerfile refid="person_8hpp">person.hpp</innerfile>
+    <innerfile refid="types_8hpp">types.hpp</innerfile>
+    <innerfile refid="voice_8hpp">voice.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/libhri/hri/include/hri/"/>
+  </compounddef>
+</doxygen>

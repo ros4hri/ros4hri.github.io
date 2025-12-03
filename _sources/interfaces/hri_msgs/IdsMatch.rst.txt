@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_IdsMatch:
+
+``hri_msgs/msg/IdsMatch``
+=========================
+
+.. literalinclude:: ../../src/hri_msgs/msg/IdsMatch.msg
+   :language: python
+   :linenos:

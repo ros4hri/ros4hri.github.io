@@ -1,0 +1,8 @@
+.. _interaction_skills_action_LookFor:
+
+``interaction_skills/action/LookFor``
+=====================================
+
+.. literalinclude:: ../../src/interaction_skills/action/LookFor.action
+   :language: python
+   :linenos:

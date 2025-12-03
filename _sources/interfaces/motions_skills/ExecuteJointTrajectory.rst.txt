@@ -1,0 +1,8 @@
+.. _motions_skills_action_ExecuteJointTrajectory:
+
+``motions_skills/action/ExecuteJointTrajectory``
+================================================
+
+.. literalinclude:: ../../src/motions_skills/action/ExecuteJointTrajectory.action
+   :language: python
+   :linenos:

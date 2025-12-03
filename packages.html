@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open-source ROS4HRI packages &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ROS4HRI Standard Skills" href="skills/index.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Open-source ROS4HRI packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#core-libraries-messages">Core Libraries &amp; Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#perception">Perception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#face-perception">Face Perception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#body-perception">Body Perception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#voice-audio-perception">Voice &amp; Audio Perception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#person-tracking-fusion">Person Tracking &amp; Fusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interaction-skills">Interaction Skills</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-skill-definitions">Standard skill definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-tools">Development Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#visualization-debugging">Visualization &amp; Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-user-interface">Building User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Open-source ROS4HRI packages</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/packages.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="open-source-ros4hri-packages">
+<span id="packages"></span><h1>Open-source ROS4HRI packages<a class="headerlink" href="#open-source-ros4hri-packages" title="Link to this heading"></a></h1>
+<a class="reference internal image-reference" href="_images/packages.webp"><img alt="ROS4HRI packages" class="align-center" src="_images/packages.webp" style="width: 20%;" />
+</a>
+<p>The ROS4HRI ecosystem consists of several open-source packages available on GitHub, organized by feature area.</p>
+<div class="admonition-ros-version-support admonition">
+<p class="admonition-title">ROS version support</p>
+<p>ROS4HRI is primarily developed and tested on <strong>ROS 2 Humble</strong>.</p>
+<ul class="simple">
+<li><p><strong>ROS 1 Noetic</strong> is supported but in <strong>maintenance mode</strong> (no regular tests; no new developments; pull requests are however welcome).</p></li>
+<li><p>Support for <strong>ROS 2 Jazzy and Rolling</strong> is planned but not yet generally available.</p></li>
+</ul>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You are the author of a ROS4HRI-compliant node? We would love to feature it in this list! Open <a class="reference external" href="https://github.com/orgs/ros4hri/discussions/new?category=ideas">a
+discussion on the ROS4HRI GitHub organization</a>, or
+better yet, <strong>directly create a Pull Request</strong> <a class="reference external" href="https://github.com/ros4hri/ros4hri.github.io/blob/main/packages.rst">against this page</a>.</p>
+</div>
+<section id="core-libraries-messages">
+<h2>Core Libraries &amp; Messages<a class="headerlink" href="#core-libraries-messages" title="Link to this heading"></a></h2>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="interfaces/hri_msgs.html#hri-msgs-interfaces"><span class="std std-ref">hri_msgs interfaces</span></a></p></td>
+<td><p>Standard ROS messages for HRI (faces, bodies, voices, persons)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-&lt;distro&gt;-hri-msgs</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="interfaces/hri_actions_msgs.html#hri-actions-msgs-interfaces"><span class="std std-ref">hri_actions_msgs interfaces</span></a></p></td>
+<td><p>Standard ROS actions for HRI <a class="reference internal" href="reference/intents.html#intents"><span class="std std-ref">Intents</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-&lt;distro&gt;-hri-actions-msgs</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/human_description">human_description</a></p></td>
+<td><p>Standard URDF models for humans</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-&lt;distro&gt;-human-description</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="libhri.html#libhri"><span class="std std-ref">libhri (C++)</span></a></p></td>
+<td><p>C++ library to ease interaction with ROS4HRI topics</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-&lt;distro&gt;-hri</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyhri.html#pyhri"><span class="std std-ref">pyhri (Python)</span></a></p></td>
+<td><p>Python library to ease interaction with ROS4HRI topics</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-&lt;distro&gt;-pyhri</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="perception">
+<h2>Perception<a class="headerlink" href="#perception" title="Link to this heading"></a></h2>
+<section id="face-perception">
+<h3>Face Perception<a class="headerlink" href="#face-perception" title="Link to this heading"></a></h3>
+<p>Packages implementing face-related perception capabilities as defined in
+<a class="reference external" href="https://www.ros.org/reps/rep-0155.html#faces">REP-155 – Faces</a>.</p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Detection</p></th>
+<th class="head"><p>Landmarks</p></th>
+<th class="head"><p>Gaze</p></th>
+<th class="head"><p>Expression</p></th>
+<th class="head"><p>Recognition</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_face_detect">hri_face_detect</a></p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td></td>
+<td></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_emotion_recognizer">hri_emotion_recognizer</a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>✓</p></td>
+<td></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_face_identification">hri_face_identification</a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>✓</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="body-perception">
+<h3>Body Perception<a class="headerlink" href="#body-perception" title="Link to this heading"></a></h3>
+<p>Packages implementing body-related perception capabilities as defined in
+<a class="reference external" href="https://www.ros.org/reps/rep-0155.html#bodies">REP-155 – Bodies</a>.</p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 28.6%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 23.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>2D Skeleton</p></th>
+<th class="head"><p>3D Skeleton</p></th>
+<th class="head"><p>Hands</p></th>
+<th class="head"><p>TF frames</p></th>
+<th class="head"><p>Posture/Gestures</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_body_detect">hri_body_detect</a></p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td></td>
+<td><p>✓</p></td>
+<td><p>(basic)</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="voice-audio-perception">
+<h3>Voice &amp; Audio Perception<a class="headerlink" href="#voice-audio-perception" title="Link to this heading"></a></h3>
+<p>Packages implementing voice-related perception capabilities as defined in
+<a class="reference external" href="https://www.ros.org/reps/rep-0155.html#voices">REP-155 – Voices</a>.</p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 28.6%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 9.5%" />
+<col style="width: 23.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Audio Features</p></th>
+<th class="head"><p>Voice Activity Detection</p></th>
+<th class="head"><p>Speech Recognition</p></th>
+<th class="head"><p>Direction of speech</p></th>
+<th class="head"><p>Speaker ID</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/asr_vosk">asr_vosk</a></p></td>
+<td></td>
+<td></td>
+<td><p>✓ (<code class="docutils literal notranslate"><span class="pre">vosk</span></code>)</p></td>
+<td></td>
+<td></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="person-tracking-fusion">
+<h3>Person Tracking &amp; Fusion<a class="headerlink" href="#person-tracking-fusion" title="Link to this heading"></a></h3>
+<p>Packages implementing person-level tracking and multi-modal fusion as defined in
+<a class="reference external" href="https://www.ros.org/reps/rep-0155.html#persons">REP-155 – Persons</a>.</p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 31.6%" />
+<col style="width: 10.5%" />
+<col style="width: 10.5%" />
+<col style="width: 10.5%" />
+<col style="width: 10.5%" />
+<col style="width: 26.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Face/Body Matching</p></th>
+<th class="head"><p>Face/Voice Matching</p></th>
+<th class="head"><p>Person Fusion</p></th>
+<th class="head"><p>Engagement</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_face_body_matcher">hri_face_body_matcher</a></p></td>
+<td><p>✓</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-&lt;distro&gt;-hri-face-body-matcher</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_person_manager">hri_person_manager</a></p></td>
+<td></td>
+<td></td>
+<td><p>✓</p></td>
+<td></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_engagement">hri_engagement</a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>✓</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="interaction-skills">
+<h2>Interaction Skills<a class="headerlink" href="#interaction-skills" title="Link to this heading"></a></h2>
+<section id="standard-skill-definitions">
+<h3>Standard skill definitions<a class="headerlink" href="#standard-skill-definitions" title="Link to this heading"></a></h3>
+<p>Standard skill definitions for robot actions and behaviors. See <a class="reference internal" href="skills/index.html#skills"><span class="std std-ref">ROS4HRI Standard Skills</span></a>
+for the complete list.</p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Skills Defined</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="skills/index.html#communication-skills"><span class="std std-ref">Communication</span></a></p></td>
+<td><p>Verbal communication (Say, Chat, Ask)</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="skills/index.html#interaction-skills"><span class="std std-ref">Interaction</span></a></p></td>
+<td><p>Social interaction (LookAt, LookFor, LED effects, Expressions)</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="skills/index.html#navigation-skills"><span class="std std-ref">Navigation</span></a></p></td>
+<td><p>Navigation (Navigate, Waypoints, Zones)</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="skills/index.html#motions-skills"><span class="std std-ref">Motions</span></a></p></td>
+<td><p>Motion execution (Joint/Cartesian trajectories)</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="skills/index.html#manipulation-skills"><span class="std std-ref">Manipulation</span></a></p></td>
+<td><p>Manipulation (Grasp, Place, Hand control)</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These packages are skill <em>definitions</em>, not implementations. They define standard ROS action interfaces to enable interoperability. Use <a class="reference internal" href="tools/rpk.html#rpk"><span class="std std-ref">rpk</span></a> to generate skill implementation skeletons.</p>
+</div>
+</section>
+<section id="development-tools">
+<h3>Development Tools<a class="headerlink" href="#development-tools" title="Link to this heading"></a></h3>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="tools/rpk.html#rpk"><span class="std std-ref">rpk</span></a></p></td>
+<td><p>ROS4HRI package generator for skills, tasks, and applications</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">rpk</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ros4hri/architecture_schemas">architecture_schemas</a></p></td>
+<td><p>JSON schemas for skill definitions and validation</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/architecture_tools">architecture_tools</a></p></td>
+<td><p>Tools to validate and discover skills (<code class="docutils literal notranslate"><span class="pre">ament_archlint</span></code>)</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ros4hri/std_skills">std_skills</a></p></td>
+<td><p>Standard/common skills messages</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="visualization-debugging">
+<h2>Visualization &amp; Debugging<a class="headerlink" href="#visualization-debugging" title="Link to this heading"></a></h2>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_rviz">hri_rviz</a></p></td>
+<td><p>RViz plugins for visualizing HRI data (faces, bodies, persons)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-&lt;distro&gt;-hri-rviz</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ros4hri/hri_visualization">hri_visualization</a></p></td>
+<td><p>Camera image overlay with faces, bodies, emotions</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/rqt_human_radar">rqt_human_radar</a></p></td>
+<td><p>rqt plugin for radar-like human visualization</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ros4hri/rqt_chat">rqt_chat</a></p></td>
+<td><p>Chat interface for debugging dialogue systems</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/interaction_sim">interaction_sim</a></p></td>
+<td><p>ROS 2 simulation environment for HRI research</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="building-user-interface">
+<h2>Building User Interface<a class="headerlink" href="#building-user-interface" title="Link to this heading"></a></h2>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/ui_server">ui_server</a></p></td>
+<td><p>ROS 2 display server for interactive QML content</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ros4hri/ui_msgs">ui_msgs</a></p></td>
+<td><p>ROS 2 messages for UI server</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ros4hri/ros-qml-plugin">ros-qml-plugin</a></p></td>
+<td><p>QML plugin for ROS integration</p></td>
+<td><p><em>from sources</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="skills/index.html" class="btn btn-neutral float-right" title="ROS4HRI Standard Skills" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

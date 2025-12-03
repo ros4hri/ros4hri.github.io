@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_EngagementLevel:
+
+``hri_msgs/msg/EngagementLevel``
+================================
+
+.. literalinclude:: ../../src/hri_msgs/msg/EngagementLevel.msg
+   :language: python
+   :linenos:

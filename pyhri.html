@@ -1,0 +1,1554 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyhri (Python) &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hri_actions_msgs interfaces" href="interfaces/hri_actions_msgs.html" />
+    <link rel="prev" title="libhri (C++)" href="libhri.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="references.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="references.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="libhri.html">libhri (C++)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">pyhri (Python)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.Body"><code class="docutils literal notranslate"><span class="pre">Body</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.EngagementLevel"><code class="docutils literal notranslate"><span class="pre">EngagementLevel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.Expression"><code class="docutils literal notranslate"><span class="pre">Expression</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.Face"><code class="docutils literal notranslate"><span class="pre">Face</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.FacialActionUnit"><code class="docutils literal notranslate"><span class="pre">FacialActionUnit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.FacialLandmark"><code class="docutils literal notranslate"><span class="pre">FacialLandmark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.FeatureTracker"><code class="docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.Gender"><code class="docutils literal notranslate"><span class="pre">Gender</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.HRIListener"><code class="docutils literal notranslate"><span class="pre">HRIListener</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.SkeletalKeypoint"><code class="docutils literal notranslate"><span class="pre">SkeletalKeypoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyhri.Voice"><code class="docutils literal notranslate"><span class="pre">Voice</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references.html#skills">Skills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html#ros-interfaces">ROS Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html#ros4hri-compliant-nodes">ROS4HRI-compliant nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html#architecture-development">Architecture &amp; Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="references.html">API Reference</a></li>
+      <li class="breadcrumb-item active">pyhri (Python)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyhri.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pyhri">
+<span id="pyhri-python"></span><span id="pyhri"></span><h1>pyhri (Python)<a class="headerlink" href="#module-pyhri" title="Link to this heading"></a></h1>
+<p>Python wrapper library to the ROS4HRI (<a class="reference external" href="https://www.ros.org/reps/rep-0155.html">https://www.ros.org/reps/rep-0155.html</a>) framework.</p>
+<p>Each exported object is documented, to view it use <cite>print(&lt;class&gt;.__doc__)</cite> and/or
+<cite>help(&lt;class)</cite>.
+The main entry point for its usage is <a class="reference internal" href="#pyhri.HRIListener" title="pyhri.HRIListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">HRIListener</span></code></a> class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.Body">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">Body</span></span><a class="headerlink" href="#pyhri.Body" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyhri.FeatureTracker" title="pyhri.FeatureTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a></p>
+<p>The body feature instance being tracked.</p>
+<p>This class should be created and managed only by :py:class`HRIListener`, it is exposed only for read access
+purposes.
+It inherits from <a class="reference internal" href="#pyhri.FeatureTracker" title="pyhri.FeatureTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a>, check its documentation for additional properties.
+All its properties may return None if not available.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Body.cropped">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cropped</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Body.cropped" title="Link to this definition"></a></dt>
+<dd><p>Body image, cropped from the source image (numpy.ndarray)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Body.roi">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">roi</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Body.roi" title="Link to this definition"></a></dt>
+<dd><p>Normalized 2D region of interest (RoI) of the body (Tuple (x,y,width,height))</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Body.skeleton">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">skeleton</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyhri.SkeletalKeypoint" title="pyhri.SkeletalKeypoint"><span class="pre">SkeletalKeypoint</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">PointOfInterest</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Body.skeleton" title="Link to this definition"></a></dt>
+<dd><p>2D skeleton keypoints (Dict[SkeletalKeypoint, PointOfInterest])</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.EngagementLevel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">EngagementLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.EngagementLevel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.EngagementLevel.DISENGAGED">
+<span class="sig-name descname"><span class="pre">DISENGAGED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyhri.EngagementLevel.DISENGAGED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.EngagementLevel.DISENGAGING">
+<span class="sig-name descname"><span class="pre">DISENGAGING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#pyhri.EngagementLevel.DISENGAGING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.EngagementLevel.ENGAGED">
+<span class="sig-name descname"><span class="pre">ENGAGED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pyhri.EngagementLevel.ENGAGED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.EngagementLevel.ENGAGING">
+<span class="sig-name descname"><span class="pre">ENGAGING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyhri.EngagementLevel.ENGAGING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.Expression">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">Expression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.Expression" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.AMAZED">
+<span class="sig-name descname"><span class="pre">AMAZED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">23</span></em><a class="headerlink" href="#pyhri.Expression.AMAZED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.ANGRY">
+<span class="sig-name descname"><span class="pre">ANGRY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyhri.Expression.ANGRY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.ANNOYED">
+<span class="sig-name descname"><span class="pre">ANNOYED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#pyhri.Expression.ANNOYED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.ASLEEP">
+<span class="sig-name descname"><span class="pre">ASLEEP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">21</span></em><a class="headerlink" href="#pyhri.Expression.ASLEEP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.BORED">
+<span class="sig-name descname"><span class="pre">BORED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#pyhri.Expression.BORED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.CONFUSED">
+<span class="sig-name descname"><span class="pre">CONFUSED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></em><a class="headerlink" href="#pyhri.Expression.CONFUSED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.DESPAIRED">
+<span class="sig-name descname"><span class="pre">DESPAIRED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#pyhri.Expression.DESPAIRED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.DISAPPOINTED">
+<span class="sig-name descname"><span class="pre">DISAPPOINTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#pyhri.Expression.DISAPPOINTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.DISGUSTED">
+<span class="sig-name descname"><span class="pre">DISGUSTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#pyhri.Expression.DISGUSTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.EMBARRASSED">
+<span class="sig-name descname"><span class="pre">EMBARRASSED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#pyhri.Expression.EMBARRASSED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.EXCITED">
+<span class="sig-name descname"><span class="pre">EXCITED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">24</span></em><a class="headerlink" href="#pyhri.Expression.EXCITED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.FURIOUS">
+<span class="sig-name descname"><span class="pre">FURIOUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#pyhri.Expression.FURIOUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.GUILTY">
+<span class="sig-name descname"><span class="pre">GUILTY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#pyhri.Expression.GUILTY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.HAPPY">
+<span class="sig-name descname"><span class="pre">HAPPY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#pyhri.Expression.HAPPY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.HORRIFIED">
+<span class="sig-name descname"><span class="pre">HORRIFIED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#pyhri.Expression.HORRIFIED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.NEUTRAL">
+<span class="sig-name descname"><span class="pre">NEUTRAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyhri.Expression.NEUTRAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.PLEADING">
+<span class="sig-name descname"><span class="pre">PLEADING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#pyhri.Expression.PLEADING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.REJECTED">
+<span class="sig-name descname"><span class="pre">REJECTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#pyhri.Expression.REJECTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.SAD">
+<span class="sig-name descname"><span class="pre">SAD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pyhri.Expression.SAD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.SCARED">
+<span class="sig-name descname"><span class="pre">SCARED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#pyhri.Expression.SCARED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.SKEPTICAL">
+<span class="sig-name descname"><span class="pre">SKEPTICAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#pyhri.Expression.SKEPTICAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.SURPRISED">
+<span class="sig-name descname"><span class="pre">SURPRISED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pyhri.Expression.SURPRISED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.SUSPICIOUS">
+<span class="sig-name descname"><span class="pre">SUSPICIOUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#pyhri.Expression.SUSPICIOUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.TIRED">
+<span class="sig-name descname"><span class="pre">TIRED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#pyhri.Expression.TIRED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Expression.VULNERABLE">
+<span class="sig-name descname"><span class="pre">VULNERABLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#pyhri.Expression.VULNERABLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.Face">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">Face</span></span><a class="headerlink" href="#pyhri.Face" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyhri.FeatureTracker" title="pyhri.FeatureTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a></p>
+<p>The face feature instance being tracked.</p>
+<p>This class should be created and managed only by :py:class`HRIListener`, it is exposed only for read access
+purposes.
+It inherits from <a class="reference internal" href="#pyhri.FeatureTracker" title="pyhri.FeatureTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a>, check its documentation for additional properties.
+All its properties may return None if not available.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.age">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">age</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.age" title="Link to this definition"></a></dt>
+<dd><p>Person’s age in years (float)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.aligned">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aligned</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.aligned" title="Link to this definition"></a></dt>
+<dd><p>Face image, cropped and aligned from the source image (numpy.ndarray)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.cropped">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cropped</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.cropped" title="Link to this definition"></a></dt>
+<dd><p>Face image, cropped from the source image (numpy.ndarray)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.expression">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">expression</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Expression" title="pyhri.Expression"><span class="pre">Expression</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.expression" title="Link to this definition"></a></dt>
+<dd><p>Face expression as a discrete state</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.expression_confidence">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">expression_confidence</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.expression_confidence" title="Link to this definition"></a></dt>
+<dd><p>Person’s expression confidence</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.expression_va">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">expression_va</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ExpressionVA</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.expression_va" title="Link to this definition"></a></dt>
+<dd><p>Face expression as a continuous value in the circumplex model space (ExpressionVA)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.facial_action_units">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">facial_action_units</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyhri.FacialActionUnit" title="pyhri.FacialActionUnit"><span class="pre">FacialActionUnit</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">IntensityConfidence</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.facial_action_units" title="Link to this definition"></a></dt>
+<dd><p>Facial action units (Dict[FacialActionUnit, IntensityConfidence])</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.facial_landmarks">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">facial_landmarks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyhri.FacialLandmark" title="pyhri.FacialLandmark"><span class="pre">FacialLandmark</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">PointOfInterest</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.facial_landmarks" title="Link to this definition"></a></dt>
+<dd><p>Facial landmarks (Dict[FacialLandmark, PointOfInterest])</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.gaze_transform">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gaze_transform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">geometry_msgs.msg.TransformStamped</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.gaze_transform" title="Link to this definition"></a></dt>
+<dd><p>Gaze’s stamped 3D transform (geometry_msgs.msg.TransformStamped)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.gender">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gender</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Gender" title="pyhri.Gender"><span class="pre">Gender</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.gender" title="Link to this definition"></a></dt>
+<dd><p>Person’s gender (Gender)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Face.roi">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">roi</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Face.roi" title="Link to this definition"></a></dt>
+<dd><p>Normalized 2D region of interest (RoI) of the face (Tuple (x,y,width,height))</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">FacialActionUnit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.FacialActionUnit" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.BLINK">
+<span class="sig-name descname"><span class="pre">BLINK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">45</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.BLINK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.BROWS_AND_FOREHEAD_NOT_VISIBLE">
+<span class="sig-name descname"><span class="pre">BROWS_AND_FOREHEAD_NOT_VISIBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">70</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.BROWS_AND_FOREHEAD_NOT_VISIBLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.BROW_LOWERER">
+<span class="sig-name descname"><span class="pre">BROW_LOWERER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.BROW_LOWERER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.CHEEK_BLOW">
+<span class="sig-name descname"><span class="pre">CHEEK_BLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">33</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.CHEEK_BLOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.CHEEK_PUFF">
+<span class="sig-name descname"><span class="pre">CHEEK_PUFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">34</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.CHEEK_PUFF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.CHEEK_RAISER">
+<span class="sig-name descname"><span class="pre">CHEEK_RAISER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.CHEEK_RAISER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.CHEEK_SUCK">
+<span class="sig-name descname"><span class="pre">CHEEK_SUCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">35</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.CHEEK_SUCK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.CHEWING">
+<span class="sig-name descname"><span class="pre">CHEWING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">81</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.CHEWING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.CHIN_RAISER">
+<span class="sig-name descname"><span class="pre">CHIN_RAISER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.CHIN_RAISER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.CROSS_EYE">
+<span class="sig-name descname"><span class="pre">CROSS_EYE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">66</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.CROSS_EYE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.DIMPLER">
+<span class="sig-name descname"><span class="pre">DIMPLER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.DIMPLER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.ENTIRE_FACE_NOT_VISIBLE">
+<span class="sig-name descname"><span class="pre">ENTIRE_FACE_NOT_VISIBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">73</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.ENTIRE_FACE_NOT_VISIBLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.EYES_CLOSED">
+<span class="sig-name descname"><span class="pre">EYES_CLOSED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">43</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.EYES_CLOSED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.EYES_DOWN">
+<span class="sig-name descname"><span class="pre">EYES_DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.EYES_DOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.EYES_NOT_VISIBLE">
+<span class="sig-name descname"><span class="pre">EYES_NOT_VISIBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">71</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.EYES_NOT_VISIBLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.EYES_POSITIONED_TO_LOOK_AT_OTHER_PERSON">
+<span class="sig-name descname"><span class="pre">EYES_POSITIONED_TO_LOOK_AT_OTHER_PERSON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">69</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.EYES_POSITIONED_TO_LOOK_AT_OTHER_PERSON" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.EYES_TURN_LEFT">
+<span class="sig-name descname"><span class="pre">EYES_TURN_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">61</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.EYES_TURN_LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.EYES_TURN_RIGHT">
+<span class="sig-name descname"><span class="pre">EYES_TURN_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">62</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.EYES_TURN_RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.EYES_UP">
+<span class="sig-name descname"><span class="pre">EYES_UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">63</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.EYES_UP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.FAST_UP_DOWN_LOOK">
+<span class="sig-name descname"><span class="pre">FAST_UP_DOWN_LOOK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">94</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.FAST_UP_DOWN_LOOK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.FLASH">
+<span class="sig-name descname"><span class="pre">FLASH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">91</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.FLASH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_BACK">
+<span class="sig-name descname"><span class="pre">HEAD_BACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">58</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_BACK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_DOWN">
+<span class="sig-name descname"><span class="pre">HEAD_DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">54</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_DOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_FORWARD">
+<span class="sig-name descname"><span class="pre">HEAD_FORWARD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">57</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_FORWARD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_NOD_UP_AND_DOWN">
+<span class="sig-name descname"><span class="pre">HEAD_NOD_UP_AND_DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">84</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_NOD_UP_AND_DOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_SHAKE_BACK_AND_FORTH">
+<span class="sig-name descname"><span class="pre">HEAD_SHAKE_BACK_AND_FORTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">83</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_SHAKE_BACK_AND_FORTH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_TILT_LEFT">
+<span class="sig-name descname"><span class="pre">HEAD_TILT_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">55</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_TILT_LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_TILT_RIGHT">
+<span class="sig-name descname"><span class="pre">HEAD_TILT_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">56</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_TILT_RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_TURN_LEFT">
+<span class="sig-name descname"><span class="pre">HEAD_TURN_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">51</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_TURN_LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_TURN_RIGHT">
+<span class="sig-name descname"><span class="pre">HEAD_TURN_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">52</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_TURN_RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.HEAD_UP">
+<span class="sig-name descname"><span class="pre">HEAD_UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">53</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.HEAD_UP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.INNER_BROW_RAISER">
+<span class="sig-name descname"><span class="pre">INNER_BROW_RAISER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.INNER_BROW_RAISER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.JAW_CLENCHER">
+<span class="sig-name descname"><span class="pre">JAW_CLENCHER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">31</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.JAW_CLENCHER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.JAW_DROP">
+<span class="sig-name descname"><span class="pre">JAW_DROP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">26</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.JAW_DROP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.JAW_SIDEWAYS">
+<span class="sig-name descname"><span class="pre">JAW_SIDEWAYS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.JAW_SIDEWAYS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.JAW_THRUST">
+<span class="sig-name descname"><span class="pre">JAW_THRUST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">29</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.JAW_THRUST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LID_DROOP">
+<span class="sig-name descname"><span class="pre">LID_DROOP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">41</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LID_DROOP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LID_TIGHTENER">
+<span class="sig-name descname"><span class="pre">LID_TIGHTENER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LID_TIGHTENER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIPS_PART">
+<span class="sig-name descname"><span class="pre">LIPS_PART</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">25</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIPS_PART" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIPS_TOWARD_EACH_OTHER">
+<span class="sig-name descname"><span class="pre">LIPS_TOWARD_EACH_OTHER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIPS_TOWARD_EACH_OTHER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_BITE">
+<span class="sig-name descname"><span class="pre">LIP_BITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_BITE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_CORNER_DEPRESSOR">
+<span class="sig-name descname"><span class="pre">LIP_CORNER_DEPRESSOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_CORNER_DEPRESSOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_CORNER_PULLER">
+<span class="sig-name descname"><span class="pre">LIP_CORNER_PULLER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_CORNER_PULLER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_FUNNELER">
+<span class="sig-name descname"><span class="pre">LIP_FUNNELER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_FUNNELER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_PRESSOR">
+<span class="sig-name descname"><span class="pre">LIP_PRESSOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">24</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_PRESSOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_PUCKER">
+<span class="sig-name descname"><span class="pre">LIP_PUCKER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_PUCKER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_STRETCHER">
+<span class="sig-name descname"><span class="pre">LIP_STRETCHER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_STRETCHER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_SUCK">
+<span class="sig-name descname"><span class="pre">LIP_SUCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">28</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_SUCK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_TIGHTENER">
+<span class="sig-name descname"><span class="pre">LIP_TIGHTENER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">23</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_TIGHTENER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LIP_WIPE">
+<span class="sig-name descname"><span class="pre">LIP_WIPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">37</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LIP_WIPE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LOWER_FACE_NOT_VISIBLE">
+<span class="sig-name descname"><span class="pre">LOWER_FACE_NOT_VISIBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">72</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LOWER_FACE_NOT_VISIBLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.LOWER_LIP_DEPRESSOR">
+<span class="sig-name descname"><span class="pre">LOWER_LIP_DEPRESSOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.LOWER_LIP_DEPRESSOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.MOUTH_STRETCH">
+<span class="sig-name descname"><span class="pre">MOUTH_STRETCH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">27</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.MOUTH_STRETCH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.NASOLABIAL_DEEPENER">
+<span class="sig-name descname"><span class="pre">NASOLABIAL_DEEPENER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.NASOLABIAL_DEEPENER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.NECK_TIGHTENER">
+<span class="sig-name descname"><span class="pre">NECK_TIGHTENER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">21</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.NECK_TIGHTENER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.NEUTRAL_FACE">
+<span class="sig-name descname"><span class="pre">NEUTRAL_FACE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.NEUTRAL_FACE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.NOSE_WRINKLER">
+<span class="sig-name descname"><span class="pre">NOSE_WRINKLER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.NOSE_WRINKLER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.NOSTRIL_COMPRESSOR">
+<span class="sig-name descname"><span class="pre">NOSTRIL_COMPRESSOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">39</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.NOSTRIL_COMPRESSOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.NOSTRIL_DILATOR">
+<span class="sig-name descname"><span class="pre">NOSTRIL_DILATOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">38</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.NOSTRIL_DILATOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.OUTER_BROW_RAISER">
+<span class="sig-name descname"><span class="pre">OUTER_BROW_RAISER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.OUTER_BROW_RAISER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.PARTIAL_FLASH">
+<span class="sig-name descname"><span class="pre">PARTIAL_FLASH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">92</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.PARTIAL_FLASH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.SHARP_LIP_PULLER">
+<span class="sig-name descname"><span class="pre">SHARP_LIP_PULLER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.SHARP_LIP_PULLER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.SHIVER_TREMBLE">
+<span class="sig-name descname"><span class="pre">SHIVER_TREMBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">93</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.SHIVER_TREMBLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.SHOULDER_SHRUG">
+<span class="sig-name descname"><span class="pre">SHOULDER_SHRUG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">82</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.SHOULDER_SHRUG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.SLIT">
+<span class="sig-name descname"><span class="pre">SLIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">42</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.SLIT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.SNIFF">
+<span class="sig-name descname"><span class="pre">SNIFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.SNIFF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.SPEECH">
+<span class="sig-name descname"><span class="pre">SPEECH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.SPEECH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.SQUINT">
+<span class="sig-name descname"><span class="pre">SQUINT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">44</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.SQUINT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.SWALLOW">
+<span class="sig-name descname"><span class="pre">SWALLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">80</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.SWALLOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.TONGUE_BULGE">
+<span class="sig-name descname"><span class="pre">TONGUE_BULGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">36</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.TONGUE_BULGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.TONGUE_SHOW">
+<span class="sig-name descname"><span class="pre">TONGUE_SHOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.TONGUE_SHOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.UNSOCIABLE">
+<span class="sig-name descname"><span class="pre">UNSOCIABLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">74</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.UNSOCIABLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.UPPER_LID_RAISER">
+<span class="sig-name descname"><span class="pre">UPPER_LID_RAISER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.UPPER_LID_RAISER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.UPPER_LIP_RAISER">
+<span class="sig-name descname"><span class="pre">UPPER_LIP_RAISER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.UPPER_LIP_RAISER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.WALLEYE">
+<span class="sig-name descname"><span class="pre">WALLEYE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">65</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.WALLEYE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialActionUnit.WINK">
+<span class="sig-name descname"><span class="pre">WINK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">46</span></em><a class="headerlink" href="#pyhri.FacialActionUnit.WINK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">FacialLandmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.FacialLandmark" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EAR">
+<span class="sig-name descname"><span class="pre">LEFT_EAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYEBROW_1">
+<span class="sig-name descname"><span class="pre">LEFT_EYEBROW_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYEBROW_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYEBROW_2">
+<span class="sig-name descname"><span class="pre">LEFT_EYEBROW_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">31</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYEBROW_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYEBROW_3">
+<span class="sig-name descname"><span class="pre">LEFT_EYEBROW_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYEBROW_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYEBROW_INSIDE">
+<span class="sig-name descname"><span class="pre">LEFT_EYEBROW_INSIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">33</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYEBROW_INSIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYEBROW_OUTSIDE">
+<span class="sig-name descname"><span class="pre">LEFT_EYEBROW_OUTSIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">29</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYEBROW_OUTSIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYE_BOTTOM_1">
+<span class="sig-name descname"><span class="pre">LEFT_EYE_BOTTOM_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">38</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYE_BOTTOM_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYE_BOTTOM_2">
+<span class="sig-name descname"><span class="pre">LEFT_EYE_BOTTOM_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">39</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYE_BOTTOM_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYE_INSIDE">
+<span class="sig-name descname"><span class="pre">LEFT_EYE_INSIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">37</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYE_INSIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYE_OUTSIDE">
+<span class="sig-name descname"><span class="pre">LEFT_EYE_OUTSIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">34</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYE_OUTSIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYE_TOP_1">
+<span class="sig-name descname"><span class="pre">LEFT_EYE_TOP_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">35</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYE_TOP_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_EYE_TOP_2">
+<span class="sig-name descname"><span class="pre">LEFT_EYE_TOP_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">36</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_EYE_TOP_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_PROFILE_1">
+<span class="sig-name descname"><span class="pre">LEFT_PROFILE_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_PROFILE_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_PROFILE_2">
+<span class="sig-name descname"><span class="pre">LEFT_PROFILE_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_PROFILE_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_PROFILE_3">
+<span class="sig-name descname"><span class="pre">LEFT_PROFILE_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_PROFILE_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_PROFILE_4">
+<span class="sig-name descname"><span class="pre">LEFT_PROFILE_4</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_PROFILE_4" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_PROFILE_5">
+<span class="sig-name descname"><span class="pre">LEFT_PROFILE_5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_PROFILE_5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_PROFILE_6">
+<span class="sig-name descname"><span class="pre">LEFT_PROFILE_6</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_PROFILE_6" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_PROFILE_7">
+<span class="sig-name descname"><span class="pre">LEFT_PROFILE_7</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_PROFILE_7" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.LEFT_PUPIL">
+<span class="sig-name descname"><span class="pre">LEFT_PUPIL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#pyhri.FacialLandmark.LEFT_PUPIL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MENTON">
+<span class="sig-name descname"><span class="pre">MENTON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MENTON" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_1">
+<span class="sig-name descname"><span class="pre">MOUTH_INNER_BOTTOM_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">67</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_2">
+<span class="sig-name descname"><span class="pre">MOUTH_INNER_BOTTOM_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">68</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_3">
+<span class="sig-name descname"><span class="pre">MOUTH_INNER_BOTTOM_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">69</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_INNER_BOTTOM_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_INNER_LEFT">
+<span class="sig-name descname"><span class="pre">MOUTH_INNER_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">66</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_INNER_LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_INNER_RIGHT">
+<span class="sig-name descname"><span class="pre">MOUTH_INNER_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">62</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_INNER_RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_INNER_TOP_1">
+<span class="sig-name descname"><span class="pre">MOUTH_INNER_TOP_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">63</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_INNER_TOP_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_INNER_TOP_2">
+<span class="sig-name descname"><span class="pre">MOUTH_INNER_TOP_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_INNER_TOP_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_INNER_TOP_3">
+<span class="sig-name descname"><span class="pre">MOUTH_INNER_TOP_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">65</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_INNER_TOP_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_1">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_BOTTOM_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">57</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_2">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_BOTTOM_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">58</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_3">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_BOTTOM_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">59</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_4">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_BOTTOM_4</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">60</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_4" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_5">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_BOTTOM_5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">61</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_BOTTOM_5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_LEFT">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">56</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_RIGHT">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_TOP_1">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_TOP_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">51</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_TOP_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_TOP_2">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_TOP_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">52</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_TOP_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_TOP_3">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_TOP_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">53</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_TOP_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_TOP_4">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_TOP_4</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">54</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_TOP_4" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.MOUTH_OUTER_TOP_5">
+<span class="sig-name descname"><span class="pre">MOUTH_OUTER_TOP_5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">55</span></em><a class="headerlink" href="#pyhri.FacialLandmark.MOUTH_OUTER_TOP_5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.NOSE">
+<span class="sig-name descname"><span class="pre">NOSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">44</span></em><a class="headerlink" href="#pyhri.FacialLandmark.NOSE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.NOSE_1">
+<span class="sig-name descname"><span class="pre">NOSE_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">42</span></em><a class="headerlink" href="#pyhri.FacialLandmark.NOSE_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.NOSE_2">
+<span class="sig-name descname"><span class="pre">NOSE_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">43</span></em><a class="headerlink" href="#pyhri.FacialLandmark.NOSE_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.NOSTRIL_1">
+<span class="sig-name descname"><span class="pre">NOSTRIL_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">45</span></em><a class="headerlink" href="#pyhri.FacialLandmark.NOSTRIL_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.NOSTRIL_2">
+<span class="sig-name descname"><span class="pre">NOSTRIL_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">46</span></em><a class="headerlink" href="#pyhri.FacialLandmark.NOSTRIL_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.NOSTRIL_3">
+<span class="sig-name descname"><span class="pre">NOSTRIL_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">47</span></em><a class="headerlink" href="#pyhri.FacialLandmark.NOSTRIL_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.NOSTRIL_4">
+<span class="sig-name descname"><span class="pre">NOSTRIL_4</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">48</span></em><a class="headerlink" href="#pyhri.FacialLandmark.NOSTRIL_4" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.NOSTRIL_5">
+<span class="sig-name descname"><span class="pre">NOSTRIL_5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">49</span></em><a class="headerlink" href="#pyhri.FacialLandmark.NOSTRIL_5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EAR">
+<span class="sig-name descname"><span class="pre">RIGHT_EAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYEBROW_1">
+<span class="sig-name descname"><span class="pre">RIGHT_EYEBROW_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYEBROW_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYEBROW_2">
+<span class="sig-name descname"><span class="pre">RIGHT_EYEBROW_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYEBROW_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYEBROW_3">
+<span class="sig-name descname"><span class="pre">RIGHT_EYEBROW_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYEBROW_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYEBROW_INSIDE">
+<span class="sig-name descname"><span class="pre">RIGHT_EYEBROW_INSIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">21</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYEBROW_INSIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYEBROW_OUTSIDE">
+<span class="sig-name descname"><span class="pre">RIGHT_EYEBROW_OUTSIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYEBROW_OUTSIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYE_BOTTOM_1">
+<span class="sig-name descname"><span class="pre">RIGHT_EYE_BOTTOM_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">26</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYE_BOTTOM_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYE_BOTTOM_2">
+<span class="sig-name descname"><span class="pre">RIGHT_EYE_BOTTOM_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">27</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYE_BOTTOM_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYE_INSIDE">
+<span class="sig-name descname"><span class="pre">RIGHT_EYE_INSIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">25</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYE_INSIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYE_OUTSIDE">
+<span class="sig-name descname"><span class="pre">RIGHT_EYE_OUTSIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYE_OUTSIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYE_TOP_1">
+<span class="sig-name descname"><span class="pre">RIGHT_EYE_TOP_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">23</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYE_TOP_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_EYE_TOP_2">
+<span class="sig-name descname"><span class="pre">RIGHT_EYE_TOP_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">24</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_EYE_TOP_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_PROFILE_1">
+<span class="sig-name descname"><span class="pre">RIGHT_PROFILE_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_PROFILE_1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_PROFILE_2">
+<span class="sig-name descname"><span class="pre">RIGHT_PROFILE_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_PROFILE_2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_PROFILE_3">
+<span class="sig-name descname"><span class="pre">RIGHT_PROFILE_3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_PROFILE_3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_PROFILE_4">
+<span class="sig-name descname"><span class="pre">RIGHT_PROFILE_4</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_PROFILE_4" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_PROFILE_5">
+<span class="sig-name descname"><span class="pre">RIGHT_PROFILE_5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_PROFILE_5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_PROFILE_6">
+<span class="sig-name descname"><span class="pre">RIGHT_PROFILE_6</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_PROFILE_6" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_PROFILE_7">
+<span class="sig-name descname"><span class="pre">RIGHT_PROFILE_7</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_PROFILE_7" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.RIGHT_PUPIL">
+<span class="sig-name descname"><span class="pre">RIGHT_PUPIL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">28</span></em><a class="headerlink" href="#pyhri.FacialLandmark.RIGHT_PUPIL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.FacialLandmark.SELLION">
+<span class="sig-name descname"><span class="pre">SELLION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">41</span></em><a class="headerlink" href="#pyhri.FacialLandmark.SELLION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.FeatureTracker">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">FeatureTracker</span></span><a class="headerlink" href="#pyhri.FeatureTracker" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The generic feature instance being tracked.</p>
+<p>This class should be created and managed only by :py:class`HRIListener`, it is exposed
+only for read access purposes. All its properties may return None if not
+available.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.FeatureTracker.frame">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frame</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pyhri.FeatureTracker.frame" title="Link to this definition"></a></dt>
+<dd><p>Name of the tf frame that correspond to this feature</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.FeatureTracker.id">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pyhri.FeatureTracker.id" title="Link to this definition"></a></dt>
+<dd><p>Unique ID of this feature</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.FeatureTracker.ns">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pyhri.FeatureTracker.ns" title="Link to this definition"></a></dt>
+<dd><p>Fully-qualified topic namespace under which this feature is published</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.FeatureTracker.transform">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">geometry_msgs.msg.TransformStamped</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.FeatureTracker.transform" title="Link to this definition"></a></dt>
+<dd><p>Feature stamped 3D transform (geometry_msgs.msg.TransformStamped)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.FeatureTracker.valid">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">valid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#pyhri.FeatureTracker.valid" title="Link to this definition"></a></dt>
+<dd><p>Whether the feature is still ‘valid’, i.e., existing</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.Gender">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">Gender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.Gender" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Gender.FEMALE">
+<span class="sig-name descname"><span class="pre">FEMALE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyhri.Gender.FEMALE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Gender.MALE">
+<span class="sig-name descname"><span class="pre">MALE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyhri.Gender.MALE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.Gender.OTHER">
+<span class="sig-name descname"><span class="pre">OTHER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pyhri.Gender.OTHER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.HRIListener">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">HRIListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_spin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_sim_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main entry point to the library.</p>
+<p>The class must be instantiated through the factory function <code class="docutils literal notranslate"><span class="pre">create</span></code>.
+I will spawn a ROS node and use it to subscribe to all the ROS4HRI topics.
+The tracked features information can be accessed in Python native objects throught this object
+properties.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.HRIListener.bodies">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bodies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Body" title="pyhri.Body"><span class="pre">Body</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pyhri.HRIListener.bodies" title="Link to this definition"></a></dt>
+<dd><p>Currently tracked bodies (Dict[str, Body])</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.HRIListener.faces">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Face" title="pyhri.Face"><span class="pre">Face</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pyhri.HRIListener.faces" title="Link to this definition"></a></dt>
+<dd><p>Currently tracked faces (Dict[str, Face])</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_body">
+<span class="sig-name descname"><span class="pre">on_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyhri.Body" title="pyhri.Body"><span class="pre">Body</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_body" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a new body is tracked</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_body_lost">
+<span class="sig-name descname"><span class="pre">on_body_lost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_body_lost" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a tracked body is lost</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_face">
+<span class="sig-name descname"><span class="pre">on_face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyhri.Face" title="pyhri.Face"><span class="pre">Face</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_face" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a new face is tracked</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_face_lost">
+<span class="sig-name descname"><span class="pre">on_face_lost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_face_lost" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a tracked face is lost</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_person">
+<span class="sig-name descname"><span class="pre">on_person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyhri.Person" title="pyhri.Person"><span class="pre">Person</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_person" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a new person is known</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_person_lost">
+<span class="sig-name descname"><span class="pre">on_person_lost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_person_lost" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a known person is forgotten</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_tracked_person">
+<span class="sig-name descname"><span class="pre">on_tracked_person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyhri.Person" title="pyhri.Person"><span class="pre">Person</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_tracked_person" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a new person is tracked</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_tracked_person_lost">
+<span class="sig-name descname"><span class="pre">on_tracked_person_lost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_tracked_person_lost" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a tracked person is lost</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_voice">
+<span class="sig-name descname"><span class="pre">on_voice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyhri.Voice" title="pyhri.Voice"><span class="pre">Voice</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_voice" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a new voice is tracked</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.on_voice_lost">
+<span class="sig-name descname"><span class="pre">on_voice_lost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.on_voice_lost" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a tracked voice is lost</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.HRIListener.persons">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">persons</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Person" title="pyhri.Person"><span class="pre">Person</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pyhri.HRIListener.persons" title="Link to this definition"></a></dt>
+<dd><p>Currently known persons (Dict[str, Person])</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.set_reference_frame">
+<span class="sig-name descname"><span class="pre">set_reference_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.set_reference_frame" title="Link to this definition"></a></dt>
+<dd><p>Selects the reference frame for all the <cite>transform</cite> properties</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.HRIListener.spin_all">
+<span class="sig-name descname"><span class="pre">spin_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.HRIListener.spin_all" title="Link to this definition"></a></dt>
+<dd><p>If the class node does not spin automatically, this function must be called
+regularly to manually spin it.
+Internally calls rclcpp::executors::SingleThreadedExecutor::spin_all()</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.HRIListener.tracked_persons">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tracked_persons</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Person" title="pyhri.Person"><span class="pre">Person</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pyhri.HRIListener.tracked_persons" title="Link to this definition"></a></dt>
+<dd><p>Currently tracked persons (Dict[str, Person])</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.HRIListener.voices">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">voices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Voice" title="pyhri.Voice"><span class="pre">Voice</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pyhri.HRIListener.voices" title="Link to this definition"></a></dt>
+<dd><p>Currently tracked voices (Dict[str, Voice])</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.Person">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">Person</span></span><a class="headerlink" href="#pyhri.Person" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyhri.FeatureTracker" title="pyhri.FeatureTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a></p>
+<p>The person feature instance being tracked or known.</p>
+<p>This class should be created and managed only by :py:class`HRIListener`, it is exposed only for read access
+purposes.
+It inherits from <a class="reference internal" href="#pyhri.FeatureTracker" title="pyhri.FeatureTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a>, check its documentation for additional properties.
+All its properties may return None if not available.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Person.alias">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Person.alias" title="Link to this definition"></a></dt>
+<dd><p>ID of another Person object associated with the same person (str)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Person.anonymous">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">anonymous</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#pyhri.Person.anonymous" title="Link to this definition"></a></dt>
+<dd><p>Whether the person has not been identified yet (bool)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Person.body">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">body</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Body" title="pyhri.Body"><span class="pre">Body</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Person.body" title="Link to this definition"></a></dt>
+<dd><p>Body associated with the person (Body)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Person.engagement_status">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">engagement_status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.EngagementLevel" title="pyhri.EngagementLevel"><span class="pre">EngagementLevel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Person.engagement_status" title="Link to this definition"></a></dt>
+<dd><p>Current engagement status with the robot (EngagementLevel)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Person.face">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Face" title="pyhri.Face"><span class="pre">Face</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Person.face" title="Link to this definition"></a></dt>
+<dd><p>Face associated with the person (Face)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Person.location_confidence">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">location_confidence</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#pyhri.Person.location_confidence" title="Link to this definition"></a></dt>
+<dd><p>confidence of the person transform estimate (float [0., 1.])</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Person.voice">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">voice</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyhri.Voice" title="pyhri.Voice"><span class="pre">Voice</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Person.voice" title="Link to this definition"></a></dt>
+<dd><p>Voice associated with the person (Voice)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">SkeletalKeypoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.SkeletalKeypoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.LEFT_ANKLE">
+<span class="sig-name descname"><span class="pre">LEFT_ANKLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.LEFT_ANKLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.LEFT_EAR">
+<span class="sig-name descname"><span class="pre">LEFT_EAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.LEFT_EAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.LEFT_ELBOW">
+<span class="sig-name descname"><span class="pre">LEFT_ELBOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.LEFT_ELBOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.LEFT_EYE">
+<span class="sig-name descname"><span class="pre">LEFT_EYE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.LEFT_EYE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.LEFT_HIP">
+<span class="sig-name descname"><span class="pre">LEFT_HIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.LEFT_HIP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.LEFT_KNEE">
+<span class="sig-name descname"><span class="pre">LEFT_KNEE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.LEFT_KNEE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.LEFT_SHOULDER">
+<span class="sig-name descname"><span class="pre">LEFT_SHOULDER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.LEFT_SHOULDER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.LEFT_WRIST">
+<span class="sig-name descname"><span class="pre">LEFT_WRIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.LEFT_WRIST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.NECK">
+<span class="sig-name descname"><span class="pre">NECK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.NECK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.NOSE">
+<span class="sig-name descname"><span class="pre">NOSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.NOSE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.RIGHT_ANKLE">
+<span class="sig-name descname"><span class="pre">RIGHT_ANKLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.RIGHT_ANKLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.RIGHT_EAR">
+<span class="sig-name descname"><span class="pre">RIGHT_EAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.RIGHT_EAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.RIGHT_ELBOW">
+<span class="sig-name descname"><span class="pre">RIGHT_ELBOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.RIGHT_ELBOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.RIGHT_EYE">
+<span class="sig-name descname"><span class="pre">RIGHT_EYE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.RIGHT_EYE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.RIGHT_HIP">
+<span class="sig-name descname"><span class="pre">RIGHT_HIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.RIGHT_HIP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.RIGHT_KNEE">
+<span class="sig-name descname"><span class="pre">RIGHT_KNEE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.RIGHT_KNEE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.RIGHT_SHOULDER">
+<span class="sig-name descname"><span class="pre">RIGHT_SHOULDER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.RIGHT_SHOULDER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyhri.SkeletalKeypoint.RIGHT_WRIST">
+<span class="sig-name descname"><span class="pre">RIGHT_WRIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pyhri.SkeletalKeypoint.RIGHT_WRIST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyhri.Voice">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyhri.</span></span><span class="sig-name descname"><span class="pre">Voice</span></span><a class="headerlink" href="#pyhri.Voice" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyhri.FeatureTracker" title="pyhri.FeatureTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a></p>
+<p>The voice feature instance being tracked.</p>
+<p>This class should be created and managed only by :py:class`HRIListener`, it is exposed only for read access
+purposes.
+It inherits from <a class="reference internal" href="#pyhri.FeatureTracker" title="pyhri.FeatureTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a>, check its documentation for additional properties.
+All its properties may return None if not available.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Voice.incremental_speech">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">incremental_speech</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Voice.incremental_speech" title="Link to this definition"></a></dt>
+<dd><p>Last recognised incremental sentence (str)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Voice.is_speaking">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_speaking</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#pyhri.Voice.is_speaking" title="Link to this definition"></a></dt>
+<dd><p>Whether speech is currently detected in this voice (bool)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Voice.locale">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">locale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Voice.locale" title="Link to this definition"></a></dt>
+<dd><p>Last recognised speech locale (str)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.Voice.on_incremental_speech">
+<span class="sig-name descname"><span class="pre">on_incremental_speech</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.Voice.on_incremental_speech" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime an incremental sentence is detected</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.Voice.on_speaking">
+<span class="sig-name descname"><span class="pre">on_speaking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.Voice.on_speaking" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime speech is detected</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyhri.Voice.on_speech">
+<span class="sig-name descname"><span class="pre">on_speech</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyhri.Voice.on_speech" title="Link to this definition"></a></dt>
+<dd><p>Registers a callback function, to be invoked everytime a final sentence is detected</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyhri.Voice.speech">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">speech</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyhri.Voice.speech" title="Link to this definition"></a></dt>
+<dd><p>Last recognised final sentence (str)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="libhri.html" class="btn btn-neutral float-left" title="libhri (C++)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="interfaces/hri_actions_msgs.html" class="btn btn-neutral float-right" title="hri_actions_msgs interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

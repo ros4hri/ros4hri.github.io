@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhri_1_1FeatureTracker" kind="class" language="C++" prot="public">
+    <compoundname>hri::FeatureTracker</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::enable_shared_from_this&lt; FeatureTracker &gt;</basecompoundref>
+    <derivedcompoundref refid="classhri_1_1Body" prot="public" virt="non-virtual">hri::Body</derivedcompoundref>
+    <derivedcompoundref refid="classhri_1_1Face" prot="public" virt="non-virtual">hri::Face</derivedcompoundref>
+    <derivedcompoundref refid="classhri_1_1Person" prot="public" virt="non-virtual">hri::Person</derivedcompoundref>
+    <derivedcompoundref refid="classhri_1_1Voice" prot="public" virt="non-virtual">hri::Voice</derivedcompoundref>
+    <includes refid="feature__tracker_8hpp" local="no">feature_tracker.hpp</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhri_1_1FeatureTracker_1a1f365657741b753fcb2c8988646f3941" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref></type>
+        <definition>const ID hri::FeatureTracker::kId_</definition>
+        <argsstring></argsstring>
+        <name>kId_</name>
+        <qualifiedname>hri::FeatureTracker::kId_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="102" column="12" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1FeatureTracker_1a612926f881088d7b96be64486a44b02d" prot="protected" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string hri::FeatureTracker::kNs_</definition>
+        <argsstring></argsstring>
+        <name>kNs_</name>
+        <qualifiedname>hri::FeatureTracker::kNs_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="103" column="21" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1FeatureTracker_1acae8abd9b6c5cdc506e95e43d37f8a7b" prot="protected" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string hri::FeatureTracker::kFrame_</definition>
+        <argsstring></argsstring>
+        <name>kFrame_</name>
+        <qualifiedname>hri::FeatureTracker::kFrame_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="104" column="21" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1FeatureTracker_1aefbc9921cbebb02b83ccd6a5c3bde850" prot="protected" static="no" mutable="no">
+        <type><ref refid="structhri_1_1NodeInterfaces" kindref="compound">NodeInterfaces</ref></type>
+        <definition>NodeInterfaces hri::FeatureTracker::node_interfaces_</definition>
+        <argsstring></argsstring>
+        <name>node_interfaces_</name>
+        <qualifiedname>hri::FeatureTracker::node_interfaces_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="106" column="18" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1FeatureTracker_1a42eb9bd6fb5f250049d51f573298be52" prot="protected" static="no" mutable="no">
+        <type>rclcpp::CallbackGroup::SharedPtr</type>
+        <definition>rclcpp::CallbackGroup::SharedPtr hri::FeatureTracker::callback_group_</definition>
+        <argsstring></argsstring>
+        <name>callback_group_</name>
+        <qualifiedname>hri::FeatureTracker::callback_group_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="107" column="36" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1FeatureTracker_1a9285e67d97e1e6dec3f140e0af4825c6" prot="protected" static="no" mutable="no">
+        <type>const tf2::BufferCore &amp;</type>
+        <definition>const tf2::BufferCore&amp; hri::FeatureTracker::tf_buffer_</definition>
+        <argsstring></argsstring>
+        <name>tf_buffer_</name>
+        <qualifiedname>hri::FeatureTracker::tf_buffer_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="109" column="26" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1FeatureTracker_1a7d8647d6a3f36d9c402b75ce4ead1004" prot="protected" static="no" mutable="no">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; hri::FeatureTracker::reference_frame_</definition>
+        <argsstring></argsstring>
+        <name>reference_frame_</name>
+        <qualifiedname>hri::FeatureTracker::reference_frame_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="110" column="22" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1FeatureTracker_1a59f6a76a0b1e3eececdad701fb34df63" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool hri::FeatureTracker::valid_</definition>
+        <argsstring></argsstring>
+        <name>valid_</name>
+        <qualifiedname>hri::FeatureTracker::valid_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="112" column="8" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="112" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1a009c18c2c088bbb45fac5c026f0eee7a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hri::FeatureTracker::FeatureTracker</definition>
+        <argsstring>(ID id, std::string feature_ns, std::string feature_tf_prefix, NodeInterfaces node_interfaces, rclcpp::CallbackGroup::SharedPtr callback_group, const tf2::BufferCore &amp;tf_buffer, const std::string &amp;reference_frame)</argsstring>
+        <name>FeatureTracker</name>
+        <qualifiedname>hri::FeatureTracker::FeatureTracker</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>feature_ns</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>feature_tf_prefix</declname>
+        </param>
+        <param>
+          <type><ref refid="structhri_1_1NodeInterfaces" kindref="compound">NodeInterfaces</ref></type>
+          <declname>node_interfaces</declname>
+        </param>
+        <param>
+          <type>rclcpp::CallbackGroup::SharedPtr</type>
+          <declname>callback_group</declname>
+        </param>
+        <param>
+          <type>const tf2::BufferCore &amp;</type>
+          <declname>tf_buffer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>reference_frame</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new feature tracker (eg, a face, body or voice tracker). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This constructor should not be called directly. Instead, use one of the specialization: <ref refid="classhri_1_1Face" kindref="compound">hri::Face</ref>, <ref refid="classhri_1_1Body" kindref="compound">hri::Body</ref>, <ref refid="classhri_1_1Voice" kindref="compound">hri::Voice</ref>.</para>
+<para>Note however that instances would normally be automatically created, and accessed via the methods exposed by <ref refid="classhri_1_1HRIListener" kindref="compound">hri::HRIListener</ref>.</para>
+<para>Note that the resulting instance is non-copyable, as it includes non-trivial, and typically non-reentrant, logic to subscribe/unsubscribe HRI-related topics. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="45" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1a7adc2f010a3cdd903c69f9c286cc2df9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual hri::FeatureTracker::~FeatureTracker</definition>
+        <argsstring>()=default</argsstring>
+        <name>~FeatureTracker</name>
+        <qualifiedname>hri::FeatureTracker::~FeatureTracker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="54" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1aa08f881641921ff829b3bcd98b45a5fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hri::FeatureTracker::FeatureTracker</definition>
+        <argsstring>(const FeatureTracker &amp;)=delete</argsstring>
+        <name>FeatureTracker</name>
+        <qualifiedname>hri::FeatureTracker::FeatureTracker</qualifiedname>
+        <param>
+          <type>const <ref refid="classhri_1_1FeatureTracker" kindref="compound">FeatureTracker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="58" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1a43d6bf1b61128ef049d00b62501ab3ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref></type>
+        <definition>ID hri::FeatureTracker::id</definition>
+        <argsstring>() const</argsstring>
+        <name>id</name>
+        <qualifiedname>hri::FeatureTracker::id</qualifiedname>
+        <briefdescription>
+<para>Returns the unique ID of this feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>:see: FeatureTracker::getNamespace, to access the fully-qualified topic namespace under which this feature is published. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="65" column="6" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1a0bdb0b615c40a1845ea0b19eb627d35e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string hri::FeatureTracker::ns</definition>
+        <argsstring>() const</argsstring>
+        <name>ns</name>
+        <qualifiedname>hri::FeatureTracker::ns</qualifiedname>
+        <briefdescription>
+<para>Returns the topic namespace under which this feature is advertised. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="69" column="15" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1ac817d863585935b45fc0c94cbdd7ab81" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string hri::FeatureTracker::frame</definition>
+        <argsstring>() const</argsstring>
+        <name>frame</name>
+        <qualifiedname>hri::FeatureTracker::frame</qualifiedname>
+        <briefdescription>
+<para>Returns the name of the tf frame that correspond to this feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="73" column="15" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1aad82e477aa6f1c85487bd396a2623d45" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hri::FeatureTracker::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>hri::FeatureTracker::valid</qualifiedname>
+        <briefdescription>
+<para>Returns whether the feature is still &apos;valid&apos;, i.e., existing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If not, then the feature is not functional, all the optional members will be reset and the topic subsciptions terminated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="80" column="8" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1a7f8e9739cc1b36a3065d14ab4625a9fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::optional&lt; geometry_msgs::msg::TransformStamped &gt;</type>
+        <definition>virtual std::optional&lt; geometry_msgs::msg::TransformStamped &gt; hri::FeatureTracker::transform</definition>
+        <argsstring>() const</argsstring>
+        <name>transform</name>
+        <qualifiedname>hri::FeatureTracker::transform</qualifiedname>
+        <reimplementedby refid="classhri_1_1Person_1ae5f47b1e382fdfa596ebe2983dd72b86">transform</reimplementedby>
+        <briefdescription>
+<para>Returns the estimated (stamped) 3D transform of self (if available). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="85" column="25" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1a3358226d4cefa6e9594549f2032ecd13" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hri::FeatureTracker::operator&lt;</definition>
+        <argsstring>(const FeatureTracker &amp;other) const</argsstring>
+        <name>operator&lt;</name>
+        <qualifiedname>hri::FeatureTracker::operator&lt;</qualifiedname>
+        <param>
+          <type>const <ref refid="classhri_1_1FeatureTracker" kindref="compound">FeatureTracker</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="90" column="3" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="90" bodyend="90"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1a9722026f0229718e259c2b037c271520" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; geometry_msgs::msg::TransformStamped &gt;</type>
+        <definition>std::optional&lt; geometry_msgs::msg::TransformStamped &gt; hri::FeatureTracker::transformFromReference</definition>
+        <argsstring>(std::string frame_name) const</argsstring>
+        <name>transformFromReference</name>
+        <qualifiedname>hri::FeatureTracker::transformFromReference</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>frame_name</declname>
+        </param>
+        <briefdescription>
+<para>Returns the estimated (stamped) 3D transform of the argument frame (if available). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="95" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1FeatureTracker_1a3db7914ec0ac4ec1a9a604105f48bae4" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::FeatureTracker::invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate</name>
+        <qualifiedname>hri::FeatureTracker::invalidate</qualifiedname>
+        <briefdescription>
+<para>Makes the feature &apos;invalid&apos;, i.e., not existing anymore. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="100" column="8" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="100" bodyend="100"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>hri::Body</label>
+        <link refid="classhri_1_1Body"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>hri::Face</label>
+        <link refid="classhri_1_1Face"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>hri::Person</label>
+        <link refid="classhri_1_1Person"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>hri::Voice</label>
+        <link refid="classhri_1_1Voice"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>node_interfaces_</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>hri::NodeInterfaces</label>
+        <link refid="structhri_1_1NodeInterfaces"/>
+      </node>
+      <node id="2">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/libhri/hri/include/hri/feature_tracker.hpp" line="30" column="1" bodyfile="src/libhri/hri/include/hri/feature_tracker.hpp" bodystart="31" bodyend="113"/>
+    <listofallmembers>
+      <member refid="classhri_1_1FeatureTracker_1a42eb9bd6fb5f250049d51f573298be52" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>callback_group_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a009c18c2c088bbb45fac5c026f0eee7a" prot="public" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aa08f881641921ff829b3bcd98b45a5fa" prot="public" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1ac817d863585935b45fc0c94cbdd7ab81" prot="public" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>frame</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a43d6bf1b61128ef049d00b62501ab3ed" prot="public" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>id</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a3db7914ec0ac4ec1a9a604105f48bae4" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>invalidate</name></member>
+      <member refid="classhri_1_1FeatureTracker_1acae8abd9b6c5cdc506e95e43d37f8a7b" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>kFrame_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a1f365657741b753fcb2c8988646f3941" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>kId_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a612926f881088d7b96be64486a44b02d" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>kNs_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aefbc9921cbebb02b83ccd6a5c3bde850" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>node_interfaces_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a0bdb0b615c40a1845ea0b19eb627d35e" prot="public" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>ns</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a3358226d4cefa6e9594549f2032ecd13" prot="public" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>operator&lt;</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7d8647d6a3f36d9c402b75ce4ead1004" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>reference_frame_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9285e67d97e1e6dec3f140e0af4825c6" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>tf_buffer_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7f8e9739cc1b36a3065d14ab4625a9fc" prot="public" virt="virtual"><scope>hri::FeatureTracker</scope><name>transform</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9722026f0229718e259c2b037c271520" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>transformFromReference</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aad82e477aa6f1c85487bd396a2623d45" prot="public" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>valid</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a59f6a76a0b1e3eececdad701fb34df63" prot="protected" virt="non-virtual"><scope>hri::FeatureTracker</scope><name>valid_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7adc2f010a3cdd903c69f9c286cc2df9" prot="public" virt="virtual"><scope>hri::FeatureTracker</scope><name>~FeatureTracker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

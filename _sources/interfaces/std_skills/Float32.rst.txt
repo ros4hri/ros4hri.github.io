@@ -1,0 +1,8 @@
+.. _std_skills_msg_Float32:
+
+``std_skills/msg/Float32``
+==========================
+
+.. literalinclude:: ../../src/std_skills/msg/Float32.msg
+   :language: python
+   :linenos:

@@ -1,0 +1,8 @@
+.. _std_skills_msg_UInt32:
+
+``std_skills/msg/UInt32``
+=========================
+
+.. literalinclude:: ../../src/std_skills/msg/UInt32.msg
+   :language: python
+   :linenos:

@@ -1,0 +1,8 @@
+.. _motions_skills_action_ExecuteCartesianTrajectory:
+
+``motions_skills/action/ExecuteCartesianTrajectory``
+====================================================
+
+.. literalinclude:: ../../src/motions_skills/action/ExecuteCartesianTrajectory.action
+   :language: python
+   :linenos:

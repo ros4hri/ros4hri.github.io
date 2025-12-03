@@ -1,0 +1,14 @@
+.. _motions_skills_interfaces:
+
+motions_skills interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``motions_skills``.
+
+**Source repository**: `ros4hri/motions_skills <https: //github.com/ros4hri/motions_skills>`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   motions_skills/ExecuteCartesianTrajectory
+   motions_skills/ExecuteJointTrajectory

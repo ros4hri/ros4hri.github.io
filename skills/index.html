@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS4HRI Standard Skills &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+const defaultStyle = document.createElement('style');
+defaultStyle.textContent = `pre.mermaid {
+    /* Same as .mermaid-container > pre */
+    display: block;
+    width: 100%;
+}
+
+pre.mermaid > svg {
+    /* Same as .mermaid-container > pre > svg */
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+`;
+document.head.appendChild(defaultStyle);
+
+const fullscreenStyle = document.createElement('style');
+fullscreenStyle.textContent = `.mermaid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mermaid-container > pre {
+    display: block;
+    width: 100%;
+}
+
+.mermaid-container > pre > svg {
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+.mermaid-fullscreen-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}
+
+.mermaid-fullscreen-btn:hover {
+    opacity: 100% !important;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-btn.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-btn.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 95vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    padding: 20px;
+    overflow: auto;
+}
+
+.mermaid-fullscreen-modal.dark-theme {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.mermaid-fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen {
+    position: relative;
+    width: 95vw;
+    height: 90vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen.dark-theme {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.mermaid-container-fullscreen pre.mermaid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen .mermaid svg {
+    height: 100% !important;
+    width: 100% !important;
+    cursor: grab;
+}
+
+.mermaid-fullscreen-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.mermaid-fullscreen-close:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-close.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-close.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
+    display: none !important;
+}`;
+document.head.appendChild(fullscreenStyle);
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        return brightness < 128;
+    }
+    return false;
+};
+
+const load = async () => {
+    await mermaid.run();
+
+    const all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+
+    if ("False" === "True") {
+        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("");
+            if(all_mermaids.length !== mermaids_processed.length) {
+                setTimeout(load, 200);
+                return;
+            } else if(svgs.size() !== mermaids_to_add_zoom) {
+                setTimeout(load, 200);
+                return;
+            } else {
+                svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                        inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                });
+            }
+        }
+    } else if(all_mermaids.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(load, 200);
+        return;
+    }
+
+    const darkTheme = isDarkTheme();
+
+    // Stop here if not adding fullscreen capability
+    if ("True" !== "True") return;
+
+    const modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    const modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    let previousScrollOffset = [window.scrollX, window.scrollY];
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    const allButtons = [];
+
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.style.opacity = '50%';
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scroll, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.sdisplay = 'block';
+
+                if ("False" === "True") {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        container.appendChild(fullscreenBtn);
+        allButtons.push(fullscreenBtn);
+    });
+
+    // Update theme classes when theme changes
+    const updateTheme = () => {
+        const dark = isDarkTheme();
+        allButtons.forEach(btn => {
+            if (dark) {
+                btn.classList.add('dark-theme');
+            } else {
+                btn.classList.remove('dark-theme');
+            }
+        });
+        if (dark) {
+            modal.classList.add('dark-theme');
+            modalContent.classList.add('dark-theme');
+            closeBtn.classList.add('dark-theme');
+        } else {
+            modal.classList.remove('dark-theme');
+            modalContent.classList.remove('dark-theme');
+            closeBtn.classList.remove('dark-theme');
+        }
+    };
+
+    // Watch for theme changes
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style']
+    });
+};
+
+window.addEventListener("load", load);
+</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Skill ask_human_for_help" href="skill-ask_human_for_help.html" />
+    <link rel="prev" title="Open-source ROS4HRI packages" href="../packages.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="../_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS4HRI Standard Skills</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-skills">Working with skills</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-a-skill">Implementing a skill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-an-existing-node-compliant-with-ros4hri-skills">Making an existing node compliant with ROS4HRI skills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-an-open-source-skill-implementation">Sharing an open-source skill implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-skill-and-submitting-it-to-ros4hri">Creating a new skill and submitting it to ROS4HRI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proposing-a-change-extension-to-a-skill">Proposing a change/extension to a skill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proposing-a-new-domain">Proposing a new domain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-skills">List of skills</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#communication">Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interaction">Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manipulation">Manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#motions">Motions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation">Navigation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS4HRI Standard Skills</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/skills/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros4hri-standard-skills">
+<span id="skills"></span><h1>ROS4HRI Standard Skills<a class="headerlink" href="#ros4hri-standard-skills" title="Link to this heading"></a></h1>
+<a class="reference internal image-reference" href="../_images/skills.webp"><img alt="ROS4HRI skills" class="align-center" src="../_images/skills.webp" style="width: 20%;" />
+</a>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p><strong>Skills</strong> are capabilities built into your robot. In practice, they are <strong>regular ROS nodes</strong>,
+exposing <strong>standard ROS interfaces</strong> (actions, services or topics).</p>
+<p><strong>What  make them special, however, is that they follow a well-defined
+interface</strong>, exposed in a manifest file: the <strong>skill definition</strong>. You can find here
+the schema of a <a class="reference external" href="https://www.github.com/ros4hri/architecture_schemas/blob/main/schemas/skill.schema.json">valid skill definition</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>To facilitate interoperability, <strong>ROS4HRI provides definitions for a set of
+standard skills</strong>, listed <a class="reference internal" href="#list-of-skills"><span class="std std-ref">below</span></a>. If you plan to implement one of these
+capabilities, please <strong>ensure your implementation is compliant</strong> with the
+corresponding skill definition.</p>
+</div>
+<p>Skills are organised in <strong>domains</strong>, as shown below:</p>
+<pre  class="mermaid">
+        flowchart TB
+ subgraph subGraph0[&quot;Domains &amp; skill definitions&quot;]
+        communication[&quot;&lt;b&gt;Communication&lt;/b&gt;&lt;br&gt;&lt;tt&gt;ros4hri/communication_skills&lt;/tt&gt;&quot;]
+        navigation[&quot;&lt;b&gt;Navigation&lt;/b&gt;&lt;br&gt;&lt;tt&gt;ros4hri/navigation_skills&lt;/tt&gt;&quot;]
+        motions[&quot;&lt;b&gt;Motions&lt;/b&gt;&lt;br&gt;&lt;tt&gt;ros4hri/motions_skills&lt;/tt&gt;&quot;]
+        manipulation[&quot;&lt;b&gt;Manipulation&lt;/b&gt;&lt;br&gt;&lt;tt&gt;ros4hri/manipulation_skills&lt;/tt&gt;&quot;]
+        interaction[&quot;&lt;b&gt;Interaction&lt;/b&gt;&lt;br&gt;&lt;tt&gt;ros4hri/interaction_skills&lt;/tt&gt;&quot;]
+        other[&quot;...&quot;]
+        ask([&quot;skill &lt;tt&gt;Ask&lt;/tt&gt;&quot;])
+        chat([&quot;skill &lt;tt&gt;Chat&lt;/tt&gt;&quot;])
+        anon0([&quot;...&quot;])
+        anon1([&quot;...&quot;])
+        anon2([&quot;...&quot;])
+        place([&quot;...&quot;])
+        anon3([&quot;...&quot;])
+  end
+    communication --&gt; ask &amp; chat &amp; anon0
+    navigation --&gt; anon1
+    motions --&gt; anon2
+    manipulation --&gt; place
+    interaction --&gt; anon3
+    A[&quot;&lt;b&gt;Skills&lt;/b&gt;&quot;] --&gt; motions &amp; interaction &amp; manipulation &amp; navigation &amp; communication &amp; other
+    ask --&gt; impl1(&quot;skill implementation...&quot;)
+    chat --&gt; n1(&quot;skill implementation...&quot;)
+
+    style communication stroke:#AA00FF
+    style navigation stroke:#AA00FF
+    style motions stroke:#AA00FF
+    style manipulation stroke:#AA00FF
+    style interaction stroke:#AA00FF
+    style other stroke:#AA00FF
+    style ask fill:#E1BEE7
+    style chat fill:#E1BEE7
+    style anon0 fill:#E1BEE7
+    style anon1 fill:#E1BEE7
+    style anon2 fill:#E1BEE7
+    style place fill:#E1BEE7
+    style anon3 fill:#E1BEE7
+    style A fill:#FFD600
+    style impl1 stroke-width:4px,stroke-dasharray: 5
+    style n1 stroke-width:4px,stroke-dasharray: 5
+    style subGraph0 fill:#FFFFFF,stroke:#757575
+    click communication &quot;#communication&quot;
+    click navigation &quot;#navigation&quot;
+    click motions &quot;#motions&quot;
+    click manipulation &quot;#manipulation&quot;
+    click interaction &quot;#interaction&quot;
+    </pre></section>
+<section id="working-with-skills">
+<h2>Working with skills<a class="headerlink" href="#working-with-skills" title="Link to this heading"></a></h2>
+<section id="implementing-a-skill">
+<h3>Implementing a skill<a class="headerlink" href="#implementing-a-skill" title="Link to this heading"></a></h3>
+<p>Skills are regular ROS nodes, exposing ROS interfaces (actions, services or topics).
+To implement a skill, you need to:</p>
+<ol class="arabic">
+<li><p>Implement the ROS interfaces (actions, services or topics) of the skill (see the definitions below).</p></li>
+<li><p>Implement the skill logic.</p></li>
+<li><p>Declare that your package implements the skill by adding the following line in your <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;export&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- .... --&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- adapt the following line to your skill --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;implements</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;skill&quot;</span><span class="w"> </span><span class="na">package=</span><span class="s">&quot;communication_skills&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ask&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/export&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>You can use the <a class="reference internal" href="../tools/rpk.html#rpk"><span class="std std-ref">rpk</span></a> tool to generate ROS4HRI-compliant skill skeletons.</p>
+</section>
+<section id="making-an-existing-node-compliant-with-ros4hri-skills">
+<h3>Making an existing node compliant with ROS4HRI skills<a class="headerlink" href="#making-an-existing-node-compliant-with-ros4hri-skills" title="Link to this heading"></a></h3>
+<p>Since ROS4HRI skills are regular ROS nodes, you can make an existing node compliant with ROS4HRI skills by:</p>
+<ol class="arabic">
+<li><p>Adapting the ROS interfaces (actions, services or topics) of the existing node to the ROS interfaces of the skill (see the definitions below).</p></li>
+<li><p>Declaring that your package implements the skill by adding the following line in your <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;export&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- .... --&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- adapt the following line to your skill --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;implements</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;skill&quot;</span><span class="w"> </span><span class="na">package=</span><span class="s">&quot;communication_skills&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ask&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/export&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="sharing-an-open-source-skill-implementation">
+<h3>Sharing an open-source skill implementation<a class="headerlink" href="#sharing-an-open-source-skill-implementation" title="Link to this heading"></a></h3>
+<p>We would be happy to hear about your skill implementations!</p>
+<p>As long as your skill is open-source, and publicly available on a forge like GitHub, GitLab, or Codeberg,
+we will be happy to reference it in the ROS4HRI documentation.</p>
+<p>Once your skill is available, <a class="reference external" href="https://github.com/orgs/ros4hri/discussions/new?category=ideas">open a discussion on the ROS4HRI GitHub
+organization</a>
+to propose it for inclusion.</p>
+<p>Note that we will need to review your skill implementation to ensure it is
+compliant with ROS4HRI standards.</p>
+</section>
+<section id="creating-a-new-skill-and-submitting-it-to-ros4hri">
+<h3>Creating a new skill and submitting it to ROS4HRI<a class="headerlink" href="#creating-a-new-skill-and-submitting-it-to-ros4hri" title="Link to this heading"></a></h3>
+<p>If you want to create a new skill and submit it to ROS4HRI, you need to:</p>
+<ol class="arabic simple">
+<li><p>Create a new skill definition.</p></li>
+<li><p>Create a new ROS package implementing the skill.</p></li>
+<li><p>Submit the skill to the right ROS4HRI repository.</p></li>
+</ol>
+<p>Steps 1 and 2 can easily be done using the <a class="reference internal" href="../tools/rpk.html#rpk"><span class="std std-ref">rpk</span></a> tool: it will
+quickly generate a skeleton for your skill definition and skill implementation
+based on ROS4HRI-compliant templates.</p>
+<p>Step 3 can be done by submitting your skill to the right ROS4HRI repository.
+Each domain has its own repository. Find below the domain that best matches your skill,
+and submit your new skill proposal using the provided link.</p>
+<p>Your proposal will be openly discussed by the ROS4HRI community, and if
+accepted, your skill will be added to the corresponding ROS4HRI repository.</p>
+<p>The main criteria for accepting a skill proposal are:</p>
+<ul class="simple">
+<li><p>The skill is novel and different from existing ones;</p></li>
+<li><p>The skill would be beneficial to a broad range of robots and applications;</p></li>
+<li><p>The skill is not tightly coupled to closed-source or proprietary technologies;</p></li>
+<li><p>The skill is well-documented.</p></li>
+</ul>
+</section>
+<section id="proposing-a-change-extension-to-a-skill">
+<h3>Proposing a change/extension to a skill<a class="headerlink" href="#proposing-a-change-extension-to-a-skill" title="Link to this heading"></a></h3>
+<p>If you want to propose a change/extension to an existing skill, follow the link
+in the corresponding section below.</p>
+</section>
+<section id="proposing-a-new-domain">
+<h3>Proposing a new domain<a class="headerlink" href="#proposing-a-new-domain" title="Link to this heading"></a></h3>
+<p>To propose a new domain, please <a class="reference external" href="https://github.com/orgs/ros4hri/discussions/new?category=ideas">open a discussion on the ROS4HRI GitHub
+organization</a>.</p>
+</section>
+</section>
+<section id="list-of-skills">
+<span id="id2"></span><h2>List of skills<a class="headerlink" href="#list-of-skills" title="Link to this heading"></a></h2>
+<p>This is the list of all skill definitions available in ROS4HRI, organised by
+domain (note that some skills can be found in multiple domains).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can download the complete list of ROS4HRI skills in JSON format from <a class="reference external" href="https://ros4hri.github.io/skills.json">https://ros4hri.github.io/skills.json</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<section id="communication">
+<span id="communication-skills"></span><h3>Communication<a class="headerlink" href="#communication" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="skill-ask.html#skill-ask"><span class="std std-ref">Skill ask</span></a>: A specialization of the <a class="ros-interface ros-skill reference internal" href="skill-chat.html#skill-chat"><span class="std std-ref">Skill chat</span></a> where the role</p></li>
+<li><p><a class="reference internal" href="skill-ask_human_for_help.html#skill-ask-human-for-help"><span class="std std-ref">Skill ask_human_for_help</span></a>: Ask a human for help</p></li>
+<li><p><a class="reference internal" href="skill-chat.html#skill-chat"><span class="std std-ref">Skill chat</span></a>: Start a dialogue with a defined purpose.</p></li>
+<li><p><a class="reference internal" href="skill-say.html#skill-say"><span class="std std-ref">Skill say</span></a>: Speak out the provided input text (also executing any</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You would like to suggest a new communication skill? <a class="reference external" href="https://github.com/ros4hri/communication_skills/issues/new?template=new-skill.md">Follow this link</a>.</p></li>
+<li><p>You want to suggest a change to an existing communication skill? (like
+additional parameters, etc) <a class="reference external" href="https://github.com/ros4hri/communication_skills/issues/new?template=amend-skill.md">Follow this link</a>.</p></li>
+</ul>
+</div>
+</section>
+<section id="interaction">
+<span id="interaction-skills"></span><h3>Interaction<a class="headerlink" href="#interaction" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="skill-ask_human_for_help.html#skill-ask-human-for-help"><span class="std std-ref">Skill ask_human_for_help</span></a>: Ask a human for help</p></li>
+<li><p><a class="reference internal" href="skill-do_led_effect.html#skill-do-led-effect"><span class="std std-ref">Skill do_led_effect</span></a>: Perform light effects using the robot’s LEDs.</p></li>
+<li><p><a class="reference internal" href="skill-look_at.html#skill-look-at"><span class="std std-ref">Skill look_at</span></a>: Defines the gazing direction of the robot. This skill can be used to either look at a specific point</p></li>
+<li><p><a class="reference internal" href="skill-look_for_human.html#skill-look-for-human"><span class="std std-ref">Skill look_for_human</span></a>: Search and localize specific humans</p></li>
+<li><p><a class="reference internal" href="skill-look_for_object.html#skill-look-for-object"><span class="std std-ref">Skill look_for_object</span></a>: Search and localize specific objects</p></li>
+<li><p><a class="reference internal" href="skill-set_expression.html#skill-set-expression"><span class="std std-ref">Skill set_expression</span></a>: Sets the expression of the robot. This might include changing the robot’s face, body posture, or other expressive features.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You would like to suggest a new interaction skill? <a class="reference external" href="https://github.com/ros4hri/interaction_skills/issues/new?template=new-skill.md">Follow this link</a>.</p></li>
+<li><p>You want to suggest a change to an existing interaction skill? (like
+additional parameters, etc) <a class="reference external" href="https://github.com/ros4hri/interaction_skills/issues/new?template=amend-skill.md">Follow this link</a>.</p></li>
+</ul>
+</div>
+</section>
+<section id="manipulation">
+<span id="manipulation-skills"></span><h3>Manipulation<a class="headerlink" href="#manipulation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="skill-grasp.html#skill-grasp"><span class="std std-ref">Skill grasp</span></a>: Commands the robot to grasp a specified object.</p></li>
+<li><p><a class="reference internal" href="skill-hand_grasp.html#skill-hand-grasp"><span class="std std-ref">Skill hand_grasp</span></a>: Controls a robotic hand or gripper to either <strong>close</strong> (grasp) or <strong>open</strong></p></li>
+<li><p><a class="reference internal" href="skill-place.html#skill-place"><span class="std std-ref">Skill place</span></a>: Commands the robot to place an object at a specified location.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You would like to suggest a new manipulation skill? <a class="reference external" href="https://github.com/ros4hri/manipulation_skills/issues/new?template=new-skill.md">Follow this link</a>.</p></li>
+<li><p>You want to suggest a change to an existing manipulation skill? (like
+additional parameters, etc) <a class="reference external" href="https://github.com/ros4hri/manipulation_skills/issues/new?template=amend-skill.md">Follow this link</a>.</p></li>
+</ul>
+</div>
+</section>
+<section id="motions">
+<span id="motions-skills"></span><h3>Motions<a class="headerlink" href="#motions" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="skill-execute_cartesian_trajectory.html#skill-execute-cartesian-trajectory"><span class="std std-ref">Skill execute_cartesian_trajectory</span></a>: Execute a trajectory on the robot by specifying</p></li>
+<li><p><a class="reference internal" href="skill-execute_joint_trajectory.html#skill-execute-joint-trajectory"><span class="std std-ref">Skill execute_joint_trajectory</span></a>: Execute a joint trajectory on the robot by specifying</p></li>
+<li><p><a class="reference internal" href="skill-grasp.html#skill-grasp"><span class="std std-ref">Skill grasp</span></a>: Commands the robot to grasp a specified object.</p></li>
+<li><p><a class="reference internal" href="skill-hand_grasp.html#skill-hand-grasp"><span class="std std-ref">Skill hand_grasp</span></a>: Controls a robotic hand or gripper to either <strong>close</strong> (grasp) or <strong>open</strong></p></li>
+<li><p><a class="reference internal" href="skill-place.html#skill-place"><span class="std std-ref">Skill place</span></a>: Commands the robot to place an object at a specified location.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You would like to suggest a new motions skill? <a class="reference external" href="https://github.com/ros4hri/motions_skills/issues/new?template=new-skill.md">Follow this link</a>.</p></li>
+<li><p>You want to suggest a change to an existing motions skill? (like
+additional parameters, etc) <a class="reference external" href="https://github.com/ros4hri/motions_skills/issues/new?template=amend-skill.md">Follow this link</a>.</p></li>
+</ul>
+</div>
+</section>
+<section id="navigation">
+<span id="navigation-skills"></span><h3>Navigation<a class="headerlink" href="#navigation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="skill-navigate_to_pose.html#skill-navigate-to-pose"><span class="std std-ref">Skill navigate_to_pose</span></a>: Make the robot autonomously navigate toward the desired pose.</p></li>
+<li><p><a class="reference internal" href="skill-navigate_to_waypoint.html#skill-navigate-to-waypoint"><span class="std std-ref">Skill navigate_to_waypoint</span></a>: Make the robot autonomously navigate toward the desired waypoint.</p></li>
+<li><p><a class="reference internal" href="skill-navigate_to_zone.html#skill-navigate-to-zone"><span class="std std-ref">Skill navigate_to_zone</span></a>: Make the robot autonomously navigate toward the desired zone.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You would like to suggest a new navigation skill? <a class="reference external" href="https://github.com/ros4hri/navigation_skills/issues/new?template=new-skill.md">Follow this link</a>.</p></li>
+<li><p>You want to suggest a change to an existing navigation skill? (like
+additional parameters, etc) <a class="reference external" href="https://github.com/ros4hri/navigation_skills/issues/new?template=amend-skill.md">Follow this link</a>.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../packages.html" class="btn btn-neutral float-left" title="Open-source ROS4HRI packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="skill-ask_human_for_help.html" class="btn btn-neutral float-right" title="Skill ask_human_for_help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

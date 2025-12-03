@@ -1,0 +1,15 @@
+.. _navigation_skills_interfaces:
+
+navigation_skills interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``navigation_skills``.
+
+**Source repository**: `ros4hri/navigation_skills <https: //github.com/ros4hri/navigation_skills>`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   navigation_skills/NavigateToPose
+   navigation_skills/NavigateToWaypoint
+   navigation_skills/NavigateToZone

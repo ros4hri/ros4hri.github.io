@@ -1,0 +1,8 @@
+.. _std_skills_msg_Int16:
+
+``std_skills/msg/Int16``
+========================
+
+.. literalinclude:: ../../src/std_skills/msg/Int16.msg
+   :language: python
+   :linenos:

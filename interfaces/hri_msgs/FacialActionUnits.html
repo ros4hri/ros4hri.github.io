@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hri_msgs/msg/FacialActionUnits &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="hri_msgs/msg/FacialLandmarks" href="FacialLandmarks.html" />
+    <link rel="prev" title="hri_msgs/msg/Expression" href="Expression.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="../../_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../references.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#skills">Skills</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../references.html#ros-interfaces">ROS Interfaces</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../hri_actions_msgs.html">hri_actions_msgs interfaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../hri_msgs.html">hri_msgs interfaces</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="AudioFeatures.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/AudioFeatures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="BodyPosture.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/BodyPosture</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="EngagementLevel.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/EngagementLevel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Expression.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/Expression</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/FacialActionUnits</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FacialLandmarks.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/FacialLandmarks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Gaze.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/Gaze</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Gesture.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/Gesture</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Group.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/Group</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdsList.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/IdsList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdsMatch.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/IdsMatch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="LiveSpeech.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/LiveSpeech</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="NormalizedPointOfInterest2D.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/NormalizedPointOfInterest2D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="NormalizedPointOfInterest2DStamped.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/NormalizedPointOfInterest2DStamped</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="NormalizedRegionOfInterest2D.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/NormalizedRegionOfInterest2D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Skeleton2D.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/Skeleton2D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="SoftBiometrics.html"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/SoftBiometrics</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../communication_skills.html">communication_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interaction_skills.html">interaction_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulation_skills.html">manipulation_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../motions_skills.html">motions_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../navigation_skills.html">navigation_skills interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../std_skills.html">std_skills interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#ros4hri-compliant-nodes">ROS4HRI-compliant nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#architecture-development">Architecture &amp; Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../references.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../hri_msgs.html">hri_msgs interfaces</a></li>
+      <li class="breadcrumb-item active"><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/FacialActionUnits</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/interfaces/hri_msgs/FacialActionUnits.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hri-msgs-msg-facialactionunits">
+<span id="id1"></span><h1><code class="docutils literal notranslate"><span class="pre">hri_msgs/msg/FacialActionUnits</span></code><a class="headerlink" href="#hri-msgs-msg-facialactionunits" title="Link to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># This message the intensity of each actions unit (AU), with their confidence, for a specific face.</span>
+<span class="linenos"> 2</span><span class="c1">#</span>
+<span class="linenos"> 3</span><span class="c1"># It follows the naming convention of the  Facial Action Coding System (FACS) developed by Ekman.</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">std_msgs</span><span class="o">/</span><span class="n">Header</span> <span class="n">header</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># AU codes</span>
+<span class="linenos"> 8</span><span class="c1"># List taken from https://en.wikipedia.org/wiki/Facial_Action_Coding_System</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Main codes</span>
+<span class="linenos">11</span><span class="n">uint8</span> <span class="n">NEUTRAL_FACE</span><span class="o">=</span><span class="mi">0</span>  <span class="c1"># Neutral face </span>
+<span class="linenos">12</span><span class="n">uint8</span> <span class="n">INNER_BROW_RAISER</span><span class="o">=</span><span class="mi">1</span>  <span class="c1"># Inner brow raiser </span>
+<span class="linenos">13</span><span class="n">uint8</span> <span class="n">OUTER_BROW_RAISER</span><span class="o">=</span><span class="mi">2</span>  <span class="c1"># Outer brow raiser </span>
+<span class="linenos">14</span><span class="n">uint8</span> <span class="n">BROW_LOWERER</span><span class="o">=</span><span class="mi">4</span>  <span class="c1"># Brow lowerer </span>
+<span class="linenos">15</span><span class="n">uint8</span> <span class="n">UPPER_LID_RAISER</span><span class="o">=</span><span class="mi">5</span>  <span class="c1"># Upper lid raiser </span>
+<span class="linenos">16</span><span class="n">uint8</span> <span class="n">CHEEK_RAISER</span><span class="o">=</span><span class="mi">6</span>  <span class="c1"># Cheek raiser </span>
+<span class="linenos">17</span><span class="n">uint8</span> <span class="n">LID_TIGHTENER</span><span class="o">=</span><span class="mi">7</span>  <span class="c1"># Lid tightener </span>
+<span class="linenos">18</span><span class="n">uint8</span> <span class="n">LIPS_TOWARD_EACH_OTHER</span><span class="o">=</span><span class="mi">8</span>  <span class="c1"># Lips toward each other </span>
+<span class="linenos">19</span><span class="n">uint8</span> <span class="n">NOSE_WRINKLER</span><span class="o">=</span><span class="mi">9</span>  <span class="c1"># Nose wrinkler </span>
+<span class="linenos">20</span><span class="n">uint8</span> <span class="n">UPPER_LIP_RAISER</span><span class="o">=</span><span class="mi">10</span>  <span class="c1"># Upper lip raiser </span>
+<span class="linenos">21</span><span class="n">uint8</span> <span class="n">NASOLABIAL_DEEPENER</span><span class="o">=</span><span class="mi">11</span>  <span class="c1"># Nasolabial deepener </span>
+<span class="linenos">22</span><span class="n">uint8</span> <span class="n">LIP_CORNER_PULLER</span><span class="o">=</span><span class="mi">12</span>  <span class="c1"># Lip corner puller </span>
+<span class="linenos">23</span><span class="n">uint8</span> <span class="n">SHARP_LIP_PULLER</span><span class="o">=</span><span class="mi">13</span>  <span class="c1"># Sharp lip puller </span>
+<span class="linenos">24</span><span class="n">uint8</span> <span class="n">DIMPLER</span><span class="o">=</span><span class="mi">14</span>  <span class="c1"># Dimpler </span>
+<span class="linenos">25</span><span class="n">uint8</span> <span class="n">LIP_CORNER_DEPRESSOR</span><span class="o">=</span><span class="mi">15</span>  <span class="c1"># Lip corner depressor </span>
+<span class="linenos">26</span><span class="n">uint8</span> <span class="n">LOWER_LIP_DEPRESSOR</span><span class="o">=</span><span class="mi">16</span>  <span class="c1"># Lower lip depressor </span>
+<span class="linenos">27</span><span class="n">uint8</span> <span class="n">CHIN_RAISER</span><span class="o">=</span><span class="mi">17</span>  <span class="c1"># Chin raiser </span>
+<span class="linenos">28</span><span class="n">uint8</span> <span class="n">LIP_PUCKER</span><span class="o">=</span><span class="mi">18</span>  <span class="c1"># Lip pucker </span>
+<span class="linenos">29</span><span class="n">uint8</span> <span class="n">TONGUE_SHOW</span><span class="o">=</span><span class="mi">19</span>  <span class="c1"># Tongue show </span>
+<span class="linenos">30</span><span class="n">uint8</span> <span class="n">LIP_STRETCHER</span><span class="o">=</span><span class="mi">20</span>  <span class="c1"># Lip stretcher </span>
+<span class="linenos">31</span><span class="n">uint8</span> <span class="n">NECK_TIGHTENER</span><span class="o">=</span><span class="mi">21</span>  <span class="c1"># Neck tightener </span>
+<span class="linenos">32</span><span class="n">uint8</span> <span class="n">LIP_FUNNELER</span><span class="o">=</span><span class="mi">22</span>  <span class="c1"># Lip funneler </span>
+<span class="linenos">33</span><span class="n">uint8</span> <span class="n">LIP_TIGHTENER</span><span class="o">=</span><span class="mi">23</span>  <span class="c1"># Lip tightener </span>
+<span class="linenos">34</span><span class="n">uint8</span> <span class="n">LIP_PRESSOR</span><span class="o">=</span><span class="mi">24</span>  <span class="c1"># Lip pressor </span>
+<span class="linenos">35</span><span class="n">uint8</span> <span class="n">LIPS_PART</span><span class="o">=</span><span class="mi">25</span>  <span class="c1"># Lips part </span>
+<span class="linenos">36</span><span class="n">uint8</span> <span class="n">JAW_DROP</span><span class="o">=</span><span class="mi">26</span>  <span class="c1"># Jaw drop </span>
+<span class="linenos">37</span><span class="n">uint8</span> <span class="n">MOUTH_STRETCH</span><span class="o">=</span><span class="mi">27</span>  <span class="c1"># Mouth stretch </span>
+<span class="linenos">38</span><span class="n">uint8</span> <span class="n">LIP_SUCK</span><span class="o">=</span><span class="mi">28</span>  <span class="c1"># Lip suck </span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="c1"># Head movement codes</span>
+<span class="linenos">41</span><span class="n">uint8</span> <span class="n">HEAD_TURN_LEFT</span><span class="o">=</span><span class="mi">51</span>  <span class="c1"># Head turn left</span>
+<span class="linenos">42</span><span class="n">uint8</span> <span class="n">HEAD_TURN_RIGHT</span><span class="o">=</span><span class="mi">52</span>  <span class="c1"># Head turn right</span>
+<span class="linenos">43</span><span class="n">uint8</span> <span class="n">HEAD_UP</span><span class="o">=</span><span class="mi">53</span>  <span class="c1"># Head up</span>
+<span class="linenos">44</span><span class="n">uint8</span> <span class="n">HEAD_DOWN</span><span class="o">=</span><span class="mi">54</span>  <span class="c1"># Head down</span>
+<span class="linenos">45</span><span class="n">uint8</span> <span class="n">HEAD_TILT_LEFT</span><span class="o">=</span><span class="mi">55</span>  <span class="c1"># Head tilt left</span>
+<span class="linenos">46</span><span class="n">uint8</span> <span class="n">HEAD_TILT_RIGHT</span><span class="o">=</span><span class="mi">56</span>  <span class="c1"># Head tilt right</span>
+<span class="linenos">47</span><span class="n">uint8</span> <span class="n">HEAD_FORWARD</span><span class="o">=</span><span class="mi">57</span>  <span class="c1"># Head forward</span>
+<span class="linenos">48</span><span class="n">uint8</span> <span class="n">HEAD_BACK</span><span class="o">=</span><span class="mi">58</span>  <span class="c1"># Head back</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="c1"># Eye movement codes</span>
+<span class="linenos">51</span><span class="n">uint8</span> <span class="n">EYES_TURN_LEFT</span><span class="o">=</span><span class="mi">61</span>  <span class="c1"># Eyes turn left</span>
+<span class="linenos">52</span><span class="n">uint8</span> <span class="n">EYES_TURN_RIGHT</span><span class="o">=</span><span class="mi">62</span>  <span class="c1"># Eyes turn right</span>
+<span class="linenos">53</span><span class="n">uint8</span> <span class="n">EYES_UP</span><span class="o">=</span><span class="mi">63</span>  <span class="c1"># Eyes up</span>
+<span class="linenos">54</span><span class="n">uint8</span> <span class="n">EYES_DOWN</span><span class="o">=</span><span class="mi">64</span>  <span class="c1"># Eyes down</span>
+<span class="linenos">55</span><span class="n">uint8</span> <span class="n">WALLEYE</span><span class="o">=</span><span class="mi">65</span>  <span class="c1"># Walleye</span>
+<span class="linenos">56</span><span class="n">uint8</span> <span class="n">CROSS_EYE</span><span class="o">=</span><span class="mi">66</span>  <span class="c1"># Cross-eye</span>
+<span class="linenos">57</span><span class="n">uint8</span> <span class="n">EYES_POSITIONED_TO_LOOK_AT_OTHER_PERSON</span><span class="o">=</span><span class="mi">69</span>  <span class="c1"># Eyes positioned to look at other person : The 4, 5, or 7, alone or in combination, occurs while the eye position is fixed on the other person in the conversation.</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="c1"># Visibility codes</span>
+<span class="linenos">60</span><span class="n">uint8</span> <span class="n">BROWS_AND_FOREHEAD_NOT_VISIBLE</span><span class="o">=</span><span class="mi">70</span>  <span class="c1"># Brows and forehead not visible</span>
+<span class="linenos">61</span><span class="n">uint8</span> <span class="n">EYES_NOT_VISIBLE</span><span class="o">=</span><span class="mi">71</span>  <span class="c1"># Eyes not visible</span>
+<span class="linenos">62</span><span class="n">uint8</span> <span class="n">LOWER_FACE_NOT_VISIBLE</span><span class="o">=</span><span class="mi">72</span>  <span class="c1"># Lower face not visible</span>
+<span class="linenos">63</span><span class="n">uint8</span> <span class="n">ENTIRE_FACE_NOT_VISIBLE</span><span class="o">=</span><span class="mi">73</span>  <span class="c1"># Entire face not visible</span>
+<span class="linenos">64</span><span class="n">uint8</span> <span class="n">UNSOCIABLE</span><span class="o">=</span><span class="mi">74</span>  <span class="c1"># Unsociable</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span><span class="c1"># Gross behavior codes</span>
+<span class="linenos">67</span><span class="n">uint8</span> <span class="n">JAW_THRUST</span><span class="o">=</span><span class="mi">29</span>  <span class="c1"># Jaw thrust</span>
+<span class="linenos">68</span><span class="n">uint8</span> <span class="n">JAW_SIDEWAYS</span><span class="o">=</span><span class="mi">30</span>  <span class="c1"># Jaw sideways</span>
+<span class="linenos">69</span><span class="n">uint8</span> <span class="n">JAW_CLENCHER</span><span class="o">=</span><span class="mi">31</span>  <span class="c1"># Jaw clencher : masseter</span>
+<span class="linenos">70</span><span class="n">uint8</span> <span class="n">LIP_BITE</span><span class="o">=</span><span class="mi">32</span>  <span class="c1"># [Lip] bite</span>
+<span class="linenos">71</span><span class="n">uint8</span> <span class="n">CHEEK_BLOW</span><span class="o">=</span><span class="mi">33</span>  <span class="c1"># [Cheek] blow</span>
+<span class="linenos">72</span><span class="n">uint8</span> <span class="n">CHEEK_PUFF</span><span class="o">=</span><span class="mi">34</span>  <span class="c1"># [Cheek] puff</span>
+<span class="linenos">73</span><span class="n">uint8</span> <span class="n">CHEEK_SUCK</span><span class="o">=</span><span class="mi">35</span>  <span class="c1"># [Cheek] suck</span>
+<span class="linenos">74</span><span class="n">uint8</span> <span class="n">TONGUE_BULGE</span><span class="o">=</span><span class="mi">36</span>  <span class="c1"># [Tongue] bulge</span>
+<span class="linenos">75</span><span class="n">uint8</span> <span class="n">LIP_WIPE</span><span class="o">=</span><span class="mi">37</span>  <span class="c1"># Lip wipe</span>
+<span class="linenos">76</span><span class="n">uint8</span> <span class="n">NOSTRIL_DILATOR</span><span class="o">=</span><span class="mi">38</span>  <span class="c1"># Nostril dilator : nasalis (pars alaris)</span>
+<span class="linenos">77</span><span class="n">uint8</span> <span class="n">NOSTRIL_COMPRESSOR</span><span class="o">=</span><span class="mi">39</span>  <span class="c1"># Nostril compressor : nasalis (pars transversa) and depressor septi nasi</span>
+<span class="linenos">78</span><span class="n">uint8</span> <span class="n">SNIFF</span><span class="o">=</span><span class="mi">40</span>  <span class="c1"># Sniff</span>
+<span class="linenos">79</span><span class="n">uint8</span> <span class="n">LID_DROOP</span><span class="o">=</span><span class="mi">41</span>  <span class="c1"># Lid droop : Levator palpebrae superioris (relaxation)</span>
+<span class="linenos">80</span><span class="n">uint8</span> <span class="n">SLIT</span><span class="o">=</span><span class="mi">42</span>  <span class="c1"># Slit : Orbicularis oculi muscle</span>
+<span class="linenos">81</span><span class="n">uint8</span> <span class="n">EYES_CLOSED</span><span class="o">=</span><span class="mi">43</span>  <span class="c1"># Eyes closed : Relaxation of Levator palpebrae superioris</span>
+<span class="linenos">82</span><span class="n">uint8</span> <span class="n">SQUINT</span><span class="o">=</span><span class="mi">44</span>  <span class="c1"># Squint : Corrugator supercilii and orbicularis oculi muscle</span>
+<span class="linenos">83</span><span class="n">uint8</span> <span class="n">BLINK</span><span class="o">=</span><span class="mi">45</span>  <span class="c1"># Blink : Relaxation of Levator palpebrae superioris; contraction of orbicularis oculi (pars palpebralis)</span>
+<span class="linenos">84</span><span class="n">uint8</span> <span class="n">WINK</span><span class="o">=</span><span class="mi">46</span>  <span class="c1"># Wink : orbicularis oculi</span>
+<span class="linenos">85</span><span class="n">uint8</span> <span class="n">SPEECH</span><span class="o">=</span><span class="mi">50</span>  <span class="c1"># Speech</span>
+<span class="linenos">86</span><span class="n">uint8</span> <span class="n">SWALLOW</span><span class="o">=</span><span class="mi">80</span>  <span class="c1"># Swallow</span>
+<span class="linenos">87</span><span class="n">uint8</span> <span class="n">CHEWING</span><span class="o">=</span><span class="mi">81</span>  <span class="c1"># Chewing</span>
+<span class="linenos">88</span><span class="n">uint8</span> <span class="n">SHOULDER_SHRUG</span><span class="o">=</span><span class="mi">82</span>  <span class="c1"># Shoulder shrug</span>
+<span class="linenos">89</span><span class="n">uint8</span> <span class="n">HEAD_SHAKE_BACK_AND_FORTH</span><span class="o">=</span><span class="mi">84</span>  <span class="c1"># Head shake back and forth</span>
+<span class="linenos">90</span><span class="n">uint8</span> <span class="n">HEAD_NOD_UP_AND_DOWN</span><span class="o">=</span><span class="mi">85</span>  <span class="c1"># Head nod up and down</span>
+<span class="linenos">91</span><span class="n">uint8</span> <span class="n">FLASH</span><span class="o">=</span><span class="mi">91</span>  <span class="c1"># Flash</span>
+<span class="linenos">92</span><span class="n">uint8</span> <span class="n">PARTIAL_FLASH</span><span class="o">=</span><span class="mi">92</span>  <span class="c1"># Partial flash</span>
+<span class="linenos">93</span><span class="n">uint8</span> <span class="n">SHIVER_TREMBLE</span><span class="o">=</span><span class="mi">97</span>  <span class="c1"># Shiver/tremble</span>
+<span class="linenos">94</span><span class="n">uint8</span> <span class="n">FAST_UP_DOWN_LOOK</span><span class="o">=</span><span class="mi">98</span>  <span class="c1"># Fast up-down look</span>
+<span class="linenos">95</span>
+<span class="linenos">96</span>
+<span class="linenos">97</span><span class="n">float32</span><span class="p">[</span><span class="mi">99</span><span class="p">]</span> <span class="n">intensity</span> <span class="c1"># array of 99 AUs intensities, one per AU, ordered per AU codes</span>
+<span class="linenos">98</span><span class="n">float32</span><span class="p">[</span><span class="mi">99</span><span class="p">]</span> <span class="n">confidence</span> <span class="c1"># array of 99 AUs intensity confidences, one per AU, ordered per AU codes</span>
+<span class="linenos">99</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Expression.html" class="btn btn-neutral float-left" title="hri_msgs/msg/Expression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="FacialLandmarks.html" class="btn btn-neutral float-right" title="hri_msgs/msg/FacialLandmarks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

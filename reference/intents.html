@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intents &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Automatic code generation with rpk" href="../tools/rpk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="../_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intents</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/intents.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intents">
+<span id="index-0"></span><span id="id1"></span><h1>Intents<a class="headerlink" href="#intents" title="Link to this heading"></a></h1>
+<p><strong>Intents</strong> are the general mechanism used on the robot to <em>aggregate</em> user
+commands, and present them to the robot’s <em>mission controller</em>.</p>
+<p>They are published on the <code class="ros-interface ros-topic docutils literal notranslate"><span class="pre">/intents</span></code> (<a class="ros-interface ros-msg reference internal" href="../interfaces/hri_actions_msgs/Intent.html#hri-actions-msgs-msg-intent"><span class="std std-ref">hri_actions_msgs/msg/Intent</span></a>).</p>
+<section id="what-are-intents">
+<h2>What are intents?<a class="headerlink" href="#what-are-intents" title="Link to this heading"></a></h2>
+<p>An <a class="reference internal" href="../glossary.html#term-Intent"><span class="xref std std-term">intent</span></a> is an abstract description of an operation to be performed by the
+robot. Intents are represented as ROS messages of type <a class="ros-interface ros-msg reference internal" href="../interfaces/hri_actions_msgs/Intent.html#hri-actions-msgs-msg-intent"><span class="std std-ref">hri_actions_msgs/msg/Intent</span></a>
+and published on the <code class="ros-interface ros-topic docutils literal notranslate"><span class="pre">/intents</span></code> topic.</p>
+<p>While inspired by the Android intents <a class="reference internal" href="#android-intents" id="id2"><span>[android-intents]</span></a>, ROS intents
+are primarily designed to capture user-initiated intents. For instance, a
+button click on a touchscreen, the result of a chatbot-based verbal
+interaction, a command started by a remote user interface.</p>
+<p>Intents are emitted (<em>published</em>) by nodes that track the user’s activities (eg,
+the touchscreen, the dialogue manager), and are meant to be consumed by a
+<a class="reference internal" href="../glossary.html#term-Mission-controller"><span class="xref std std-term">mission controller</span></a> (ie. the top-level controller of the robot).</p>
+</section>
+<section id="structure-of-an-intent">
+<h2>Structure of an intent<a class="headerlink" href="#structure-of-an-intent" title="Link to this heading"></a></h2>
+<p>Intents comprise of four mandatory fields:</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">intent</span></code>, which should be one of the available predefined intents,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">data</span></code> which must be a JSON object containing the data required to fully instantiate the intent.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">source</span></code> of the intent (for instance, an user)</p></li>
+<li><p>and the <code class="docutils literal notranslate"><span class="pre">modality</span></code> by which the intent was conveyed to the robot.</p></li>
+</ul>
+<p>Optionally, you can also specify a <code class="docutils literal notranslate"><span class="pre">priority</span></code> and a level of <code class="docutils literal notranslate"><span class="pre">confidence</span></code>.</p>
+<section id="intent-name-and-data">
+<h3>Intent name and data<a class="headerlink" href="#intent-name-and-data" title="Link to this heading"></a></h3>
+<p>Intents are primarily composed of an <em>intent name</em> and <em>data</em> to parametrise the intent.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">intent</span></code> field is a string describing the action intended by this intent.</p>
+<p>Where suitable, the intent name SHOULD be one of the constant defined in the table below.
+However, we recognise that the list of intents is possibly large. Therefore,
+custom strings are also permissible.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p><strong>Possible terminology confusion</strong></p>
+<p>Even though an intent describes a desired action, the <code class="docutils literal notranslate"><span class="pre">intent</span></code> field is
+unrelated to ROS actions. Here, the <em>intent</em> is the intended action to be
+performed (going somewhere, picking something…), while <em>ROS actions</em> are a
+low-level asynchronous remote procedure call (RPC) technique.</p>
+<p>They are not directly related (even though ROS actions can be used to
+implement intents).</p>
+</div>
+<p>The intent’s <code class="docutils literal notranslate"><span class="pre">data</span></code> is a JSON object containing the data required to fully
+specify the intent. The keys of the object should be one of the following
+<em>thematic role</em>, or the generic <code class="docutils literal notranslate"><span class="pre">other_data</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">agent</span></code>: the agent expected to perform the intent (if omitted, the robot
+itself is assumed)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> (also named <em>theme</em> or <em>patient</em> in the linguistics literature):
+entity undergoing the effect of the intent</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">goal</span></code>: entity towards which the intent is directed or moves</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code>: entity that receives the object</p></li>
+</ul>
+<p>Examples:</p>
+<ul class="simple">
+<li><p><em>“I want you to go to the kitchen”</em>:</p>
+<ul>
+<li><p>intent: <code class="docutils literal notranslate"><span class="pre">MOVE_TO</span></code></p></li>
+<li><p>data: <code class="code highlight json docutils literal highlight-json"><span class="p">{</span><span class="nt">&quot;goal&quot;</span><span class="p">:</span><span class="s2">&quot;kitchen_1&quot;</span><span class="p">}</span></code></p></li>
+</ul>
+</li>
+<li><p><em>“Can you take the groceries to Luke in the kitchen?”</em>:</p>
+<ul>
+<li><p>intent: <code class="docutils literal notranslate"><span class="pre">BRING_OBJECT</span></code></p></li>
+<li><p>data: <code class="code highlight json docutils literal highlight-json"><span class="p">{</span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;groceries&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;goal&quot;</span><span class="p">:</span><span class="s2">&quot;kitchen_1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;recipient&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;person_luke&quot;</span><span class="p">}</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Additional complete examples of intents are provided below: <a class="reference internal" href="#examples-of-intents">Examples of intents</a>.</p>
+</div>
+<p>Each intent defines a specific set of required and optional thematic roles,
+listed in the following table (note that the <code class="docutils literal notranslate"><span class="pre">agent</span></code> role can be optionally
+added to all intents, and is omitted from the table for clarity):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Intent</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Required thematic roles</strong></p></th>
+<th class="head"><p><strong>Optional thematic roles</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ENGAGE_WITH</span></code></p></td>
+<td><p>an agent wants to engage with another one</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MOVE_TO</span></code></p></td>
+<td><p>navigates to a specific location</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">goal</span></code></p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GUIDE</span></code></p></td>
+<td><p>guides someone somewhere</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">goal</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GRAB_OBJECT</span></code></p></td>
+<td><p>pick-up a specific object</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BRING_OBJECT</span></code></p></td>
+<td><p>bring a specific object to a specific place</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PLACE_OBJECT</span></code></p></td>
+<td><p>put an object on a support (eg a table)</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> (only required if more that one object could be placed)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GREET</span></code></p></td>
+<td><p>greet an agent</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SAY</span></code></p></td>
+<td><p>says some text, optionally annotated with gestures or expressions</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> (the text to say)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PRESENT_CONTENT</span></code></p></td>
+<td><p>present (via a screen, pre-recorded text…) predefined content</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> (the content identifier)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PERFORM_MOTION</span></code></p></td>
+<td><p>performs a motion (eg, a dance or a specific gesture like pointing, waving)</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> (the system-specific name of the motion/gesture)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">START_ACTIVITY</span></code></p></td>
+<td><p>start a scripted behaviour/activity</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> (the name of the activity)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>any additional parameter required to start the activity</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANCEL_ACTIVITY</span></code></p></td>
+<td><p>request cancellation of an activity</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> (the name of the activity)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> (the name of the activity. If unset, current main activity)</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you believe your intent should be standardised and added to the list of
+pre-defined intents, fill the corresponding entry in the “thematic roles”
+table below and submit a pull request on the <a class="reference external" href="https://github.com/ros4hri/hri_actions_msgs">hri_actions_msg</a> repository.</p>
+</div>
+</section>
+<section id="source-of-the-intent">
+<h3>Source of the intent<a class="headerlink" href="#source-of-the-intent" title="Link to this heading"></a></h3>
+<p>The <em>source</em> of the intent is a string describing who created this intent. This
+is <em>not</em> the node which published the intent, but instead the actual agent who
+expressed the intent/command/desire. <code class="docutils literal notranslate"><span class="pre">source</span></code> can be either one of the
+constant below, or the specific id of the person/agent expressing the intent. In
+a <a class="reference external" href="https://www.ros.org/reps/rep-0155.html">REP-155</a> compliant system, this ID
+must be the person ID of the agent.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># for intents originating from the robot itself</span>
+<span class="n">string</span> <span class="n">ROBOT_ITSELF</span> <span class="o">=</span> <span class="s2">&quot;__myself__&quot;</span>
+<span class="c1"># for intents originating from a external robot control system (for instance, a remote control tablet)</span>
+<span class="n">string</span> <span class="n">REMOTE_SUPERVISOR</span> <span class="o">=</span> <span class="s2">&quot;__remote_supervisor__&quot;</span>
+<span class="c1"># for intents coming from an agent interacting with the robot, but not uniquely</span>
+<span class="c1"># identified</span>
+<span class="n">string</span> <span class="n">UNKNOWN_AGENT</span> <span class="o">=</span> <span class="s2">&quot;__unknown_agent__&quot;</span>
+<span class="c1"># for unknown sources</span>
+<span class="n">string</span> <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="s2">&quot;__unknown__&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="modality-of-the-intent">
+<h3>Modality of the intent<a class="headerlink" href="#modality-of-the-intent" title="Link to this heading"></a></h3>
+<p>The intent’s <em>modality</em> conveys how  the intent was expressed: verbally, via the
+touchscreen, via a gesture, etc.</p>
+<p>The special modality <code class="docutils literal notranslate"><span class="pre">MODALITY_INTERNAL</span></code> must be used for intents coming for the
+robot’s internal processes, when applicable.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">modality</span></code> field MUST be one of the <code class="docutils literal notranslate"><span class="pre">MODALITY_</span></code> constant below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="n">MODALITY_SPEECH</span> <span class="o">=</span> <span class="s2">&quot;speech&quot;</span>
+<span class="n">string</span> <span class="n">MODALITY_MOTION</span> <span class="o">=</span> <span class="s2">&quot;motion&quot;</span>
+<span class="n">string</span> <span class="n">MODALITY_TOUCHSCREEN</span> <span class="o">=</span> <span class="s2">&quot;touchscreen&quot;</span>
+<span class="n">string</span> <span class="n">MODALITY_INTERNAL</span> <span class="o">=</span> <span class="s2">&quot;internal&quot;</span>
+<span class="n">string</span> <span class="n">MODALITY_OTHER</span> <span class="o">=</span> <span class="s2">&quot;other&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="intent-priority">
+<h3>Intent priority<a class="headerlink" href="#intent-priority" title="Link to this heading"></a></h3>
+<p>The priority of this intent. This MIGHT be used as a hint by the robot’s
+application controller to prioritise appropriately the intent. The application
+controller is however <em>not</em> forced to respect this priority level.</p>
+<p>0 is the lowest priority, 128 is the default priority, 255 is the highest
+priority.</p>
+</section>
+<section id="intent-confidence">
+<h3>Intent confidence<a class="headerlink" href="#intent-confidence" title="Link to this heading"></a></h3>
+<p>The intent’s <em>confidence</em> is a value between 0.0 (no confidence) and 1.0 (full
+confidence) that the intent was correctly perceived and interpreted.</p>
+<p>For instance, a ‘waving’ gesture could be interpreted as an implicit request
+from a user for the robot to greet back or engage. As this interpretation is
+not certain, the confidence of the intent may be below 1.0.</p>
+</section>
+</section>
+<section id="examples-of-intents">
+<h2>Examples of intents<a class="headerlink" href="#examples-of-intents" title="Link to this heading"></a></h2>
+<section id="user-approaches-the-robot">
+<h3>User approaches the robot<a class="headerlink" href="#user-approaches-the-robot" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Possible intent trigger</strong>: user less than 2 meters away, looking at the robot</p></li>
+<li><p><strong>Possible published intent</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intent</span><span class="p">:</span> <span class="n">ENGAGE_WITH</span>
+<span class="n">data</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;recipient&quot;</span><span class="p">:</span> <span class="s2">&quot;anonymous_person_a2f5&quot;</span><span class="p">}</span>
+<span class="n">source</span><span class="p">:</span> <span class="s2">&quot;anonymous_person_a2f5&quot;</span>
+<span class="n">modality</span><span class="p">:</span> <span class="n">MODALITY_MOTION</span>
+<span class="n">priority</span><span class="p">:</span> <span class="mi">128</span>
+<span class="n">confidence</span><span class="p">:</span> <span class="mf">0.6</span>
+</pre></div>
+</div>
+</section>
+<section id="user-presses-a-button-on-the-touchscreen-to-navigate">
+<h3>User presses a button on the touchscreen to navigate<a class="headerlink" href="#user-presses-a-button-on-the-touchscreen-to-navigate" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Possible intent trigger</strong>: button press on “Go to room X”</p></li>
+<li><p><strong>Possible published intent</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intent</span><span class="p">:</span> <span class="n">MOVE_TO</span>
+<span class="n">data</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;goal&quot;</span><span class="p">:</span> <span class="s2">&quot;room_X&quot;</span><span class="p">}</span>
+<span class="n">source</span><span class="p">:</span> <span class="n">UNKNOWN_USER</span>
+<span class="n">modality</span><span class="p">:</span> <span class="n">MODALITY_TOUCHSCREEN</span>
+<span class="n">priority</span><span class="p">:</span> <span class="mi">200</span>
+<span class="n">confidence</span><span class="p">:</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+<section id="user-presses-a-button-on-the-touchscreen-to-play-game">
+<h3>User presses a button on the touchscreen to play game<a class="headerlink" href="#user-presses-a-button-on-the-touchscreen-to-play-game" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Possible intent trigger</strong>: button press: “Play memory game”</p></li>
+<li><p><strong>Possible published intent</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intent</span><span class="p">:</span> <span class="n">START_ACTIVITY</span>
+<span class="n">data</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="s2">&quot;games_memory_game&quot;</span><span class="p">}</span>
+<span class="n">source</span><span class="p">:</span> <span class="n">UNKNOWN_USER</span>
+<span class="n">modality</span><span class="p">:</span> <span class="n">MODALITY_TOUCHSCREEN</span>
+<span class="n">priority</span><span class="p">:</span> <span class="mi">100</span>
+<span class="n">confidence</span><span class="p">:</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+<section id="user-presses-a-button-on-the-touchscreen-to-display-page">
+<h3>User presses a button on the touchscreen to display page<a class="headerlink" href="#user-presses-a-button-on-the-touchscreen-to-display-page" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Possible intent trigger</strong>: button press: “Go to page_X”</p></li>
+</ul>
+<p>The result depends on what <code class="docutils literal notranslate"><span class="pre">page_X</span></code> is about:</p>
+<ul class="simple">
+<li><p>if <code class="docutils literal notranslate"><span class="pre">page_X</span></code> is a purely informational page, that does not require any additional
+robot capability (eg, does not requires the robot to speak or to move), <strong>no
+intent</strong> needs to be generated. As this action is ‘read-only’ with no impact
+on the robot, it can be handled directly by the touchscreen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_X</span></code> requires additional robot resources. In this case, an intent needs
+to be published:</p></li>
+<li><p><strong>Possible published intent</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intent</span><span class="p">:</span> <span class="n">PRESENT_CONTENT</span>
+<span class="n">data</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="s2">&quot;page_X&quot;</span><span class="p">}</span>
+<span class="n">source</span><span class="p">:</span> <span class="n">UNKNOWN_USER</span>
+<span class="n">modality</span><span class="p">:</span> <span class="n">MODALITY_TOUCHSCREEN</span>
+<span class="n">priority</span><span class="p">:</span> <span class="mi">100</span>
+<span class="n">confidence</span><span class="p">:</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+<section id="user-asks-the-robot-to-display-a-specific-page">
+<h3>User asks the robot to display a specific page<a class="headerlink" href="#user-asks-the-robot-to-display-a-specific-page" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Possible intent trigger</strong>: the chatbot recognises the command ‘display page_X’</p></li>
+<li><p><strong>Possible published intent</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intent</span><span class="p">:</span> <span class="n">PRESENT_CONTENT</span>
+<span class="n">data</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="s2">&quot;page_X&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;recipient&quot;</span><span class="p">:</span> <span class="s2">&quot;anonymous_person_e4da&quot;</span><span class="p">}</span>
+<span class="n">source</span><span class="p">:</span> <span class="s2">&quot;anonymous_person_e4da&quot;</span>
+<span class="n">modality</span><span class="p">:</span> <span class="n">MODALITY_SPEECH</span>
+<span class="n">priority</span><span class="p">:</span> <span class="mi">128</span>
+<span class="n">confidence</span><span class="p">:</span> <span class="mf">0.4</span>
+</pre></div>
+</div>
+</section>
+<section id="user-asks-the-robot-to-go-somewhere">
+<h3>User asks the robot to go somewhere<a class="headerlink" href="#user-asks-the-robot-to-go-somewhere" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Possible intent trigger</strong>: the chatbot recognises the command ‘take me to place_X’</p></li>
+<li><p><strong>Possible published intent</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intent</span><span class="p">:</span> <span class="n">GUIDE</span>
+<span class="n">data</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;goal&quot;</span><span class="p">:</span> <span class="s2">&quot;place_X&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;recipient&quot;</span><span class="p">:</span> <span class="s2">&quot;person_55dc&quot;</span><span class="p">}</span>
+<span class="n">source</span><span class="p">:</span> <span class="s2">&quot;person_55dc&quot;</span>
+<span class="n">modality</span><span class="p">:</span> <span class="n">MODALITY_SPEECH</span>
+<span class="n">priority</span><span class="p">:</span> <span class="mi">128</span>
+<span class="n">confidence</span><span class="p">:</span> <span class="mf">0.8</span>
+</pre></div>
+</div>
+</section>
+<section id="user-wants-to-cancel-a-task">
+<h3>User wants to cancel a task<a class="headerlink" href="#user-wants-to-cancel-a-task" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Possible intent trigger</strong>: the user presses a ‘cancel’ button on the
+touchscreen</p></li>
+<li><p><strong>Possible published intent</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intent</span><span class="p">:</span> <span class="n">STOP_ACTIVITY</span>
+<span class="n">data</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;current activity&gt;&quot;</span><span class="p">}</span>
+<span class="n">source</span><span class="p">:</span> <span class="n">UNKONOWN_USER</span>
+<span class="n">modality</span><span class="p">:</span> <span class="n">MODALITY_TOUCHSCREEN</span>
+<span class="n">priority</span><span class="p">:</span> <span class="mi">255</span>
+<span class="n">confidence</span><span class="p">:</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+<section id="supervisor-sends-command-for-the-robot-to-dock-via-tablet">
+<h3>Supervisor sends command for the robot to dock via tablet<a class="headerlink" href="#supervisor-sends-command-for-the-robot-to-dock-via-tablet" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Possible intent trigger</strong>: a button press on a remote control tablet</p></li>
+<li><p><strong>Possible published intent</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intent</span><span class="p">:</span> <span class="n">MOVE_TO</span>
+<span class="n">data</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;goal&quot;</span><span class="p">:</span> <span class="s2">&quot;poi_docking&quot;</span><span class="p">}</span>
+<span class="n">source</span><span class="p">:</span> <span class="n">REMOTE_SUPERVISOR</span>
+<span class="n">modality</span><span class="p">:</span> <span class="n">MODALITY_TOUCHSCREEN</span>
+<span class="n">priority</span><span class="p">:</span> <span class="mi">255</span>
+<span class="n">confidence</span><span class="p">:</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-are-intents-used-by-the-robot">
+<h2>How are intents used by the robot?<a class="headerlink" href="#how-are-intents-used-by-the-robot" title="Link to this heading"></a></h2>
+<p>Intents published on the <code class="docutils literal notranslate"><span class="pre">/intents</span></code> topic represent each of the user’s desires
+or commands understood by the robot.</p>
+<p>These intents need to be acted upon by a dedicated node (or a group of nodes,
+depending on the architecture design) that is called the <strong>robot’s application
+controller</strong>. The general role of the <a class="reference internal" href="../glossary.html#term-Mission-controller"><span class="xref std std-term">mission controller</span></a> is to
+schedule and run the different <a class="reference internal" href="../glossary.html#term-Capability"><span class="xref std std-term">capabilities</span></a> based on received
+intents, and allocate robot’s resources (to ensure no two actions are using eg
+the arms or navigation, at the same time).</p>
+<p>You can use any supervision technique to implement your own application
+controller: simple python scripts, finite state machines, behaviour trees,
+symbolic task planner: the PAL SDK does not enforce any particular
+paradigm.</p>
+<p>You can learn more about how to program applications for the robot here:
+<span class="xref std std-ref">intro-development</span>.</p>
+<p>To get started, the <span class="xref std std-ref">basic-interaction</span> tutorial explains how to create
+your own simple Python controller.</p>
+<p>PAL robots normally come with a default application controller (the one
+underpinning the landing demo page, see eg <span class="xref std std-ref">ari-first-startup</span> for ARI)
+that reacts to different types of intents. You can have a look at its source
+code and use it as a reference.</p>
+<section id="when-not-to-use-intents">
+<h3>When <em>not</em> to use intents?<a class="headerlink" href="#when-not-to-use-intents" title="Link to this heading"></a></h3>
+<p>There are two interaction situations where intents should not be used:
+interactions with no side-effect on the robot (instead, use directly the chatbot
+actions), and short confirmation</p>
+<section id="interactions-with-no-side-effects">
+<h4>Interactions with no side-effects<a class="headerlink" href="#interactions-with-no-side-effects" title="Link to this heading"></a></h4>
+<p>User interactions do not always have to generate intents. In particular, during
+a chatbot interaction, the chatbot engine might need perform simple <em>actions</em> to
+answer the user’s questions which do not impact the robot state. In this case,
+it is unnecessary to generate an intent, as no complex action scheduling is
+necessary.</p>
+<p>For instance, if the user asks the robot about the weather, the chatbot can
+generate an answer by querying an online weather forecast API. This does not
+require any specific robot resources. Similarly, checking the battery level of
+the robot has no impact on the robot state or resources.</p>
+<p>In these cases, instead of publishing an intent, the chatbot engine can directly
+perform the API requests or ROS service calls to answer the user’s question.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="xref std std-ref">dialogue_management</span> explains how to create and customise your own chatbots.
+You can also specifically refer to <span class="xref std std-ref">rasa_chatbot</span> or <span class="xref std std-ref">llm_chatbot</span>.</p>
+</div>
+<div role="list" class="citation-list">
+<div class="citation" id="android-intents" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">android-intents</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://developer.android.com/guide/components/intents-filters">Android Intents</a></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tools/rpk.html" class="btn btn-neutral float-left" title="Automatic code generation with rpk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

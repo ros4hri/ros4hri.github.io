@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhri_1_1PointOfInterest" kind="struct" language="C++" prot="public">
+    <compoundname>hri::PointOfInterest</compoundname>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhri_1_1PointOfInterest_1abe04126fca3b555ebc6a5c51afe4b6ef" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hri::PointOfInterest::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>hri::PointOfInterest::x</qualifiedname>
+        <briefdescription>
+<para>Normalized x coordinate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="365" column="9" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1PointOfInterest_1aa81c02d4ece057ae05c33f62b4c9838a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hri::PointOfInterest::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>hri::PointOfInterest::y</qualifiedname>
+        <briefdescription>
+<para>Normalized y coordinate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="367" column="9" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1PointOfInterest_1ac1c0bdf80c49e5cd0565f078cf13adc7" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hri::PointOfInterest::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <qualifiedname>hri::PointOfInterest::c</qualifiedname>
+        <briefdescription>
+<para>Confidence value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="369" column="9" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="369" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/libhri/hri/include/hri/types.hpp" line="362" column="1" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="363" bodyend="370"/>
+    <listofallmembers>
+      <member refid="structhri_1_1PointOfInterest_1ac1c0bdf80c49e5cd0565f078cf13adc7" prot="public" virt="non-virtual"><scope>hri::PointOfInterest</scope><name>c</name></member>
+      <member refid="structhri_1_1PointOfInterest_1abe04126fca3b555ebc6a5c51afe4b6ef" prot="public" virt="non-virtual"><scope>hri::PointOfInterest</scope><name>x</name></member>
+      <member refid="structhri_1_1PointOfInterest_1aa81c02d4ece057ae05c33f62b4c9838a" prot="public" virt="non-virtual"><scope>hri::PointOfInterest</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

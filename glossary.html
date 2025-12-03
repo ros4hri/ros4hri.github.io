@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossary &mdash; ROS4HRI: ROS for Human-Robot Interaction 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/style/main.css?v=8e287a83" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" data-goatcounter="https://ros4hri.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Automatic code generation with rpk" href="tools/rpk.html" />
+    <link rel="prev" title="Who is behind ROS4HRI?" href="about.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ROS4HRI: ROS for Human-Robot Interaction
+              <img src="_static/logo_small.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">The ROS4HRI Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">The ROS4HRI Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Open-source ROS4HRI packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skills/index.html">ROS4HRI Standard Skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robots.html">Compatible Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Who is behind ROS4HRI?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ROS4HRI: ROS for Human-Robot Interaction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Glossary</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/glossary.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="glossary">
+<span id="id1"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Link to this heading"></a></h1>
+<dl class="glossary">
+<dt id="term-Action"><strong>Action</strong><a class="headerlink" href="#term-Action" title="Link to this term"></a></dt><dd><p><em>Action</em> is a general term, and might refer to different concept depending on the context. In this documentation, it might either refer to a <a class="reference external" href="wiki.ros.org/actionlib">ROS action</a> (ie, a low-level asynchronous communication mechanism between ROS node) or a <em>chatbot action</em>, triggered in response to a verbal command (see <span class="xref std std-ref">communication/rasa_chatbot:Custom actions</span>).</p>
+</dd>
+<dt id="term-Activity"><strong>Activity</strong><a class="headerlink" href="#term-Activity" title="Link to this term"></a></dt><dd><p>See <a class="reference internal" href="#term-Task"><span class="xref std std-term">Task</span></a></p>
+</dd>
+<dt id="term-Application"><strong>Application</strong><a class="headerlink" href="#term-Application" title="Link to this term"></a></dt><dd><p>An application is what creates and manage the behaviour robot. Only one application can be running at a given time. It includes at least a <a class="reference internal" href="#term-Mission-controller"><span class="xref std std-term">mission controller</span></a>, and possibly many additional software components, depending on its needs.</p>
+</dd>
+<dt id="term-ASR"><strong>ASR</strong><a class="headerlink" href="#term-ASR" title="Link to this term"></a></dt><dd><p><em>ASR</em> stands for <em>automatic speech recognition</em> (also sometimes called <em>speech-to-text</em>): the process of converting speech (recorded by the robot’s microphone) into written text.</p>
+</dd>
+<dt id="term-Capability"><strong>Capability</strong><a class="headerlink" href="#term-Capability" title="Link to this term"></a></dt><dd><p>See <a class="reference internal" href="#term-Skill"><span class="xref std std-term">skill</span></a></p>
+</dd>
+<dt id="term-Fact"><strong>Fact</strong><a class="headerlink" href="#term-Fact" title="Link to this term"></a></dt><dd><p>See <a class="reference internal" href="#term-Statement"><span class="xref std std-term">statement</span></a></p>
+</dd>
+<dt id="term-Intent"><strong>Intent</strong><a class="headerlink" href="#term-Intent" title="Link to this term"></a></dt><dd><p>An abstract description (a ROS message) representing <em>something</em> that <em>someone</em> wants the robot to perform. Intents are usually published by the user-perception nodes (like the dialogue manager, or the touchscreen manager), and are processed by the <a class="reference internal" href="#term-Mission-controller"><span class="xref std std-term">mission controller</span></a>.</p>
+<p>Not to be confused with the chatbot <em>intents</em>, which are internal to the chatbot, and not visible outside of it. See <span class="xref std std-ref">dialogue_management</span> for more about chatbots.</p>
+<p><em>See also:</em> <a class="reference internal" href="reference/intents.html#intents"><span class="std std-ref">Intents</span></a></p>
+</dd>
+<dt id="term-Knowledge-base"><strong>Knowledge base</strong><a class="headerlink" href="#term-Knowledge-base" title="Link to this term"></a></dt><dd><p>The robot’s <em>knowledge base</em> is a semantic database where you can store and query <em>facts</em> (also called <em>statements</em>), and perform first-order logic reasoning.</p>
+</dd>
+<dt id="term-Mission"><strong>Mission</strong><a class="headerlink" href="#term-Mission" title="Link to this term"></a></dt><dd><p>See <a class="reference internal" href="#term-Mission-controller"><span class="xref std std-term">Mission controller</span></a></p>
+</dd>
+<dt id="term-Mission-controller"><strong>Mission controller</strong><a class="headerlink" href="#term-Mission-controller" title="Link to this term"></a></dt><dd><p>The <em>mission controller</em> is the software that controls the main behaviour of the robot: it is the core software component of your application. It schedules and execute <a class="reference internal" href="#term-Skill"><span class="xref std std-term">skills</span></a> based on user <a class="reference internal" href="#term-Intent"><span class="xref std std-term">intents</span></a> and other application-specific needs.</p>
+</dd>
+<dt id="term-Ontology"><strong>Ontology</strong><a class="headerlink" href="#term-Ontology" title="Link to this term"></a></dt><dd><p>In computer science, an <em>ontology</em> is a network of semantic concepts related to each others. It is also refered as <em>semantic graph</em>. The knowledge is stored in ontologies using formalisms like RDF/OWL. On our robot, we using ontologies to store the semantic knowledge of the robot.</p>
+</dd>
+<dt id="term-OWL"><strong>OWL</strong><a class="headerlink" href="#term-OWL" title="Link to this term"></a></dt><dd><p>OWL stands for <em>Web Ontology Language</em> and it the format in which we store symbolic knowledge in our <a class="reference internal" href="#term-Ontology"><span class="xref std std-term">ontologies</span></a> and knowledge base.</p>
+</dd>
+<dt id="term-rpk"><strong>rpk</strong><a class="headerlink" href="#term-rpk" title="Link to this term"></a></dt><dd><p>See <a class="reference internal" href="tools/rpk.html#rpk"><span class="std std-ref">Automatic code generation with rpk</span></a></p>
+</dd>
+<dt id="term-Skill"><strong>Skill</strong><a class="headerlink" href="#term-Skill" title="Link to this term"></a></dt><dd><p><em>Skills</em> are ‘unit’ operations executed by the robot: navigating to a location, looking at a specific target, grasping an object, etc. ROS4HRI standardizes multiple <a class="reference internal" href="skills/index.html#skills"><span class="std std-ref">ROS4HRI Standard Skills</span></a>, and you can implement your own custom ones as well.</p>
+<p><em>See also:</em> <a class="reference internal" href="skills/index.html#skills"><span class="std std-ref">ROS4HRI Standard Skills</span></a></p>
+</dd>
+<dt id="term-Statement"><strong>Statement</strong><a class="headerlink" href="#term-Statement" title="Link to this term"></a></dt><dd><p>A <em>statement</em> refers to a piece of information (formally, a &lt;subject, predicate, object&gt; triple), stored (or retrieved) from the robot’s <a class="reference internal" href="#term-Knowledge-base"><span class="xref std std-term">knowledge base</span></a>.</p>
+</dd>
+<dt id="term-Task"><strong>Task</strong><a class="headerlink" href="#term-Task" title="Link to this term"></a></dt><dd><p>An <em>task</em> represents a finite set of actions performed by the robot to achieve a specific goal (i.e. “Doing an Inventory”, “Getting a glass of water”, “Going to the kitchen”). In other systems, it is sometimes refered as an <cite>activity</cite>.</p>
+</dd>
+<dt id="term-Triples"><strong>Triples</strong><a class="headerlink" href="#term-Triples" title="Link to this term"></a></dt><dd><p>See <a class="reference internal" href="#term-Statement"><span class="xref std std-term">statement</span></a></p>
+</dd>
+</dl>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="Who is behind ROS4HRI?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tools/rpk.html" class="btn btn-neutral float-right" title="Automatic code generation with rpk" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright PAL Robotics S.L..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+<style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search,
+  .wy-nav-top {
+    background: #464646;
+  }
+
+  .wy-nav-content {
+    max-width: none;
+  }
+
+  /* Sidebar */
+  .wy-nav-side {
+    background: #136264;
+  }
+</style>
+
+
+</body>
+</html>

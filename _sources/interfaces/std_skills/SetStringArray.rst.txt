@@ -1,0 +1,8 @@
+.. _std_skills_srv_SetStringArray:
+
+``std_skills/srv/SetStringArray``
+=================================
+
+.. literalinclude:: ../../src/std_skills/srv/SetStringArray.srv
+   :language: python
+   :linenos:

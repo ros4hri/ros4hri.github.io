@@ -1,0 +1,349 @@
+.. index:: do_led_effect
+
+.. _skill-do_led_effect:
+
+Skill ``do_led_effect``
+-----------------------------------------------------------
+
+
+- **Version**: 1.0.0
+
+- **Default path**: ``/skill/do_led_effect``
+- **Datatype**: :action:`interaction_skills/action/DoLedEffect`
+- **Definition source**: ``package.xml`` in `ros4hri/interaction_skills <https://github.com/ros4hri/interaction_skills>`_
+
+Perform light effects using the robot's LEDs.
+
+
+
+
+Input parameters
+~~~~~~~~~~~~~~~~
+
+
+
+- **groups** ``string array``, default: ``[]``
+
+  
+  The LED groups to use for the effect (eg ``ear_leds``, ``back_leds``).
+  An empty list means the effect is applied to all LED groups.
+
+
+
+
+
+- **effect** ``string``, default: ``solid_color``
+
+  
+  The selected LED effect, one of:
+
+  - ``solid_color``:
+    Applies up to two solid colors side-by-side to the specified LED groups,
+    with the primary color applied to the first partition of the LED group,
+    and the secondary color applied to the second partition.
+  - ``rainbow``:
+    Lights the LED groups in a rainbow effect,
+    which moves through the LED group cyclically.
+  - ``fade``:
+    Fades between two colors cyclically.
+    It starts with the primary color,
+    fades to the secondary color over the first partition,
+    then fades back to the primary color over the second partition.
+  - ``blink``:
+    Blinks the LED groups between two colors.
+    It applies a solid primary color in the first partition of a cycle,
+    then applies a solid secondary color in the second partition.
+  - ``flow``:
+    Displays a loading-like effect, with the partition ratio of LEDs colored
+    with the primary color moving through the LED group,
+    at a constant speed such to traverse the entire LED group in one cycle,
+    and the secondary color filling the rest of the LED group.
+
+
+
+
+
+- **duration** ``float``, default: ``0.0``
+
+  
+  Total duration of the effect before the action is completed.
+  A null or negative number will mean the action continues indefinitely until
+  canceled.
+
+
+
+
+
+- **color** :msg:`interaction_skills/msg/LedColor`
+
+  
+  The primary color for the effect.
+  Ignored for the ``rainbow`` effect.
+
+
+
+
+
+- **secondary_color** :msg:`interaction_skills/msg/LedColor`
+
+  
+  The secondary color for the effect.
+  Ignored for the ``rainbow`` effect.
+
+
+
+
+
+- **cycle** ``float``, default: ``1.0``
+
+  
+  Duration in seconds of a single cycle of the effect.
+  Ignored for the ``solid_color`` effect.
+
+
+
+
+
+- **partition** ``float``, default: ``1.0``
+
+  
+  For effects with two phases in a cycle
+  (or two spatially separated partitions as in ``solid_color``),
+  the proportion of the first one ([0., 1.])
+  Ignored for the ``rainbow`` effect.
+
+
+
+
+
+
+
+
+
+
+Quick snippets
+~~~~~~~~~~~~~~
+
+
+.. tabs:: 
+
+  .. tab:: Command-line
+
+    Call the skill from the command-line
+    
+
+    .. code-block:: sh
+    
+        $ ros2 action send_goal /skill/do_led_effect interaction_skills/action/DoLedEffect # then press Tab to complete the message prototype
+
+
+  .. tab:: ROS 2 action (Python)
+
+    Call the action from a Python script:
+
+
+    .. code-block:: python
+    
+        #!/usr/bin/env python
+
+        import rclpy
+        from rclpy.action import ActionClient
+        from rclpy.node import Node
+
+        from interaction_skills.action import 
+
+        class DoledeffectActionClient(Node):
+
+            def __init__(self):
+                super().__init__('do_led_effect_client')
+                self._action_client = ActionClient(self, , '/skill/do_led_effect')
+
+            def send_goal(self, a, b):
+                goal_msg = .Goal()
+
+                # TODO: adapt to the action's parameters
+
+                # check the DoLedEffectGoal message
+                # definition for the possible goal parameters
+
+                # goal_msg.a = a
+                # goal_msg.b = b
+
+                self._action_client.wait_for_server()
+
+                return self._action_client.send_goal_async(goal_msg)
+
+        if __name__ == '__main__':
+            rclpy.init(args=args)
+
+            action_client = ActionClient()
+
+            # TODO: adapt to your action's parameters
+            future = action_client.send_goal(a, b)
+
+            rclpy.spin_until_future_complete(action_client, future)
+
+            rclpy.shutdown()
+
+
+
+  
+  .. tab:: ROS 2 action (C++)
+
+    Call the action from a C++ program:
+
+    .. code-block:: cpp
+
+        #include <functional>
+        #include <future>
+        #include <memory>
+        #include <string>
+        #include <sstream>
+        #include <chrono>
+
+        #include "interaction_skills/action/.hpp"
+
+        #include "rclcpp/rclcpp.hpp"
+        #include "rclcpp_action/rclcpp_hpp"
+        #include "rclcpp_components/register_node_macro.hpp"
+
+        using namespace std::chrono_literals;
+        using namespace std;
+
+        class DoledeffectActionClient : public rclcpp::Node
+        {
+        public:
+          using  = interaction_skills::action::;
+          using GoalHandle = rclcpp_action::ClientGoalHandle<>;
+
+          explicit DoledeffectActionClient(const rclcpp::NodeOptions & options)
+          : Node("do_led_effect_action_client", options)
+          {
+            this->client_ptr_ = rclcpp_action::create_client<>(
+                    this,
+                    "");
+
+            this->timer_ = this->create_wall_timer(
+                    500ms,
+                    bind(&DoledeffectActionClient::send_goal, this));
+          }
+
+          void send_goal()
+          {
+            using namespace std::placeholders;
+
+            this->timer_->cancel();
+
+            if (!this->client_ptr_->wait_for_action_server()) {
+              RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+              rclcpp::shutdown();
+            }
+
+            auto goal_msg = ::Goal();
+  
+
+            // check the DoLedEffectGoal message
+            // definition for the possible goal parameters
+
+            // goal_msg.... = ...;
+
+            RCLCPP_INFO(this->get_logger(), "Sending goal");
+
+            auto send_goal_options = rclcpp_action::Client<>::SendGoalOptions();
+
+            send_goal_options.goal_response_callback =
+                bind(&DoledeffectActionClient::goal_response_callback, this, _1);
+
+            send_goal_options.feedback_callback =
+                bind(&DoledeffectActionClient::feedback_callback, this, _1, _2);
+
+            send_goal_options.result_callback =
+                bind(&DoledeffectActionClient::result_callback, this, _1);
+
+
+            this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
+          }
+
+        private:
+          rclcpp_action::Client<>::SharedPtr client_ptr_;
+          rclcpp::TimerBase::SharedPtr timer_;
+
+          void goal_response_callback(const GoalHandle::SharedPtr & goal_handle)
+          {
+            if (!goal_handle) {
+              RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
+            } else {
+              RCLCPP_INFO(this->get_logger(), "Goal accepted by server, waiting for result");
+            }
+          }
+
+          void feedback_callback(
+              GoalHandle::SharedPtr,
+              const shared_ptr<const ::Feedback> feedback)
+          {
+            stringstream ss;
+            ss << "Next number in sequence received: ";
+            for (auto number : feedback->partial_sequence) {
+              ss << number << " ";
+            }
+            RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+          }
+
+          void result_callback(const GoalHandle::WrappedResult & result)
+          {
+            switch (result.code) {
+              case rclcpp_action::ResultCode::SUCCEEDED:
+                  break;
+              case rclcpp_action::ResultCode::ABORTED:
+                  RCLCPP_ERROR(this->get_logger(), "Goal was aborted");
+                  return;
+              case rclcpp_action::ResultCode::CANCELED:
+                  RCLCPP_ERROR(this->get_logger(), "Goal was canceled");
+                  return;
+              default:
+                  RCLCPP_ERROR(this->get_logger(), "Unknown result code");
+                  return;
+            }
+            stringstream ss;
+            ss << "Result received: ";
+            for (auto number : result.result->sequence) {
+              ss << number << " ";
+            }
+            RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+            rclcpp::shutdown();
+          }
+        };  // class DoledeffectActionClient
+
+
+        RCLCPP_COMPONENTS_REGISTER_NODE(DoledeffectActionClient)
+
+  .. tab:: QML
+
+    You can call this skill from QML using the following code snippet. See :ref:`ros_qml_plugin` to learn more.
+
+    .. code-block:: qml
+
+        import Ros 2.0
+        
+        // ...
+        DoLedEffectSkill {
+            id: mySkill
+
+            onResult: {
+                console.log("Skill result: " + result);
+            }
+            onFeedback: {
+                console.log("Skill feedback: " + feedback);
+            }
+
+        }
+
+        // Call the skill
+        mySkill.do_led_effect();
+
+
+See also
+~~~~~~~~
+
+
+* List of other :ref:`interaction_skills` skills

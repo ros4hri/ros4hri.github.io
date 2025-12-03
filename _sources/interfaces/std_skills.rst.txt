@@ -1,0 +1,49 @@
+.. _std_skills_interfaces:
+
+std_skills interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``std_skills``.
+
+**Source repository**: `ros4hri/std_skills <https: //github.com/ros4hri/std_skills>`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   std_skills/Bool
+   std_skills/Byte
+   std_skills/Char
+   std_skills/ColorRGBA
+   std_skills/Empty
+   std_skills/Feedback
+   std_skills/Float32
+   std_skills/Float32Array
+   std_skills/Float64
+   std_skills/Int16
+   std_skills/Int16Array
+   std_skills/Int32
+   std_skills/Int32Array
+   std_skills/Int64
+   std_skills/Int8
+   std_skills/Int8Array
+   std_skills/Meta
+   std_skills/Result
+   std_skills/SetBool
+   std_skills/SetFloat32
+   std_skills/SetFloat32Array
+   std_skills/SetInt8
+   std_skills/SetInt8Array
+   std_skills/SetString
+   std_skills/SetStringArray
+   std_skills/SetUInt8
+   std_skills/SetUInt8Array
+   std_skills/String
+   std_skills/StringArray
+   std_skills/Trigger
+   std_skills/UInt16
+   std_skills/UInt16Array
+   std_skills/UInt32
+   std_skills/UInt32Array
+   std_skills/UInt64
+   std_skills/UInt8
+   std_skills/UInt8Array
