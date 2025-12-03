@@ -24,7 +24,7 @@ The ROS4HRI ecosystem consists of several open-source packages available on GitH
     You are the author of a ROS4HRI-compliant node? We would love to feature it in this list! Open `a
     discussion on the ROS4HRI GitHub organization
     <https://github.com/orgs/ros4hri/discussions/new?category=ideas>`_, or
-    better yet, **directly create a Pull Request** `against this file
+    better yet, **directly create a Pull Request** `against this page
     <https://github.com/ros4hri/ros4hri.github.io/blob/main/packages.rst>`_.
 
 
