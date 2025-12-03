@@ -5,6 +5,12 @@ Who is behind ROS4HRI?
 
 ROS4HRI is an open-source initiative driven by the robotics community.
 
+.. admonition:: Want to get in touch?
+
+    Want to get in touch, contribute, or propose new ideas for ROS4HRI? Open `a
+    discussion on the ROS4HRI GitHub organization
+    <https://github.com/orgs/ros4hri/discussions/new?category=ideas>`_.
+
 Key Contributors
 ----------------
 
@@ -12,16 +18,16 @@ Key Contributors
     :width: 100px
     :align: center
 
-The project was initiated and is primarily maintained by **Séverin Lemaignan**.
+The project was initiated and is currently primarily maintained by **Séverin Lemaignan**.
 
 .. image:: images/PAL_logo.png
     :width: 400px
     :align: center
     :target: https://pal-robotics.com/
 
-**PAL Robotics** (who employs Séverin Lemaignan) has been a major contributor to
-the development of the ROS4HRI standard and its implementation, using it as the
-backbone for the HRI capabilities of their social robots (ARI, TIAGo).
+**PAL Robotics** is a major contributor to the development of the ROS4HRI
+standard and its implementation, using it as the backbone for the HRI
+capabilities of their social robots (ARI, TIAGo).
 
 Scientific publications
 -----------------------
