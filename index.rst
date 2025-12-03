@@ -33,6 +33,7 @@ packages <packages>` that implement these conventions.
 
    overview
    getting_started
+   standard
    packages
    skills/index
    references

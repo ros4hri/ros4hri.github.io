@@ -84,6 +84,8 @@ Perception
 
 **Fusion & High-Level**
 
+.. _hri_person_manager:
+
 -   ``hri_person_manager``: Manages the list of tracked persons, fusing face, body, and voice IDs.
 
     - Source repository: `ros4hri/hri_person_manager <https://github.com/ros4hri/hri_person_manager>`_
