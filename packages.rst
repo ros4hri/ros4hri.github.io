@@ -9,7 +9,7 @@ Open-source ROS4HRI packages
    :width: 20%
 
 
-The ROS4HRI ecosystem consists of several open-source packages available on GitHub.
+The ROS4HRI ecosystem consists of several open-source packages available on GitHub, organized by feature area.
 
 .. admonition:: ROS version support
     
@@ -17,201 +17,287 @@ The ROS4HRI ecosystem consists of several open-source packages available on GitH
     
     - **ROS 1 Noetic** is supported but in **maintenance mode** (no regular tests; no new developments; pull requests are however welcome).
     
-    - Support for **ROS 2 Jazzy and Rolling** is planned but not yet available.
+    - Support for **ROS 2 Jazzy and Rolling** is planned but not yet generally available.
+
+.. hint::
+
+    You are the author of a ROS4HRI-compliant node? We would love to feature it in this list! Open `a
+    discussion on the ROS4HRI GitHub organization
+    <https://github.com/orgs/ros4hri/discussions/new?category=ideas>`_, or
+    better yet, **directly create a Pull Request** `against this file
+    <https://github.com/ros4hri/ros4hri.github.io/blob/main/packages.rst>`_.
 
 
-Core & Standards
-----------------
+Core Libraries & Messages
+--------------------------
 
--  ``hri_msgs``: Standard ROS messages for HRI (faces, bodies, voices, persons).
+.. list-table::
+   :header-rows: 1
+   :widths: 30 40 30
+   :width: 100%
 
-    - List of :ref:`hri_msgs_interfaces`
-    - Source repository: `ros4hri/hri_msgs <https://github.com/ros4hri/hri_msgs>`_
-    - Install: ``apt install ros-<distro>-hri-msgs``
+   * - Package
+     - Description
+     - Installation
+   * - :ref:`hri_msgs_interfaces`
+     - Standard ROS messages for HRI (faces, bodies, voices, persons)
+     - ``apt install ros-<distro>-hri-msgs``
+   * - :ref:`hri_actions_msgs_interfaces`
+     - Standard ROS actions for HRI :ref:`intents`
+     - ``apt install ros-<distro>-hri-actions-msgs``
+   * - `human_description <https://github.com/ros4hri/human_description>`_
+     - Standard URDF models for humans
+     - ``apt install ros-<distro>-human-description``
+   * - :ref:`libhri`
+     - C++ library to ease interaction with ROS4HRI topics
+     - ``apt install ros-<distro>-hri``
+   * - :ref:`pyhri`
+     - Python library to ease interaction with ROS4HRI topics
+     - ``apt install ros-<distro>-pyhri``
 
--  ``hri_actions_msgs``: Standard ROS actions for HRI :ref:`intents`.
-
-    - List of :ref:`hri_actions_msgs_interfaces`
-    - Source repository: `ros4hri/hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_
-    - Install: ``apt install ros-<distro>-hri-actions-msgs``
-
--  ``human_description``: Standard URDF models for humans.
-
-    - Source repository: `ros4hri/human_description <https://github.com/ros4hri/human_description>`_
-    - Install: ``apt install ros-<distro>-human-description``
-
--  :ref:`libhri` and :ref:`pyhri`: libraries to ease interaction with ROS4HRI topics.
-
-    - Source repository: `ros4hri/libhri <https://github.com/ros4hri/libhri>`_
-    - Install (C++): ``apt install ros-<distro>-hri``
-    - Install (Python): ``apt install ros-<distro>-pyhri``
 
 Perception
 ----------
 
-**Face**
+Face Perception
++++++++++++++++
 
--   ``hri_face_detect``: Detects and tracks faces, extracts facial landmarks, and estimates head pose.
-    
-    - Source repository: `ros4hri/hri_face_detect <https://github.com/ros4hri/hri_face_detect>`_
-    - Install: *from sources*
+Packages implementing face-related perception capabilities as defined in
+`REP-155 -- Faces <https://www.ros.org/reps/rep-0155.html#faces>`_.
 
--   ``hri_face_identification``: Face identification/recognition.
+.. list-table::
+   :header-rows: 1
+   :widths: 25 10 10 10 10 10 25
+   :width: 100%
 
-    - Source repository: `ros4hri/hri_face_identification <https://github.com/ros4hri/hri_face_identification>`_
-    - Install: *from sources*
+   * - Package
+     - Detection
+     - Landmarks
+     - Gaze
+     - Expression
+     - Recognition
+     - Installation
+   * - `hri_face_detect <https://github.com/ros4hri/hri_face_detect>`_
+     - ✓
+     - ✓
+     - ✓
+     - 
+     - 
+     - *from sources*
+   * - `hri_emotion_recognizer <https://github.com/ros4hri/hri_emotion_recognizer>`_
+     - 
+     - 
+     - 
+     - ✓
+     - 
+     - *from sources*
+   * - `hri_face_identification <https://github.com/ros4hri/hri_face_identification>`_
+     - 
+     - 
+     - 
+     - 
+     - ✓
+     - *from sources*
 
--   ``hri_emotion_recognizer``: Emotion recognition.
 
-    - Source repository: `ros4hri/hri_emotion_recognizer <https://github.com/ros4hri/hri_emotion_recognizer>`_
-    - Source repository (models): `ros4hri/hri_emotion_models <https://github.com/ros4hri/hri_emotion_models>`_
-    - Install: *from sources*
+Body Perception
++++++++++++++++
 
-**Body**
+Packages implementing body-related perception capabilities as defined in
+`REP-155 -- Bodies <https://www.ros.org/reps/rep-0155.html#bodies>`_.
 
--   ``hri_body_detect``: 2D/3D body detection and tracking (supports both monocular and RGBD cameras).
-    
-    - Source repository: `ros4hri/hri_body_detect <https://github.com/ros4hri/hri_body_detect>`_
-    - Install: *from sources*
+.. list-table::
+   :header-rows: 1
+   :widths: 30 10 10 10 10 10 25
+   :width: 100%
 
-**Audio/Voice**
+   * - Package
+     - 2D Skeleton
+     - 3D Skeleton
+     - Hands
+     - TF frames
+     - Posture/Gestures
+     - Installation
+   * - `hri_body_detect <https://github.com/ros4hri/hri_body_detect>`_
+     - ✓
+     - ✓
+     - 
+     - ✓
+     - (basic) 
+     - *from sources*
 
--   ``asr_vosk``: A ROS4HRI-compatible wrapper around the VOSK speech recognition library.
 
-    - Source repository: `ros4hri/asr_vosk <https://github.com/ros4hri/asr_vosk>`_
-    - Source repository (models): `ros4hri/asr_vosk_language_models <https://github.com/ros4hri/asr_vosk_language_models>`_
-    - Install: *from sources*
+Voice & Audio Perception
+++++++++++++++++++++++++
 
-**Fusion & High-Level**
+Packages implementing voice-related perception capabilities as defined in
+`REP-155 -- Voices <https://www.ros.org/reps/rep-0155.html#voices>`_.
 
-.. _hri_person_manager:
+.. list-table::
+   :header-rows: 1
+   :widths: 30 10 10 10 10 10 25
+   :width: 100%
 
--   ``hri_person_manager``: Manages the list of tracked persons, fusing face, body, and voice IDs.
+   * - Package
+     - Audio Features
+     - Voice Activity Detection
+     - Speech Recognition
+     - Direction of speech
+     - Speaker ID
+     - Installation
+   * - `asr_vosk <https://github.com/ros4hri/asr_vosk>`_
+     - 
+     -
+     - ✓ (``vosk``)
+     - 
+     -
+     - *from sources*
 
-    - Source repository: `ros4hri/hri_person_manager <https://github.com/ros4hri/hri_person_manager>`_
-    - Install: *from sources*
+Person Tracking & Fusion
+++++++++++++++++++++++++
 
--   ``hri_face_body_matcher``: Matches detected faces to detected bodies.
+Packages implementing person-level tracking and multi-modal fusion as defined in
+`REP-155 -- Persons <https://www.ros.org/reps/rep-0155.html#persons>`_.
 
-    - Source repository: `ros4hri/hri_face_body_matcher <https://github.com/ros4hri/hri_face_body_matcher>`_
-    - Install: ``apt install ros-<distro>-hri-face-body-matcher``
+.. list-table::
+   :header-rows: 1
+   :widths: 30 10 10 10 10 25
+   :width: 100%
 
--   ``hri_engagement``: Engagement estimation.
+   * - Package
+     - Face/Body Matching
+     - Face/Voice Matching
+     - Person Fusion
+     - Engagement
+     - Installation
+   * - `hri_face_body_matcher <https://github.com/ros4hri/hri_face_body_matcher>`_
+     - ✓
+     -
+     - 
+     - 
+     - ``apt install ros-<distro>-hri-face-body-matcher``
+   * - `hri_person_manager <https://github.com/ros4hri/hri_person_manager>`_
+     - 
+     -
+     - ✓
+     - 
+     - *from sources*
+   * - `hri_engagement <https://github.com/ros4hri/hri_engagement>`_
+     - 
+     -
+     - 
+     - ✓
+     - *from sources*
 
-    - Source repository: `ros4hri/hri_engagement <https://github.com/ros4hri/hri_engagement>`_
-    - Install: *from sources*
 
-Interaction & Skills (Action)
------------------------------
+Interaction Skills
+------------------
 
-**Core**
+Standard skill definitions
+++++++++++++++++++++++++++
 
--   :ref:`rpk <rpk>`: ROS4HRI package generator.
-    Generates ROS 2 skills, tasks, chatbots, or even full applications from
-    templates.
+Standard skill definitions for robot actions and behaviors. See :ref:`skills`
+for the complete list.
 
-    - Source repository: `ros4hri/rpk <https://github.com/ros4hri/rpk>`_
-    - Install: ``pip install rpk``
+.. list-table::
+   :header-rows: 1
+   :widths: 30 40 30
+   :width: 100%
 
--  ``hri_actions_msgs``: Standard ROS actions for HRI :ref:`intents`.
-
-    - List of :ref:`hri_actions_msgs_interfaces`
-    - Source repository: `ros4hri/hri_actions_msgs <https://github.com/ros4hri/hri_actions_msgs>`_
-    - Install: ``apt install ros-<distro>-hri-actions-msgs``
-
--   ``std_skills``: Standard/Common skills messages.
-
-    - Source repository: `ros4hri/std_skills <https://github.com/ros4hri/std_skills>`_
-    - Install: *from sources*
-
--   ``architecture_schemas``: JSON schemas for skill definitions, etc.
-
-    - Source repository: `ros4hri/architecture_schemas <https://github.com/ros4hri/architecture_schemas>`_
-    - Install: *from sources*
-
--   ``architecture_tools``: Tools to validate skills (eg ``ament_archlint``) or easily retrieve the list of installed skills.
-
-    - Source repository: `ros4hri/architecture_tools <https://github.com/ros4hri/architecture_tools>`_
-    - Install: *from sources*
-
-**Skills**
-
-These packages define standard interfaces (mostly ROS Actions) for robot skills.
+   * - Package
+     - Skills Defined
+     - Installation
+   * - :ref:`communication_skills`
+     - Verbal communication (Say, Chat, Ask)
+     - *from sources*
+   * - :ref:`interaction_skills`
+     - Social interaction (LookAt, LookFor, LED effects, Expressions)
+     - *from sources*
+   * - :ref:`navigation_skills`
+     - Navigation (Navigate, Waypoints, Zones)
+     - *from sources*
+   * - :ref:`motions_skills`
+     - Motion execution (Joint/Cartesian trajectories)
+     - *from sources*
+   * - :ref:`manipulation_skills`
+     - Manipulation (Grasp, Place, Hand control)
+     - *from sources*
 
 .. note::
     
-    These packages are skill *definitions*, not skill *implementations*. They
-    are meant to enable interoperability between different skill
-    implementations. You can use the `rpk <https://github.com/ros4hri/rpk>`_
-    package to quickly generate skill skeletons.
-
--   :ref:`Verbal communication skills <communication_skills>` (TTS, etc.)
-
-    - Source repository: `ros4hri/communication_skills <https://github.com/ros4hri/communication_skills>`_
-    - Install: *from sources*
-
--   :ref:`Skills for social interaction <interaction_skills>`
-
-    - Source repository: `ros4hri/interaction_skills <https://github.com/ros4hri/interaction_skills>`_
-    - Install: *from sources*
-
--   :ref:`Navigation skills <navigation_skills>`
-
-    - Source repository: `ros4hri/navigation_skills <https://github.com/ros4hri/navigation_skills>`_
-    - Install: *from sources*
-
--   :ref:`Motions/gesture skills <motions_skills>`
-
-    - Source repository: `ros4hri/motions_skills <https://github.com/ros4hri/motions_skills>`_
-    - Install: *from sources*
-
--   :ref:`Manipulation skills <manipulation_skills>`
-
-    - Source repository: `ros4hri/manipulation_skills <https://github.com/ros4hri/manipulation_skills>`_
-    - Install: *from sources*
+    These packages are skill *definitions*, not implementations. They define standard ROS action interfaces to enable interoperability. Use :ref:`rpk <rpk>` to generate skill implementation skeletons.
 
 
-**User Interface**
+Development Tools
++++++++++++++++++
 
--   ``ui_server``: A ROS 2 display server that renders interactive QML content.
-    
-    - Source repository: `ros4hri/ui_server <https://github.com/ros4hri/ui_server>`_
-    - Install: *from sources*
+.. list-table::
+   :header-rows: 1
+   :widths: 30 40 30
+   :width: 100%
 
--   ``ui_msgs``: ROS 2 messages used by ``ui_server``.
-    
-    - Source repository: `ros4hri/ui_msgs <https://github.com/ros4hri/ui_msgs>`_
-    - Install: *from sources*
+   * - Package
+     - Description
+     - Installation
+   * - :ref:`rpk <rpk>`
+     - ROS4HRI package generator for skills, tasks, and applications
+     - ``pip install rpk``
+   * - `architecture_schemas <https://github.com/ros4hri/architecture_schemas>`_
+     - JSON schemas for skill definitions and validation
+     - *from sources*
+   * - `architecture_tools <https://github.com/ros4hri/architecture_tools>`_
+     - Tools to validate and discover skills (``ament_archlint``)
+     - *from sources*
+   * - `std_skills <https://github.com/ros4hri/std_skills>`_
+     - Standard/common skills messages
+     - *from sources*
 
--   ``ros-qml-plugin``: QML plugin for ROS.
-    
-    - Source repository: `ros4hri/ros-qml-plugin <https://github.com/ros4hri/ros-qml-plugin>`_
-    - Install: *from sources*
 
-Visualization & Tools
----------------------
+Visualization & Debugging
+--------------------------
 
-- ``hri_visualization``: Generates a camera image overlay with faces, bodies, emotions, etc.
+.. list-table::
+   :header-rows: 1
+   :widths: 30 40 30
+   :width: 100%
 
-    - Source repository: `ros4hri/hri_visualization <https://github.com/ros4hri/hri_visualization>`_
-    - Install: *from sources*
+   * - Package
+     - Description
+     - Installation
+   * - `hri_rviz <https://github.com/ros4hri/hri_rviz>`_
+     - RViz plugins for visualizing HRI data (faces, bodies, persons)
+     - ``apt install ros-<distro>-hri-rviz``
+   * - `hri_visualization <https://github.com/ros4hri/hri_visualization>`_
+     - Camera image overlay with faces, bodies, emotions
+     - *from sources*
+   * - `rqt_human_radar <https://github.com/ros4hri/rqt_human_radar>`_
+     - rqt plugin for radar-like human visualization
+     - *from sources*
+   * - `rqt_chat <https://github.com/ros4hri/rqt_chat>`_
+     - Chat interface for debugging dialogue systems
+     - *from sources*
+   * - `interaction_sim <https://github.com/ros4hri/interaction_sim>`_
+     - ROS 2 simulation environment for HRI research
+     - *from sources*
 
-- ``hri_rviz``: RViz plugins for visualizing HRI data (Faces, Bodies, etc.).
 
-    - Source repository: `ros4hri/hri_rviz <https://github.com/ros4hri/hri_rviz>`_
-    - Install: ``apt install ros-<distro>-hri-rviz``
+Building User Interface
+-----------------------
 
-- ``rqt_human_radar``: An rqt plugin to visualize humans in a radar-like view.
+.. list-table::
+   :header-rows: 1
+   :widths: 30 40 30
+   :width: 100%
 
-    - Source repository: `ros4hri/rqt_human_radar <https://github.com/ros4hri/rqt_human_radar>`_
-    - Install: *from sources*
-
-- ``rqt_chat``: Chat interface for debugging.
-
-    - Source repository: `ros4hri/rqt_chat <https://github.com/ros4hri/rqt_chat>`_
-    - Install: *from sources*
-
-- ``interaction_sim``: ROS 2 simulation environment for HRI research.
-
-    - Source repository: `ros4hri/interaction_sim <https://github.com/ros4hri/interaction_sim>`_
-    - Install: *from sources*
+   * - Package
+     - Description
+     - Installation
+   * - `ui_server <https://github.com/ros4hri/ui_server>`_
+     - ROS 2 display server for interactive QML content
+     - *from sources*
+   * - `ui_msgs <https://github.com/ros4hri/ui_msgs>`_
+     - ROS 2 messages for UI server
+     - *from sources*
+   * - `ros-qml-plugin <https://github.com/ros4hri/ros-qml-plugin>`_
+     - QML plugin for ROS integration
+     - *from sources*

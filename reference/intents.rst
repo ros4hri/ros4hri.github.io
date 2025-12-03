@@ -143,7 +143,8 @@ The *source* of the intent is a string describing who created this intent. This
 is *not* the node which published the intent, but instead the actual agent who
 expressed the intent/command/desire. ``source`` can be either one of the
 constant below, or the specific id of the person/agent expressing the intent. In
-a `REP-155 <https://www.ros.org/reps/rep-0155.html>`_ compliant system, this ID must be the person ID of the agent.
+a `REP-155 <https://www.ros.org/reps/rep-0155.html>`_ compliant system, this ID
+must be the person ID of the agent.
 
 .. code-block::
 
@@ -367,8 +368,6 @@ PAL robots normally come with a default application controller (the one
 underpinning the landing demo page, see eg :ref:`ari-first-startup` for ARI)
 that reacts to different types of intents. You can have a look at its source
 code and use it as a reference.
-
-.. TODO: add link to supervisor source code
 
 When *not* to use intents?
 ++++++++++++++++++++++++++
