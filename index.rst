@@ -40,6 +40,7 @@ packages <packages>` that implement these conventions.
    tutorials
    robots
    about
+   contributing
    glossary
 
 .. toctree::
