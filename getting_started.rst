@@ -10,18 +10,22 @@ Installation
 
 ROS4HRI is available as a set of ROS packages.
 
-Packages available in ROS Humble
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Packages available in ROS
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following core packages can be installed directly via ``apt``:
 
 .. code-block:: bash
 
-    sudo apt install ros-humble-hri-msgs \
-                     ros-humble-hri-actions-msgs \
-                     ros-humble-libhri \
-                     ros-humble-hri-rviz \
-                     ros-humble-human-description
+    sudo apt install ros-{distro}-hri-msgs \
+                     ros-{distro}-hri-actions-msgs \
+                     ros-{distro}-libhri \
+                     ros-{distro}-hri-rviz \
+                     ros-{distro}-human-description
+
+.. note::
+    
+    These core packages are available for ROS 1 Melodic, Noetic, and ROS 2 Humble, Jazzy and Rolling.
 
 Installing other packages from source
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -44,10 +48,6 @@ Other packages (like detectors) currently need to be installed from source. For 
     # Build
     colcon build --symlink-install
     source install/setup.bash
-
-.. note::
-    
-    Support for ROS Jazzy and Rolling is planned but not yet available.
 
 First Steps: Command Line
 -------------------------

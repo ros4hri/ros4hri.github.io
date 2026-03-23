@@ -13,11 +13,11 @@ The ROS4HRI ecosystem consists of several open-source packages available on GitH
 
 .. admonition:: ROS version support
     
-    ROS4HRI is primarily developed and tested on **ROS 2 Humble**.
+    ROS4HRI is primarily developed and tested on **ROS 2 Jazzy**.
     
     - **ROS 1 Noetic** is supported but in **maintenance mode** (no regular tests; no new developments; pull requests are however welcome).
     
-    - Support for **ROS 2 Jazzy and Rolling** is planned but not yet generally available.
+    - Support for **ROS 2 Humble and Rolling** should also be good, albeit less tested.
 
 .. hint::
 
