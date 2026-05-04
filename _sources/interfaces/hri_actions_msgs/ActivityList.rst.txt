@@ -1,0 +1,8 @@
+.. _hri_actions_msgs_msg_ActivityList:
+
+``hri_actions_msgs/msg/ActivityList``
+=====================================
+
+.. literalinclude:: ../../src/hri_actions_msgs/msg/ActivityList.msg
+   :language: python
+   :linenos:

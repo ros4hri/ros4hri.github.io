@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhri_1_1ExpressionVA" kind="struct" language="C++" prot="public">
+    <compoundname>hri::ExpressionVA</compoundname>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhri_1_1ExpressionVA_1ad1b7d28634893108ce455e15f572310c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hri::ExpressionVA::valence</definition>
+        <argsstring></argsstring>
+        <name>valence</name>
+        <qualifiedname>hri::ExpressionVA::valence</qualifiedname>
+        <briefdescription>
+<para>Valence dimension of the circumplex model of affect, from -1.0 to 1.0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="80" column="9" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1ExpressionVA_1a86facdacede900b203d2e80953cdd0fb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hri::ExpressionVA::arousal</definition>
+        <argsstring></argsstring>
+        <name>arousal</name>
+        <qualifiedname>hri::ExpressionVA::arousal</qualifiedname>
+        <briefdescription>
+<para>Arousal dimension of the circumplex model of affect, from -1.0 to 1.0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="82" column="9" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/libhri/hri/include/hri/types.hpp" line="77" column="1" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="78" bodyend="83"/>
+    <listofallmembers>
+      <member refid="structhri_1_1ExpressionVA_1a86facdacede900b203d2e80953cdd0fb" prot="public" virt="non-virtual"><scope>hri::ExpressionVA</scope><name>arousal</name></member>
+      <member refid="structhri_1_1ExpressionVA_1ad1b7d28634893108ce455e15f572310c" prot="public" virt="non-virtual"><scope>hri::ExpressionVA</scope><name>valence</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhri_1_1Body" kind="class" language="C++" prot="public">
+    <compoundname>hri::Body</compoundname>
+    <basecompoundref refid="classhri_1_1FeatureTracker" prot="public" virt="non-virtual">hri::FeatureTracker</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">std::enable_shared_from_this&lt; Body &gt;</basecompoundref>
+    <includes refid="body_8hpp" local="no">body.hpp</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classhri_1_1Body_1ae2723239c8582066a9d5b6d1c303334b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class HRIListener</definition>
+        <argsstring></argsstring>
+        <name>HRIListener</name>
+        <qualifiedname>hri::Body::HRIListener</qualifiedname>
+        <param>
+          <type><ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="38" column="16" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhri_1_1Body_1a49e1ad18602509bd6e41338fff041c12" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; cv::Rect2f &gt;</type>
+        <definition>std::optional&lt;cv::Rect2f&gt; hri::Body::roi_</definition>
+        <argsstring></argsstring>
+        <name>roi_</name>
+        <qualifiedname>hri::Body::roi_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="86" column="17" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Body_1a2cd40510c042eb897bce2250302fcd07" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; cv::Mat &gt;</type>
+        <definition>std::optional&lt;cv::Mat&gt; hri::Body::cropped_</definition>
+        <argsstring></argsstring>
+        <name>cropped_</name>
+        <qualifiedname>hri::Body::cropped_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="87" column="17" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Body_1ae15f44625f7f4ba8d155579750846f2b" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1ad1eb2d1cd46387171edf8d3f5aa88b5f" kindref="member">SkeletalKeypoints</ref> &gt;</type>
+        <definition>std::optional&lt;SkeletalKeypoints&gt; hri::Body::skeleton_</definition>
+        <argsstring></argsstring>
+        <name>skeleton_</name>
+        <qualifiedname>hri::Body::skeleton_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="88" column="17" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Body_1a9f88491bdefc92489c2aabb28ebf6d5e" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; hri::Body::body_description_</definition>
+        <argsstring></argsstring>
+        <name>body_description_</name>
+        <qualifiedname>hri::Body::body_description_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="89" column="17" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Body_1abfe327b17fdf23d6e630dc019e5d4133" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::NormalizedRegionOfInterest2D &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::NormalizedRegionOfInterest2D&gt;::SharedPtr hri::Body::roi_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>roi_subscriber_</name>
+        <qualifiedname>hri::Body::roi_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="91" column="36" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Body_1a19b633a258425d53d9756eb17801363d" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; sensor_msgs::msg::Image &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;sensor_msgs::msg::Image&gt;::SharedPtr hri::Body::cropped_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>cropped_subscriber_</name>
+        <qualifiedname>hri::Body::cropped_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="92" column="36" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Body_1a75a162359ebecd02250d750b8c054f8c" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::Skeleton2D &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::Skeleton2D&gt;::SharedPtr hri::Body::skeleton_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>skeleton_subscriber_</name>
+        <qualifiedname>hri::Body::skeleton_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="93" column="36" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Body_1ac8c73379a9835f0f6197a72ecfb981c0" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::String &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::String&gt;::SharedPtr hri::Body::body_description_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>body_description_subscriber_</name>
+        <qualifiedname>hri::Body::body_description_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="94" column="36" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhri_1_1Body_1a88f725ebc06353475828f1f37bec9e0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hri::Body::Body</definition>
+        <argsstring>(ID id, NodeInterfaces node_interfaces, rclcpp::CallbackGroup::SharedPtr callback_group, const tf2::BufferCore &amp;tf_buffer, const std::string &amp;reference_frame)</argsstring>
+        <name>Body</name>
+        <qualifiedname>hri::Body::Body</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="structhri_1_1NodeInterfaces" kindref="compound">NodeInterfaces</ref></type>
+          <declname>node_interfaces</declname>
+        </param>
+        <param>
+          <type>rclcpp::CallbackGroup::SharedPtr</type>
+          <declname>callback_group</declname>
+        </param>
+        <param>
+          <type>const tf2::BufferCore &amp;</type>
+          <declname>tf_buffer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>reference_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="41" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1ab10898fe4efb2e21bdc36a37d87ccb4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual hri::Body::~Body</definition>
+        <argsstring>()</argsstring>
+        <name>~Body</name>
+        <qualifiedname>hri::Body::~Body</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="48" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1a8f5185767eb23e13d0a742a1e636ca63" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; cv::Rect2f &gt;</type>
+        <definition>std::optional&lt; cv::Rect2f &gt; hri::Body::roi</definition>
+        <argsstring>() const</argsstring>
+        <name>roi</name>
+        <qualifiedname>hri::Body::roi</qualifiedname>
+        <briefdescription>
+<para>If available, returns the normalized 2D region of interest (RoI) of the body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The coordinates are provided in the original camera&apos;s image coordinate space. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="55" column="17" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1ae51734b6587f5f5174fa17ed9465104b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; cv::Mat &gt;</type>
+        <definition>std::optional&lt; cv::Mat &gt; hri::Body::cropped</definition>
+        <argsstring>() const</argsstring>
+        <name>cropped</name>
+        <qualifiedname>hri::Body::cropped</qualifiedname>
+        <briefdescription>
+<para>Returns the body image, cropped from the source image. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="59" column="17" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1aa1f658cf7e561d38a8a43bbd2a0538bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="namespacehri_1ad1eb2d1cd46387171edf8d3f5aa88b5f" kindref="member">SkeletalKeypoints</ref> &gt;</type>
+        <definition>std::optional&lt; SkeletalKeypoints &gt; hri::Body::skeleton</definition>
+        <argsstring>() const</argsstring>
+        <name>skeleton</name>
+        <qualifiedname>hri::Body::skeleton</qualifiedname>
+        <briefdescription>
+<para>Returns the 2D skeleton keypoints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Points coordinates are in the image space of the source image, and normalised between 0.0 and 1.0.</para>
+<para>The skeleton joints indices follow those defined in <ulink url="http://docs.ros.org/en/api/hri_msgs/html/msg/Skeleton2D.html">http://docs.ros.org/en/api/hri_msgs/html/msg/Skeleton2D.html</ulink> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="69" column="17" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1ad6adb42b8fcece92ff43a70de4ecc88b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; hri::Body::bodyDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>bodyDescription</name>
+        <qualifiedname>hri::Body::bodyDescription</qualifiedname>
+        <briefdescription>
+<para>Returns the body kinematic description in URDF format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The body kinematic description follows the template defined in <ulink url="http://www.ros.org/reps/rep-0155.html#kinematic-model-of-the-human">http://www.ros.org/reps/rep-0155.html#kinematic-model-of-the-human</ulink> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="76" column="17" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="76" bodyend="76"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhri_1_1Body_1ae1fbe502bef8cc9ab69f032438727dfd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Body::onRoI</definition>
+        <argsstring>(hri_msgs::msg::NormalizedRegionOfInterest2D::ConstSharedPtr msg)</argsstring>
+        <name>onRoI</name>
+        <qualifiedname>hri::Body::onRoI</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::NormalizedRegionOfInterest2D::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="79" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1adb77ac7164771f4cac358d0910db8473" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Body::onCropped</definition>
+        <argsstring>(sensor_msgs::msg::Image::ConstSharedPtr msg)</argsstring>
+        <name>onCropped</name>
+        <qualifiedname>hri::Body::onCropped</qualifiedname>
+        <param>
+          <type>sensor_msgs::msg::Image::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="80" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1a09b7282f9f5979d04e1ef39f33212283" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Body::onSkeleton</definition>
+        <argsstring>(hri_msgs::msg::Skeleton2D::ConstSharedPtr msg)</argsstring>
+        <name>onSkeleton</name>
+        <qualifiedname>hri::Body::onSkeleton</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::Skeleton2D::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="81" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1a6036cdf4971d022644ad76213a94927f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Body::onBodyDescription</definition>
+        <argsstring>(std_msgs::msg::String::ConstSharedPtr msg)</argsstring>
+        <name>onBodyDescription</name>
+        <qualifiedname>hri::Body::onBodyDescription</qualifiedname>
+        <param>
+          <type>std_msgs::msg::String::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="82" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Body_1ad84ccccae9df753673b143c15ce566a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Body::invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate</name>
+        <qualifiedname>hri::Body::invalidate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/body.hpp" line="84" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>hri::Body</label>
+        <link refid="classhri_1_1Body"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::enable_shared_from_this&lt; Body &gt;</label>
+      </node>
+      <node id="3">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>hri::Body</label>
+        <link refid="classhri_1_1Body"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>node_interfaces_</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>hri::NodeInterfaces</label>
+        <link refid="structhri_1_1NodeInterfaces"/>
+      </node>
+      <node id="5">
+        <label>std::enable_shared_from_this&lt; Body &gt;</label>
+      </node>
+      <node id="3">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/libhri/hri/include/hri/body.hpp" line="36" column="1" bodyfile="src/libhri/hri/include/hri/body.hpp" bodystart="37" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classhri_1_1Body_1a88f725ebc06353475828f1f37bec9e0f" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>Body</name></member>
+      <member refid="classhri_1_1Body_1a9f88491bdefc92489c2aabb28ebf6d5e" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>body_description_</name></member>
+      <member refid="classhri_1_1Body_1ac8c73379a9835f0f6197a72ecfb981c0" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>body_description_subscriber_</name></member>
+      <member refid="classhri_1_1Body_1ad6adb42b8fcece92ff43a70de4ecc88b" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>bodyDescription</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a42eb9bd6fb5f250049d51f573298be52" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>callback_group_</name></member>
+      <member refid="classhri_1_1Body_1ae51734b6587f5f5174fa17ed9465104b" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>cropped</name></member>
+      <member refid="classhri_1_1Body_1a2cd40510c042eb897bce2250302fcd07" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>cropped_</name></member>
+      <member refid="classhri_1_1Body_1a19b633a258425d53d9756eb17801363d" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>cropped_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a009c18c2c088bbb45fac5c026f0eee7a" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aa08f881641921ff829b3bcd98b45a5fa" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1ac817d863585935b45fc0c94cbdd7ab81" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>frame</name></member>
+      <member refid="classhri_1_1Body_1ae2723239c8582066a9d5b6d1c303334b" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>HRIListener</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a43d6bf1b61128ef049d00b62501ab3ed" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>id</name></member>
+      <member refid="classhri_1_1Body_1ad84ccccae9df753673b143c15ce566a2" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>invalidate</name></member>
+      <member refid="classhri_1_1FeatureTracker_1acae8abd9b6c5cdc506e95e43d37f8a7b" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>kFrame_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a1f365657741b753fcb2c8988646f3941" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>kId_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a612926f881088d7b96be64486a44b02d" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>kNs_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aefbc9921cbebb02b83ccd6a5c3bde850" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>node_interfaces_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a0bdb0b615c40a1845ea0b19eb627d35e" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>ns</name></member>
+      <member refid="classhri_1_1Body_1a6036cdf4971d022644ad76213a94927f" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>onBodyDescription</name></member>
+      <member refid="classhri_1_1Body_1adb77ac7164771f4cac358d0910db8473" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>onCropped</name></member>
+      <member refid="classhri_1_1Body_1ae1fbe502bef8cc9ab69f032438727dfd" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>onRoI</name></member>
+      <member refid="classhri_1_1Body_1a09b7282f9f5979d04e1ef39f33212283" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>onSkeleton</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a3358226d4cefa6e9594549f2032ecd13" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>operator&lt;</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7d8647d6a3f36d9c402b75ce4ead1004" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>reference_frame_</name></member>
+      <member refid="classhri_1_1Body_1a8f5185767eb23e13d0a742a1e636ca63" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>roi</name></member>
+      <member refid="classhri_1_1Body_1a49e1ad18602509bd6e41338fff041c12" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>roi_</name></member>
+      <member refid="classhri_1_1Body_1abfe327b17fdf23d6e630dc019e5d4133" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>roi_subscriber_</name></member>
+      <member refid="classhri_1_1Body_1aa1f658cf7e561d38a8a43bbd2a0538bd" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>skeleton</name></member>
+      <member refid="classhri_1_1Body_1ae15f44625f7f4ba8d155579750846f2b" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>skeleton_</name></member>
+      <member refid="classhri_1_1Body_1a75a162359ebecd02250d750b8c054f8c" prot="private" virt="non-virtual"><scope>hri::Body</scope><name>skeleton_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9285e67d97e1e6dec3f140e0af4825c6" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>tf_buffer_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7f8e9739cc1b36a3065d14ab4625a9fc" prot="public" virt="virtual"><scope>hri::Body</scope><name>transform</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9722026f0229718e259c2b037c271520" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>transformFromReference</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aad82e477aa6f1c85487bd396a2623d45" prot="public" virt="non-virtual"><scope>hri::Body</scope><name>valid</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a59f6a76a0b1e3eececdad701fb34df63" prot="protected" virt="non-virtual"><scope>hri::Body</scope><name>valid_</name></member>
+      <member refid="classhri_1_1Body_1ab10898fe4efb2e21bdc36a37d87ccb4d" prot="public" virt="virtual"><scope>hri::Body</scope><name>~Body</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7adc2f010a3cdd903c69f9c286cc2df9" prot="public" virt="virtual"><scope>hri::Body</scope><name>~FeatureTracker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

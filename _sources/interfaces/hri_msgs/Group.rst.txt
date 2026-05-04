@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_Group:
+
+``hri_msgs/msg/Group``
+======================
+
+.. literalinclude:: ../../src/hri_msgs/msg/Group.msg
+   :language: python
+   :linenos:

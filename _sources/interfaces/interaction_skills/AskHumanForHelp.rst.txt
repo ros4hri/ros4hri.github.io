@@ -1,0 +1,8 @@
+.. _interaction_skills_action_AskHumanForHelp:
+
+``interaction_skills/action/AskHumanForHelp``
+=============================================
+
+.. literalinclude:: ../../src/interaction_skills/action/AskHumanForHelp.action
+   :language: python
+   :linenos:

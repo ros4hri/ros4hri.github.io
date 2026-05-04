@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_Skeleton2D:
+
+``hri_msgs/msg/Skeleton2D``
+===========================
+
+.. literalinclude:: ../../src/hri_msgs/msg/Skeleton2D.msg
+   :language: python
+   :linenos:

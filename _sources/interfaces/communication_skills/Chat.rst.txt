@@ -1,0 +1,8 @@
+.. _communication_skills_action_Chat:
+
+``communication_skills/action/Chat``
+====================================
+
+.. literalinclude:: ../../src/communication_skills/action/Chat.action
+   :language: python
+   :linenos:

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_b65101c4583de9b76e2e9dfa4e78ca2f" kind="dir">
+    <compoundname>src/libhri/hri/include</compoundname>
+    <innerdir refid="dir_11cfd5072b3819a0287d1d04807e67a6">src/libhri/hri/include/hri</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/libhri/hri/include/"/>
+  </compounddef>
+</doxygen>

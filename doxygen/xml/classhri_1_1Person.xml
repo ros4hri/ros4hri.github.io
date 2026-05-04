@@ -1,0 +1,662 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhri_1_1Person" kind="class" language="C++" prot="public">
+    <compoundname>hri::Person</compoundname>
+    <basecompoundref refid="classhri_1_1FeatureTracker" prot="public" virt="non-virtual">hri::FeatureTracker</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">std::enable_shared_from_this&lt; Person &gt;</basecompoundref>
+    <includes refid="person_8hpp" local="no">person.hpp</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classhri_1_1Person_1ae2723239c8582066a9d5b6d1c303334b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class HRIListener</definition>
+        <argsstring></argsstring>
+        <name>HRIListener</name>
+        <qualifiedname>hri::Person::HRIListener</qualifiedname>
+        <param>
+          <type><ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="44" column="16" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhri_1_1Person_1a0210488e0d5f8b41d63d3251a4145cc7" prot="private" static="no" mutable="no">
+        <type>std::weak_ptr&lt; const <ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref> &gt;</type>
+        <definition>std::weak_ptr&lt;const HRIListener&gt; hri::Person::listener_</definition>
+        <argsstring></argsstring>
+        <name>listener_</name>
+        <qualifiedname>hri::Person::listener_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="90" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a6e4655d6bd209a476abd588640c30566" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref> &gt;</type>
+        <definition>std::optional&lt;ID&gt; hri::Person::face_id_</definition>
+        <argsstring></argsstring>
+        <name>face_id_</name>
+        <qualifiedname>hri::Person::face_id_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="92" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a17559ed00f19bc465906750d21262c8e" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref> &gt;</type>
+        <definition>std::optional&lt;ID&gt; hri::Person::body_id_</definition>
+        <argsstring></argsstring>
+        <name>body_id_</name>
+        <qualifiedname>hri::Person::body_id_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="93" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a33f187b5a3ca247761a3e571ef38041c" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref> &gt;</type>
+        <definition>std::optional&lt;ID&gt; hri::Person::voice_id_</definition>
+        <argsstring></argsstring>
+        <name>voice_id_</name>
+        <qualifiedname>hri::Person::voice_id_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="94" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a35aa9eb99592e49c735b95b0ebb08566" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref> &gt;</type>
+        <definition>std::optional&lt;ID&gt; hri::Person::alias_</definition>
+        <argsstring></argsstring>
+        <name>alias_</name>
+        <qualifiedname>hri::Person::alias_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="98" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1acc5fd211d602b4b2c49800dd8a68051a" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; bool &gt;</type>
+        <definition>std::optional&lt;bool&gt; hri::Person::anonymous_</definition>
+        <argsstring></argsstring>
+        <name>anonymous_</name>
+        <qualifiedname>hri::Person::anonymous_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="99" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a49af764c4dabed359dc86897375c587e" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1ae1c0fe827bc67dcdd1dfa39649c5d006" kindref="member">EngagementLevel</ref> &gt;</type>
+        <definition>std::optional&lt;EngagementLevel&gt; hri::Person::engagement_status_</definition>
+        <argsstring></argsstring>
+        <name>engagement_status_</name>
+        <qualifiedname>hri::Person::engagement_status_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="100" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a11d56a34f572d0d3dced95bfb2a05954" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; float &gt;</type>
+        <definition>std::optional&lt;float&gt; hri::Person::loc_confidence_</definition>
+        <argsstring></argsstring>
+        <name>loc_confidence_</name>
+        <qualifiedname>hri::Person::loc_confidence_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="101" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1ac0a0e581a8176ebb769f900154624d6e" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::String &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::String&gt;::SharedPtr hri::Person::face_id_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>face_id_subscriber_</name>
+        <qualifiedname>hri::Person::face_id_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="103" column="36" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1abf124bbc08e21e4c3c9b5d084d76b576" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::String &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::String&gt;::SharedPtr hri::Person::body_id_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>body_id_subscriber_</name>
+        <qualifiedname>hri::Person::body_id_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="104" column="36" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a0437bfb54454d22975d3bc179176bebd" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::String &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::String&gt;::SharedPtr hri::Person::voice_id_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>voice_id_subscriber_</name>
+        <qualifiedname>hri::Person::voice_id_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="105" column="36" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1ad81898446c889759e0a92799c66b89c8" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::Bool &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::Bool&gt;::SharedPtr hri::Person::anonymous_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>anonymous_subscriber_</name>
+        <qualifiedname>hri::Person::anonymous_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="106" column="36" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a8e92859277bacc6cc711549936447864" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::String &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::String&gt;::SharedPtr hri::Person::alias_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>alias_subscriber_</name>
+        <qualifiedname>hri::Person::alias_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="107" column="36" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a2367cdb5c2d090b1c7fd7c51c859bd8d" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::EngagementLevel &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::EngagementLevel&gt;::SharedPtr hri::Person::engagement_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>engagement_subscriber_</name>
+        <qualifiedname>hri::Person::engagement_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="108" column="36" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Person_1a49b15969d9d6be8c85ff0b3d5debc50e" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::Float32 &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::Float32&gt;::SharedPtr hri::Person::loc_confidence_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>loc_confidence_subscriber_</name>
+        <qualifiedname>hri::Person::loc_confidence_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="109" column="36" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="109" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhri_1_1Person_1a876c0bc8b335603a971aaf064ae5d679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hri::Person::Person</definition>
+        <argsstring>(ID id, NodeInterfaces node_interfaces, rclcpp::CallbackGroup::SharedPtr callback_group, std::weak_ptr&lt; const HRIListener &gt; listener, const tf2::BufferCore &amp;tf_buffer, const std::string &amp;reference_frame)</argsstring>
+        <name>Person</name>
+        <qualifiedname>hri::Person::Person</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="structhri_1_1NodeInterfaces" kindref="compound">NodeInterfaces</ref></type>
+          <declname>node_interfaces</declname>
+        </param>
+        <param>
+          <type>rclcpp::CallbackGroup::SharedPtr</type>
+          <declname>callback_group</declname>
+        </param>
+        <param>
+          <type>std::weak_ptr&lt; const <ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref> &gt;</type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type>const tf2::BufferCore &amp;</type>
+          <declname>tf_buffer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>reference_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="47" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a5605fb8c2ad6c2cd0962bcef35ea38fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual hri::Person::~Person</definition>
+        <argsstring>()</argsstring>
+        <name>~Person</name>
+        <qualifiedname>hri::Person::~Person</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="55" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1ae676fc1f02bf4c314e07952436c7ce23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehri_1a6dc7a390bf7c6eb1580c3fb9bee410cd" kindref="member">ConstFacePtr</ref></type>
+        <definition>ConstFacePtr hri::Person::face</definition>
+        <argsstring>() const</argsstring>
+        <name>face</name>
+        <qualifiedname>hri::Person::face</qualifiedname>
+        <briefdescription>
+<para>Returns a shared pointer to the face of this person, or a nullptr if this person is currently not associated to any detected face. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="60" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a02011984e741dc16485ed77532e8a473" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehri_1ae40170cbc4028f8b0343a7fe97a398ab" kindref="member">ConstBodyPtr</ref></type>
+        <definition>ConstBodyPtr hri::Person::body</definition>
+        <argsstring>() const</argsstring>
+        <name>body</name>
+        <qualifiedname>hri::Person::body</qualifiedname>
+        <briefdescription>
+<para>Returns a shared pointer to the body of this person, or a nullptr if this person is currently not associated to any detected body. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="65" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a612732c194a49372b94c97d9771549ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehri_1a02bcb2303adc2e17f009dab6012b916d" kindref="member">ConstVoicePtr</ref></type>
+        <definition>ConstVoicePtr hri::Person::voice</definition>
+        <argsstring>() const</argsstring>
+        <name>voice</name>
+        <qualifiedname>hri::Person::voice</qualifiedname>
+        <briefdescription>
+<para>Returns a shared pointer to the voice of this person, or a nullptr if this person is currently not associated to any detected voice. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="70" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1aeb82c7a6dd7e2492f3a01e46e4167509" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; bool &gt;</type>
+        <definition>std::optional&lt; bool &gt; hri::Person::anonymous</definition>
+        <argsstring>() const</argsstring>
+        <name>anonymous</name>
+        <qualifiedname>hri::Person::anonymous</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="72" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a4bbd5218e87f90377b500b11e828df94" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="namespacehri_1ae1c0fe827bc67dcdd1dfa39649c5d006" kindref="member">EngagementLevel</ref> &gt;</type>
+        <definition>std::optional&lt; EngagementLevel &gt; hri::Person::engagementStatus</definition>
+        <argsstring>() const</argsstring>
+        <name>engagementStatus</name>
+        <qualifiedname>hri::Person::engagementStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="73" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a14c794256b6999c72b26789703b4adc8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; float &gt;</type>
+        <definition>std::optional&lt; float &gt; hri::Person::locationConfidence</definition>
+        <argsstring>() const</argsstring>
+        <name>locationConfidence</name>
+        <qualifiedname>hri::Person::locationConfidence</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="74" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a27da58daf02d6d86fb7991d013923f5c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref> &gt;</type>
+        <definition>std::optional&lt; ID &gt; hri::Person::alias</definition>
+        <argsstring>() const</argsstring>
+        <name>alias</name>
+        <qualifiedname>hri::Person::alias</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="75" column="17" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1ae5f47b1e382fdfa596ebe2983dd72b86" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::optional&lt; geometry_msgs::msg::TransformStamped &gt;</type>
+        <definition>std::optional&lt; geometry_msgs::msg::TransformStamped &gt; hri::Person::transform</definition>
+        <argsstring>() const override</argsstring>
+        <name>transform</name>
+        <qualifiedname>hri::Person::transform</qualifiedname>
+        <reimplements refid="classhri_1_1FeatureTracker_1a7f8e9739cc1b36a3065d14ab4625a9fc">transform</reimplements>
+        <briefdescription>
+<para>Returns the estimated (stamped) 3D transform of self (if available). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="77" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhri_1_1Person_1a6ce1b7f65119306d1c0ba5e39f650b49" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Person::onFaceId</definition>
+        <argsstring>(std_msgs::msg::String::ConstSharedPtr msg)</argsstring>
+        <name>onFaceId</name>
+        <qualifiedname>hri::Person::onFaceId</qualifiedname>
+        <param>
+          <type>std_msgs::msg::String::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="80" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1ae89fc24e2c0a1be4a1df1a88f52d1c04" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Person::onBodyId</definition>
+        <argsstring>(std_msgs::msg::String::ConstSharedPtr msg)</argsstring>
+        <name>onBodyId</name>
+        <qualifiedname>hri::Person::onBodyId</qualifiedname>
+        <param>
+          <type>std_msgs::msg::String::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="81" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1aca866ab7f4c07650fb6529c4e34e8084" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Person::onVoiceId</definition>
+        <argsstring>(std_msgs::msg::String::ConstSharedPtr msg)</argsstring>
+        <name>onVoiceId</name>
+        <qualifiedname>hri::Person::onVoiceId</qualifiedname>
+        <param>
+          <type>std_msgs::msg::String::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="82" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a2078bbe9da114939a394fb0801b959a7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Person::onAnonymous</definition>
+        <argsstring>(std_msgs::msg::Bool::ConstSharedPtr msg)</argsstring>
+        <name>onAnonymous</name>
+        <qualifiedname>hri::Person::onAnonymous</qualifiedname>
+        <param>
+          <type>std_msgs::msg::Bool::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="83" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a56c5ede624cb50272d5f9ea3676f618b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Person::onAlias</definition>
+        <argsstring>(std_msgs::msg::String::ConstSharedPtr msg)</argsstring>
+        <name>onAlias</name>
+        <qualifiedname>hri::Person::onAlias</qualifiedname>
+        <param>
+          <type>std_msgs::msg::String::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="84" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1a667c441694f1acaf320438edbcc1fafb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Person::onEngagementStatus</definition>
+        <argsstring>(hri_msgs::msg::EngagementLevel::ConstSharedPtr msg)</argsstring>
+        <name>onEngagementStatus</name>
+        <qualifiedname>hri::Person::onEngagementStatus</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::EngagementLevel::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="85" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1ae89d0b0fee5527e031530cb5323c4ec8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Person::onLocationConfidence</definition>
+        <argsstring>(std_msgs::msg::Float32::ConstSharedPtr msg)</argsstring>
+        <name>onLocationConfidence</name>
+        <qualifiedname>hri::Person::onLocationConfidence</qualifiedname>
+        <param>
+          <type>std_msgs::msg::Float32::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="86" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Person_1aa6ff96a6232f300fb7116a6d072c887c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Person::invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate</name>
+        <qualifiedname>hri::Person::invalidate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/person.hpp" line="88" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>hri::Person</label>
+        <link refid="classhri_1_1Person"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+      <node id="4">
+        <label>std::enable_shared_from_this&lt; Person &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>node_interfaces_</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>hri::NodeInterfaces</label>
+        <link refid="structhri_1_1NodeInterfaces"/>
+      </node>
+      <node id="1">
+        <label>hri::Person</label>
+        <link refid="classhri_1_1Person"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+      <node id="5">
+        <label>std::enable_shared_from_this&lt; Person &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/libhri/hri/include/hri/person.hpp" line="41" column="1" bodyfile="src/libhri/hri/include/hri/person.hpp" bodystart="43" bodyend="110"/>
+    <listofallmembers>
+      <member refid="classhri_1_1Person_1a27da58daf02d6d86fb7991d013923f5c" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>alias</name></member>
+      <member refid="classhri_1_1Person_1a35aa9eb99592e49c735b95b0ebb08566" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>alias_</name></member>
+      <member refid="classhri_1_1Person_1a8e92859277bacc6cc711549936447864" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>alias_subscriber_</name></member>
+      <member refid="classhri_1_1Person_1aeb82c7a6dd7e2492f3a01e46e4167509" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>anonymous</name></member>
+      <member refid="classhri_1_1Person_1acc5fd211d602b4b2c49800dd8a68051a" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>anonymous_</name></member>
+      <member refid="classhri_1_1Person_1ad81898446c889759e0a92799c66b89c8" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>anonymous_subscriber_</name></member>
+      <member refid="classhri_1_1Person_1a02011984e741dc16485ed77532e8a473" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>body</name></member>
+      <member refid="classhri_1_1Person_1a17559ed00f19bc465906750d21262c8e" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>body_id_</name></member>
+      <member refid="classhri_1_1Person_1abf124bbc08e21e4c3c9b5d084d76b576" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>body_id_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a42eb9bd6fb5f250049d51f573298be52" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>callback_group_</name></member>
+      <member refid="classhri_1_1Person_1a49af764c4dabed359dc86897375c587e" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>engagement_status_</name></member>
+      <member refid="classhri_1_1Person_1a2367cdb5c2d090b1c7fd7c51c859bd8d" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>engagement_subscriber_</name></member>
+      <member refid="classhri_1_1Person_1a4bbd5218e87f90377b500b11e828df94" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>engagementStatus</name></member>
+      <member refid="classhri_1_1Person_1ae676fc1f02bf4c314e07952436c7ce23" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>face</name></member>
+      <member refid="classhri_1_1Person_1a6e4655d6bd209a476abd588640c30566" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>face_id_</name></member>
+      <member refid="classhri_1_1Person_1ac0a0e581a8176ebb769f900154624d6e" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>face_id_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a009c18c2c088bbb45fac5c026f0eee7a" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aa08f881641921ff829b3bcd98b45a5fa" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1ac817d863585935b45fc0c94cbdd7ab81" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>frame</name></member>
+      <member refid="classhri_1_1Person_1ae2723239c8582066a9d5b6d1c303334b" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>HRIListener</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a43d6bf1b61128ef049d00b62501ab3ed" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>id</name></member>
+      <member refid="classhri_1_1Person_1aa6ff96a6232f300fb7116a6d072c887c" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>invalidate</name></member>
+      <member refid="classhri_1_1FeatureTracker_1acae8abd9b6c5cdc506e95e43d37f8a7b" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>kFrame_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a1f365657741b753fcb2c8988646f3941" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>kId_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a612926f881088d7b96be64486a44b02d" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>kNs_</name></member>
+      <member refid="classhri_1_1Person_1a0210488e0d5f8b41d63d3251a4145cc7" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>listener_</name></member>
+      <member refid="classhri_1_1Person_1a11d56a34f572d0d3dced95bfb2a05954" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>loc_confidence_</name></member>
+      <member refid="classhri_1_1Person_1a49b15969d9d6be8c85ff0b3d5debc50e" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>loc_confidence_subscriber_</name></member>
+      <member refid="classhri_1_1Person_1a14c794256b6999c72b26789703b4adc8" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>locationConfidence</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aefbc9921cbebb02b83ccd6a5c3bde850" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>node_interfaces_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a0bdb0b615c40a1845ea0b19eb627d35e" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>ns</name></member>
+      <member refid="classhri_1_1Person_1a56c5ede624cb50272d5f9ea3676f618b" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>onAlias</name></member>
+      <member refid="classhri_1_1Person_1a2078bbe9da114939a394fb0801b959a7" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>onAnonymous</name></member>
+      <member refid="classhri_1_1Person_1ae89fc24e2c0a1be4a1df1a88f52d1c04" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>onBodyId</name></member>
+      <member refid="classhri_1_1Person_1a667c441694f1acaf320438edbcc1fafb" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>onEngagementStatus</name></member>
+      <member refid="classhri_1_1Person_1a6ce1b7f65119306d1c0ba5e39f650b49" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>onFaceId</name></member>
+      <member refid="classhri_1_1Person_1ae89d0b0fee5527e031530cb5323c4ec8" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>onLocationConfidence</name></member>
+      <member refid="classhri_1_1Person_1aca866ab7f4c07650fb6529c4e34e8084" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>onVoiceId</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a3358226d4cefa6e9594549f2032ecd13" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>operator&lt;</name></member>
+      <member refid="classhri_1_1Person_1a876c0bc8b335603a971aaf064ae5d679" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>Person</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7d8647d6a3f36d9c402b75ce4ead1004" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>reference_frame_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9285e67d97e1e6dec3f140e0af4825c6" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>tf_buffer_</name></member>
+      <member refid="classhri_1_1Person_1ae5f47b1e382fdfa596ebe2983dd72b86" prot="public" virt="virtual"><scope>hri::Person</scope><name>transform</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9722026f0229718e259c2b037c271520" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>transformFromReference</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aad82e477aa6f1c85487bd396a2623d45" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>valid</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a59f6a76a0b1e3eececdad701fb34df63" prot="protected" virt="non-virtual"><scope>hri::Person</scope><name>valid_</name></member>
+      <member refid="classhri_1_1Person_1a612732c194a49372b94c97d9771549ff" prot="public" virt="non-virtual"><scope>hri::Person</scope><name>voice</name></member>
+      <member refid="classhri_1_1Person_1a33f187b5a3ca247761a3e571ef38041c" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>voice_id_</name></member>
+      <member refid="classhri_1_1Person_1a0437bfb54454d22975d3bc179176bebd" prot="private" virt="non-virtual"><scope>hri::Person</scope><name>voice_id_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7adc2f010a3cdd903c69f9c286cc2df9" prot="public" virt="virtual"><scope>hri::Person</scope><name>~FeatureTracker</name></member>
+      <member refid="classhri_1_1Person_1a5605fb8c2ad6c2cd0962bcef35ea38fb" prot="public" virt="virtual"><scope>hri::Person</scope><name>~Person</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

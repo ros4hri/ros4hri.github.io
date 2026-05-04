@@ -1,0 +1,776 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhri_1_1Face" kind="class" language="C++" prot="public">
+    <compoundname>hri::Face</compoundname>
+    <basecompoundref refid="classhri_1_1FeatureTracker" prot="public" virt="non-virtual">hri::FeatureTracker</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">std::enable_shared_from_this&lt; Face &gt;</basecompoundref>
+    <includes refid="face_8hpp" local="no">face.hpp</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classhri_1_1Face_1ae2723239c8582066a9d5b6d1c303334b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class HRIListener</definition>
+        <argsstring></argsstring>
+        <name>HRIListener</name>
+        <qualifiedname>hri::Face::HRIListener</qualifiedname>
+        <param>
+          <type><ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="42" column="16" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhri_1_1Face_1a9cb1f52942a85770c7a759e446b1e074" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; cv::Rect2f &gt;</type>
+        <definition>std::optional&lt;cv::Rect2f&gt; hri::Face::roi_</definition>
+        <argsstring></argsstring>
+        <name>roi_</name>
+        <qualifiedname>hri::Face::roi_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="129" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a83d2629f36c10dbb87e76455b2bb59ec" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; cv::Mat &gt;</type>
+        <definition>std::optional&lt;cv::Mat&gt; hri::Face::cropped_</definition>
+        <argsstring></argsstring>
+        <name>cropped_</name>
+        <qualifiedname>hri::Face::cropped_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="130" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a3c4f97a787b52dbf8733df786bd2f47a" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; cv::Mat &gt;</type>
+        <definition>std::optional&lt;cv::Mat&gt; hri::Face::aligned_</definition>
+        <argsstring></argsstring>
+        <name>aligned_</name>
+        <qualifiedname>hri::Face::aligned_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="131" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a71d6c5bcede2ade42ebf45cc196759e3" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1a9494ea0575f0c1756fe3bf15e57d08c6" kindref="member">FacialLandmarks</ref> &gt;</type>
+        <definition>std::optional&lt;FacialLandmarks&gt; hri::Face::landmarks_</definition>
+        <argsstring></argsstring>
+        <name>landmarks_</name>
+        <qualifiedname>hri::Face::landmarks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="132" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a3b393c08e5e10e9ff399678fdb356a48" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; float &gt;</type>
+        <definition>std::optional&lt;float&gt; hri::Face::age_</definition>
+        <argsstring></argsstring>
+        <name>age_</name>
+        <qualifiedname>hri::Face::age_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="133" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1aad74e799176e1243c34a9c24209e05b5" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1aad34e53cbb17821c00060b93aff4c748" kindref="member">Gender</ref> &gt;</type>
+        <definition>std::optional&lt;Gender&gt; hri::Face::gender_</definition>
+        <argsstring></argsstring>
+        <name>gender_</name>
+        <qualifiedname>hri::Face::gender_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="134" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a37534fa2402045a4b698d4944f5ce1dd" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1ae8664a4d24f431b7f47d4814667a9469" kindref="member">FacialActionUnits</ref> &gt;</type>
+        <definition>std::optional&lt;FacialActionUnits&gt; hri::Face::facial_action_units_</definition>
+        <argsstring></argsstring>
+        <name>facial_action_units_</name>
+        <qualifiedname>hri::Face::facial_action_units_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="135" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a6bcd243a141e264b515f7e4ff138a451" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespacehri_1a29297f1ecb296065fbe0c45647b3fd43" kindref="member">Expression</ref> &gt;</type>
+        <definition>std::optional&lt;Expression&gt; hri::Face::expression_</definition>
+        <argsstring></argsstring>
+        <name>expression_</name>
+        <qualifiedname>hri::Face::expression_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="136" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a8e93a2d8ad224131930f08b295f38bed" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structhri_1_1ExpressionVA" kindref="compound">ExpressionVA</ref> &gt;</type>
+        <definition>std::optional&lt;ExpressionVA&gt; hri::Face::expression_va_</definition>
+        <argsstring></argsstring>
+        <name>expression_va_</name>
+        <qualifiedname>hri::Face::expression_va_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="137" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1af49d47ea96ec33e4299912b7a8ef4ce5" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; float &gt;</type>
+        <definition>std::optional&lt;float&gt; hri::Face::expression_confidence_</definition>
+        <argsstring></argsstring>
+        <name>expression_confidence_</name>
+        <qualifiedname>hri::Face::expression_confidence_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="138" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1acef48fac80036afedab908304cb96688" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::NormalizedRegionOfInterest2D &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::NormalizedRegionOfInterest2D&gt;::SharedPtr hri::Face::roi_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>roi_subscriber_</name>
+        <qualifiedname>hri::Face::roi_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="140" column="36" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a88e35b21df14869105861bda2e7ea72c" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; sensor_msgs::msg::Image &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;sensor_msgs::msg::Image&gt;::SharedPtr hri::Face::cropped_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>cropped_subscriber_</name>
+        <qualifiedname>hri::Face::cropped_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="141" column="36" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1ae370528c655e261e2fc4fbeb6f4bf64d" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; sensor_msgs::msg::Image &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;sensor_msgs::msg::Image&gt;::SharedPtr hri::Face::aligned_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>aligned_subscriber_</name>
+        <qualifiedname>hri::Face::aligned_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="142" column="36" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a42909d91e9437127a79eb89682e55f30" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::FacialLandmarks &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::FacialLandmarks&gt;::SharedPtr hri::Face::landmarks_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>landmarks_subscriber_</name>
+        <qualifiedname>hri::Face::landmarks_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="143" column="36" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1af750f9893ee8639b0e63a9d6345bc195" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::SoftBiometrics &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::SoftBiometrics&gt;::SharedPtr hri::Face::softbiometrics_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>softbiometrics_subscriber_</name>
+        <qualifiedname>hri::Face::softbiometrics_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="144" column="36" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1ad91d5659a4ebe4367e281ad5ab890112" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::FacialActionUnits &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::FacialActionUnits&gt;::SharedPtr hri::Face::facial_action_units_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>facial_action_units_subscriber_</name>
+        <qualifiedname>hri::Face::facial_action_units_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="145" column="36" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1a8f0666d8be341c73349310ebc7bbfde5" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::Expression &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::Expression&gt;::SharedPtr hri::Face::expression_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>expression_subscriber_</name>
+        <qualifiedname>hri::Face::expression_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="146" column="36" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Face_1abe46a088b80c571f99865e4f67d7427a" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string hri::Face::kGazeFrame_</definition>
+        <argsstring></argsstring>
+        <name>kGazeFrame_</name>
+        <qualifiedname>hri::Face::kGazeFrame_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="148" column="21" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhri_1_1Face_1a9f4b6046791f26d1fd6f4e57b31d0431" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hri::Face::Face</definition>
+        <argsstring>(ID id, NodeInterfaces node_interfaces, rclcpp::CallbackGroup::SharedPtr callback_group, const tf2::BufferCore &amp;tf_buffer, const std::string &amp;reference_frame)</argsstring>
+        <name>Face</name>
+        <qualifiedname>hri::Face::Face</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="structhri_1_1NodeInterfaces" kindref="compound">NodeInterfaces</ref></type>
+          <declname>node_interfaces</declname>
+        </param>
+        <param>
+          <type>rclcpp::CallbackGroup::SharedPtr</type>
+          <declname>callback_group</declname>
+        </param>
+        <param>
+          <type>const tf2::BufferCore &amp;</type>
+          <declname>tf_buffer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>reference_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="45" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a28dfd31e8c00a57cd5a62cebaa5083ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual hri::Face::~Face</definition>
+        <argsstring>()</argsstring>
+        <name>~Face</name>
+        <qualifiedname>hri::Face::~Face</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="52" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1ad16d43a6d82ccc0ccdd5a01029db7d09" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string hri::Face::gazeFrame</definition>
+        <argsstring>() const</argsstring>
+        <name>gazeFrame</name>
+        <qualifiedname>hri::Face::gazeFrame</qualifiedname>
+        <briefdescription>
+<para>The name of the tf frame that correspond to the gaze direction and orientation of the face. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="57" column="15" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a71a448e38f83e442a5e6c90fe96fe925" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; cv::Rect2f &gt;</type>
+        <definition>std::optional&lt; cv::Rect2f &gt; hri::Face::roi</definition>
+        <argsstring>() const</argsstring>
+        <name>roi</name>
+        <qualifiedname>hri::Face::roi</qualifiedname>
+        <briefdescription>
+<para>Returns the normalized 2D region of interest (RoI) of the face, (if available). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The pixel coordinates are provided in the original camera&apos;s image coordinate space. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="63" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a9042a4af0395142573466af742566c40" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; cv::Mat &gt;</type>
+        <definition>std::optional&lt; cv::Mat &gt; hri::Face::cropped</definition>
+        <argsstring>() const</argsstring>
+        <name>cropped</name>
+        <qualifiedname>hri::Face::cropped</qualifiedname>
+        <briefdescription>
+<para>Returns the face image, if necessary scaled, centered and 0-padded, (if available). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="67" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a8cdcd5f92b3e53336a11b604bfa7c47d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; cv::Mat &gt;</type>
+        <definition>std::optional&lt; cv::Mat &gt; hri::Face::aligned</definition>
+        <argsstring>() const</argsstring>
+        <name>aligned</name>
+        <qualifiedname>hri::Face::aligned</qualifiedname>
+        <briefdescription>
+<para>Returns the face image, if necessary scaled, centered and 0-padded, (if available). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In addition, the face is rotated so that the eyes are horizontal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="73" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1ade6a9d8e04a2d1c8cf0d7d4f27ab1514" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="namespacehri_1a9494ea0575f0c1756fe3bf15e57d08c6" kindref="member">FacialLandmarks</ref> &gt;</type>
+        <definition>std::optional&lt; FacialLandmarks &gt; hri::Face::facialLandmarks</definition>
+        <argsstring>() const</argsstring>
+        <name>facialLandmarks</name>
+        <qualifiedname>hri::Face::facialLandmarks</qualifiedname>
+        <briefdescription>
+<para>The list of the 70 facial landmarks (2D points, expressed in normalized coordinates), (if available). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Constants defined in hri_msgs/msgs/facial_landmarks.hpp can be used to access specific points on the face. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="81" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1ae60c38c69b300960f7b52aefdf1b5c5e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="namespacehri_1ae8664a4d24f431b7f47d4814667a9469" kindref="member">FacialActionUnits</ref> &gt;</type>
+        <definition>std::optional&lt; FacialActionUnits &gt; hri::Face::facialActionUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>facialActionUnits</name>
+        <qualifiedname>hri::Face::facialActionUnits</qualifiedname>
+        <briefdescription>
+<para>the list of the facial action units detected on the face. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Action units indices follow the Action Unit naming convention by Ekman. List here: <ulink url="https://en.wikipedia.org/wiki/Facial_Action_Coding_System">https://en.wikipedia.org/wiki/Facial_Action_Coding_System</ulink></para>
+<para>Note that the list is sparse (some indices do not exist in Ekman classification). In addition, depending on the AU detector, some action units might not be detected. In these cases, the confidence value will be 0. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="92" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a887311357360405b2912cb64f02a9ce9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; float &gt;</type>
+        <definition>std::optional&lt; float &gt; hri::Face::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>hri::Face::age</qualifiedname>
+        <briefdescription>
+<para>Estimated age of this face, if available (eg, the &apos;/softbiometrics&apos; is published). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="96" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a5b8b62bdbeaad71bdd0fb12bba368884" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="namespacehri_1aad34e53cbb17821c00060b93aff4c748" kindref="member">Gender</ref> &gt;</type>
+        <definition>std::optional&lt; Gender &gt; hri::Face::gender</definition>
+        <argsstring>() const</argsstring>
+        <name>gender</name>
+        <qualifiedname>hri::Face::gender</qualifiedname>
+        <briefdescription>
+<para>Estimated gender of this face, if available (eg, the &apos;/softbiometrics&apos; is published). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="100" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a89a0eb0fda48e45f64ba665e973add37" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="namespacehri_1a29297f1ecb296065fbe0c45647b3fd43" kindref="member">Expression</ref> &gt;</type>
+        <definition>std::optional&lt; Expression &gt; hri::Face::expression</definition>
+        <argsstring>() const</argsstring>
+        <name>expression</name>
+        <qualifiedname>hri::Face::expression</qualifiedname>
+        <briefdescription>
+<para>The face expression as a discrete state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="104" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a116b45a4adb5be2b2cb89d97214c148e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structhri_1_1ExpressionVA" kindref="compound">ExpressionVA</ref> &gt;</type>
+        <definition>std::optional&lt; ExpressionVA &gt; hri::Face::expressionVA</definition>
+        <argsstring>() const</argsstring>
+        <name>expressionVA</name>
+        <qualifiedname>hri::Face::expressionVA</qualifiedname>
+        <briefdescription>
+<para>The face expression as a continuous value in the circumplex model space. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="108" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="108" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1aae81aeaf79202b29938e7a224194ebde" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; float &gt;</type>
+        <definition>std::optional&lt; float &gt; hri::Face::expressionConfidence</definition>
+        <argsstring>() const</argsstring>
+        <name>expressionConfidence</name>
+        <qualifiedname>hri::Face::expressionConfidence</qualifiedname>
+        <briefdescription>
+<para>The confidence of the face expression estimation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="112" column="17" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a52831fdaea61d8a5237e0d245357b0d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; geometry_msgs::msg::TransformStamped &gt;</type>
+        <definition>std::optional&lt; geometry_msgs::msg::TransformStamped &gt; hri::Face::gazeTransform</definition>
+        <argsstring>() const</argsstring>
+        <name>gazeTransform</name>
+        <qualifiedname>hri::Face::gazeTransform</qualifiedname>
+        <briefdescription>
+<para>Returns the (stamped) 3D transform of the gaze (if available). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="116" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhri_1_1Face_1a5a64fcbc7f5f409c306adcb1180c6765" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Face::onRoI</definition>
+        <argsstring>(hri_msgs::msg::NormalizedRegionOfInterest2D::ConstSharedPtr msg)</argsstring>
+        <name>onRoI</name>
+        <qualifiedname>hri::Face::onRoI</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::NormalizedRegionOfInterest2D::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="119" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1aca8a530116998cf871e2f70c5db62745" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Face::onCropped</definition>
+        <argsstring>(sensor_msgs::msg::Image::ConstSharedPtr msg)</argsstring>
+        <name>onCropped</name>
+        <qualifiedname>hri::Face::onCropped</qualifiedname>
+        <param>
+          <type>sensor_msgs::msg::Image::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="120" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a8da829bf4ace028c4796da951aee4ff5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Face::onAligned</definition>
+        <argsstring>(sensor_msgs::msg::Image::ConstSharedPtr msg)</argsstring>
+        <name>onAligned</name>
+        <qualifiedname>hri::Face::onAligned</qualifiedname>
+        <param>
+          <type>sensor_msgs::msg::Image::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="121" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1abd5f3f0ddfb7e86568ab44239060377b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Face::onLandmarks</definition>
+        <argsstring>(hri_msgs::msg::FacialLandmarks::ConstSharedPtr msg)</argsstring>
+        <name>onLandmarks</name>
+        <qualifiedname>hri::Face::onLandmarks</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::FacialLandmarks::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="122" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1af58ea39345225e598d37101dcee79621" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Face::onSoftBiometrics</definition>
+        <argsstring>(hri_msgs::msg::SoftBiometrics::ConstSharedPtr msg)</argsstring>
+        <name>onSoftBiometrics</name>
+        <qualifiedname>hri::Face::onSoftBiometrics</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::SoftBiometrics::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="123" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1ae256ec4ce048ef30617ef0fdc2dd1eee" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Face::onFacs</definition>
+        <argsstring>(hri_msgs::msg::FacialActionUnits::ConstSharedPtr msg)</argsstring>
+        <name>onFacs</name>
+        <qualifiedname>hri::Face::onFacs</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::FacialActionUnits::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="124" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1a8a94f0fe6acf51bf0c1714b00433f010" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Face::onExpression</definition>
+        <argsstring>(hri_msgs::msg::Expression::ConstSharedPtr msg)</argsstring>
+        <name>onExpression</name>
+        <qualifiedname>hri::Face::onExpression</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::Expression::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="125" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Face_1ad42717f3104090c2b821975c3be2c167" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Face::invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate</name>
+        <qualifiedname>hri::Face::invalidate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/face.hpp" line="127" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>hri::Face</label>
+        <link refid="classhri_1_1Face"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::enable_shared_from_this&lt; Face &gt;</label>
+      </node>
+      <node id="3">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>hri::Face</label>
+        <link refid="classhri_1_1Face"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>node_interfaces_</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>hri::NodeInterfaces</label>
+        <link refid="structhri_1_1NodeInterfaces"/>
+      </node>
+      <node id="5">
+        <label>std::enable_shared_from_this&lt; Face &gt;</label>
+      </node>
+      <node id="3">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/libhri/hri/include/hri/face.hpp" line="40" column="1" bodyfile="src/libhri/hri/include/hri/face.hpp" bodystart="41" bodyend="149"/>
+    <listofallmembers>
+      <member refid="classhri_1_1Face_1a887311357360405b2912cb64f02a9ce9" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>age</name></member>
+      <member refid="classhri_1_1Face_1a3b393c08e5e10e9ff399678fdb356a48" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>age_</name></member>
+      <member refid="classhri_1_1Face_1a8cdcd5f92b3e53336a11b604bfa7c47d" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>aligned</name></member>
+      <member refid="classhri_1_1Face_1a3c4f97a787b52dbf8733df786bd2f47a" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>aligned_</name></member>
+      <member refid="classhri_1_1Face_1ae370528c655e261e2fc4fbeb6f4bf64d" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>aligned_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a42eb9bd6fb5f250049d51f573298be52" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>callback_group_</name></member>
+      <member refid="classhri_1_1Face_1a9042a4af0395142573466af742566c40" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>cropped</name></member>
+      <member refid="classhri_1_1Face_1a83d2629f36c10dbb87e76455b2bb59ec" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>cropped_</name></member>
+      <member refid="classhri_1_1Face_1a88e35b21df14869105861bda2e7ea72c" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>cropped_subscriber_</name></member>
+      <member refid="classhri_1_1Face_1a89a0eb0fda48e45f64ba665e973add37" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>expression</name></member>
+      <member refid="classhri_1_1Face_1a6bcd243a141e264b515f7e4ff138a451" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>expression_</name></member>
+      <member refid="classhri_1_1Face_1af49d47ea96ec33e4299912b7a8ef4ce5" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>expression_confidence_</name></member>
+      <member refid="classhri_1_1Face_1a8f0666d8be341c73349310ebc7bbfde5" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>expression_subscriber_</name></member>
+      <member refid="classhri_1_1Face_1a8e93a2d8ad224131930f08b295f38bed" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>expression_va_</name></member>
+      <member refid="classhri_1_1Face_1aae81aeaf79202b29938e7a224194ebde" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>expressionConfidence</name></member>
+      <member refid="classhri_1_1Face_1a116b45a4adb5be2b2cb89d97214c148e" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>expressionVA</name></member>
+      <member refid="classhri_1_1Face_1a9f4b6046791f26d1fd6f4e57b31d0431" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>Face</name></member>
+      <member refid="classhri_1_1Face_1a37534fa2402045a4b698d4944f5ce1dd" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>facial_action_units_</name></member>
+      <member refid="classhri_1_1Face_1ad91d5659a4ebe4367e281ad5ab890112" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>facial_action_units_subscriber_</name></member>
+      <member refid="classhri_1_1Face_1ae60c38c69b300960f7b52aefdf1b5c5e" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>facialActionUnits</name></member>
+      <member refid="classhri_1_1Face_1ade6a9d8e04a2d1c8cf0d7d4f27ab1514" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>facialLandmarks</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a009c18c2c088bbb45fac5c026f0eee7a" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aa08f881641921ff829b3bcd98b45a5fa" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1ac817d863585935b45fc0c94cbdd7ab81" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>frame</name></member>
+      <member refid="classhri_1_1Face_1ad16d43a6d82ccc0ccdd5a01029db7d09" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>gazeFrame</name></member>
+      <member refid="classhri_1_1Face_1a52831fdaea61d8a5237e0d245357b0d6" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>gazeTransform</name></member>
+      <member refid="classhri_1_1Face_1a5b8b62bdbeaad71bdd0fb12bba368884" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>gender</name></member>
+      <member refid="classhri_1_1Face_1aad74e799176e1243c34a9c24209e05b5" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>gender_</name></member>
+      <member refid="classhri_1_1Face_1ae2723239c8582066a9d5b6d1c303334b" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>HRIListener</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a43d6bf1b61128ef049d00b62501ab3ed" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>id</name></member>
+      <member refid="classhri_1_1Face_1ad42717f3104090c2b821975c3be2c167" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>invalidate</name></member>
+      <member refid="classhri_1_1FeatureTracker_1acae8abd9b6c5cdc506e95e43d37f8a7b" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>kFrame_</name></member>
+      <member refid="classhri_1_1Face_1abe46a088b80c571f99865e4f67d7427a" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>kGazeFrame_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a1f365657741b753fcb2c8988646f3941" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>kId_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a612926f881088d7b96be64486a44b02d" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>kNs_</name></member>
+      <member refid="classhri_1_1Face_1a71d6c5bcede2ade42ebf45cc196759e3" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>landmarks_</name></member>
+      <member refid="classhri_1_1Face_1a42909d91e9437127a79eb89682e55f30" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>landmarks_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aefbc9921cbebb02b83ccd6a5c3bde850" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>node_interfaces_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a0bdb0b615c40a1845ea0b19eb627d35e" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>ns</name></member>
+      <member refid="classhri_1_1Face_1a8da829bf4ace028c4796da951aee4ff5" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>onAligned</name></member>
+      <member refid="classhri_1_1Face_1aca8a530116998cf871e2f70c5db62745" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>onCropped</name></member>
+      <member refid="classhri_1_1Face_1a8a94f0fe6acf51bf0c1714b00433f010" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>onExpression</name></member>
+      <member refid="classhri_1_1Face_1ae256ec4ce048ef30617ef0fdc2dd1eee" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>onFacs</name></member>
+      <member refid="classhri_1_1Face_1abd5f3f0ddfb7e86568ab44239060377b" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>onLandmarks</name></member>
+      <member refid="classhri_1_1Face_1a5a64fcbc7f5f409c306adcb1180c6765" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>onRoI</name></member>
+      <member refid="classhri_1_1Face_1af58ea39345225e598d37101dcee79621" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>onSoftBiometrics</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a3358226d4cefa6e9594549f2032ecd13" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>operator&lt;</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7d8647d6a3f36d9c402b75ce4ead1004" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>reference_frame_</name></member>
+      <member refid="classhri_1_1Face_1a71a448e38f83e442a5e6c90fe96fe925" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>roi</name></member>
+      <member refid="classhri_1_1Face_1a9cb1f52942a85770c7a759e446b1e074" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>roi_</name></member>
+      <member refid="classhri_1_1Face_1acef48fac80036afedab908304cb96688" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>roi_subscriber_</name></member>
+      <member refid="classhri_1_1Face_1af750f9893ee8639b0e63a9d6345bc195" prot="private" virt="non-virtual"><scope>hri::Face</scope><name>softbiometrics_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9285e67d97e1e6dec3f140e0af4825c6" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>tf_buffer_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7f8e9739cc1b36a3065d14ab4625a9fc" prot="public" virt="virtual"><scope>hri::Face</scope><name>transform</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9722026f0229718e259c2b037c271520" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>transformFromReference</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aad82e477aa6f1c85487bd396a2623d45" prot="public" virt="non-virtual"><scope>hri::Face</scope><name>valid</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a59f6a76a0b1e3eececdad701fb34df63" prot="protected" virt="non-virtual"><scope>hri::Face</scope><name>valid_</name></member>
+      <member refid="classhri_1_1Face_1a28dfd31e8c00a57cd5a62cebaa5083ee" prot="public" virt="virtual"><scope>hri::Face</scope><name>~Face</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7adc2f010a3cdd903c69f9c286cc2df9" prot="public" virt="virtual"><scope>hri::Face</scope><name>~FeatureTracker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

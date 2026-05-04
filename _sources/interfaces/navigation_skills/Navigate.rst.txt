@@ -1,0 +1,8 @@
+.. _navigation_skills_action_Navigate:
+
+``navigation_skills/action/Navigate``
+=====================================
+
+.. literalinclude:: ../../src/navigation_skills/action/Navigate.action
+   :language: python
+   :linenos:

@@ -1,0 +1,8 @@
+.. _manipulation_skills_action_Grasp:
+
+``manipulation_skills/action/Grasp``
+====================================
+
+.. literalinclude:: ../../src/manipulation_skills/action/Grasp.action
+   :language: python
+   :linenos:

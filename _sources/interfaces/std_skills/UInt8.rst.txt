@@ -1,0 +1,8 @@
+.. _std_skills_msg_UInt8:
+
+``std_skills/msg/UInt8``
+========================
+
+.. literalinclude:: ../../src/std_skills/msg/UInt8.msg
+   :language: python
+   :linenos:

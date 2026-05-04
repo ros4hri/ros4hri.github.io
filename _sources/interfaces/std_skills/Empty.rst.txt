@@ -1,0 +1,8 @@
+.. _std_skills_action_Empty:
+
+``std_skills/action/Empty``
+===========================
+
+.. literalinclude:: ../../src/std_skills/action/Empty.action
+   :language: python
+   :linenos:

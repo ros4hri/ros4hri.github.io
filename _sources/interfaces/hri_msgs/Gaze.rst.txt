@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_Gaze:
+
+``hri_msgs/msg/Gaze``
+=====================
+
+.. literalinclude:: ../../src/hri_msgs/msg/Gaze.msg
+   :language: python
+   :linenos:

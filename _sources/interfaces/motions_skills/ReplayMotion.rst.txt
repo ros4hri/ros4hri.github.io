@@ -1,0 +1,8 @@
+.. _motions_skills_action_ReplayMotion:
+
+``motions_skills/action/ReplayMotion``
+======================================
+
+.. literalinclude:: ../../src/motions_skills/action/ReplayMotion.action
+   :language: python
+   :linenos:
