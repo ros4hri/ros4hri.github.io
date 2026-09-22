@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_Expression:
+
+``hri_msgs/msg/Expression``
+===========================
+
+.. literalinclude:: ../../src/hri_msgs/msg/Expression.msg
+   :language: python
+   :linenos:

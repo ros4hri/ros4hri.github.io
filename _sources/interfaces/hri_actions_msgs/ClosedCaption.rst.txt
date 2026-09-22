@@ -1,0 +1,8 @@
+.. _hri_actions_msgs_msg_ClosedCaption:
+
+``hri_actions_msgs/msg/ClosedCaption``
+======================================
+
+.. literalinclude:: ../../src/hri_actions_msgs/msg/ClosedCaption.msg
+   :language: python
+   :linenos:

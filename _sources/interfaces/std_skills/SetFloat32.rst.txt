@@ -1,0 +1,8 @@
+.. _std_skills_srv_SetFloat32:
+
+``std_skills/srv/SetFloat32``
+=============================
+
+.. literalinclude:: ../../src/std_skills/srv/SetFloat32.srv
+   :language: python
+   :linenos:

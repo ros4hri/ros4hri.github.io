@@ -1,0 +1,8 @@
+.. _std_skills_msg_ColorRGBA:
+
+``std_skills/msg/ColorRGBA``
+============================
+
+.. literalinclude:: ../../src/std_skills/msg/ColorRGBA.msg
+   :language: python
+   :linenos:

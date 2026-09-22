@@ -1,0 +1,8 @@
+.. _std_skills_msg_Meta:
+
+``std_skills/msg/Meta``
+=======================
+
+.. literalinclude:: ../../src/std_skills/msg/Meta.msg
+   :language: python
+   :linenos:

@@ -1,0 +1,8 @@
+.. _navigation_skills_action_NavigateToWaypoint:
+
+``navigation_skills/action/NavigateToWaypoint``
+===============================================
+
+.. literalinclude:: ../../src/navigation_skills/action/NavigateToWaypoint.action
+   :language: python
+   :linenos:

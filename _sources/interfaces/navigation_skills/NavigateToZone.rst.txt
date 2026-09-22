@@ -1,0 +1,8 @@
+.. _navigation_skills_action_NavigateToZone:
+
+``navigation_skills/action/NavigateToZone``
+===========================================
+
+.. literalinclude:: ../../src/navigation_skills/action/NavigateToZone.action
+   :language: python
+   :linenos:

@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhri_1_1Voice" kind="class" language="C++" prot="public">
+    <compoundname>hri::Voice</compoundname>
+    <basecompoundref refid="classhri_1_1FeatureTracker" prot="public" virt="non-virtual">hri::FeatureTracker</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">std::enable_shared_from_this&lt; Voice &gt;</basecompoundref>
+    <includes refid="voice_8hpp" local="no">voice.hpp</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classhri_1_1Voice_1ae2723239c8582066a9d5b6d1c303334b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class HRIListener</definition>
+        <argsstring></argsstring>
+        <name>HRIListener</name>
+        <qualifiedname>hri::Voice::HRIListener</qualifiedname>
+        <param>
+          <type><ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="36" column="16" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhri_1_1Voice_1ab4b8638888b2ef863a2cabd93601afa3" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; bool &gt;</type>
+        <definition>std::optional&lt;bool&gt; hri::Voice::is_speaking_</definition>
+        <argsstring></argsstring>
+        <name>is_speaking_</name>
+        <qualifiedname>hri::Voice::is_speaking_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="140" column="17" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1a953ac4f7a8a61a04016f607802728cab" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; hri::Voice::speech_</definition>
+        <argsstring></argsstring>
+        <name>speech_</name>
+        <qualifiedname>hri::Voice::speech_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="141" column="17" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1ae51850b6bc3e545bac0ed74ff7da579e" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; hri::Voice::incremental_speech_</definition>
+        <argsstring></argsstring>
+        <name>incremental_speech_</name>
+        <qualifiedname>hri::Voice::incremental_speech_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="142" column="17" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1aa92fc2835502c87b2b395deac9a7aa76" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; hri::Voice::locale_</definition>
+        <argsstring></argsstring>
+        <name>locale_</name>
+        <qualifiedname>hri::Voice::locale_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="143" column="17" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1a5ca9bba94d0ee53566eb803227c9c993" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex hri::Voice::callbacks_lock_</definition>
+        <argsstring></argsstring>
+        <name>callbacks_lock_</name>
+        <qualifiedname>hri::Voice::callbacks_lock_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="145" column="14" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1a80bb7e886ba4b6fcedc3c7034102154a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(bool)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(bool)&gt; &gt; hri::Voice::is_speaking_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>is_speaking_callbacks_</name>
+        <qualifiedname>hri::Voice::is_speaking_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="146" column="15" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1af67764f6c8bf6562e2ad8c81f3fc466c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(const std::string &amp;, const std::string &amp;)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(const std::string &amp;, const std::string &amp;)&gt; &gt; hri::Voice::speech_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>speech_callbacks_</name>
+        <qualifiedname>hri::Voice::speech_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="147" column="15" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1a660c475a10aa908784f13f6d3dfdfbbb" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(const std::string &amp;, const std::string &amp;)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(const std::string &amp;, const std::string &amp;)&gt; &gt; hri::Voice::incremental_speech_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>incremental_speech_callbacks_</name>
+        <qualifiedname>hri::Voice::incremental_speech_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="149" column="3" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1ac052ab9f1bcda2ad5247193d3f482632" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::Bool &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::Bool&gt;::SharedPtr hri::Voice::is_speaking_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>is_speaking_subscriber_</name>
+        <qualifiedname>hri::Voice::is_speaking_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="151" column="36" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1Voice_1a789e12fb683bba183a57c149bdc15c9c" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; hri_msgs::msg::LiveSpeech &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;hri_msgs::msg::LiveSpeech&gt;::SharedPtr hri::Voice::speech_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>speech_subscriber_</name>
+        <qualifiedname>hri::Voice::speech_subscriber_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="152" column="36" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="152" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhri_1_1Voice_1ae8ea9ea0a543079cf0378c3986a17a3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hri::Voice::Voice</definition>
+        <argsstring>(ID id, NodeInterfaces node_interfaces, rclcpp::CallbackGroup::SharedPtr callback_group, const tf2::BufferCore &amp;tf_buffer, const std::string &amp;reference_frame)</argsstring>
+        <name>Voice</name>
+        <qualifiedname>hri::Voice::Voice</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="structhri_1_1NodeInterfaces" kindref="compound">NodeInterfaces</ref></type>
+          <declname>node_interfaces</declname>
+        </param>
+        <param>
+          <type>rclcpp::CallbackGroup::SharedPtr</type>
+          <declname>callback_group</declname>
+        </param>
+        <param>
+          <type>const tf2::BufferCore &amp;</type>
+          <declname>tf_buffer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>reference_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="39" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a855a15be5f6e85a8a4cf315200489a88" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual hri::Voice::~Voice</definition>
+        <argsstring>()</argsstring>
+        <name>~Voice</name>
+        <qualifiedname>hri::Voice::~Voice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="46" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a77505754436cc6739e4d9264f7b783af" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; bool &gt;</type>
+        <definition>std::optional&lt; bool &gt; hri::Voice::isSpeaking</definition>
+        <argsstring>() const</argsstring>
+        <name>isSpeaking</name>
+        <qualifiedname>hri::Voice::isSpeaking</qualifiedname>
+        <briefdescription>
+<para>Returns speech is currently detected in this voice, ie, whether the person is currently speaking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="51" column="17" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1adcbc617da4af0f82291428f3c3d30594" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; hri::Voice::speech</definition>
+        <argsstring>() const</argsstring>
+        <name>speech</name>
+        <qualifiedname>hri::Voice::speech</qualifiedname>
+        <briefdescription>
+<para>Returns the last recognised final sentence. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="55" column="17" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a19333b3322f95459b9fb2b7c586f9d3b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; hri::Voice::incrementalSpeech</definition>
+        <argsstring>() const</argsstring>
+        <name>incrementalSpeech</name>
+        <qualifiedname>hri::Voice::incrementalSpeech</qualifiedname>
+        <briefdescription>
+<para>Returns the last recognised incremental sentence. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="59" column="17" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a3bc2355b90f7ba6f932a059361712406" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; hri::Voice::locale</definition>
+        <argsstring>() const</argsstring>
+        <name>locale</name>
+        <qualifiedname>hri::Voice::locale</qualifiedname>
+        <briefdescription>
+<para>Returns the last recognised speech locale. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="63" column="17" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a0cc2421ca2dccb2533481d2a696520a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::onSpeaking</definition>
+        <argsstring>(std::function&lt; void(bool)&gt; callback)</argsstring>
+        <name>onSpeaking</name>
+        <qualifiedname>hri::Voice::onSpeaking</qualifiedname>
+        <param>
+          <type>std::function&lt; void(bool)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime speech is detected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See also:<itemizedlist>
+<listitem><para><ref refid="classhri_1_1Voice_1a588d57e7b32a554963b759648dc9d250" kindref="member">Voice::onSpeech</ref> and <ref refid="classhri_1_1Voice_1ab9a5353e45a0bba764473052276c9e55" kindref="member">Voice::onIncrementalSpeech</ref> to register a callback for the actual recognised speech</para>
+</listitem><listitem><para><ref refid="classhri_1_1Voice_1adcbc617da4af0f82291428f3c3d30594" kindref="member">Voice::speech</ref> and <ref refid="classhri_1_1Voice_1a19333b3322f95459b9fb2b7c586f9d3b" kindref="member">Voice::incrementalSpeech</ref> for the last recognised speech </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="72" column="8" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a588d57e7b32a554963b759648dc9d250" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::onSpeech</definition>
+        <argsstring>(std::function&lt; void(const std::string &amp;, const std::string &amp;)&gt; callback)</argsstring>
+        <name>onSpeech</name>
+        <qualifiedname>hri::Voice::onSpeech</qualifiedname>
+        <param>
+          <type>std::function&lt; void(const std::string &amp;, const std::string &amp;)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a full speech is detected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Only <emphasis>final</emphasis> sentences for this voice are returned, for instance at the end of a sentence. The callback takes two arguments:<orderedlist>
+<listitem><para>the recognised speech text,</para>
+</listitem><listitem><para>the locale.</para>
+</listitem></orderedlist>
+</para>
+<para>See also: <ref refid="classhri_1_1Voice_1ab9a5353e45a0bba764473052276c9e55" kindref="member">Voice::onIncrementalSpeech</ref> for incremental feedback </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="86" column="8" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a93fd51bf50d6103fffea8939b92c66b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::onSpeech</definition>
+        <argsstring>(std::function&lt; void(const std::string &amp;)&gt; callback)</argsstring>
+        <name>onSpeech</name>
+        <qualifiedname>hri::Voice::onSpeech</qualifiedname>
+        <param>
+          <type>std::function&lt; void(const std::string &amp;)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use void <ref refid="classhri_1_1Voice_1a588d57e7b32a554963b759648dc9d250" kindref="member">onSpeech(std::function&lt;void(const std::string &amp;, const std::string &amp;)&gt; callback)</ref>. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="94" column="8" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="94" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1ab9a5353e45a0bba764473052276c9e55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::onIncrementalSpeech</definition>
+        <argsstring>(std::function&lt; void(const std::string &amp;, const std::string &amp;)&gt; callback)</argsstring>
+        <name>onIncrementalSpeech</name>
+        <qualifiedname>hri::Voice::onIncrementalSpeech</qualifiedname>
+        <param>
+          <type>std::function&lt; void(const std::string &amp;, const std::string &amp;)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime speech any speech is detected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The callback will be triggered every time the speech recogniser returns a result, <emphasis>even if it is not the final result</emphasis>. The callback takes two arguments:<orderedlist>
+<listitem><para>the recognised speech text,</para>
+</listitem><listitem><para>the locale.</para>
+</listitem></orderedlist>
+</para>
+<para>See also: <ref refid="classhri_1_1Voice_1a588d57e7b32a554963b759648dc9d250" kindref="member">Voice::onSpeech</ref> for final feedback </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="110" column="8" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a418344258ee9a8c92f202a2867b56251" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::onIncrementalSpeech</definition>
+        <argsstring>(std::function&lt; void(const std::string &amp;)&gt; callback)</argsstring>
+        <name>onIncrementalSpeech</name>
+        <qualifiedname>hri::Voice::onIncrementalSpeech</qualifiedname>
+        <param>
+          <type>std::function&lt; void(const std::string &amp;)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000002"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use void <ref refid="classhri_1_1Voice_1a588d57e7b32a554963b759648dc9d250" kindref="member">onSpeech(std::function&lt;void(const std::string &amp;, const std::string &amp;)&gt; callback)</ref>. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="118" column="8" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="118" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1aed2592893612a4292dce9db0690cf01a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::clearCallbacks</definition>
+        <argsstring>()</argsstring>
+        <name>clearCallbacks</name>
+        <qualifiedname>hri::Voice::clearCallbacks</qualifiedname>
+        <briefdescription>
+<para>Clears the registered callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="126" column="8" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="126" bodyend="132"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhri_1_1Voice_1a09852ea970de337d7334a0790082f054" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::onSpeech_</definition>
+        <argsstring>(hri_msgs::msg::LiveSpeech::ConstSharedPtr msg)</argsstring>
+        <name>onSpeech_</name>
+        <qualifiedname>hri::Voice::onSpeech_</qualifiedname>
+        <param>
+          <type>hri_msgs::msg::LiveSpeech::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="135" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a24c75b62e6165356007f94ec289a08ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::onIsSpeaking</definition>
+        <argsstring>(std_msgs::msg::Bool::ConstSharedPtr msg)</argsstring>
+        <name>onIsSpeaking</name>
+        <qualifiedname>hri::Voice::onIsSpeaking</qualifiedname>
+        <param>
+          <type>std_msgs::msg::Bool::ConstSharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="136" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1Voice_1a3f32c143270cabae69db2683821ccb04" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::Voice::invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate</name>
+        <qualifiedname>hri::Voice::invalidate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/voice.hpp" line="138" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>hri::Voice</label>
+        <link refid="classhri_1_1Voice"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+      <node id="4">
+        <label>std::enable_shared_from_this&lt; Voice &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>hri::FeatureTracker</label>
+        <link refid="classhri_1_1FeatureTracker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>node_interfaces_</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>hri::NodeInterfaces</label>
+        <link refid="structhri_1_1NodeInterfaces"/>
+      </node>
+      <node id="1">
+        <label>hri::Voice</label>
+        <link refid="classhri_1_1Voice"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::enable_shared_from_this&lt; FeatureTracker &gt;</label>
+      </node>
+      <node id="5">
+        <label>std::enable_shared_from_this&lt; Voice &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/libhri/hri/include/hri/voice.hpp" line="33" column="1" bodyfile="src/libhri/hri/include/hri/voice.hpp" bodystart="35" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classhri_1_1FeatureTracker_1a42eb9bd6fb5f250049d51f573298be52" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>callback_group_</name></member>
+      <member refid="classhri_1_1Voice_1a5ca9bba94d0ee53566eb803227c9c993" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>callbacks_lock_</name></member>
+      <member refid="classhri_1_1Voice_1aed2592893612a4292dce9db0690cf01a" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>clearCallbacks</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a009c18c2c088bbb45fac5c026f0eee7a" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aa08f881641921ff829b3bcd98b45a5fa" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>FeatureTracker</name></member>
+      <member refid="classhri_1_1FeatureTracker_1ac817d863585935b45fc0c94cbdd7ab81" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>frame</name></member>
+      <member refid="classhri_1_1Voice_1ae2723239c8582066a9d5b6d1c303334b" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>HRIListener</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a43d6bf1b61128ef049d00b62501ab3ed" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>id</name></member>
+      <member refid="classhri_1_1Voice_1ae51850b6bc3e545bac0ed74ff7da579e" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>incremental_speech_</name></member>
+      <member refid="classhri_1_1Voice_1a660c475a10aa908784f13f6d3dfdfbbb" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>incremental_speech_callbacks_</name></member>
+      <member refid="classhri_1_1Voice_1a19333b3322f95459b9fb2b7c586f9d3b" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>incrementalSpeech</name></member>
+      <member refid="classhri_1_1Voice_1a3f32c143270cabae69db2683821ccb04" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>invalidate</name></member>
+      <member refid="classhri_1_1Voice_1ab4b8638888b2ef863a2cabd93601afa3" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>is_speaking_</name></member>
+      <member refid="classhri_1_1Voice_1a80bb7e886ba4b6fcedc3c7034102154a" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>is_speaking_callbacks_</name></member>
+      <member refid="classhri_1_1Voice_1ac052ab9f1bcda2ad5247193d3f482632" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>is_speaking_subscriber_</name></member>
+      <member refid="classhri_1_1Voice_1a77505754436cc6739e4d9264f7b783af" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>isSpeaking</name></member>
+      <member refid="classhri_1_1FeatureTracker_1acae8abd9b6c5cdc506e95e43d37f8a7b" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>kFrame_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a1f365657741b753fcb2c8988646f3941" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>kId_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a612926f881088d7b96be64486a44b02d" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>kNs_</name></member>
+      <member refid="classhri_1_1Voice_1a3bc2355b90f7ba6f932a059361712406" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>locale</name></member>
+      <member refid="classhri_1_1Voice_1aa92fc2835502c87b2b395deac9a7aa76" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>locale_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aefbc9921cbebb02b83ccd6a5c3bde850" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>node_interfaces_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a0bdb0b615c40a1845ea0b19eb627d35e" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>ns</name></member>
+      <member refid="classhri_1_1Voice_1ab9a5353e45a0bba764473052276c9e55" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>onIncrementalSpeech</name></member>
+      <member refid="classhri_1_1Voice_1a418344258ee9a8c92f202a2867b56251" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>onIncrementalSpeech</name></member>
+      <member refid="classhri_1_1Voice_1a24c75b62e6165356007f94ec289a08ca" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>onIsSpeaking</name></member>
+      <member refid="classhri_1_1Voice_1a0cc2421ca2dccb2533481d2a696520a3" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>onSpeaking</name></member>
+      <member refid="classhri_1_1Voice_1a588d57e7b32a554963b759648dc9d250" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>onSpeech</name></member>
+      <member refid="classhri_1_1Voice_1a93fd51bf50d6103fffea8939b92c66b4" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>onSpeech</name></member>
+      <member refid="classhri_1_1Voice_1a09852ea970de337d7334a0790082f054" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>onSpeech_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a3358226d4cefa6e9594549f2032ecd13" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>operator&lt;</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7d8647d6a3f36d9c402b75ce4ead1004" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>reference_frame_</name></member>
+      <member refid="classhri_1_1Voice_1adcbc617da4af0f82291428f3c3d30594" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>speech</name></member>
+      <member refid="classhri_1_1Voice_1a953ac4f7a8a61a04016f607802728cab" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>speech_</name></member>
+      <member refid="classhri_1_1Voice_1af67764f6c8bf6562e2ad8c81f3fc466c" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>speech_callbacks_</name></member>
+      <member refid="classhri_1_1Voice_1a789e12fb683bba183a57c149bdc15c9c" prot="private" virt="non-virtual"><scope>hri::Voice</scope><name>speech_subscriber_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9285e67d97e1e6dec3f140e0af4825c6" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>tf_buffer_</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7f8e9739cc1b36a3065d14ab4625a9fc" prot="public" virt="virtual"><scope>hri::Voice</scope><name>transform</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a9722026f0229718e259c2b037c271520" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>transformFromReference</name></member>
+      <member refid="classhri_1_1FeatureTracker_1aad82e477aa6f1c85487bd396a2623d45" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>valid</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a59f6a76a0b1e3eececdad701fb34df63" prot="protected" virt="non-virtual"><scope>hri::Voice</scope><name>valid_</name></member>
+      <member refid="classhri_1_1Voice_1ae8ea9ea0a543079cf0378c3986a17a3b" prot="public" virt="non-virtual"><scope>hri::Voice</scope><name>Voice</name></member>
+      <member refid="classhri_1_1FeatureTracker_1a7adc2f010a3cdd903c69f9c286cc2df9" prot="public" virt="virtual"><scope>hri::Voice</scope><name>~FeatureTracker</name></member>
+      <member refid="classhri_1_1Voice_1a855a15be5f6e85a8a4cf315200489a88" prot="public" virt="virtual"><scope>hri::Voice</scope><name>~Voice</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

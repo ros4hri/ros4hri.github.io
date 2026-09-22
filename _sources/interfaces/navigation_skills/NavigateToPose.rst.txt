@@ -1,0 +1,8 @@
+.. _navigation_skills_action_NavigateToPose:
+
+``navigation_skills/action/NavigateToPose``
+===========================================
+
+.. literalinclude:: ../../src/navigation_skills/action/NavigateToPose.action
+   :language: python
+   :linenos:

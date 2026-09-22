@@ -1,0 +1,8 @@
+.. _std_skills_msg_Char:
+
+``std_skills/msg/Char``
+=======================
+
+.. literalinclude:: ../../src/std_skills/msg/Char.msg
+   :language: python
+   :linenos:

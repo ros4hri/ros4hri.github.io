@@ -1,0 +1,8 @@
+.. _interaction_skills_msg_LedColor:
+
+``interaction_skills/msg/LedColor``
+===================================
+
+.. literalinclude:: ../../src/interaction_skills/msg/LedColor.msg
+   :language: python
+   :linenos:

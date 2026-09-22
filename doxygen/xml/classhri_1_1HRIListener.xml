@@ -1,0 +1,870 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhri_1_1HRIListener" kind="class" language="C++" prot="public">
+    <compoundname>hri::HRIListener</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::enable_shared_from_this&lt; HRIListener &gt;</basecompoundref>
+    <includes refid="hri_8hpp" local="no">hri.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a63f5555ee6579b7286fbad320c683df0" prot="private" static="no" mutable="no">
+        <type><ref refid="structhri_1_1NodeInterfaces" kindref="compound">NodeInterfaces</ref></type>
+        <definition>NodeInterfaces hri::HRIListener::node_interfaces_</definition>
+        <argsstring></argsstring>
+        <name>node_interfaces_</name>
+        <qualifiedname>hri::HRIListener::node_interfaces_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="239" column="18" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a0194dcce2ffb700c1e979de8ca559b8c" prot="private" static="no" mutable="no">
+        <type>rclcpp::CallbackGroup::SharedPtr</type>
+        <definition>rclcpp::CallbackGroup::SharedPtr hri::HRIListener::callback_group_</definition>
+        <argsstring></argsstring>
+        <name>callback_group_</name>
+        <qualifiedname>hri::HRIListener::callback_group_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="240" column="36" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a5c52a20930ee961fdc24779c695f6a1a" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="namespacehri_1adf53ff7b01da6713ccf2ce75249d3a12" kindref="member">FeatureType</ref>, rclcpp::Subscription&lt; hri_msgs::msg::IdsList &gt;::SharedPtr &gt;</type>
+        <definition>std::map&lt;FeatureType, rclcpp::Subscription&lt;hri_msgs::msg::IdsList&gt;::SharedPtr&gt; hri::HRIListener::feature_subscribers_</definition>
+        <argsstring></argsstring>
+        <name>feature_subscribers_</name>
+        <qualifiedname>hri::HRIListener::feature_subscribers_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="243" column="3" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a51ba750231c6ecf5a4d30f569ed4a9ed" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1aadb4174af92b44b4251ad99b7302a7d9" kindref="member">FacePtr</ref> &gt;</type>
+        <definition>std::map&lt;ID, FacePtr&gt; hri::HRIListener::faces_</definition>
+        <argsstring></argsstring>
+        <name>faces_</name>
+        <qualifiedname>hri::HRIListener::faces_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="245" column="12" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a620a070baab1e14ffae0fb5b5c09ab41" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex hri::HRIListener::face_callbacks_lock_</definition>
+        <argsstring></argsstring>
+        <name>face_callbacks_lock_</name>
+        <qualifiedname>hri::HRIListener::face_callbacks_lock_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="246" column="14" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a931b3417f53488aa4f4a8106a4c0aa02" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1aadb4174af92b44b4251ad99b7302a7d9" kindref="member">FacePtr</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(FacePtr)&gt; &gt; hri::HRIListener::face_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>face_callbacks_</name>
+        <qualifiedname>hri::HRIListener::face_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="247" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a626edc090c5c7658038cafa2ae165fbc" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(ID)&gt; &gt; hri::HRIListener::face_lost_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>face_lost_callbacks_</name>
+        <qualifiedname>hri::HRIListener::face_lost_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="248" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a9d4b4da90434eb4f41c2dc2c5beb363a" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1a0c65b4aaa07f0a5d1c104c7deaa2f492" kindref="member">BodyPtr</ref> &gt;</type>
+        <definition>std::map&lt;ID, BodyPtr&gt; hri::HRIListener::bodies_</definition>
+        <argsstring></argsstring>
+        <name>bodies_</name>
+        <qualifiedname>hri::HRIListener::bodies_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="250" column="12" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1ac9ae7564aca4007aa5eb9704649e6835" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex hri::HRIListener::body_callbacks_lock_</definition>
+        <argsstring></argsstring>
+        <name>body_callbacks_lock_</name>
+        <qualifiedname>hri::HRIListener::body_callbacks_lock_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="251" column="14" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a8986d91b604d4e0d7441908e762fb19c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1a0c65b4aaa07f0a5d1c104c7deaa2f492" kindref="member">BodyPtr</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(BodyPtr)&gt; &gt; hri::HRIListener::body_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>body_callbacks_</name>
+        <qualifiedname>hri::HRIListener::body_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="252" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1ab030e6fdd8390275a64632c0323d0328" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(ID)&gt; &gt; hri::HRIListener::body_lost_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>body_lost_callbacks_</name>
+        <qualifiedname>hri::HRIListener::body_lost_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="253" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1ac3a324b7c2233ab9e12305fc006de017" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1aeb8708043938d5976e00cdd38d88f670" kindref="member">VoicePtr</ref> &gt;</type>
+        <definition>std::map&lt;ID, VoicePtr&gt; hri::HRIListener::voices_</definition>
+        <argsstring></argsstring>
+        <name>voices_</name>
+        <qualifiedname>hri::HRIListener::voices_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="255" column="12" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a6734a7bd47169683d6893b96d84570b4" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex hri::HRIListener::voice_callbacks_lock_</definition>
+        <argsstring></argsstring>
+        <name>voice_callbacks_lock_</name>
+        <qualifiedname>hri::HRIListener::voice_callbacks_lock_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="256" column="14" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a46d3a7447434cda011f9a362fffc03f6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1aeb8708043938d5976e00cdd38d88f670" kindref="member">VoicePtr</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(VoicePtr)&gt; &gt; hri::HRIListener::voice_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>voice_callbacks_</name>
+        <qualifiedname>hri::HRIListener::voice_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="257" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a48e7a92c6098c22f2a8f1adec61c9f31" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(ID)&gt; &gt; hri::HRIListener::voice_lost_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>voice_lost_callbacks_</name>
+        <qualifiedname>hri::HRIListener::voice_lost_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="258" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a1e6adf0884af7b37bb5c7bec7d35798a" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1aa13fbf858fbf2fd2c63ebc13afe2afc1" kindref="member">PersonPtr</ref> &gt;</type>
+        <definition>std::map&lt;ID, PersonPtr&gt; hri::HRIListener::persons_</definition>
+        <argsstring></argsstring>
+        <name>persons_</name>
+        <qualifiedname>hri::HRIListener::persons_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="260" column="12" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a68b86db526589e52b981cfe4c3a09dd5" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex hri::HRIListener::persons_callbacks_lock_</definition>
+        <argsstring></argsstring>
+        <name>persons_callbacks_lock_</name>
+        <qualifiedname>hri::HRIListener::persons_callbacks_lock_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="261" column="14" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a98bdeadb7cf45ef1bbbb04251bd60179" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1aa13fbf858fbf2fd2c63ebc13afe2afc1" kindref="member">PersonPtr</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(PersonPtr)&gt; &gt; hri::HRIListener::person_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>person_callbacks_</name>
+        <qualifiedname>hri::HRIListener::person_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="262" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a7da5d8f4ef15ef33673f6416583f933a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(ID)&gt; &gt; hri::HRIListener::person_lost_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>person_lost_callbacks_</name>
+        <qualifiedname>hri::HRIListener::person_lost_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="263" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a6f812d458f5c54ded163977f7985067a" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1aa13fbf858fbf2fd2c63ebc13afe2afc1" kindref="member">PersonPtr</ref> &gt;</type>
+        <definition>std::map&lt;ID, PersonPtr&gt; hri::HRIListener::tracked_persons_</definition>
+        <argsstring></argsstring>
+        <name>tracked_persons_</name>
+        <qualifiedname>hri::HRIListener::tracked_persons_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="265" column="12" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a5b5bf39dfa4beca83ec76f62347fe6e8" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex hri::HRIListener::persons_tracked_callbacks_lock_</definition>
+        <argsstring></argsstring>
+        <name>persons_tracked_callbacks_lock_</name>
+        <qualifiedname>hri::HRIListener::persons_tracked_callbacks_lock_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="266" column="14" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a1d061addb000c998478e7fd05e45b100" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1aa13fbf858fbf2fd2c63ebc13afe2afc1" kindref="member">PersonPtr</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(PersonPtr)&gt; &gt; hri::HRIListener::person_tracked_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>person_tracked_callbacks_</name>
+        <qualifiedname>hri::HRIListener::person_tracked_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="267" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1acc911cbb2207c7c6766e168df53f560c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(ID)&gt; &gt; hri::HRIListener::person_tracked_lost_callbacks_</definition>
+        <argsstring></argsstring>
+        <name>person_tracked_lost_callbacks_</name>
+        <qualifiedname>hri::HRIListener::person_tracked_lost_callbacks_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="268" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a1386ca6a0a6c4042e5b879238f1e1bcd" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string hri::HRIListener::reference_frame_</definition>
+        <argsstring></argsstring>
+        <name>reference_frame_</name>
+        <qualifiedname>hri::HRIListener::reference_frame_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="270" column="15" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a3ff0c97e7a390d7129395f417c8a6d32" prot="private" static="no" mutable="no">
+        <type>tf2::BufferCore</type>
+        <definition>tf2::BufferCore hri::HRIListener::tf_buffer_</definition>
+        <argsstring></argsstring>
+        <name>tf_buffer_</name>
+        <qualifiedname>hri::HRIListener::tf_buffer_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="271" column="19" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhri_1_1HRIListener_1a452b2b8dc4601ee16dbf632e3991cb42" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; tf2_ros::TransformListener &gt;</type>
+        <definition>std::unique_ptr&lt;tf2_ros::TransformListener&gt; hri::HRIListener::tf_listener_</definition>
+        <argsstring></argsstring>
+        <name>tf_listener_</name>
+        <qualifiedname>hri::HRIListener::tf_listener_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="272" column="19" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="272" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a09d1b7fac24e15a0dc0792581b33e030" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref> &gt;</type>
+        <definition>static std::shared_ptr&lt; HRIListener &gt; hri::HRIListener::create</definition>
+        <argsstring>(NodeLikeSharedPtr node_like)</argsstring>
+        <name>create</name>
+        <qualifiedname>hri::HRIListener::create</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1a01add75a3d576c26ed5906ba697ff216" kindref="member">NodeLikeSharedPtr</ref></type>
+          <declname>node_like</declname>
+        </param>
+        <briefdescription>
+<para>Factory function for the libhri main class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The class can subscribe to topics and print logs, using the node interfaces arguments. The class uses a factory design pattern to make sure a shared pointer to an instance of this class is created, enabling the safe internal use of shared_from_this(). See <ulink url="https://en.cppreference.com/w/cpp/memory/enable_shared_from_this">https://en.cppreference.com/w/cpp/memory/enable_shared_from_this</ulink> for more info.</para>
+<para>Internally the <ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref> uses node interfaces to adapt both to Node and LifecycleNode (see tinyurl.com/ROSCon-2023-node-interfaces). Since rclcpp::NodeInterface is not available in Humble, for convenience we use a variant for this factory and internally pass a structure mocking rclcpp::NodeInterface. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="57" column="27" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhri_1_1HRIListener_1afa569218463fba3f81caceba09697bac" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual hri::HRIListener::~HRIListener</definition>
+        <argsstring>()</argsstring>
+        <name>~HRIListener</name>
+        <qualifiedname>hri::HRIListener::~HRIListener</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="62" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a802cd869f28a22358e2250ec781014d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1aadb4174af92b44b4251ad99b7302a7d9" kindref="member">FacePtr</ref> &gt;</type>
+        <definition>std::map&lt; ID, FacePtr &gt; hri::HRIListener::getFaces</definition>
+        <argsstring>() const</argsstring>
+        <name>getFaces</name>
+        <qualifiedname>hri::HRIListener::getFaces</qualifiedname>
+        <briefdescription>
+<para>Returns the list of currently detected faces, mapped to their IDs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="66" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1af1086d32e33b9337dea00a8527015f89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onFace</definition>
+        <argsstring>(std::function&lt; void(FacePtr)&gt; callback)</argsstring>
+        <name>onFace</name>
+        <qualifiedname>hri::HRIListener::onFace</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1aadb4174af92b44b4251ad99b7302a7d9" kindref="member">FacePtr</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a new face is detected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="71" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a9c7563872c68d341feacbf19265f9574" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onFaceLost</definition>
+        <argsstring>(std::function&lt; void(ID)&gt; callback)</argsstring>
+        <name>onFaceLost</name>
+        <qualifiedname>hri::HRIListener::onFaceLost</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a previously tracked face is lost (eg, not detected anymore) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="79" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1ae9e7ebbe0d80580fd5d27a2a0fe5fbb1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1a0c65b4aaa07f0a5d1c104c7deaa2f492" kindref="member">BodyPtr</ref> &gt;</type>
+        <definition>std::map&lt; ID, BodyPtr &gt; hri::HRIListener::getBodies</definition>
+        <argsstring>() const</argsstring>
+        <name>getBodies</name>
+        <qualifiedname>hri::HRIListener::getBodies</qualifiedname>
+        <briefdescription>
+<para>Returns the list of currently detected bodies, mapped to their IDs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="87" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a545fe8b4eed21ef0d5595efca4384d92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onBody</definition>
+        <argsstring>(std::function&lt; void(BodyPtr)&gt; callback)</argsstring>
+        <name>onBody</name>
+        <qualifiedname>hri::HRIListener::onBody</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1a0c65b4aaa07f0a5d1c104c7deaa2f492" kindref="member">BodyPtr</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a new body is detected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="92" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a38ec4a14fe1178d8684b8c125fa34249" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onBodyLost</definition>
+        <argsstring>(std::function&lt; void(ID)&gt; callback)</argsstring>
+        <name>onBodyLost</name>
+        <qualifiedname>hri::HRIListener::onBodyLost</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a previously tracked body is lost (eg, not detected anymore) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="100" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a3920545f1f7a8ff9539eb8557a69ef09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1aeb8708043938d5976e00cdd38d88f670" kindref="member">VoicePtr</ref> &gt;</type>
+        <definition>std::map&lt; ID, VoicePtr &gt; hri::HRIListener::getVoices</definition>
+        <argsstring>() const</argsstring>
+        <name>getVoices</name>
+        <qualifiedname>hri::HRIListener::getVoices</qualifiedname>
+        <briefdescription>
+<para>Returns the list of currently detected voices, mapped to their IDs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="108" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1ab87bbd8120f17919b65d65b28baf6264" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onVoice</definition>
+        <argsstring>(std::function&lt; void(VoicePtr)&gt; callback)</argsstring>
+        <name>onVoice</name>
+        <qualifiedname>hri::HRIListener::onVoice</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1aeb8708043938d5976e00cdd38d88f670" kindref="member">VoicePtr</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a new voice is detected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="113" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="113" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a6f3977d1deacaf8b49ef2218cde72a6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onVoiceLost</definition>
+        <argsstring>(std::function&lt; void(ID)&gt; callback)</argsstring>
+        <name>onVoiceLost</name>
+        <qualifiedname>hri::HRIListener::onVoiceLost</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a previously tracked voice is lost (eg, not detected anymore) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="121" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a14a5233a2749c522849b2dff6995ddf9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1aa13fbf858fbf2fd2c63ebc13afe2afc1" kindref="member">PersonPtr</ref> &gt;</type>
+        <definition>std::map&lt; ID, PersonPtr &gt; hri::HRIListener::getPersons</definition>
+        <argsstring>() const</argsstring>
+        <name>getPersons</name>
+        <qualifiedname>hri::HRIListener::getPersons</qualifiedname>
+        <briefdescription>
+<para>Returns the list of all known persons, whether or not they are currently actively detected (eg, seen). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The persons are mapped to their IDs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="131" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1ae2e9f3404ad3428624427fe3da76462d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onPerson</definition>
+        <argsstring>(std::function&lt; void(PersonPtr)&gt; callback)</argsstring>
+        <name>onPerson</name>
+        <qualifiedname>hri::HRIListener::onPerson</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1aa13fbf858fbf2fd2c63ebc13afe2afc1" kindref="member">PersonPtr</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a new person is detected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="136" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a370259c4756f57b2023d28b288db0bbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onPersonLost</definition>
+        <argsstring>(std::function&lt; void(ID)&gt; callback)</argsstring>
+        <name>onPersonLost</name>
+        <qualifiedname>hri::HRIListener::onPersonLost</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a person is lost. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This can <emphasis>only</emphasis> happen for anonymous persons. Identified persons will never be removed from the list of all known persons. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="145" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="145" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1acbd4edbcdde423f76ba8538c560dbe48" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; <ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>, <ref refid="namespacehri_1aa13fbf858fbf2fd2c63ebc13afe2afc1" kindref="member">PersonPtr</ref> &gt;</type>
+        <definition>std::map&lt; ID, PersonPtr &gt; hri::HRIListener::getTrackedPersons</definition>
+        <argsstring>() const</argsstring>
+        <name>getTrackedPersons</name>
+        <qualifiedname>hri::HRIListener::getTrackedPersons</qualifiedname>
+        <briefdescription>
+<para>Returns the list of currently detected persons, mapped to their IDs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="152" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1aa1a83d0df64315a96f07ed6467cc29da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onTrackedPerson</definition>
+        <argsstring>(std::function&lt; void(PersonPtr)&gt; callback)</argsstring>
+        <name>onTrackedPerson</name>
+        <qualifiedname>hri::HRIListener::onTrackedPerson</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1aa13fbf858fbf2fd2c63ebc13afe2afc1" kindref="member">PersonPtr</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a new person is detected and actively tracked (eg, currently seen). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="157" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a1a3b59282289733d528396c5ccd46089" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onTrackedPersonLost</definition>
+        <argsstring>(std::function&lt; void(ID)&gt; callback)</argsstring>
+        <name>onTrackedPersonLost</name>
+        <qualifiedname>hri::HRIListener::onTrackedPersonLost</qualifiedname>
+        <param>
+          <type>std::function&lt; void(<ref refid="namespacehri_1a9a53be1a8fe530f33daeb36c2826487d" kindref="member">ID</ref>)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback function, to be invoked everytime a previously tracked person is lost. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="165" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="165" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1ae5a49f82b916fd67bd4be9bbca35cd1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::setReferenceFrame</definition>
+        <argsstring>(const std::string &amp;frame)</argsstring>
+        <name>setReferenceFrame</name>
+        <qualifiedname>hri::HRIListener::setReferenceFrame</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Sets the reference frame from which the TF transformations of the persons will be returned (via <computeroutput><ref refid="classhri_1_1Person_1ae5f47b1e382fdfa596ebe2983dd72b86" kindref="member">Person::transform()</ref></computeroutput>). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>By default, <computeroutput>base_link</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="175" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a308d161a74a16fe4af45193b1bf3cae4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::CallbackGroup::SharedPtr</type>
+        <definition>rclcpp::CallbackGroup::SharedPtr hri::HRIListener::getCallbackGroup</definition>
+        <argsstring>()</argsstring>
+        <name>getCallbackGroup</name>
+        <qualifiedname>hri::HRIListener::getCallbackGroup</qualifiedname>
+        <briefdescription>
+<para>Get the mutually exclusive callback group used by <ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This can be used to avoid race conditions between the internal subscribe callbacks and the <ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref> getter functions (e.g., <ref refid="classhri_1_1HRIListener_1acbd4edbcdde423f76ba8538c560dbe48" kindref="member">hri::HRIListener::getTrackedPersons()</ref>, <ref refid="classhri_1_1Face_1a71a448e38f83e442a5e6c90fe96fe925" kindref="member">hri::Face::roi()</ref>). If a multithreaded executor is used to freely spin a node which interfaces are used by both <ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref> and by timer/topic/... callbacks which call an <ref refid="classhri_1_1HRIListener" kindref="compound">HRIListener</ref> getter function, then the latter should be added to this callback group. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="188" column="36" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a165c6552cc87d50e5ee3baee06542c95" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::clearData</definition>
+        <argsstring>()</argsstring>
+        <name>clearData</name>
+        <qualifiedname>hri::HRIListener::clearData</qualifiedname>
+        <briefdescription>
+<para>Clears internal data, but leaves the registered callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="192" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="192" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classhri_1_1HRIListener_1af0beb3ffcc50f563c874eaeda282c558" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::clearCallbacks</definition>
+        <argsstring>()</argsstring>
+        <name>clearCallbacks</name>
+        <qualifiedname>hri::HRIListener::clearCallbacks</qualifiedname>
+        <briefdescription>
+<para>Clears the registered callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="204" column="8" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="204" bodyend="231"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a7a34292440638f75a1f2de0abf97269f" prot="protected" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hri::HRIListener::HRIListener</definition>
+        <argsstring>(NodeLikeSharedPtr node_like)</argsstring>
+        <name>HRIListener</name>
+        <qualifiedname>hri::HRIListener::HRIListener</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1a01add75a3d576c26ed5906ba697ff216" kindref="member">NodeLikeSharedPtr</ref></type>
+          <declname>node_like</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="234" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhri_1_1HRIListener_1a69c27bc82a83e4a709f9115dab13347a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hri::HRIListener::onTrackedFeature</definition>
+        <argsstring>(FeatureType &amp;feature, hri_msgs::msg::IdsList::ConstSharedPtr tracked)</argsstring>
+        <name>onTrackedFeature</name>
+        <qualifiedname>hri::HRIListener::onTrackedFeature</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1adf53ff7b01da6713ccf2ce75249d3a12" kindref="member">FeatureType</ref> &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>hri_msgs::msg::IdsList::ConstSharedPtr</type>
+          <declname>tracked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/hri.hpp" line="237" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Main entry point to libhri. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This is most likely what you want to use. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>hri::HRIListener</label>
+        <link refid="classhri_1_1HRIListener"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::enable_shared_from_this&lt; HRIListener &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>hri::HRIListener</label>
+        <link refid="classhri_1_1HRIListener"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::enable_shared_from_this&lt; HRIListener &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/libhri/hri/include/hri/hri.hpp" line="42" column="1" bodyfile="src/libhri/hri/include/hri/hri.hpp" bodystart="43" bodyend="273"/>
+    <listofallmembers>
+      <member refid="classhri_1_1HRIListener_1a9d4b4da90434eb4f41c2dc2c5beb363a" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>bodies_</name></member>
+      <member refid="classhri_1_1HRIListener_1a8986d91b604d4e0d7441908e762fb19c" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>body_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1ac9ae7564aca4007aa5eb9704649e6835" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>body_callbacks_lock_</name></member>
+      <member refid="classhri_1_1HRIListener_1ab030e6fdd8390275a64632c0323d0328" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>body_lost_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1a0194dcce2ffb700c1e979de8ca559b8c" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>callback_group_</name></member>
+      <member refid="classhri_1_1HRIListener_1af0beb3ffcc50f563c874eaeda282c558" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>clearCallbacks</name></member>
+      <member refid="classhri_1_1HRIListener_1a165c6552cc87d50e5ee3baee06542c95" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>clearData</name></member>
+      <member refid="classhri_1_1HRIListener_1a09d1b7fac24e15a0dc0792581b33e030" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>create</name></member>
+      <member refid="classhri_1_1HRIListener_1a931b3417f53488aa4f4a8106a4c0aa02" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>face_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1a620a070baab1e14ffae0fb5b5c09ab41" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>face_callbacks_lock_</name></member>
+      <member refid="classhri_1_1HRIListener_1a626edc090c5c7658038cafa2ae165fbc" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>face_lost_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1a51ba750231c6ecf5a4d30f569ed4a9ed" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>faces_</name></member>
+      <member refid="classhri_1_1HRIListener_1a5c52a20930ee961fdc24779c695f6a1a" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>feature_subscribers_</name></member>
+      <member refid="classhri_1_1HRIListener_1ae9e7ebbe0d80580fd5d27a2a0fe5fbb1" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>getBodies</name></member>
+      <member refid="classhri_1_1HRIListener_1a308d161a74a16fe4af45193b1bf3cae4" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>getCallbackGroup</name></member>
+      <member refid="classhri_1_1HRIListener_1a802cd869f28a22358e2250ec781014d4" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>getFaces</name></member>
+      <member refid="classhri_1_1HRIListener_1a14a5233a2749c522849b2dff6995ddf9" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>getPersons</name></member>
+      <member refid="classhri_1_1HRIListener_1acbd4edbcdde423f76ba8538c560dbe48" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>getTrackedPersons</name></member>
+      <member refid="classhri_1_1HRIListener_1a3920545f1f7a8ff9539eb8557a69ef09" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>getVoices</name></member>
+      <member refid="classhri_1_1HRIListener_1a7a34292440638f75a1f2de0abf97269f" prot="protected" virt="non-virtual"><scope>hri::HRIListener</scope><name>HRIListener</name></member>
+      <member refid="classhri_1_1HRIListener_1a63f5555ee6579b7286fbad320c683df0" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>node_interfaces_</name></member>
+      <member refid="classhri_1_1HRIListener_1a545fe8b4eed21ef0d5595efca4384d92" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onBody</name></member>
+      <member refid="classhri_1_1HRIListener_1a38ec4a14fe1178d8684b8c125fa34249" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onBodyLost</name></member>
+      <member refid="classhri_1_1HRIListener_1af1086d32e33b9337dea00a8527015f89" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onFace</name></member>
+      <member refid="classhri_1_1HRIListener_1a9c7563872c68d341feacbf19265f9574" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onFaceLost</name></member>
+      <member refid="classhri_1_1HRIListener_1ae2e9f3404ad3428624427fe3da76462d" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onPerson</name></member>
+      <member refid="classhri_1_1HRIListener_1a370259c4756f57b2023d28b288db0bbe" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onPersonLost</name></member>
+      <member refid="classhri_1_1HRIListener_1a69c27bc82a83e4a709f9115dab13347a" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>onTrackedFeature</name></member>
+      <member refid="classhri_1_1HRIListener_1aa1a83d0df64315a96f07ed6467cc29da" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onTrackedPerson</name></member>
+      <member refid="classhri_1_1HRIListener_1a1a3b59282289733d528396c5ccd46089" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onTrackedPersonLost</name></member>
+      <member refid="classhri_1_1HRIListener_1ab87bbd8120f17919b65d65b28baf6264" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onVoice</name></member>
+      <member refid="classhri_1_1HRIListener_1a6f3977d1deacaf8b49ef2218cde72a6f" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>onVoiceLost</name></member>
+      <member refid="classhri_1_1HRIListener_1a98bdeadb7cf45ef1bbbb04251bd60179" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>person_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1a7da5d8f4ef15ef33673f6416583f933a" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>person_lost_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1a1d061addb000c998478e7fd05e45b100" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>person_tracked_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1acc911cbb2207c7c6766e168df53f560c" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>person_tracked_lost_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1a1e6adf0884af7b37bb5c7bec7d35798a" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>persons_</name></member>
+      <member refid="classhri_1_1HRIListener_1a68b86db526589e52b981cfe4c3a09dd5" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>persons_callbacks_lock_</name></member>
+      <member refid="classhri_1_1HRIListener_1a5b5bf39dfa4beca83ec76f62347fe6e8" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>persons_tracked_callbacks_lock_</name></member>
+      <member refid="classhri_1_1HRIListener_1a1386ca6a0a6c4042e5b879238f1e1bcd" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>reference_frame_</name></member>
+      <member refid="classhri_1_1HRIListener_1ae5a49f82b916fd67bd4be9bbca35cd1c" prot="public" virt="non-virtual"><scope>hri::HRIListener</scope><name>setReferenceFrame</name></member>
+      <member refid="classhri_1_1HRIListener_1a3ff0c97e7a390d7129395f417c8a6d32" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>tf_buffer_</name></member>
+      <member refid="classhri_1_1HRIListener_1a452b2b8dc4601ee16dbf632e3991cb42" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>tf_listener_</name></member>
+      <member refid="classhri_1_1HRIListener_1a6f812d458f5c54ded163977f7985067a" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>tracked_persons_</name></member>
+      <member refid="classhri_1_1HRIListener_1a46d3a7447434cda011f9a362fffc03f6" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>voice_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1a6734a7bd47169683d6893b96d84570b4" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>voice_callbacks_lock_</name></member>
+      <member refid="classhri_1_1HRIListener_1a48e7a92c6098c22f2a8f1adec61c9f31" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>voice_lost_callbacks_</name></member>
+      <member refid="classhri_1_1HRIListener_1ac3a324b7c2233ab9e12305fc006de017" prot="private" virt="non-virtual"><scope>hri::HRIListener</scope><name>voices_</name></member>
+      <member refid="classhri_1_1HRIListener_1afa569218463fba3f81caceba09697bac" prot="public" virt="virtual"><scope>hri::HRIListener</scope><name>~HRIListener</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

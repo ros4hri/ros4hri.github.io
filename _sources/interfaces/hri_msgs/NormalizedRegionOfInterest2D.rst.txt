@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_NormalizedRegionOfInterest2D:
+
+``hri_msgs/msg/NormalizedRegionOfInterest2D``
+=============================================
+
+.. literalinclude:: ../../src/hri_msgs/msg/NormalizedRegionOfInterest2D.msg
+   :language: python
+   :linenos:

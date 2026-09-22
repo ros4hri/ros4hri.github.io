@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="deprecated" kind="page">
+    <compoundname>deprecated</compoundname>
+    <title>Deprecated List</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>Member <ref refid="classhri_1_1Voice_1a418344258ee9a8c92f202a2867b56251" kindref="member">hri::Voice::onIncrementalSpeech</ref>  (std::function&lt; void(const std::string &amp;)&gt; callback)</term></varlistentry>
+<listitem><para><anchor id="deprecated_1_deprecated000002"/> Use void <ref refid="classhri_1_1Voice_1a588d57e7b32a554963b759648dc9d250" kindref="member">onSpeech(std::function&lt;void(const std::string &amp;, const std::string &amp;)&gt; callback)</ref>.  </para>
+</listitem>
+<varlistentry><term>Member <ref refid="classhri_1_1Voice_1a93fd51bf50d6103fffea8939b92c66b4" kindref="member">hri::Voice::onSpeech</ref>  (std::function&lt; void(const std::string &amp;)&gt; callback)</term></varlistentry>
+<listitem><para><anchor id="deprecated_1_deprecated000001"/> Use void <ref refid="classhri_1_1Voice_1a588d57e7b32a554963b759648dc9d250" kindref="member">onSpeech(std::function&lt;void(const std::string &amp;, const std::string &amp;)&gt; callback)</ref>. </para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+    <location file="deprecated"/>
+  </compounddef>
+</doxygen>

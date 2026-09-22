@@ -1,0 +1,8 @@
+.. _motions_skills_srv_ListMotions:
+
+``motions_skills/srv/ListMotions``
+==================================
+
+.. literalinclude:: ../../src/motions_skills/srv/ListMotions.srv
+   :language: python
+   :linenos:

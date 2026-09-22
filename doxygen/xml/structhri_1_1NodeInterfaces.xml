@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhri_1_1NodeInterfaces" kind="struct" language="C++" prot="public">
+    <compoundname>hri::NodeInterfaces</compoundname>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1a4976e14f152ee6e89d9ccfbacb81d696" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeBaseInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeBaseInterface::SharedPtr hri::NodeInterfaces::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <qualifiedname>hri::NodeInterfaces::base</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="350" column="57" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1a59340f221edb81302ea4fe3302781bbe" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeClockInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeClockInterface::SharedPtr hri::NodeInterfaces::clock</definition>
+        <argsstring></argsstring>
+        <name>clock</name>
+        <qualifiedname>hri::NodeInterfaces::clock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="351" column="58" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1a9d04d569b87d7b6b9b1395f94f6cc016" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeGraphInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeGraphInterface::SharedPtr hri::NodeInterfaces::graph</definition>
+        <argsstring></argsstring>
+        <name>graph</name>
+        <qualifiedname>hri::NodeInterfaces::graph</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="352" column="58" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1a40e600b888254ac71888a2ad5646608b" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr hri::NodeInterfaces::logging</definition>
+        <argsstring></argsstring>
+        <name>logging</name>
+        <qualifiedname>hri::NodeInterfaces::logging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="353" column="60" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1acd47d2beeab692424efcfeee3d3fb2da" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeParametersInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeParametersInterface::SharedPtr hri::NodeInterfaces::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <qualifiedname>hri::NodeInterfaces::parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="354" column="63" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1a0d859640ecbffea0134e757f8a3cdfbc" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeServicesInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeServicesInterface::SharedPtr hri::NodeInterfaces::services</definition>
+        <argsstring></argsstring>
+        <name>services</name>
+        <qualifiedname>hri::NodeInterfaces::services</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="355" column="61" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1a93c7e5c2a648ba91f4e280b7bf61dc3e" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeTimeSourceInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeTimeSourceInterface::SharedPtr hri::NodeInterfaces::time_source</definition>
+        <argsstring></argsstring>
+        <name>time_source</name>
+        <qualifiedname>hri::NodeInterfaces::time_source</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="356" column="63" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1a25f28240e138f34ab70ffd9c5ea96117" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeTimersInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeTimersInterface::SharedPtr hri::NodeInterfaces::timers</definition>
+        <argsstring></argsstring>
+        <name>timers</name>
+        <qualifiedname>hri::NodeInterfaces::timers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="357" column="59" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1abb8229b101c88bfb5fb461412fbd0d3e" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeTopicsInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeTopicsInterface::SharedPtr hri::NodeInterfaces::topics</definition>
+        <argsstring></argsstring>
+        <name>topics</name>
+        <qualifiedname>hri::NodeInterfaces::topics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="358" column="59" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1NodeInterfaces_1ad9f20b18566e960aa12a4fdf02208d61" prot="public" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr hri::NodeInterfaces::waitables</definition>
+        <argsstring></argsstring>
+        <name>waitables</name>
+        <qualifiedname>hri::NodeInterfaces::waitables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="359" column="62" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="359" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1ad114eea4b13021e9cbc45fc5695fb026" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>hri::NodeInterfaces::NodeInterfaces</definition>
+        <argsstring>(NodeLikeSharedPtr node_like)</argsstring>
+        <name>NodeInterfaces</name>
+        <qualifiedname>hri::NodeInterfaces::NodeInterfaces</qualifiedname>
+        <param>
+          <type><ref refid="namespacehri_1a01add75a3d576c26ed5906ba697ff216" kindref="member">NodeLikeSharedPtr</ref></type>
+          <declname>node_like</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="283" column="12" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="283" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a8f647691735c9ce23b7b44eeb22c6acb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeBaseInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeBaseInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_base_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_base_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_base_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="301" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="301" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1aac513534364800609d907842345f6684" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeBaseInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeBaseInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_base_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_base_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_base_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="303" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="303" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a02e45e497b0b3dafe6fdf3a139d9dc6c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeClockInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeClockInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_clock_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_clock_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_clock_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="306" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="306" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a55568a794673fe9686368f55c5965ab5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeClockInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeClockInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_clock_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_clock_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_clock_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="308" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="308" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1aa878fa4825619a48f613fe2fc488c6b2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeGraphInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeGraphInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_graph_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_graph_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_graph_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="311" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="311" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a78bba932644de873341fcc5b34131e86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeGraphInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeGraphInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_graph_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_graph_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_graph_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="313" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="313" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a678d6d62a5addb3e9e7ec3d5a97284d2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_logging_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_logging_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_logging_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="316" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="316" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a3e2ab5c12effc5ec2b3264fa6575d37c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_logging_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_logging_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_logging_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="318" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="318" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1aeedf8ac8546b08252faa1c2193656d7c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeParametersInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeParametersInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_parameters_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_parameters_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_parameters_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="321" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="321" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a0a2976310db23e6bee99851cb05f119c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeParametersInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeParametersInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_parameters_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_parameters_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_parameters_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="323" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="323" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a56a3959f88e5eb0e01511188ae58c5a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeServicesInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeServicesInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_services_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_services_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_services_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="326" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="326" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1ad7c0a69f4b374356b085fc840cb5b64e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeServicesInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeServicesInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_services_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_services_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_services_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="328" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="328" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a79518266bb5bcafa608a8a1618d74bc4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeTimeSourceInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeTimeSourceInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_time_source_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_time_source_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_time_source_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="331" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="331" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a07ad873395bb06d705919c0462f5f818" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeTimeSourceInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeTimeSourceInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_time_source_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_time_source_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_time_source_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="333" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="333" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a8263f45adaefb635383ae71825a174dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeTimersInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeTimersInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_timers_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_timers_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_timers_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="336" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="336" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1afc68053a3501ca3974a79e415dcd76a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeTimersInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeTimersInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_timers_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_timers_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_timers_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="338" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="338" bodyend="338"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a4d0d43be68554939b7b26de648fc2f5d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeTopicsInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeTopicsInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_topics_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_topics_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_topics_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="341" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="341" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a987b4221a4c10b6ecff38ab06893ca2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeTopicsInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeTopicsInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_topics_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_topics_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_topics_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="343" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="343" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1ae84d2feefdf37e41a49f9bf0334e7f8a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr &amp;</type>
+        <definition>const rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_waitables_interface</definition>
+        <argsstring>() const</argsstring>
+        <name>get_node_waitables_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_waitables_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="346" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="346" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="structhri_1_1NodeInterfaces_1a71cf50c02c36a53dc7dac4197dfd2c6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr &amp;</type>
+        <definition>rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr &amp; hri::NodeInterfaces::get_node_waitables_interface</definition>
+        <argsstring>()</argsstring>
+        <name>get_node_waitables_interface</name>
+        <qualifiedname>hri::NodeInterfaces::get_node_waitables_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="348" column="3" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="348" bodyend="348"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/libhri/hri/include/hri/types.hpp" line="281" column="1" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="282" bodyend="360"/>
+    <listofallmembers>
+      <member refid="structhri_1_1NodeInterfaces_1a4976e14f152ee6e89d9ccfbacb81d696" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>base</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a59340f221edb81302ea4fe3302781bbe" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>clock</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a8f647691735c9ce23b7b44eeb22c6acb" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_base_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1aac513534364800609d907842345f6684" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_base_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a02e45e497b0b3dafe6fdf3a139d9dc6c" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_clock_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a55568a794673fe9686368f55c5965ab5" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_clock_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1aa878fa4825619a48f613fe2fc488c6b2" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_graph_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a78bba932644de873341fcc5b34131e86" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_graph_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a678d6d62a5addb3e9e7ec3d5a97284d2" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_logging_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a3e2ab5c12effc5ec2b3264fa6575d37c" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_logging_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1aeedf8ac8546b08252faa1c2193656d7c" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_parameters_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a0a2976310db23e6bee99851cb05f119c" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_parameters_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a56a3959f88e5eb0e01511188ae58c5a7" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_services_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1ad7c0a69f4b374356b085fc840cb5b64e" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_services_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a79518266bb5bcafa608a8a1618d74bc4" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_time_source_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a07ad873395bb06d705919c0462f5f818" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_time_source_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a8263f45adaefb635383ae71825a174dc" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_timers_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1afc68053a3501ca3974a79e415dcd76a2" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_timers_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a4d0d43be68554939b7b26de648fc2f5d" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_topics_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a987b4221a4c10b6ecff38ab06893ca2b" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_topics_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1ae84d2feefdf37e41a49f9bf0334e7f8a" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_waitables_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a71cf50c02c36a53dc7dac4197dfd2c6c" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>get_node_waitables_interface</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a9d04d569b87d7b6b9b1395f94f6cc016" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>graph</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a40e600b888254ac71888a2ad5646608b" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>logging</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1ad114eea4b13021e9cbc45fc5695fb026" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>NodeInterfaces</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1acd47d2beeab692424efcfeee3d3fb2da" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>parameters</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a0d859640ecbffea0134e757f8a3cdfbc" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>services</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a93c7e5c2a648ba91f4e280b7bf61dc3e" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>time_source</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1a25f28240e138f34ab70ffd9c5ea96117" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>timers</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1abb8229b101c88bfb5fb461412fbd0d3e" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>topics</name></member>
+      <member refid="structhri_1_1NodeInterfaces_1ad9f20b18566e960aa12a4fdf02208d61" prot="public" virt="non-virtual"><scope>hri::NodeInterfaces</scope><name>waitables</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,334 @@
+.. index:: hand_grasp
+
+.. _skill-hand_grasp:
+
+Skill ``hand_grasp``
+-----------------------------------------------------------
+
+
+- **Version**: 1.0.0
+
+- **Default path**: ``/skill/hand_grasp``
+- **Datatype**: :action:`manipulation_skills/action/HandGrasp`
+- **Definition source**: ``package.xml`` in `ros4hri/manipulation_skills <https://github.com/ros4hri/manipulation_skills>`_
+
+Controls a robotic hand or gripper to either **close** (grasp) or **open**
+(release).  This skill sends a goal to the specified end-effector (left, right,
+or default) with an optional precision setting for the closing position.
+
+Once invoked, the robot will:
+  1. Target the desired hand/gripper.
+  2. Perform the requested action (close/open).
+  3. Report back feedback and a result message indicating success or failure.
+
+Typical uses include closing a gripper to get hold of an object,
+releasing an object, or partially closing the
+gripper to a specific position for delicate handling.
+
+
+
+
+Input parameters
+~~~~~~~~~~~~~~~~
+
+
+
+- **hand** ``string``, default: ``""``
+
+  
+  Which hand or end-effector to use. Supported values:
+    * ``left``: Use the left hand.
+    * ``right``: Use the right hand.
+    * default (empty string): Use the default hand (the right in case of 2 arms).
+
+  Any other value will be rejected and the default will be used.
+
+
+
+
+
+- **action** ``integer``, default: ``0``
+
+  
+  The gripper action to perform:
+    * ``0``: Close the gripper (grasp).
+    * ``1``: Open the gripper (release).
+
+  Values outside ``[0, 1]`` will be clamped to the closest integer.
+
+
+
+
+
+- **meta.priority** ``integer``, default: ``128``
+
+  
+  Between 0 and 255. Higher means this skill request will be prioritized.
+
+
+
+
+
+
+
+
+Output fields
+~~~~~~~~~~~~~
+
+
+
+- **result.error_msg** ``string``
+
+  
+  A string describing the execution outcome.
+
+  Examples:
+    * ``Grasp Executed!``: Successful grasp/release.
+    * ``Problems during execution.``: Action failed.
+
+
+
+
+
+- **feedback** ``object``
+
+  
+  Live updates while the action runs. Can contain:
+    * ``data_str``: Text feedback (e.g., which hand, action, position).
+    * ``data_bool``: ``True`` if action succeeded, ``False`` otherwise.
+
+
+
+
+
+
+
+
+Quick snippets
+~~~~~~~~~~~~~~
+
+
+.. tabs:: 
+
+  .. tab:: Command-line
+
+    Call the skill from the command-line
+    
+
+    .. code-block:: sh
+    
+        $ ros2 action send_goal /skill/hand_grasp manipulation_skills/action/HandGrasp # then press Tab to complete the message prototype
+
+
+  .. tab:: ROS 2 action (Python)
+
+    Call the action from a Python script:
+
+
+    .. code-block:: python
+    
+        #!/usr/bin/env python
+
+        import rclpy
+        from rclpy.action import ActionClient
+        from rclpy.node import Node
+
+        from manipulation_skills.action import 
+
+        class HandgraspActionClient(Node):
+
+            def __init__(self):
+                super().__init__('hand_grasp_client')
+                self._action_client = ActionClient(self, , '/skill/hand_grasp')
+
+            def send_goal(self, a, b):
+                goal_msg = .Goal()
+
+                # TODO: adapt to the action's parameters
+
+                # check the HandGraspGoal message
+                # definition for the possible goal parameters
+
+                # goal_msg.a = a
+                # goal_msg.b = b
+
+                self._action_client.wait_for_server()
+
+                return self._action_client.send_goal_async(goal_msg)
+
+        if __name__ == '__main__':
+            rclpy.init(args=args)
+
+            action_client = ActionClient()
+
+            # TODO: adapt to your action's parameters
+            future = action_client.send_goal(a, b)
+
+            rclpy.spin_until_future_complete(action_client, future)
+
+            rclpy.shutdown()
+
+
+
+  
+  .. tab:: ROS 2 action (C++)
+
+    Call the action from a C++ program:
+
+    .. code-block:: cpp
+
+        #include <functional>
+        #include <future>
+        #include <memory>
+        #include <string>
+        #include <sstream>
+        #include <chrono>
+
+        #include "manipulation_skills/action/.hpp"
+
+        #include "rclcpp/rclcpp.hpp"
+        #include "rclcpp_action/rclcpp_hpp"
+        #include "rclcpp_components/register_node_macro.hpp"
+
+        using namespace std::chrono_literals;
+        using namespace std;
+
+        class HandgraspActionClient : public rclcpp::Node
+        {
+        public:
+          using  = manipulation_skills::action::;
+          using GoalHandle = rclcpp_action::ClientGoalHandle<>;
+
+          explicit HandgraspActionClient(const rclcpp::NodeOptions & options)
+          : Node("hand_grasp_action_client", options)
+          {
+            this->client_ptr_ = rclcpp_action::create_client<>(
+                    this,
+                    "");
+
+            this->timer_ = this->create_wall_timer(
+                    500ms,
+                    bind(&HandgraspActionClient::send_goal, this));
+          }
+
+          void send_goal()
+          {
+            using namespace std::placeholders;
+
+            this->timer_->cancel();
+
+            if (!this->client_ptr_->wait_for_action_server()) {
+              RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+              rclcpp::shutdown();
+            }
+
+            auto goal_msg = ::Goal();
+  
+
+            // check the HandGraspGoal message
+            // definition for the possible goal parameters
+
+            // goal_msg.... = ...;
+
+            RCLCPP_INFO(this->get_logger(), "Sending goal");
+
+            auto send_goal_options = rclcpp_action::Client<>::SendGoalOptions();
+
+            send_goal_options.goal_response_callback =
+                bind(&HandgraspActionClient::goal_response_callback, this, _1);
+
+            send_goal_options.feedback_callback =
+                bind(&HandgraspActionClient::feedback_callback, this, _1, _2);
+
+            send_goal_options.result_callback =
+                bind(&HandgraspActionClient::result_callback, this, _1);
+
+
+            this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
+          }
+
+        private:
+          rclcpp_action::Client<>::SharedPtr client_ptr_;
+          rclcpp::TimerBase::SharedPtr timer_;
+
+          void goal_response_callback(const GoalHandle::SharedPtr & goal_handle)
+          {
+            if (!goal_handle) {
+              RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
+            } else {
+              RCLCPP_INFO(this->get_logger(), "Goal accepted by server, waiting for result");
+            }
+          }
+
+          void feedback_callback(
+              GoalHandle::SharedPtr,
+              const shared_ptr<const ::Feedback> feedback)
+          {
+            stringstream ss;
+            ss << "Next number in sequence received: ";
+            for (auto number : feedback->partial_sequence) {
+              ss << number << " ";
+            }
+            RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+          }
+
+          void result_callback(const GoalHandle::WrappedResult & result)
+          {
+            switch (result.code) {
+              case rclcpp_action::ResultCode::SUCCEEDED:
+                  break;
+              case rclcpp_action::ResultCode::ABORTED:
+                  RCLCPP_ERROR(this->get_logger(), "Goal was aborted");
+                  return;
+              case rclcpp_action::ResultCode::CANCELED:
+                  RCLCPP_ERROR(this->get_logger(), "Goal was canceled");
+                  return;
+              default:
+                  RCLCPP_ERROR(this->get_logger(), "Unknown result code");
+                  return;
+            }
+            stringstream ss;
+            ss << "Result received: ";
+            for (auto number : result.result->sequence) {
+              ss << number << " ";
+            }
+            RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+            rclcpp::shutdown();
+          }
+        };  // class HandgraspActionClient
+
+
+        RCLCPP_COMPONENTS_REGISTER_NODE(HandgraspActionClient)
+
+  .. tab:: QML
+
+    You can call this skill from QML using the following code snippet. See :ref:`ros_qml_plugin` to learn more.
+
+    .. code-block:: qml
+
+        import Ros 2.0
+        
+        // ...
+        HandGraspSkill {
+            id: mySkill
+
+            onResult: {
+                console.log("Skill result: " + result);
+            }
+            onFeedback: {
+                console.log("Skill feedback: " + feedback);
+            }
+
+        }
+
+        // Call the skill
+        mySkill.hand_grasp();
+
+
+See also
+~~~~~~~~
+
+
+* List of other :ref:`manipulation_skills` skills
+
+* List of other :ref:`motions_skills` skills

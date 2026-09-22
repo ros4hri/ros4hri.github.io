@@ -1,0 +1,8 @@
+.. _interaction_skills_action_DoLedEffect:
+
+``interaction_skills/action/DoLedEffect``
+=========================================
+
+.. literalinclude:: ../../src/interaction_skills/action/DoLedEffect.action
+   :language: python
+   :linenos:

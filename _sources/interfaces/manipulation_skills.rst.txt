@@ -1,0 +1,16 @@
+.. _manipulation_skills_interfaces:
+
+manipulation_skills interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``manipulation_skills``.
+
+**Source repository**: `ros4hri/manipulation_skills <https: //github.com/ros4hri/manipulation_skills>`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   manipulation_skills/Constraint
+   manipulation_skills/Grasp
+   manipulation_skills/HandGrasp
+   manipulation_skills/Place

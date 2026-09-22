@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_NormalizedPointOfInterest2D:
+
+``hri_msgs/msg/NormalizedPointOfInterest2D``
+============================================
+
+.. literalinclude:: ../../src/hri_msgs/msg/NormalizedPointOfInterest2D.msg
+   :language: python
+   :linenos:

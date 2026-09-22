@@ -1,0 +1,8 @@
+.. _std_skills_srv_SetFloat32Array:
+
+``std_skills/srv/SetFloat32Array``
+==================================
+
+.. literalinclude:: ../../src/std_skills/srv/SetFloat32Array.srv
+   :language: python
+   :linenos:

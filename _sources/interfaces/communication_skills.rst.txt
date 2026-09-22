@@ -1,0 +1,15 @@
+.. _communication_skills_interfaces:
+
+communication_skills interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``communication_skills``.
+
+**Source repository**: `ros4hri/communication_skills <https: //github.com/ros4hri/communication_skills>`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   communication_skills/Ask
+   communication_skills/Chat
+   communication_skills/Say

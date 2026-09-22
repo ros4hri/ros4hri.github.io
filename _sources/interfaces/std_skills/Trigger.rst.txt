@@ -1,0 +1,8 @@
+.. _std_skills_srv_Trigger:
+
+``std_skills/srv/Trigger``
+==========================
+
+.. literalinclude:: ../../src/std_skills/srv/Trigger.srv
+   :language: python
+   :linenos:

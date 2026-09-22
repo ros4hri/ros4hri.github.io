@@ -1,0 +1,29 @@
+.. _hri_msgs_interfaces:
+
+hri_msgs interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``hri_msgs``.
+
+**Source repository**: `ros4hri/hri_msgs <https: //github.com/ros4hri/hri_msgs>`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   hri_msgs/AudioFeatures
+   hri_msgs/BodyPosture
+   hri_msgs/EngagementLevel
+   hri_msgs/Expression
+   hri_msgs/FacialActionUnits
+   hri_msgs/FacialLandmarks
+   hri_msgs/Gaze
+   hri_msgs/Gesture
+   hri_msgs/Group
+   hri_msgs/IdsList
+   hri_msgs/IdsMatch
+   hri_msgs/LiveSpeech
+   hri_msgs/NormalizedPointOfInterest2D
+   hri_msgs/NormalizedPointOfInterest2DStamped
+   hri_msgs/NormalizedRegionOfInterest2D
+   hri_msgs/Skeleton2D
+   hri_msgs/SoftBiometrics

@@ -1,0 +1,18 @@
+.. _interaction_skills_interfaces:
+
+interaction_skills interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``interaction_skills``.
+
+**Source repository**: `ros4hri/interaction_skills <https: //github.com/ros4hri/interaction_skills>`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   interaction_skills/AskHumanForHelp
+   interaction_skills/DoLedEffect
+   interaction_skills/LedColor
+   interaction_skills/LookAt
+   interaction_skills/LookFor
+   interaction_skills/SetExpression

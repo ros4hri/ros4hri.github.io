@@ -1,0 +1,8 @@
+.. _std_skills_srv_SetInt8:
+
+``std_skills/srv/SetInt8``
+==========================
+
+.. literalinclude:: ../../src/std_skills/srv/SetInt8.srv
+   :language: python
+   :linenos:

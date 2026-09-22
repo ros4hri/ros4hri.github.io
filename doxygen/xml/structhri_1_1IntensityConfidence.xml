@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhri_1_1IntensityConfidence" kind="struct" language="C++" prot="public">
+    <compoundname>hri::IntensityConfidence</compoundname>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhri_1_1IntensityConfidence_1a37a7fac0d8def9ca431757910fbe5cda" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hri::IntensityConfidence::intensity</definition>
+        <argsstring></argsstring>
+        <name>intensity</name>
+        <qualifiedname>hri::IntensityConfidence::intensity</qualifiedname>
+        <briefdescription>
+<para>Intensity value (0.0 to 1.0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="272" column="9" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhri_1_1IntensityConfidence_1aac262bd0ff68c3a8499fef4ca9df4789" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hri::IntensityConfidence::confidence</definition>
+        <argsstring></argsstring>
+        <name>confidence</name>
+        <qualifiedname>hri::IntensityConfidence::confidence</qualifiedname>
+        <briefdescription>
+<para>Confidence value (0.0 to 1.0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libhri/hri/include/hri/types.hpp" line="274" column="9" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="274" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/libhri/hri/include/hri/types.hpp" line="269" column="1" bodyfile="src/libhri/hri/include/hri/types.hpp" bodystart="270" bodyend="275"/>
+    <listofallmembers>
+      <member refid="structhri_1_1IntensityConfidence_1aac262bd0ff68c3a8499fef4ca9df4789" prot="public" virt="non-virtual"><scope>hri::IntensityConfidence</scope><name>confidence</name></member>
+      <member refid="structhri_1_1IntensityConfidence_1a37a7fac0d8def9ca431757910fbe5cda" prot="public" virt="non-virtual"><scope>hri::IntensityConfidence</scope><name>intensity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
