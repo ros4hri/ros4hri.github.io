@@ -306,8 +306,9 @@ And the following new nodes:
    based on the where the faces are
 8. ``expressive_eyes`` (not open-source), that procedurally generates
    the robot’s face and moves the eyes
-9. ``communication_hub`` (not open-source), that manages the dialogues
-   with the user (user input speech, and robot output speech)
+9. `dialogue_manager <https://gitlab.iiia.csic.es/socialminds/ros4hri/dialogue_manager/-/tree/main/dialogue_manager>`__
+   (developed by the SocialMinds project), that manages the dialogues with
+   the user (user input speech, and robot output speech)
 
 Finally, it launches ``rqt`` with two custom plugins:
 
@@ -563,12 +564,12 @@ mission controller reacting to it:
    anything yet, so nothing else will be displayed (for now!).
 
 The intent ``__raw_user_input__`` is emitted by the
-``communication_hub``, and is a special intent that essentially means:
+``dialogue_manager``, and is a special intent that essentially means:
 “I don’t know what to do with this input, but I received it”.
 
 Since we are not doing anything with the input yet (like trying to
 figure out what the user wants be calling a dedicated chatbot), the
-communication hub simply sends back the same message with this intent.
+dialogue manager simply sends back the same message with this intent.
 
 Step 2: add basic interactivity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -626,7 +627,7 @@ with the chat interface:
    ros2 launch emotion_mirror emotion_mirror.launch.py
 
 
-Since we are using ``communication_hub`` as a middle-man, we can also
+Since we are using the ``dialogue_manager`` as a middle-man, we can also
 use markup in our sentences to change the expression of the robot.
 
 For example, you can use the following markup to display an happy face:
@@ -637,15 +638,12 @@ For example, you can use the following markup to display an happy face:
 
 .. admonition:: 📚 Learn more
 
-   You can check the online documentation of the `markup
-   language <https://docs.pal-robotics.com/edge/communication/tts_howto#multi-modal-expression-markup-language>`__
-   used by the ``communication_hub`` to get the list of available
-   actions and expressions.
+   Check the documentation of the :ref:`markup language <tts-markup>`
+   used by the ``dialogue_manager`` to get the list of available
+   actions.
 
-   Note that ``communication_hub``, while available in binary form in
-   the Docker image, is not open-source. Alternatively, you can also
-   simply manually set the robot’s expression by publishing on the
-   ``/robot_face/expression`` topic (as we do below).
+   Alternatively, you can also simply manually set the robot’s expression
+   by publishing on the ``/robot_face/expression`` topic (as we do below).
 
 .. _emotion-mimicking-game:
 
@@ -1159,7 +1157,8 @@ the LLM:
 .. attention::
 
    Depending on the LLM model you use, the response time can be quite
-   long. By default, after 10s, ``communication_hub`` will time out. In that
+   long. By default, after 5s, the ``dialogue_manager`` will time out (this
+   can be changed with its ``chatbot_response_timeout`` parameter). In that
    case, the chatbot answer will not be displayed in the chat window.
 
 Step 3: extract user intents

@@ -25,6 +25,11 @@ neutral expression.
 
 We call such a string a **multi-modal expression**.
 
+The reference implementation of the markup language is the SocialMinds
+`dialogue_manager
+<https://gitlab.iiia.csic.es/socialminds/ros4hri/dialogue_manager/-/tree/main/dialogue_manager>`__.
+The default values given below are the ones of this implementation.
+
 Syntax
 ------
 
@@ -106,7 +111,7 @@ Timeout
 
 The optional ``timeout=<seconds>`` specifies the maximum time to wait for the
 action to complete. If omitted, an implementation-defined default is used (10
-seconds in the reference implementation).
+seconds in ``dialogue_manager``).
 
 .. code-block:: text
 
@@ -114,7 +119,7 @@ seconds in the reference implementation).
     <wait motion timeout=1>
 
 In addition, the complete multi-modal expression has a global timeout (60
-seconds by default in the reference implementation), after which all ongoing
+seconds by default in ``dialogue_manager``), after which all ongoing
 actions are cancelled.
 
 Built-in actions
@@ -167,8 +172,8 @@ order, prefer named arguments: ``<set look_at(x=1.0, y=0.5, z=1.2)>``.
 
 .. note::
 
-   Implementations can disable specific markup actions (for instance, the
-   reference dialogue manager exposes a ``disabled_markup_actions`` parameter;
+   Implementations can disable specific markup actions (for instance,
+   ``dialogue_manager`` exposes a ``disabled_markup_actions`` parameter;
    ``motion`` is disabled by default). Disabled actions are silently skipped.
 
 Variables
