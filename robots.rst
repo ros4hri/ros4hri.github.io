@@ -14,6 +14,7 @@ Commercial Platforms
    :widths: 25 35 40
    :header-rows: 1
    :width: 100%
+   :class: robots-table
 
    * - Image
      - Name
@@ -47,8 +48,10 @@ Open-Source & Research Platforms
 --------------------------------
 
 .. list-table::
-   :widths: 25 20 40 15
+   :widths: 20 20 45 15
    :header-rows: 1
+   :width: 100%
+   :class: robots-table
 
    * - Image
      - Name
@@ -60,6 +63,21 @@ Open-Source & Research Platforms
      - **EMOROBCARE**
      - A low-cost, expressive social robot developed by ICMAT/IIIA (CSIC) for autism therapy. It features a spherical base and a 3-DoF head.
      - `Website <https://www.csic.es/>`__
+   * - .. image:: images/robots/reachymini.png
+          :width: 150px
+          :align: center
+     - **Pollen Robotics Reachy Mini**
+       (`website <https://www.pollen-robotics.com/reachy-mini/>`__)
+     - A small, open-source desktop robot with an expressive 6-DoF head,
+       a rotating body and two animated antennas. The ROS 2 driver, developed
+       by IIIA (CSIC), runs directly on the robot and exposes its camera,
+       microphones (with on-board speech recognition, published on
+       ``/humans/voices/``) and speaker, as well as the following ROS4HRI
+       skills: :ref:`skill-replay_motion`, :ref:`skill-list_motions`,
+       :ref:`skill-look_at`, :ref:`skill-execute_cartesian_trajectory`,
+       :ref:`skill-execute_joint_trajectory`, plus ``wake_up`` and
+       ``go_to_sleep``.
+     - `Documentation & installation <https://gitlab.iiia.csic.es/socialminds/robots/reachymini/reachy-mini-driver>`__
 
 .. note::
 

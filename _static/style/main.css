@@ -72,3 +72,11 @@ img.align-center {
 }
 
 
+
+/* robots tables (robots.rst): let long descriptions wrap instead of
+   overflowing (the RTD theme sets white-space: nowrap on table cells) */
+.wy-table-responsive table.robots-table td,
+.wy-table-responsive table.robots-table th {
+    white-space: normal;
+    vertical-align: middle;
+}
