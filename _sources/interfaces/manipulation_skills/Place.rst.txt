@@ -1,0 +1,8 @@
+.. _manipulation_skills_action_Place:
+
+``manipulation_skills/action/Place``
+====================================
+
+.. literalinclude:: ../../src/manipulation_skills/action/Place.action
+   :language: python
+   :linenos:

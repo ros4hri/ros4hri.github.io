@@ -1,0 +1,8 @@
+.. _hri_actions_msgs_msg_Intent:
+
+``hri_actions_msgs/msg/Intent``
+===============================
+
+.. literalinclude:: ../../src/hri_actions_msgs/msg/Intent.msg
+   :language: python
+   :linenos:

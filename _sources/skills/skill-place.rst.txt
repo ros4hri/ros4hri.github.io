@@ -1,0 +1,322 @@
+.. index:: place
+
+.. _skill-place:
+
+Skill ``place``
+-----------------------------------------------------------
+
+
+- **Version**: 1.0.0
+
+- **Default path**: ``/skill/place``
+- **Datatype**: :action:`manipulation_skills/action/Place`
+- **Definition source**: ``package.xml`` in `ros4hri/manipulation_skills <https://github.com/ros4hri/manipulation_skills>`_
+
+Commands the robot to place an object at a specified location.
+This skill sends a goal to the robot's manipulation system to
+execute a placing action.
+
+Once invoked, the robot will:
+  1. Move to the target location.
+  2. Release the object.
+  3. Return to a safe position.
+
+Typical uses include placing objects on tables, shelves,
+or designated drop-off points.
+
+The skill assumes that the robot is already holding an object. See
+:skill:`grasp` for the grasping action.
+
+
+
+
+Input parameters
+~~~~~~~~~~~~~~~~
+
+
+
+- **target** :msg:`geometry_msgs/msg/PoseStamped`, *required*
+
+  
+  The target pose where the object should be placed.
+  This includes position and orientation.
+
+
+
+
+
+- **release_upon_completion** ``boolean``, default: ``True``
+
+  
+  If ``true``, the robot will release the object upon reaching the target pose.
+  If ``false``, the robot will move to the target pose without releasing the
+  object.
+
+
+
+
+
+- **side** ``string``, default: ``""``
+
+  
+  Which hand or end-effector to use. Supported values:
+
+  * ``left``: Use the left hand.
+  * ``right``: Use the right hand.
+  * default (empty string): Use the default hand.
+
+
+
+
+
+- **constraint** :msg:`manipulation_skills/msg/Constraint`
+
+  
+  The motion planning constraint to apply. Contains:
+
+  * ``constraint_type`` (uint8): type of constraint
+
+    - ``0``: ``FREE_PLAN`` (no constraint)
+    - ``1``: ``ORIENTATION_CONSTRAINT`` (apply orientation constraint)
+
+  * ``orientation_constraint`` (:msg:`moveit_msgs/OrientationConstraint`):
+    the actual orientation constraint to use if
+    ``constraint_type = ORIENTATION_CONSTRAINT``.
+
+
+
+
+
+
+
+
+
+
+Quick snippets
+~~~~~~~~~~~~~~
+
+
+.. tabs:: 
+
+  .. tab:: Command-line
+
+    Call the skill from the command-line
+    
+
+    .. code-block:: sh
+    
+        $ ros2 action send_goal /skill/place manipulation_skills/action/Place # then press Tab to complete the message prototype
+
+
+  .. tab:: ROS 2 action (Python)
+
+    Call the action from a Python script:
+
+
+    .. code-block:: python
+    
+        #!/usr/bin/env python
+
+        import rclpy
+        from rclpy.action import ActionClient
+        from rclpy.node import Node
+
+        from manipulation_skills.action import 
+
+        class PlaceActionClient(Node):
+
+            def __init__(self):
+                super().__init__('place_client')
+                self._action_client = ActionClient(self, , '/skill/place')
+
+            def send_goal(self, a, b):
+                goal_msg = .Goal()
+
+                # TODO: adapt to the action's parameters
+
+                # check the PlaceGoal message
+                # definition for the possible goal parameters
+
+                # goal_msg.a = a
+                # goal_msg.b = b
+
+                self._action_client.wait_for_server()
+
+                return self._action_client.send_goal_async(goal_msg)
+
+        if __name__ == '__main__':
+            rclpy.init(args=args)
+
+            action_client = ActionClient()
+
+            # TODO: adapt to your action's parameters
+            future = action_client.send_goal(a, b)
+
+            rclpy.spin_until_future_complete(action_client, future)
+
+            rclpy.shutdown()
+
+
+
+  
+  .. tab:: ROS 2 action (C++)
+
+    Call the action from a C++ program:
+
+    .. code-block:: cpp
+
+        #include <functional>
+        #include <future>
+        #include <memory>
+        #include <string>
+        #include <sstream>
+        #include <chrono>
+
+        #include "manipulation_skills/action/.hpp"
+
+        #include "rclcpp/rclcpp.hpp"
+        #include "rclcpp_action/rclcpp_hpp"
+        #include "rclcpp_components/register_node_macro.hpp"
+
+        using namespace std::chrono_literals;
+        using namespace std;
+
+        class PlaceActionClient : public rclcpp::Node
+        {
+        public:
+          using  = manipulation_skills::action::;
+          using GoalHandle = rclcpp_action::ClientGoalHandle<>;
+
+          explicit PlaceActionClient(const rclcpp::NodeOptions & options)
+          : Node("place_action_client", options)
+          {
+            this->client_ptr_ = rclcpp_action::create_client<>(
+                    this,
+                    "");
+
+            this->timer_ = this->create_wall_timer(
+                    500ms,
+                    bind(&PlaceActionClient::send_goal, this));
+          }
+
+          void send_goal()
+          {
+            using namespace std::placeholders;
+
+            this->timer_->cancel();
+
+            if (!this->client_ptr_->wait_for_action_server()) {
+              RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
+              rclcpp::shutdown();
+            }
+
+            auto goal_msg = ::Goal();
+  
+
+            // check the PlaceGoal message
+            // definition for the possible goal parameters
+
+            // goal_msg.... = ...;
+
+            RCLCPP_INFO(this->get_logger(), "Sending goal");
+
+            auto send_goal_options = rclcpp_action::Client<>::SendGoalOptions();
+
+            send_goal_options.goal_response_callback =
+                bind(&PlaceActionClient::goal_response_callback, this, _1);
+
+            send_goal_options.feedback_callback =
+                bind(&PlaceActionClient::feedback_callback, this, _1, _2);
+
+            send_goal_options.result_callback =
+                bind(&PlaceActionClient::result_callback, this, _1);
+
+
+            this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
+          }
+
+        private:
+          rclcpp_action::Client<>::SharedPtr client_ptr_;
+          rclcpp::TimerBase::SharedPtr timer_;
+
+          void goal_response_callback(const GoalHandle::SharedPtr & goal_handle)
+          {
+            if (!goal_handle) {
+              RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
+            } else {
+              RCLCPP_INFO(this->get_logger(), "Goal accepted by server, waiting for result");
+            }
+          }
+
+          void feedback_callback(
+              GoalHandle::SharedPtr,
+              const shared_ptr<const ::Feedback> feedback)
+          {
+            stringstream ss;
+            ss << "Next number in sequence received: ";
+            for (auto number : feedback->partial_sequence) {
+              ss << number << " ";
+            }
+            RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+          }
+
+          void result_callback(const GoalHandle::WrappedResult & result)
+          {
+            switch (result.code) {
+              case rclcpp_action::ResultCode::SUCCEEDED:
+                  break;
+              case rclcpp_action::ResultCode::ABORTED:
+                  RCLCPP_ERROR(this->get_logger(), "Goal was aborted");
+                  return;
+              case rclcpp_action::ResultCode::CANCELED:
+                  RCLCPP_ERROR(this->get_logger(), "Goal was canceled");
+                  return;
+              default:
+                  RCLCPP_ERROR(this->get_logger(), "Unknown result code");
+                  return;
+            }
+            stringstream ss;
+            ss << "Result received: ";
+            for (auto number : result.result->sequence) {
+              ss << number << " ";
+            }
+            RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+            rclcpp::shutdown();
+          }
+        };  // class PlaceActionClient
+
+
+        RCLCPP_COMPONENTS_REGISTER_NODE(PlaceActionClient)
+
+  .. tab:: QML
+
+    You can call this skill from QML using the following code snippet. See :ref:`ros_qml_plugin` to learn more.
+
+    .. code-block:: qml
+
+        import Ros 2.0
+        
+        // ...
+        PlaceSkill {
+            id: mySkill
+
+            onResult: {
+                console.log("Skill result: " + result);
+            }
+            onFeedback: {
+                console.log("Skill feedback: " + feedback);
+            }
+
+        }
+
+        // Call the skill
+        mySkill.place();
+
+
+See also
+~~~~~~~~
+
+
+* List of other :ref:`manipulation_skills` skills
+
+* List of other :ref:`motions_skills` skills

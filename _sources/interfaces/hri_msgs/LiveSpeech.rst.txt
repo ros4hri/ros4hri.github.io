@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_LiveSpeech:
+
+``hri_msgs/msg/LiveSpeech``
+===========================
+
+.. literalinclude:: ../../src/hri_msgs/msg/LiveSpeech.msg
+   :language: python
+   :linenos:

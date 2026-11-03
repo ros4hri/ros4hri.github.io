@@ -1,0 +1,8 @@
+.. _std_skills_srv_SetBool:
+
+``std_skills/srv/SetBool``
+==========================
+
+.. literalinclude:: ../../src/std_skills/srv/SetBool.srv
+   :language: python
+   :linenos:

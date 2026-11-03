@@ -1,0 +1,8 @@
+.. _hri_msgs_msg_FacialActionUnits:
+
+``hri_msgs/msg/FacialActionUnits``
+==================================
+
+.. literalinclude:: ../../src/hri_msgs/msg/FacialActionUnits.msg
+   :language: python
+   :linenos:

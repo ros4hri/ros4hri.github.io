@@ -1,0 +1,8 @@
+.. _communication_skills_action_Ask:
+
+``communication_skills/action/Ask``
+===================================
+
+.. literalinclude:: ../../src/communication_skills/action/Ask.action
+   :language: python
+   :linenos:

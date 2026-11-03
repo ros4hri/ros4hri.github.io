@@ -1,0 +1,22 @@
+.. _hri_actions_msgs_interfaces:
+
+hri_actions_msgs interfaces
+=========================================================
+
+This is the list of all ROS interfaces (messages, services, actions) defined in the ROS package ``hri_actions_msgs``.
+
+**Source repository**: `ros4hri/hri_actions_msgs <https: //github.com/ros4hri/hri_actions_msgs>`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   hri_actions_msgs/ActivityList
+   hri_actions_msgs/ApplicationControl
+   hri_actions_msgs/ClosedCaption
+   hri_actions_msgs/FaceOverlay
+   hri_actions_msgs/Intent
+   hri_actions_msgs/ListActivities
+   hri_actions_msgs/LookAt
+   hri_actions_msgs/LookAtWithStyle
+   hri_actions_msgs/PointTrajectory
+   hri_actions_msgs/SelfPresentation

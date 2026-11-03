@@ -1,0 +1,8 @@
+.. _communication_skills_action_Say:
+
+``communication_skills/action/Say``
+===================================
+
+.. literalinclude:: ../../src/communication_skills/action/Say.action
+   :language: python
+   :linenos:
